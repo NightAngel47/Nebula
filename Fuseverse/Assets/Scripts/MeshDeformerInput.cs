@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MeshDeformerInput : MonoBehaviour
 {
-    public float force = 10f;
+    public float force = 1f;
     public float forceOffset = 0.1f;
 
     // Update is called once per frame
@@ -32,5 +32,15 @@ public class MeshDeformerInput : MonoBehaviour
                 deformer.AddDeformingForce(point, force);
             }
         }
+    }
+
+    public void Push()
+    {
+        force = 1f;
+    }
+
+    public void Pull()
+    {
+        force = -1f;
     }
 }

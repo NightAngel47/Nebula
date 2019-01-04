@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(MeshFilter))]
+[RequireComponent(typeof(MeshCollider))]
 public class MeshDeformer : MonoBehaviour
 {
     Mesh deformingMesh;
-    Vector3[] originalVertices, displacedVertices, vertexVelocities;
+    public Vector3[] originalVertices, displacedVertices, vertexVelocities;
 
     float uniformScale = 1f;
 
@@ -33,12 +34,17 @@ public class MeshDeformer : MonoBehaviour
     {
         uniformScale = transform.localScale.x;
 
-        for(int i = 0; i < displacedVertices.Length; i++)
+        for (int i = 0; i < displacedVertices.Length; i++)
         {
             UpdateVertex(i);
         }
+
         deformingMesh.vertices = displacedVertices;
         deformingMesh.RecalculateNormals();
+
+        MeshCollider deformingCollider = GetComponent<MeshCollider>();
+        deformingCollider.sharedMesh = null;
+        deformingCollider.sharedMesh = deformingMesh;
     }
 
     // adds force to vertices to deform
@@ -73,5 +79,9 @@ public class MeshDeformer : MonoBehaviour
         velocity *= 1f - damping * Time.deltaTime;
         vertexVelocities[i] = velocity;
         displacedVertices[i] += velocity * (Time.deltaTime / uniformScale);
+
+        // limits
+        displacedVertices[i] = Vector3.ClampMagnitude(displacedVertices[i], 1f);
+        // TODO limit min value
     }
 }
