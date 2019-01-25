@@ -5,6 +5,7 @@ using UnityEngine;
 public class DecalPainter : MonoBehaviour
 {
     public GameObject decalBradley;
+    public bool toolSelected = false;
     public bool canDecal = true;
 
     // Start is called before the first frame update
@@ -16,7 +17,8 @@ public class DecalPainter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(1) && canDecal)
+
+        if (Input.GetMouseButton(0) && canDecal && toolSelected)
         {
             HandleInput();
         }
@@ -40,5 +42,10 @@ public class DecalPainter : MonoBehaviour
     void ResetCanDecal()
     {
         canDecal = true;
+    }
+
+    public void ToolSelected()
+    {
+        toolSelected = !toolSelected;
     }
 }
