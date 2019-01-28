@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DecalPainter : MonoBehaviour
+public class Painter : MonoBehaviour
 {
     public GameObject decalBradley;
     public bool toolSelected = false;

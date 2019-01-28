@@ -906,6 +906,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   decalBradley: {fileID: 7967276228918645437, guid: 49539071bac26cb4b90bc5f7a6fac899,
     type: 3}
+  canDecal: 1
 --- !u!1 &1983235604
 GameObject:
   m_ObjectHideFlags: 0

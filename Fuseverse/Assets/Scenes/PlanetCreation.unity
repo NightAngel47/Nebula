@@ -4314,8 +4314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbe5018a13e990b4b95fc4c2267d0674, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  decalBradley: {fileID: 7967276228918645437, guid: 49539071bac26cb4b90bc5f7a6fac899,
-    type: 3}
+  decalBradley: {fileID: 100000, guid: 14ad6c37a4521ef48bc5c7f55f575fe2, type: 3}
   toolSelected: 0
   canDecal: 1
 --- !u!114 &1913211106
