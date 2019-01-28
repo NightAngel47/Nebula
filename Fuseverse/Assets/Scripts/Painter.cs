@@ -4,48 +4,72 @@ using UnityEngine;
 
 public class Painter : MonoBehaviour
 {
-    public GameObject decalBradley;
-    public bool toolSelected = false;
-    public bool canDecal = true;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject selectedGO;
+    public GameObject[] terrainModels;
+    public GameObject[] biomeTextures;
+    public enum tools { terrain, biomes};
+    public tools toolSelected;
+    public bool canPaint = true;
 
     // Update is called once per frame
     void Update()
     {
-
-        if (Input.GetMouseButton(0) && canDecal && toolSelected)
+        if (Input.GetMouseButton(0) && canPaint)
         {
             HandleInput();
         }
     }
 
+    // paints
     void HandleInput()
     {
-        canDecal = false;
-
+        canPaint = false;
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hitInfo;
         if (Physics.Raycast(ray, out hitInfo, 100f))
         {
-            Instantiate(decalBradley, hitInfo.point, Quaternion.FromToRotation(Vector3.up, hitInfo.normal));
+            Instantiate(selectedGO, hitInfo.point, Quaternion.FromToRotation(Vector3.up, hitInfo.normal));
         }
 
-        Invoke("ResetCanDecal", 0.1f);
+        Invoke("ResetCanPaint", 0.1f);
     }
 
-    void ResetCanDecal()
+    // slows down painting
+    void ResetCanPaint()
     {
-        canDecal = true;
+        canPaint = true;
     }
 
-    public void ToolSelected()
+    // change tool to touch with
+    public void ChangeTool(string tool)
     {
-        toolSelected = !toolSelected;
+        tools selectedTool = (tools) System.Enum.Parse(typeof(tools), tool);
+
+        toolSelected = selectedTool;
+        print(toolSelected);
+
+        // if terrain selected
+        if (toolSelected == tools.terrain)
+        {
+            changeTerrain();
+        }
+        // if biomes selected
+        else if (toolSelected == tools.biomes)
+        {
+            changeBiones();
+        }
+    }
+
+    // change terrain model object to place
+    void changeTerrain()
+    {
+        selectedGO = terrainModels[0];
+    }
+
+    // change biome texture object to place
+    void changeBiones()
+    {
+        selectedGO = biomeTextures[0];
     }
 }
