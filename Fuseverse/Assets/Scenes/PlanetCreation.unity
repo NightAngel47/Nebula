@@ -4320,9 +4320,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2adcad746079a024da5da6cbce1f4ae8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Text: {fileID: 0}
   startPos: {x: 0, y: 0}
   direction: {x: 0, y: 0}
+  rotationSpeed: 2
 --- !u!114 &1913211104
 MonoBehaviour:
   m_ObjectHideFlags: 0
