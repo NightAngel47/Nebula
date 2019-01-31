@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 110666245}
   m_Layer: 0
   m_Name: Planet
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2472,7 +2472,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1463839836
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4341,8 +4341,8 @@ MonoBehaviour:
   terrainModels:
   - {fileID: 100000, guid: 14ad6c37a4521ef48bc5c7f55f575fe2, type: 3}
   biomeTextures:
-  - {fileID: 5942358353913045523, guid: 1fc644153c2d886488303e8fbd0d796d, type: 3}
-  - {fileID: 5942358353913045523, guid: 15ce1bbd8258810419909197ce4596a8, type: 3}
+  - {fileID: 4335992246169518186, guid: 5d77412e5d586254bbaf0f8a5f150d0d, type: 3}
+  - {fileID: 1241181689803422336, guid: e451330cf7e813747852c0cddd83d690, type: 3}
   toolSelected: 0
   canPaint: 1
 --- !u!114 &1913211106

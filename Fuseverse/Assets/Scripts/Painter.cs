@@ -27,9 +27,35 @@ public class Painter : MonoBehaviour
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hitInfo;
-        if (Physics.Raycast(ray, out hitInfo, 100f))
+        //if (Physics.Raycast(ray, out hitInfo, 100f))
+        if(Physics.SphereCast(ray, 1f, out hitInfo, 100f))
         {
-            Instantiate(selectedGO, hitInfo.point, Quaternion.FromToRotation(Vector3.up, hitInfo.normal));
+            Debug.DrawLine(transform.position, hitInfo.transform.position);
+
+            // check which decal in order to destroy and repaint
+            if (toolSelected == tools.biomes)
+            {
+                GameObject hitGO = hitInfo.transform.gameObject;
+
+                // check tag and delete then repaint
+                if (!hitGO.CompareTag(selectedGO.tag) && !hitGO.CompareTag("Planet"))
+                {
+                    print(hitGO.tag);
+                    Destroy(hitGO);
+                    Instantiate(selectedGO, hitInfo.point, Quaternion.FromToRotation(Vector3.up, hitInfo.normal));
+                }
+                else // paint
+                {
+                    Instantiate(selectedGO, hitInfo.point, Quaternion.FromToRotation(Vector3.up, hitInfo.normal));
+                }
+            }
+
+            // paint terrain
+            if(toolSelected == tools.terrain)
+            {
+                Instantiate(selectedGO, hitInfo.point, Quaternion.FromToRotation(Vector3.up, hitInfo.normal));
+            }
+
         }
 
         Invoke("ResetCanPaint", 0.1f);
