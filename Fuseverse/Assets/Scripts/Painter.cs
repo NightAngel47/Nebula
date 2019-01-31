@@ -52,24 +52,25 @@ public class Painter : MonoBehaviour
         // if terrain selected
         if (toolSelected == tools.terrain)
         {
-            changeTerrain();
+            ChangeTerrain();
         }
+
         // if biomes selected
-        else if (toolSelected == tools.biomes)
-        {
-            changeBiones();
-        }
+        //else if (toolSelected == tools.biomes)
+        //{
+        //    changeBiones();
+        //}
     }
 
     // change terrain model object to place
-    void changeTerrain()
+    void ChangeTerrain()
     {
         selectedGO = terrainModels[0];
     }
 
     // change biome texture object to place
-    void changeBiones()
+    public void ChangeBiones(int selectedBiome)
     {
-        selectedGO = biomeTextures[0];
+        selectedGO = biomeTextures[selectedBiome];
     }
 }

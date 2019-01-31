@@ -1089,7 +1089,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 615415945}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1913211105}
+        m_MethodName: ChangeBiones
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &615415945
@@ -2461,7 +2472,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1463839836
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3931,7 +3942,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1797168587}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1913211105}
+        m_MethodName: ChangeBiones
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1797168587
@@ -4338,7 +4360,8 @@ MonoBehaviour:
   terrainModels:
   - {fileID: 100000, guid: 14ad6c37a4521ef48bc5c7f55f575fe2, type: 3}
   biomeTextures:
-  - {fileID: 7967276228918645437, guid: 49539071bac26cb4b90bc5f7a6fac899, type: 3}
+  - {fileID: 5942358353913045523, guid: 1fc644153c2d886488303e8fbd0d796d, type: 3}
+  - {fileID: 5942358353913045523, guid: 15ce1bbd8258810419909197ce4596a8, type: 3}
   toolSelected: 0
   canPaint: 1
 --- !u!114 &1913211106
