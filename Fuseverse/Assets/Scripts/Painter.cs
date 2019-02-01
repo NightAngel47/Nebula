@@ -7,7 +7,7 @@ public class Painter : MonoBehaviour
     public GameObject selectedGO;
     public GameObject[] terrainModels;
     public GameObject[] biomeTextures;
-    public enum tools { terrain, biomes};
+    public enum tools {none, terrain, biomes};
     public tools toolSelected;
     public bool canPaint = true;
 
@@ -27,8 +27,9 @@ public class Painter : MonoBehaviour
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hitInfo;
-        //if (Physics.Raycast(ray, out hitInfo, 100f))
-        if(Physics.SphereCast(ray, 1f, out hitInfo, 100f))
+
+        // biome raycast
+        if (Physics.Raycast(ray, out hitInfo, 100f))
         {
             Debug.DrawLine(transform.position, hitInfo.transform.position);
 
@@ -40,25 +41,36 @@ public class Painter : MonoBehaviour
                 // check tag and delete then repaint
                 if (!hitGO.CompareTag(selectedGO.tag) && !hitGO.CompareTag("Planet"))
                 {
-                    print(hitGO.tag);
+                    print("Destroy: " + hitGO.tag);
                     Destroy(hitGO);
-                    Instantiate(selectedGO, hitInfo.point, Quaternion.FromToRotation(Vector3.up, hitInfo.normal));
                 }
-                else // paint
+                else
                 {
-                    Instantiate(selectedGO, hitInfo.point, Quaternion.FromToRotation(Vector3.up, hitInfo.normal));
+                    print("Other: " + hitGO.tag);
+                    PaintGO(hitInfo);
                 }
             }
 
             // paint terrain
-            if(toolSelected == tools.terrain)
+            if (toolSelected == tools.terrain)
             {
-                Instantiate(selectedGO, hitInfo.point, Quaternion.FromToRotation(Vector3.up, hitInfo.normal));
+                GameObject hitGO = hitInfo.transform.gameObject;
+                if (!hitGO.CompareTag(selectedGO.tag))
+                {
+                    PaintGO(hitInfo);
+                }
             }
-
         }
+        
+        Invoke("ResetCanPaint", 0.01f);
+    }
 
-        Invoke("ResetCanPaint", 0.1f);
+    // spawn gameobjects
+    void PaintGO(RaycastHit hitInfo)
+    {
+
+        // 0.5 works -0.5 does the thing might need an offset
+        Instantiate(selectedGO, hitInfo.point, Quaternion.FromToRotation(Vector3.up, hitInfo.normal));
     }
 
     // slows down painting
