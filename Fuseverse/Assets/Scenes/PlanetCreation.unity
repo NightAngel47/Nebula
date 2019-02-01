@@ -4322,6 +4322,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPos: {x: 0, y: 0}
   direction: {x: 0, y: 0}
+  rotationSpeed: 2
 --- !u!114 &1913211104
 MonoBehaviour:
   m_ObjectHideFlags: 0
