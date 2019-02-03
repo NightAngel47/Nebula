@@ -9,13 +9,11 @@ public class MenUIChanger : MonoBehaviour
     public Button Terrain_Button;
     public Button Biomes_Button;
     public Button Atmosphere_Button;
-    public Button RingsMoons_Button;
 
     //Defining Canvas Renderers.
     public GameObject terrainCanvas;
     public GameObject colorCanvas;
     public GameObject atmosphereCanvas;
-    public GameObject ringsMoonsCanvas;
     
    
     void Start()
@@ -24,13 +22,11 @@ public class MenUIChanger : MonoBehaviour
         Terrain_Button.onClick.AddListener(onClickTerrain);
         Biomes_Button.onClick.AddListener(onClickBiomes);
         Atmosphere_Button.onClick.AddListener(onClickAtmosphere);
-        RingsMoons_Button.onClick.AddListener(onClickRing);
 
         //Setting no menu
         terrainCanvas.SetActive(false);
         colorCanvas.SetActive(false);
         atmosphereCanvas.SetActive(false);
-        ringsMoonsCanvas.SetActive(false);
     }
 
     //These Will Switch Right UI presets as well as modifying the Tool Tips
@@ -41,7 +37,6 @@ public class MenUIChanger : MonoBehaviour
         terrainCanvas.SetActive(true);
         colorCanvas.SetActive(false);
         atmosphereCanvas.SetActive(false);
-        ringsMoonsCanvas.SetActive(false);
     }
     void onClickBiomes()
     {
@@ -49,7 +44,6 @@ public class MenUIChanger : MonoBehaviour
         terrainCanvas.SetActive(false);
         colorCanvas.SetActive(true);
         atmosphereCanvas.SetActive(false);
-        ringsMoonsCanvas.SetActive(false);
     }
     void onClickAtmosphere()
     {
@@ -57,14 +51,6 @@ public class MenUIChanger : MonoBehaviour
         terrainCanvas.SetActive(false);
         colorCanvas.SetActive(false);
         atmosphereCanvas.SetActive(true);
-        ringsMoonsCanvas.SetActive(false);
     }
-    void onClickRing()
-    {
-        Debug.Log("Changing Menu to Rings and Moons Config");
-        terrainCanvas.SetActive(false);
-        colorCanvas.SetActive(false);
-        atmosphereCanvas.SetActive(false);
-        ringsMoonsCanvas.SetActive(true);
-    }
+
 }

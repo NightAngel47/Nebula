@@ -9,18 +9,17 @@ public class MenUIColor : MonoBehaviour
 
     //12 Colors & Biomes in total, These are also biomes, but for code simplicity I address them all as colors.
 
-    public Button Pink;         //also 0 Tropical 
-    public Button Red;          //also 1 Volcanic
-    public Button Orange;       //also 2 Savannah
-    public Button Yellow;       //also 3 Desert
-    public Button Green;        //also 4 Forest
-    public Button Turquoise;    //Also 5 Plains
-    public Button Blue;         //Also 6 Ocean
-    public Button Indigo;       //Also 7 Deep Ocean
-    public Button Purple;       //Also 8 Tundrea
-    public Button Black;        //Also 9 Burnt
-    public Button Brown;        //Also 10 Boreal
-    public Button White;        //also 11 Arctic
+   
+    public Button But1;       //also 2 Savannah
+    public Button But2;       //also 3 Desert
+    public Button But3;        //also 4 Forest
+    public Button But4;    //Also 5 Plains
+    public Button But5;         //Also 6 Ocean
+    public Button But6;       //Also 7 Deep Ocean
+    public Button But7;       //Also 8 Tundrea
+    public Button But8;        //Also 9 Burnt
+
+  
 
     void Start()
     {
@@ -28,81 +27,58 @@ public class MenUIColor : MonoBehaviour
 
         //Creating Listeners for all colors to reduce UI load
 
-        Pink.onClick.AddListener(onClickPink);
-        Red.onClick.AddListener(onClickRed);
-        Orange.onClick.AddListener(onClickOrange);
-        Yellow.onClick.AddListener(onClickYellow);
-        Green.onClick.AddListener(onClickGreen);
-        Turquoise.onClick.AddListener(onClickTurquoise);
-        Blue.onClick.AddListener(onClickBlue);
-        Indigo.onClick.AddListener(onClickIndigo);
-        Purple.onClick.AddListener(onClickPurple);
-        Black.onClick.AddListener(onClickBlack);
-        Brown.onClick.AddListener(onClickBrown);
-        White.onClick.AddListener(onClickWhite);
+        But1.onClick.AddListener(onClick1);
+        But2.onClick.AddListener(onClick2);
+        But3.onClick.AddListener(onClick3);
+        But4.onClick.AddListener(onClick4);
+        But5.onClick.AddListener(onClick5);
+        But6.onClick.AddListener(onClick6);
+        But7.onClick.AddListener(onClick7);
+        But8.onClick.AddListener(onClick8);
     }
 
 
     //This is a Break Line here to break start from game functions
 
-    void onClickPink()
-    {
-        selectedColor = 0;
-    }
 
-    void onClickRed()
+    void onClick1()
     {
         selectedColor = 1;
     }
 
-    void onClickOrange()
+    void onClick2()
     {
         selectedColor = 2;
     }
 
-    void onClickYellow()
+    void onClick3()
     {
         selectedColor = 3;
     }
 
-    void onClickGreen()
+    void onClick4()
     {
         selectedColor = 4;
     }
 
-    void onClickTurquoise()
+    void onClick5()
     {
         selectedColor = 5;
     }
 
-    void onClickBlue()
+    void onClick6()
     {
         selectedColor = 6;
     }
 
-    void onClickIndigo()
+    void onClick7()
     {
         selectedColor = 7;
     }
 
-    void onClickPurple()
+    void onClick8()
     {
         selectedColor = 8;
-    }
-
-    void onClickBlack()
-    {
-        selectedColor = 9;
-    }
-
-    void onClickBrown()
-    {
-        selectedColor = 10;
-    }
-
-    void onClickWhite()
-    {
-        selectedColor = 11;
     }
 
 }
