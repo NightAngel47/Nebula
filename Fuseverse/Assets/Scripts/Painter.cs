@@ -10,6 +10,7 @@ public class Painter : MonoBehaviour
     public enum tools {none, terrain, biomes};
     public tools toolSelected;
     public bool canPaint = true;
+    public GameObject planet;
 
     // Update is called once per frame
     void Update()
@@ -70,7 +71,8 @@ public class Painter : MonoBehaviour
 
         if (Physics.Raycast(rayDown, out hitDown, 100f, 9))
         {
-            Instantiate(selectedGO, hitDown.point, Quaternion.FromToRotation(Vector3.up, hitDown.normal));
+            GameObject newGO = Instantiate(selectedGO, hitDown.point, Quaternion.FromToRotation(Vector3.up, hitDown.normal));
+            newGO.transform.SetParent(planet.transform);
         }
     }
 

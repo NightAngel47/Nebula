@@ -276,7 +276,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &228533195
 GameObject:
@@ -1390,7 +1390,7 @@ Transform:
   - {fileID: 1463839836}
   - {fileID: 499976082}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1101156960
 GameObject:
@@ -3409,6 +3409,7 @@ MonoBehaviour:
   - {fileID: 1241181689803422336, guid: e451330cf7e813747852c0cddd83d690, type: 3}
   toolSelected: 0
   canPaint: 1
+  planet: {fileID: 110666244}
 --- !u!114 &1913211106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3497,6 +3498,7 @@ MonoBehaviour:
   - {fileID: 1241181689803422336, guid: e451330cf7e813747852c0cddd83d690, type: 3}
   toolSelected: 0
   canPaint: 1
+  planet: {fileID: 110666244}
 --- !u!1 &1938150502
 GameObject:
   m_ObjectHideFlags: 0
