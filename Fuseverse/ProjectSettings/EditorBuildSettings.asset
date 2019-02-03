@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/PlanetCreation.unity
+    guid: 002e5310e0bb63f49aa82bc76ec9fca6
   m_configObjects: {}

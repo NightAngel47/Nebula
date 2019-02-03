@@ -44,16 +44,16 @@ public class TestingControls : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hitInfo;
 
-        // biome raycast
+        // paint raycast
         if (Physics.Raycast(ray, out hitInfo, 100f))
         {
             Debug.DrawLine(transform.position, hitInfo.transform.position);
 
+            GameObject hitGO = hitInfo.collider.gameObject;
+
             // check which decal in order to destroy and repaint
             if (toolSelected == tools.biomes)
             {
-                GameObject hitGO = hitInfo.transform.gameObject;
-
                 if (!hitGO.CompareTag(selectedGO.tag) && !hitGO.CompareTag("Planet"))
                 {
                     Destroy(hitGO);
@@ -67,7 +67,6 @@ public class TestingControls : MonoBehaviour
             // paint terrain
             if (toolSelected == tools.terrain)
             {
-                GameObject hitGO = hitInfo.transform.gameObject;
                 if (!hitGO.CompareTag(selectedGO.tag))
                 {
                     PaintGO();

@@ -1,81 +1,81 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &3248531096886573802
+--- !u!1001 &2474268175495581900
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4335992246169518186, guid: 5d77412e5d586254bbaf0f8a5f150d0d,
+    - target: {fileID: 6177496023529060484, guid: 219eaa9f39866944b98ee9b61dfd7876,
         type: 3}
       propertyPath: m_Name
-      value: Water Decal Variant
+      value: Water Decal
       objectReference: {fileID: 0}
-    - target: {fileID: 4335992246169518186, guid: 5d77412e5d586254bbaf0f8a5f150d0d,
+    - target: {fileID: 6177496023529060484, guid: 219eaa9f39866944b98ee9b61dfd7876,
         type: 3}
       propertyPath: m_TagString
       value: Water
       objectReference: {fileID: 0}
-    - target: {fileID: 555280641863115395, guid: 5d77412e5d586254bbaf0f8a5f150d0d,
+    - target: {fileID: 7936071329029610093, guid: 219eaa9f39866944b98ee9b61dfd7876,
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 555280641863115395, guid: 5d77412e5d586254bbaf0f8a5f150d0d,
+    - target: {fileID: 7936071329029610093, guid: 219eaa9f39866944b98ee9b61dfd7876,
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 555280641863115395, guid: 5d77412e5d586254bbaf0f8a5f150d0d,
+    - target: {fileID: 7936071329029610093, guid: 219eaa9f39866944b98ee9b61dfd7876,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.5
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 555280641863115395, guid: 5d77412e5d586254bbaf0f8a5f150d0d,
+    - target: {fileID: 7936071329029610093, guid: 219eaa9f39866944b98ee9b61dfd7876,
         type: 3}
       propertyPath: m_LocalRotation.x
       value: -0.7071068
       objectReference: {fileID: 0}
-    - target: {fileID: 555280641863115395, guid: 5d77412e5d586254bbaf0f8a5f150d0d,
+    - target: {fileID: 7936071329029610093, guid: 219eaa9f39866944b98ee9b61dfd7876,
         type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 555280641863115395, guid: 5d77412e5d586254bbaf0f8a5f150d0d,
+    - target: {fileID: 7936071329029610093, guid: 219eaa9f39866944b98ee9b61dfd7876,
         type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 555280641863115395, guid: 5d77412e5d586254bbaf0f8a5f150d0d,
+    - target: {fileID: 7936071329029610093, guid: 219eaa9f39866944b98ee9b61dfd7876,
         type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.7071068
       objectReference: {fileID: 0}
-    - target: {fileID: 555280641863115395, guid: 5d77412e5d586254bbaf0f8a5f150d0d,
+    - target: {fileID: 7936071329029610093, guid: 219eaa9f39866944b98ee9b61dfd7876,
         type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 555280641863115395, guid: 5d77412e5d586254bbaf0f8a5f150d0d,
+    - target: {fileID: 7936071329029610093, guid: 219eaa9f39866944b98ee9b61dfd7876,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -90
       objectReference: {fileID: 0}
-    - target: {fileID: 555280641863115395, guid: 5d77412e5d586254bbaf0f8a5f150d0d,
+    - target: {fileID: 7936071329029610093, guid: 219eaa9f39866944b98ee9b61dfd7876,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 555280641863115395, guid: 5d77412e5d586254bbaf0f8a5f150d0d,
+    - target: {fileID: 7936071329029610093, guid: 219eaa9f39866944b98ee9b61dfd7876,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8406036514031671847, guid: 5d77412e5d586254bbaf0f8a5f150d0d,
+    - target: {fileID: 2107240092162335433, guid: 219eaa9f39866944b98ee9b61dfd7876,
         type: 3}
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 2100000, guid: 08e2a5b83bfc81b4f89af50cbe275d05, type: 2}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5d77412e5d586254bbaf0f8a5f150d0d, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 219eaa9f39866944b98ee9b61dfd7876, type: 3}
