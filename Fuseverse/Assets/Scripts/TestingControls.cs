@@ -23,7 +23,6 @@ public class TestingControls : MonoBehaviour
             HandleInput();
         }
 
-       
         //Arrow key functionality for rotating planet
        if (Input.GetKey(KeyCode.LeftArrow))
        {
@@ -34,9 +33,6 @@ public class TestingControls : MonoBehaviour
        {
            transform.RotateAround(Vector3.zero, Vector3.up, 20 * Time.deltaTime);
        }
-       
-
-
     }
 
     // paints
@@ -57,16 +53,13 @@ public class TestingControls : MonoBehaviour
             {
                 GameObject hitGO = hitInfo.transform.gameObject;
 
-                // check tag and delete then repaint
                 if (!hitGO.CompareTag(selectedGO.tag) && !hitGO.CompareTag("Planet"))
                 {
-                    print("Destroy: " + hitGO.tag);
                     Destroy(hitGO);
                 }
                 else
                 {
-                    print("Other: " + hitGO.tag);
-                    PaintGO(hitInfo);
+                    PaintGO();
                 }
             }
 
@@ -76,7 +69,7 @@ public class TestingControls : MonoBehaviour
                 GameObject hitGO = hitInfo.transform.gameObject;
                 if (!hitGO.CompareTag(selectedGO.tag))
                 {
-                    PaintGO(hitInfo);
+                    PaintGO();
                 }
             }
         }
@@ -85,11 +78,15 @@ public class TestingControls : MonoBehaviour
     }
 
     // spawn gameobjects
-    void PaintGO(RaycastHit hitInfo)
+    void PaintGO()
     {
+        Ray rayDown = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hitDown;
 
-        // 0.5 works -0.5 does the thing might need an offset
-        Instantiate(selectedGO, hitInfo.point, Quaternion.FromToRotation(Vector3.up, hitInfo.normal));
+        if (Physics.Raycast(rayDown, out hitDown, 100f, 9))
+        {
+            Instantiate(selectedGO, hitDown.point, Quaternion.FromToRotation(Vector3.up, hitDown.normal));
+        }
     }
 
     // slows down painting
@@ -111,12 +108,6 @@ public class TestingControls : MonoBehaviour
         {
             ChangeTerrain();
         }
-
-        // if biomes selected
-        //else if (toolSelected == tools.biomes)
-        //{
-        //    changeBiones();
-        //}
     }
 
     // change terrain model object to place

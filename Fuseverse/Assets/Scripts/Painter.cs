@@ -10,7 +10,6 @@ public class Painter : MonoBehaviour
     public enum tools {none, terrain, biomes};
     public tools toolSelected;
     public bool canPaint = true;
-    public GameObject planet;
 
     // Update is called once per frame
     void Update()
@@ -38,20 +37,6 @@ public class Painter : MonoBehaviour
             if (toolSelected == tools.biomes)
             {
                 GameObject hitGO = hitInfo.transform.gameObject;
-
-                // check tag and delete then repaint
-                /*
-                if (!hitGO.CompareTag(selectedGO.tag) && !hitGO.CompareTag("Planet"))
-                {
-                    print("Destroy: " + hitGO.tag);
-                    Destroy(hitGO);
-                }
-                else
-                {
-                    print("Other: " + hitGO.tag);
-                    PaintGO(hitInfo);
-                }
-                */
 
                 if(!hitGO.CompareTag(selectedGO.tag) && !hitGO.CompareTag("Planet"))
                 {
@@ -106,14 +91,9 @@ public class Painter : MonoBehaviour
         // if terrain selected
         if (toolSelected == tools.terrain)
         {
+            // because there is only one model so far
             ChangeTerrain();
         }
-
-        // if biomes selected
-        //else if (toolSelected == tools.biomes)
-        //{
-        //    changeBiones();
-        //}
     }
 
     // change terrain model object to place
