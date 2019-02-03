@@ -3248,6 +3248,7 @@ GameObject:
   - component: {fileID: 1913211106}
   - component: {fileID: 1913211105}
   - component: {fileID: 1913211103}
+  - component: {fileID: 1913211107}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3443,6 +3444,25 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 1
       enableBigTilePrepass: 1
       isFptlEnabled: 1
+--- !u!114 &1913211107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913211099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebe0ddc093e7f1f4db7cc268b3bb658f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedGO: {fileID: 0}
+  terrainModels:
+  - {fileID: 4335992246169518186, guid: 5d77412e5d586254bbaf0f8a5f150d0d, type: 3}
+  - {fileID: 1241181689803422336, guid: e451330cf7e813747852c0cddd83d690, type: 3}
+  biomeTextures: []
+  toolSelected: 0
+  canPaint: 1
 --- !u!1 &1938150502
 GameObject:
   m_ObjectHideFlags: 0

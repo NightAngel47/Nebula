@@ -50,18 +50,5 @@ public class CameraRotation : MonoBehaviour
            
         }
 
-    /*
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            transform.RotateAround(Vector3.zero, Vector3.up, 20 * Time.deltaTime);
-          
-        }
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            transform.RotateAround(Vector3.zero, Vector3.down, 20 * Time.deltaTime);
-        }
-        */
-
-
     }
 }
