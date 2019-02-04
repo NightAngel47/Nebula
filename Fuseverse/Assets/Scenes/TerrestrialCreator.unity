@@ -1057,7 +1057,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &499976082
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6661,14 +6661,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedColor: 0
-  But1: {fileID: 0}
-  But2: {fileID: 0}
-  But3: {fileID: 0}
-  But4: {fileID: 0}
-  But5: {fileID: 0}
-  But6: {fileID: 0}
-  But7: {fileID: 0}
-  But8: {fileID: 0}
+  But1: {fileID: 1773206470}
+  But2: {fileID: 1767908715}
+  But3: {fileID: 1797168586}
+  But4: {fileID: 1808085090}
+  But5: {fileID: 615415944}
+  But6: {fileID: 2010191420}
+  But7: {fileID: 1566823180}
+  But8: {fileID: 1551157000}
 --- !u!1 &2079416020
 GameObject:
   m_ObjectHideFlags: 0
