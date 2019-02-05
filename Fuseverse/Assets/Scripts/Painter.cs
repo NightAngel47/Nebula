@@ -89,23 +89,21 @@ public class Painter : MonoBehaviour
         toolSelected = selectedTool;
         print(toolSelected);
 
-        // if terrain selected
-        if (toolSelected == tools.terrain)
-        {
-            // because there is only one model so far
-            ChangeTerrain();
-        }
+        // clear selected to not paint when switching
+        selectedGO = null;
     }
 
     // change terrain model object to place
-    void ChangeTerrain()
+    public void ChangeTerrain(int selectedTerrain)
     {
-        selectedGO = terrainModels[0];
+        selectedGO = terrainModels[selectedTerrain];
+        print("ChangeTerrain: " + selectedTerrain);
     }
 
     // change biome texture object to place
     public void ChangeBiones(int selectedBiome)
     {
         selectedGO = biomeTextures[selectedBiome];
+        print("ChaneBiome: " + selectedBiome);
     }
 }

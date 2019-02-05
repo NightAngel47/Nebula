@@ -104,17 +104,14 @@ public class TestingControls : MonoBehaviour
         toolSelected = selectedTool;
         print(toolSelected);
 
-        // if terrain selected
-        if (toolSelected == tools.terrain)
-        {
-            ChangeTerrain();
-        }
+        // clear selected to not paint when switching
+        selectedGO = null;
     }
 
     // change terrain model object to place
-    void ChangeTerrain()
+    public void ChangeTerrain(int selectedTerrain)
     {
-        selectedGO = terrainModels[0];
+        selectedGO = terrainModels[selectedTerrain];
     }
 
     // change biome texture object to place
