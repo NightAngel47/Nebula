@@ -49,27 +49,21 @@ public class TestingControls : MonoBehaviour
         {
             Debug.DrawLine(transform.position, hitInfo.transform.position);
 
-            GameObject hitGO = hitInfo.collider.gameObject;
-
-            // check which decal in order to destroy and repaint
-            if (toolSelected == tools.biomes)
+            // paint raycast
+            if (Physics.Raycast(ray, out hitInfo, 100f, 9))
             {
-                if (!hitGO.CompareTag(selectedGO.tag) && !hitGO.CompareTag("Planet"))
-                {
-                    Destroy(hitGO);
-                }
-                else
-                {
-                    PaintGO();
-                }
-            }
+                Debug.DrawLine(transform.position, hitInfo.transform.position);
 
-            // paint terrain
-            if (toolSelected == tools.terrain)
-            {
-                if (!hitGO.CompareTag(selectedGO.tag))
+                // paint biome
+                if (toolSelected == tools.biomes)
                 {
-                    PaintGO();
+                    PaintGO(hitInfo);
+                }
+
+                // paint terrain
+                if (toolSelected == tools.terrain)
+                {
+                    PaintGO(hitInfo);
                 }
             }
         }
@@ -78,16 +72,10 @@ public class TestingControls : MonoBehaviour
     }
 
     // spawn gameobjects
-    void PaintGO()
+    void PaintGO(RaycastHit hitInfo)
     {
-        Ray rayDown = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hitDown;
-
-        if (Physics.Raycast(rayDown, out hitDown, 100f, 9))
-        {
-            GameObject newGO = Instantiate(selectedGO, hitDown.point, Quaternion.FromToRotation(Vector3.up, hitDown.normal));
-            newGO.transform.SetParent(planet.transform);
-        }
+        GameObject newGO = Instantiate(selectedGO, hitInfo.point, Quaternion.FromToRotation(Vector3.up, hitInfo.normal));
+        newGO.transform.SetParent(planet.transform);
     }
 
     // slows down painting
