@@ -4273,7 +4273,29 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1566823181}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1913211105}
+        m_MethodName: ChangeBiones
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1913211107}
+        m_MethodName: ChangeBiones
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1566823181
@@ -4289,7 +4311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9433962, g: 0.5857016, b: 0.15574935, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -5977,6 +5999,7 @@ MonoBehaviour:
   biomeTextures:
   - {fileID: 4335992246169518186, guid: 5d77412e5d586254bbaf0f8a5f150d0d, type: 3}
   - {fileID: 8641424912866715720, guid: e451330cf7e813747852c0cddd83d690, type: 3}
+  - {fileID: 1092640017985081468, guid: a2f0643c219cb194487b61a5dcbcd97d, type: 3}
   toolSelected: 0
   canPaint: 1
   planet: {fileID: 110666244}
@@ -6066,6 +6089,7 @@ MonoBehaviour:
   biomeTextures:
   - {fileID: 4335992246169518186, guid: 5d77412e5d586254bbaf0f8a5f150d0d, type: 3}
   - {fileID: 8641424912866715720, guid: e451330cf7e813747852c0cddd83d690, type: 3}
+  - {fileID: 1092640017985081468, guid: a2f0643c219cb194487b61a5dcbcd97d, type: 3}
   toolSelected: 0
   canPaint: 1
   planet: {fileID: 110666244}
