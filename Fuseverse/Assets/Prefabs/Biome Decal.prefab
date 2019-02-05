@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7936071329029610093}
   - component: {fileID: 2107240092162335433}
   - component: {fileID: 550186467571351174}
+  - component: {fileID: 8943372545247188680}
   m_Layer: 9
   m_Name: Biome Decal
   m_TagString: Untagged
@@ -66,3 +67,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8943372545247188680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6177496023529060484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e43689b1d2d65d846b4c00b061c86c36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
