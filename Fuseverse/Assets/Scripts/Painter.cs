@@ -34,14 +34,8 @@ public class Painter : MonoBehaviour
         {
             Debug.DrawLine(transform.position, hitInfo.transform.position);
 
-            // paint biome
-            if (toolSelected == tools.biomes)
-            {
-                PaintGO(hitInfo);
-            }
-
-            // paint terrain
-            if (toolSelected == tools.terrain)
+            // paint
+            if (toolSelected != tools.none && selectedGO != null)
             {
                 PaintGO(hitInfo);
             }
