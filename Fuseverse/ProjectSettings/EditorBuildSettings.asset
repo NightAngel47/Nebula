@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GasCreator.unity
     guid: 7a28f211c66704aa48a77fbcc5739adf
+  - enabled: 1
+    path: Assets/Scenes/Complete Screen.unity
+    guid: b73ef9af49a428f43b2f0e71e2c91819
   m_configObjects: {}

@@ -7,11 +7,12 @@ using UnityEngine.SceneManagement;
 public class RestartButtonScript : MonoBehaviour
 {
     public Button ExitButton;
-
+    public Button FinishButton;
 
     void Start()
     {
         ExitButton.onClick.AddListener(TaskOnClickExit);
+        FinishButton.onClick.AddListener(TaskOnClickFinish);
 
     }
 
@@ -19,5 +20,9 @@ public class RestartButtonScript : MonoBehaviour
     void TaskOnClickExit()
     {
         SceneManager.LoadScene(sceneName: "Main Menu");
+    }
+    void TaskOnClickFinish()
+    {
+        SceneManager.LoadScene(sceneName: "Complete Screen");
     }
 }
