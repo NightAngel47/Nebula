@@ -17,6 +17,12 @@ public class AtmosphereController : MonoBehaviour
 
     //Value to increment alpha value by
     float alphaIncrement = 0f;
+
+    float newAlpha;
+
+    float rValue;
+    float gValue;
+    float bValue;
     
 
 
@@ -32,8 +38,13 @@ public class AtmosphereController : MonoBehaviour
 
         originalAlpha = originalColor.a;
 
+        rValue = originalColor.r;
+        gValue = originalColor.g;
+        bValue = originalColor.b;
+        
         //alphaIncrement starts at value 0 on start
         alphaIncrement = 0f;
+
 
 
     }
@@ -65,7 +76,7 @@ public class AtmosphereController : MonoBehaviour
                 Debug.Log(">0");
 
                 alphaIncrement += 0.01f;
-                float newAlpha = (originalAlpha + alphaIncrement);
+                newAlpha = (originalAlpha + alphaIncrement);
 
                 //Keeps alpha from hitting a value above 1 and below 0 on slider 
                 if (newAlpha > 1f)
@@ -78,7 +89,7 @@ public class AtmosphereController : MonoBehaviour
                 }
 
                 //Creates color with new alpha and sets material to color
-                shaderColor = new Color(GetComponent<Renderer>().material.color.r, GetComponent<Renderer>().material.color.g, GetComponent<Renderer>().material.color.b, newAlpha);
+                shaderColor = new Color(rValue, gValue, bValue, newAlpha);
                 rend.material.SetColor("_BaseColor", shaderColor);
 
 
@@ -89,7 +100,7 @@ public class AtmosphereController : MonoBehaviour
                 Debug.Log("<0");
 
                 alphaIncrement -= 0.01f;
-                float newAlpha = (originalAlpha + alphaIncrement);
+                newAlpha = (originalAlpha + alphaIncrement);
 
                 //Keeps alpha from hitting a value above 1 and below 0 on slider 
                 if (newAlpha < 0f)
@@ -102,7 +113,7 @@ public class AtmosphereController : MonoBehaviour
                 }
 
                 //Creates color with new alpha and sets material to color
-                shaderColor = new Color(GetComponent<Renderer>().material.color.r, GetComponent<Renderer>().material.color.g, GetComponent<Renderer>().material.color.b, newAlpha);
+                shaderColor = new Color(rValue, gValue, bValue, newAlpha);
                 rend.material.SetColor("_BaseColor", shaderColor);
 
 
@@ -111,6 +122,89 @@ public class AtmosphereController : MonoBehaviour
 
         }
 
+    }
+
+    public void ChangeColor(int atmosphereColorButton)
+    {
+        switch (atmosphereColorButton)
+        {
+            case 1:
+                rValue = 1f;
+                gValue = 0f;
+                bValue = 0f;
+                break;
+
+            case 2:
+                rValue = 1f;
+                gValue = 0f;
+                bValue = 0f;
+                break;
+
+            case 3:
+                rValue = 1f;
+                gValue = 0.92f;
+                bValue = 0.016f;
+                break;
+
+            case 4:
+                rValue = 1f;
+                gValue = 0f;
+                bValue = 0f;
+                break;
+
+            case 5:
+                rValue = 1f;
+                gValue = 0f;
+                bValue = 0f;
+                break;
+
+            case 6:
+                rValue = 1f;
+                gValue = 0f;
+                bValue = 0f;
+                break;
+
+            case 7:
+                rValue = 1f;
+                gValue = 0f;
+                bValue = 0f;
+                break;
+
+            case 8:
+                rValue = 1f;
+                gValue = 0f;
+                bValue = 0f;
+                break;
+
+            case 9:
+                rValue = 1f;
+                gValue = 0f;
+                bValue = 0f;
+                break;
+
+            case 10:
+                rValue = 1f;
+                gValue = 0f;
+                bValue = 0f;
+                break;
+
+            case 11:
+                rValue = 1f;
+                gValue = 0f;
+                bValue = 0f;
+                break;
+
+            case 12:
+                rValue = 1f;
+                gValue = 0f;
+                bValue = 0f;
+                break;
+
+        }
+
+        //shaderColor = new Color(GetComponent<Renderer>().material.color.r, GetComponent<Renderer>().material.color.g, GetComponent<Renderer>().material.color.b, GetComponent<Renderer>().material.color.a);
+        shaderColor = new Color(rValue, gValue, bValue, newAlpha);
+        rend.material.SetColor("_BaseColor", shaderColor);
     }
 }
 
