@@ -5,13 +5,13 @@ using UnityEngine;
 public class AtmosphereController : MonoBehaviour
 {
     public Renderer rend;
+    
+    Color shaderColor;
+    Color originalColor;
+    float originalAlpha;
 
-    //Color originalColor;
-    // public Shader theColor;
-    Color test;
     float alphaIncrement = 0f;
-    Color originalColour;
-    float originalA;
+    
 
 
     // Start is called before the first frame update
@@ -19,13 +19,13 @@ public class AtmosphereController : MonoBehaviour
     {
 
         rend = GetComponent<Renderer>();
+ 
+        originalColor = GetComponent<Renderer>().material.color;
+        shaderColor = new Color(originalColor.r, originalColor.g, originalColor.b, originalColor.a);
 
-        originalColour = GetComponent<Renderer>().material.color;
+        originalAlpha = originalColor.a;
 
-        test = new Color(originalColour.r, originalColour.g, originalColour.b, originalColour.a);
-
-        originalA = originalColour.a;
-
+        alphaIncrement = 0f;
 
 
     }
@@ -33,32 +33,54 @@ public class AtmosphereController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.A))
         {
-            //rend.sharedMaterial.color = new Color(1, 1, 1, alphaIncrement);
-
-            float anotherTest = (originalA + alphaIncrement);
-
-            
-            if (anotherTest > 1f)
-            {
-                anotherTest = 1f;
-            }
-            
-
-            test = new Color(GetComponent<Renderer>().material.color.r, GetComponent<Renderer>().material.color.g, GetComponent<Renderer>().material.color.b, anotherTest);
-
-           // rend.material.SetColor("_BaseColor", Color.green);
-
-            rend.material.SetColor("_BaseColor", test);
-
-            //_BaseColor("BaseColor", Color) = (1, 1, 1, 1)
-
             alphaIncrement += 0.01f;
-            //alphaIncrement++;
-            
+            float newAlpha = (originalAlpha + alphaIncrement);
 
-            Debug.Log("Alpha Change" + anotherTest);
+            
+            if (newAlpha > 1f)
+            {
+                newAlpha = 1f;
+            }
+            if (newAlpha < 0f)
+            {
+                newAlpha = 0f;
+            }
+
+
+            shaderColor = new Color(GetComponent<Renderer>().material.color.r, GetComponent<Renderer>().material.color.g, GetComponent<Renderer>().material.color.b, newAlpha);
+
+
+            rend.material.SetColor("_BaseColor", shaderColor);
+
+
+            //alphaIncrement += 0.01f;
+            Debug.Log("Alpha Change" + newAlpha);
+        }
+
+        else if (Input.GetKey(KeyCode.S))
+        {
+            alphaIncrement -= 0.01f;
+            float newAlpha = (originalAlpha + alphaIncrement);
+
+
+            if (newAlpha < 0f)
+            {
+                newAlpha = 0f;
+            }
+            if (newAlpha > 1f)
+            {
+                newAlpha = 1f;
+            }
+
+            shaderColor = new Color(GetComponent<Renderer>().material.color.r, GetComponent<Renderer>().material.color.g, GetComponent<Renderer>().material.color.b, newAlpha);
+
+
+            rend.material.SetColor("_BaseColor", shaderColor);
+
+
+            Debug.Log("Alpha Change" + newAlpha);
         }
 
     }
