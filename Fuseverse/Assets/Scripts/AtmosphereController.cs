@@ -137,69 +137,69 @@ public class AtmosphereController : MonoBehaviour
                 break;
 
             case 2:
-                rValue = 1f;
-                gValue = 0f;
+                rValue = 0.99215686086f;
+                gValue = 0.6078431361f;
                 bValue = 0f;
                 break;
 
             case 3:
-                rValue = 1f;
-                gValue = 0.92f;
-                bValue = 0.016f;
+                rValue = 0.9607843119f;
+                gValue = 0.94901960604f;
+                bValue = 0;
                 break;
 
             case 4:
-                rValue = 1f;
-                gValue = 0f;
+                rValue = 0.58431372438f;
+                gValue = 0.97254901776f;
                 bValue = 0f;
                 break;
 
             case 5:
-                rValue = 1f;
-                gValue = 0f;
-                bValue = 0f;
+                rValue = 0.18039215652f;
+                gValue = 0.79215686124f;
+                bValue = 0.0784313724f;
                 break;
 
             case 6:
-                rValue = 1f;
-                gValue = 0f;
-                bValue = 0f;
+                rValue = 0.10980392136f;
+                gValue = 0.91372548846f;
+                bValue = 0.588235293f;
                 break;
 
             case 7:
-                rValue = 1f;
-                gValue = 0f;
-                bValue = 0f;
+                rValue = 0f;
+                gValue = 0.88627450812f;
+                bValue = 1f;
                 break;
 
             case 8:
-                rValue = 1f;
-                gValue = 0f;
-                bValue = 0f;
+                rValue = 0f;
+                gValue = 0.01568627448f;
+                bValue = 1f;
                 break;
 
             case 9:
-                rValue = 1f;
+                rValue = 0.7647058809f;
                 gValue = 0f;
-                bValue = 0f;
+                bValue = 1f;
                 break;
 
             case 10:
-                rValue = 1f;
-                gValue = 0f;
-                bValue = 0f;
+                rValue = 0.4705882344f;
+                gValue = 0.4705882344f;
+                bValue = 0.4705882344f;
                 break;
 
             case 11:
-                rValue = 1f;
-                gValue = 0f;
-                bValue = 0f;
+                rValue = 0.63137254782f;
+                gValue = 0.47843137164f;
+                bValue = 0.33725490132f;
                 break;
 
             case 12:
-                rValue = 1f;
-                gValue = 0f;
-                bValue = 0f;
+                rValue = 0.90588235122f;
+                gValue = 0.90588235122f;
+                bValue = 0.90588235122f;
                 break;
 
         }
