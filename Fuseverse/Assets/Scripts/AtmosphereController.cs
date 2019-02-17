@@ -7,6 +7,8 @@ public class AtmosphereController : MonoBehaviour
     bool atmosphereButton;
 
     public Renderer rend;
+
+    public float atmosphereMax = 0f;
     
     //Replacement color of shader
     Color shaderColor;
@@ -81,9 +83,9 @@ public class AtmosphereController : MonoBehaviour
                 newAlpha = (originalAlpha + alphaIncrement);
 
                 //Keeps alpha from hitting a value above 1 and below 0 on slider 
-                if (newAlpha > 1f)
+                if (newAlpha > atmosphereMax)
                 {
-                    newAlpha = 1f;
+                    newAlpha = atmosphereMax;
                 }
                 if (newAlpha < 0f)
                 {
@@ -109,9 +111,9 @@ public class AtmosphereController : MonoBehaviour
                 {
                     newAlpha = 0f;
                 }
-                if (newAlpha > 1f)
+                if (newAlpha > atmosphereMax)
                 {
-                    newAlpha = 1f;
+                    newAlpha = atmosphereMax;
                 }
 
                 //Creates color with new alpha and sets material to color
