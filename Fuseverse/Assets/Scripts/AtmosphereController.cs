@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AtmosphereController : MonoBehaviour
 {
+    bool atmosphereButton;
+
     public Renderer rend;
     
     //Replacement color of shader
@@ -52,7 +54,7 @@ public class AtmosphereController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.touchCount == 2)
+        if ((Input.touchCount == 2) && (atmosphereButton))
         {
             //Get current touch positions
             Touch firstTouch = Input.GetTouch(0);
@@ -205,6 +207,16 @@ public class AtmosphereController : MonoBehaviour
         //shaderColor = new Color(GetComponent<Renderer>().material.color.r, GetComponent<Renderer>().material.color.g, GetComponent<Renderer>().material.color.b, GetComponent<Renderer>().material.color.a);
         shaderColor = new Color(rValue, gValue, bValue, newAlpha);
         rend.material.SetColor("_BaseColor", shaderColor);
+    }
+
+    public void ActivateAtmosphere()
+    {
+        atmosphereButton = true;
+    }
+
+    public void DeactivateAtmosphere()
+    {
+        atmosphereButton = false;
     }
 }
 

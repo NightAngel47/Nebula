@@ -25,7 +25,6 @@ public class Painter : MonoBehaviour
     void HandleInput()
     {
         canPaint = false;
-
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hitInfo;
 
