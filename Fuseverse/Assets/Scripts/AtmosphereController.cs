@@ -78,10 +78,10 @@ public class AtmosphereController : MonoBehaviour
             */
 
             Touch firstTouch = Input.GetTouch(0);
-            Vector2 magFirstTouchPrevPos = (firstTouch.position - firstTouch.deltaPosition);
+            Vector2 magFirstTouchPrevPos = (firstTouch.deltaPosition + firstTouch.position);
             
 
-            if (magFirstTouchPrevPos.x > (firstTouch.position.x))
+            if (magFirstTouchPrevPos.x > firstTouch.position.x)
             {
                 Debug.Log(">0");
 
@@ -105,7 +105,7 @@ public class AtmosphereController : MonoBehaviour
 
                 Debug.Log("Alpha Change" + newAlpha);
             }
-            else if(magFirstTouchPrevPos.x < (firstTouch.position.x))
+            else if(magFirstTouchPrevPos.x < firstTouch.position.x)
             {
                 Debug.Log("<0");
 
