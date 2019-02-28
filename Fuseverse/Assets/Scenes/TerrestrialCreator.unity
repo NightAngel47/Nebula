@@ -2087,7 +2087,7 @@ MonoBehaviour:
   shadowDimmer: 1
   volumetricShadowDimmer: 1
   shadowFadeDistance: 10000
-  contactShadows: 1
+  contactShadows: 0
   viewBiasMin: 0.2
   viewBiasMax: 100
   viewBiasScale: 1
@@ -2180,7 +2180,7 @@ Light:
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 1
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -2541,7 +2541,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 749936181}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1913211105}
+        m_MethodName: TerrainOption
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: plants
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &749936181
@@ -2965,7 +2976,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 927435914}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1913211105}
+        m_MethodName: TerrainOption
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: erase
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &927435914
@@ -3535,14 +3557,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1913211105}
-        m_MethodName: ChangeTerrain
-        m_Mode: 3
+        m_MethodName: TerrainOption
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: terrain
+          m_StringArgument: up
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1913211107}
@@ -6339,6 +6361,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedGO: {fileID: 0}
   terrainModels:
+  - {fileID: 7891452434980419166, guid: c67c69a896290c046b5aaacd333723d8, type: 3}
   - {fileID: 4037671677236954655, guid: 181152893f42ab14d8759ea68b20eb7c, type: 3}
   - {fileID: 7855037161131533834, guid: 46882b9c1ad2227448d34e7591fe7398, type: 3}
   - {fileID: 2359989201296699433, guid: fa90fbf8345d5db45b646976f9faac31, type: 3}

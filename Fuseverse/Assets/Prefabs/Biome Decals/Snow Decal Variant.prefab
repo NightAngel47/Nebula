@@ -15,7 +15,7 @@ PrefabInstance:
     - target: {fileID: 6177496023529060484, guid: 219eaa9f39866944b98ee9b61dfd7876,
         type: 3}
       propertyPath: m_TagString
-      value: Water
+      value: Snow
       objectReference: {fileID: 0}
     - target: {fileID: 2107240092162335433, guid: 219eaa9f39866944b98ee9b61dfd7876,
         type: 3}

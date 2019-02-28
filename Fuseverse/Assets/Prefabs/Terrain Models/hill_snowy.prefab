@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 8825306453509529499}
   - component: {fileID: 8866051215734583110}
   - component: {fileID: 1063380583213001797}
-  m_Layer: 0
+  - component: {fileID: 1647739485695021873}
+  m_Layer: 9
   m_Name: hill_snowy
-  m_TagString: Untagged
+  m_TagString: HillsSnowy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,3 +78,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &1647739485695021873
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7855037161131533834}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: eb8970c4ada4c1f439f00f784a372550, type: 3}

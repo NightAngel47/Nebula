@@ -8,6 +8,12 @@ TagManager:
   - Grass
   - Water
   - Sand
+  - Snow
+  - HillsRocky
+  - HillsSnowy
+  - PineNorm
+  - PineSnowy
+  - TerrainErase
   layers:
   - Default
   - TransparentFX
