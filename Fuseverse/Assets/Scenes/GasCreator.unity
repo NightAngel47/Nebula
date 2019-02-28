@@ -799,8 +799,6 @@ GameObject:
   - component: {fileID: 320644180}
   - component: {fileID: 320644179}
   - component: {fileID: 320644178}
-  - component: {fileID: 320644177}
-  - component: {fileID: 320644176}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -808,48 +806,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &320644176
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 320644175}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebe0ddc093e7f1f4db7cc268b3bb658f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selectedGO: {fileID: 0}
-  terrainModels:
-  - {fileID: 2852325630808106181, guid: 70253f82a1cffe3418c822ebb0e6c531, type: 3}
-  biomeTextures:
-  - {fileID: 4335992246169518186, guid: 5d77412e5d586254bbaf0f8a5f150d0d, type: 3}
-  - {fileID: 8641424912866715720, guid: e451330cf7e813747852c0cddd83d690, type: 3}
-  toolSelected: 0
-  canPaint: 1
-  planet: {fileID: 1981306966}
---- !u!114 &320644177
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 320644175}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbe5018a13e990b4b95fc4c2267d0674, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selectedGO: {fileID: 0}
-  terrainModels:
-  - {fileID: 2852325630808106181, guid: 70253f82a1cffe3418c822ebb0e6c531, type: 3}
-  biomeTextures:
-  - {fileID: 4335992246169518186, guid: 5d77412e5d586254bbaf0f8a5f150d0d, type: 3}
-  - {fileID: 8641424912866715720, guid: e451330cf7e813747852c0cddd83d690, type: 3}
-  toolSelected: 0
-  canPaint: 1
-  planet: {fileID: 1981306966}
 --- !u!114 &320644178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1324,7 +1280,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 320644177}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeBiones
         m_Mode: 3
         m_Arguments:
@@ -1335,7 +1291,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 320644176}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeBiones
         m_Mode: 3
         m_Arguments:
@@ -1738,7 +1694,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 320644177}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeBiones
         m_Mode: 3
         m_Arguments:
@@ -1749,7 +1705,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 320644176}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeBiones
         m_Mode: 3
         m_Arguments:
@@ -3108,7 +3064,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 320644177}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeTool
         m_Mode: 5
         m_Arguments:
@@ -3119,7 +3075,7 @@ MonoBehaviour:
           m_StringArgument: terrain
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 320644176}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeTool
         m_Mode: 5
         m_Arguments:
@@ -4779,7 +4735,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 320644177}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeTool
         m_Mode: 5
         m_Arguments:
@@ -4790,7 +4746,7 @@ MonoBehaviour:
           m_StringArgument: terrain
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 320644176}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeTool
         m_Mode: 5
         m_Arguments:
@@ -6151,7 +6107,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 320644177}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeTool
         m_Mode: 5
         m_Arguments:
@@ -6162,7 +6118,7 @@ MonoBehaviour:
           m_StringArgument: biomes
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 320644176}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeTool
         m_Mode: 5
         m_Arguments:
