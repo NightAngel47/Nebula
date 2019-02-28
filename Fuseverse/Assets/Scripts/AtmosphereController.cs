@@ -56,8 +56,9 @@ public class AtmosphereController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((Input.touchCount == 2) && (atmosphereButton))
+        if ((Input.touchCount == 1) && (atmosphereButton))
         {
+            /*
             //Get current touch positions
             Touch firstTouch = Input.GetTouch(0);
             Touch secondTouch = Input.GetTouch(1);
@@ -74,8 +75,13 @@ public class AtmosphereController : MonoBehaviour
 
             //Find difference between the current and previous magnitude
             float deltaMagDif = touchDeltaMag - prevTouchDeltaMag;
+            */
 
-            if(deltaMagDif > 0)
+            Touch firstTouch = Input.GetTouch(0);
+            Vector2 magFirstTouchPrevPos = (firstTouch.position - firstTouch.deltaPosition);
+            
+
+            if (magFirstTouchPrevPos.x > (firstTouch.position.x))
             {
                 Debug.Log(">0");
 
@@ -99,7 +105,7 @@ public class AtmosphereController : MonoBehaviour
 
                 Debug.Log("Alpha Change" + newAlpha);
             }
-            else if(deltaMagDif < 0)
+            else if(magFirstTouchPrevPos.x < (firstTouch.position.x))
             {
                 Debug.Log("<0");
 

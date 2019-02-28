@@ -27,7 +27,7 @@ public class CameraRotation : MonoBehaviour
         {
 
             Touch firstTouch = Input.GetTouch(0);
-            Vector2 distance = firstTouch.deltaPosition * Time.deltaTime;
+            //Vector2 distance = firstTouch.deltaPosition * Time.deltaTime;
 
             if(Input.GetTouch(0).phase == TouchPhase.Moved)
             {
