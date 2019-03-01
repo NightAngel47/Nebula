@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 8825306453509529499}
   - component: {fileID: 8866051215734583110}
   - component: {fileID: 1063380583213001797}
-  - component: {fileID: 1647739485695021873}
+  - component: {fileID: 73189079456490219}
+  - component: {fileID: 3096181112177376327}
   m_Layer: 9
   m_Name: hill_snowy
-  m_TagString: HillsSnowy
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,8 +79,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &1647739485695021873
-MeshCollider:
+--- !u!135 &73189079456490219
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -88,7 +89,22 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300000, guid: 3aa0a993c56b2314caebb8e105a3388b, type: 3}
+  serializedVersion: 2
+  m_Radius: 0.13219821
+  m_Center: {x: 0.0035255626, y: 0, z: 0.007430535}
+--- !u!54 &3096181112177376327
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7855037161131533834}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

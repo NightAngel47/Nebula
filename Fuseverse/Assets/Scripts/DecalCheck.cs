@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EraseCheck : MonoBehaviour
+public class DecalCheck : MonoBehaviour
 {
-    public bool terrainEraser = false;
-
     void Start()
     {
         Invoke("DestroyThis", 0.5f);
@@ -13,7 +11,7 @@ public class EraseCheck : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if ((other.tag != gameObject.tag))
+        if ((other.tag != gameObject.tag) && other.tag != "Terrain")
         {
             if (other.tag != "Planet")
             {
@@ -24,13 +22,6 @@ public class EraseCheck : MonoBehaviour
 
     void DestroyThis()
     {
-        if (terrainEraser)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            Destroy(this);
-        }
+        Destroy(this);
     }
 }

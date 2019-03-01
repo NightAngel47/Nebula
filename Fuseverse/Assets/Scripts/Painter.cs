@@ -90,7 +90,6 @@ public class Painter : MonoBehaviour
 
         if (Physics.Raycast(ray, out hitInfo, 100f))
         {
-            print(hitInfo.collider.gameObject);
             if (terrainToolSelected == terrainTools.erase) // erase
             {
                 selectedGO = terrainModels[0]; // terrain ereaser
