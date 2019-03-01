@@ -75,6 +75,7 @@ public class Painter : MonoBehaviour
         selectedGO = null;
     }
 
+    // change terrain paint mode
     public void TerrainOption(string tool)
     {
         terrainToolSelected = (terrainTools)System.Enum.Parse(typeof(terrainTools), tool);

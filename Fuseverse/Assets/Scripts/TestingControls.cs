@@ -15,6 +15,9 @@ public class TestingControls : MonoBehaviour
     public bool canPaint = true;
     public GameObject planet;
 
+    private enum terrainTools { none, up, plants, erase }
+    private terrainTools terrainToolSelected;
+
     // Update is called once per frame
     void Update()
     {
@@ -33,6 +36,15 @@ public class TestingControls : MonoBehaviour
        if (Input.GetKey(KeyCode.RightArrow))
        {
            transform.RotateAround(Vector3.zero, Vector3.up, 20 * Time.deltaTime);
+       }
+       if (Input.GetKey(KeyCode.UpArrow))
+       {
+           transform.RotateAround(Vector3.zero, Vector3.left, 20 * Time.deltaTime);
+        
+       }
+       if (Input.GetKey(KeyCode.DownArrow))
+       {
+           transform.RotateAround(Vector3.zero, Vector3.right, 20 * Time.deltaTime);
        }
     }
 
@@ -53,6 +65,12 @@ public class TestingControls : MonoBehaviour
             if (Physics.Raycast(ray, out hitInfo, 100f, 9))
             {
                 Debug.DrawLine(transform.position, hitInfo.transform.position);
+
+                // get selected GO for terrain
+                if (toolSelected == tools.terrain)
+                {
+                    ChangeTerrain(ray);
+                }
 
                 // paint
                 if (toolSelected != tools.none)
@@ -90,10 +108,55 @@ public class TestingControls : MonoBehaviour
         selectedGO = null;
     }
 
-    // change terrain model object to place
-    public void ChangeTerrain(int selectedTerrain)
+    // change terrain paint mode
+    public void TerrainOption(string tool)
     {
-        selectedGO = terrainModels[selectedTerrain];
+        terrainToolSelected = (terrainTools)System.Enum.Parse(typeof(terrainTools), tool);
+        print(terrainToolSelected);
+
+        selectedGO = null;
+    }
+
+    // change terrain model object to place
+    private void ChangeTerrain(Ray ray)
+    {
+        RaycastHit hitInfo;
+
+        if (Physics.Raycast(ray, out hitInfo, 100f))
+        {
+            if (terrainToolSelected == terrainTools.erase) // erase
+            {
+                selectedGO = terrainModels[0]; // terrain ereaser
+            }
+            else if (hitInfo.collider.CompareTag("Snow")) // snow biome
+            {
+                if (terrainToolSelected == terrainTools.up)
+                {
+                    selectedGO = terrainModels[2]; // snowy hills
+                }
+                else if (terrainToolSelected == terrainTools.plants)
+                {
+                    selectedGO = terrainModels[4]; // snowy trees
+                }
+            }
+            else if (hitInfo.collider.CompareTag("Sand")) // sand biome
+            {
+                selectedGO = null; // nothing
+            }
+            else // default grass
+            {
+                if (terrainToolSelected == terrainTools.up)
+                {
+                    selectedGO = terrainModels[1]; // rocky hills
+                }
+                else if (terrainToolSelected == terrainTools.plants)
+                {
+                    selectedGO = terrainModels[3]; // norm trees
+                }
+            }
+        }
+
+        print("ChangeTerrain: " + selectedGO);
     }
 
     // change biome texture object to place
