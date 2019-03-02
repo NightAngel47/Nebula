@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2713731226989589075
+--- !u!1 &2359989201296699433
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,11 +8,12 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6566034683323575810}
-  - component: {fileID: 9169408137106077263}
-  - component: {fileID: 6781151252806311325}
-  - component: {fileID: 5427774363480401525}
-  - component: {fileID: 4938381839096411678}
+  - component: {fileID: 3453104041235634880}
+  - component: {fileID: 2621053867482299201}
+  - component: {fileID: 8392331843834335180}
+  - component: {fileID: 1622705632582027956}
+  - component: {fileID: 1131698172892974836}
+  - component: {fileID: 7607465193874954107}
   m_Layer: 9
   m_Name: pine_snowy
   m_TagString: Terrain
@@ -20,13 +21,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6566034683323575810
+--- !u!4 &3453104041235634880
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2713731226989589075}
+  m_GameObject: {fileID: 2359989201296699433}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -34,21 +35,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &9169408137106077263
+--- !u!33 &2621053867482299201
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2713731226989589075}
+  m_GameObject: {fileID: 2359989201296699433}
   m_Mesh: {fileID: 4300000, guid: b7b359b4212368d44ba8209d01aca674, type: 3}
---- !u!23 &6781151252806311325
+--- !u!23 &8392331843834335180
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2713731226989589075}
+  m_GameObject: {fileID: 2359989201296699433}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -59,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3a5fb22ecd21fcc44b38c1f4cb2ed21e, type: 2}
+  - {fileID: 2100000, guid: 43c9359dff414514cada4ecb08dfcd8f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -79,13 +80,13 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &5427774363480401525
+--- !u!136 &1622705632582027956
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2713731226989589075}
+  m_GameObject: {fileID: 2359989201296699433}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
@@ -93,13 +94,13 @@ CapsuleCollider:
   m_Height: 0.077415824
   m_Direction: 1
   m_Center: {x: 0, y: 0.03861051, z: 0}
---- !u!54 &4938381839096411678
+--- !u!54 &1131698172892974836
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2713731226989589075}
+  m_GameObject: {fileID: 2359989201296699433}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -109,3 +110,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7607465193874954107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2359989201296699433}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 178dad59986500046ba545cb0ac8032e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTree: 1
+  isSnowy: 1
+  grass: {fileID: 0}
+  snowy: {fileID: 0}
+  swapPine: {fileID: 2359989201296699433, guid: fa90fbf8345d5db45b646976f9faac31,
+    type: 3}

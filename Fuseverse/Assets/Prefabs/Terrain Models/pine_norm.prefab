@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8392331843834335180}
   - component: {fileID: 1622705632582027956}
   - component: {fileID: 1131698172892974836}
+  - component: {fileID: 7607465193874954107}
   m_Layer: 9
   m_Name: pine_norm
   m_TagString: Terrain
@@ -109,3 +110,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7607465193874954107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2359989201296699433}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 178dad59986500046ba545cb0ac8032e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTree: 1
+  isSnowy: 0
+  grass: {fileID: 0}
+  snowy: {fileID: 0}
+  swapPine: {fileID: 2359989201296699433, guid: e3c0576d438c34944a7c390330d2e136,
+    type: 3}

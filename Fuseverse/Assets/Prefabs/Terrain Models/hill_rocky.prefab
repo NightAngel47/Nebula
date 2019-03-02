@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3440824936881708487}
   - component: {fileID: 6013755527689996251}
   - component: {fileID: 1234327421091870397}
+  - component: {fileID: 2724313001506079668}
   m_Layer: 9
   m_Name: hill_rocky
   m_TagString: Terrain
@@ -108,3 +109,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2724313001506079668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4037671677236954655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 178dad59986500046ba545cb0ac8032e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grass: {fileID: 2800000, guid: 670ab73cb764bca48ad9b015cf43e807, type: 3}
+  snowy: {fileID: 2800000, guid: 2c5fcd6d4da9c184da085771f0fff4d3, type: 3}
+  isSnowy: 0
+  material: {fileID: 0}

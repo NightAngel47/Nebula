@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class TestingControls : MonoBehaviour
 {
     public GameObject selectedGO;
-    public GameObject[] terrainModels;
+    public GameObject[] terrainModels; // terrainErase, hills rocky, pine norm
     public GameObject[] biomeTextures;
     public enum tools { none, terrain, biomes };
     public tools toolSelected;
@@ -69,7 +69,7 @@ public class TestingControls : MonoBehaviour
                 // get selected GO for terrain
                 if (toolSelected == tools.terrain)
                 {
-                    ChangeTerrain(ray);
+                    ChangeTerrain();
                 }
 
                 // paint
@@ -118,41 +118,23 @@ public class TestingControls : MonoBehaviour
     }
 
     // change terrain model object to place
-    private void ChangeTerrain(Ray ray)
+    private void ChangeTerrain()
     {
-        RaycastHit hitInfo;
+        // terrain objects have a script that will update themselves based on biome so spawns default grass version
 
-        if (Physics.Raycast(ray, out hitInfo, 100f))
+        if (terrainToolSelected == terrainTools.erase) // erase
         {
-            if (terrainToolSelected == terrainTools.erase) // erase
+            selectedGO = terrainModels[0]; // terrain ereaser
+        }
+        else // default grass
+        {
+            if (terrainToolSelected == terrainTools.up)
             {
-                selectedGO = terrainModels[0]; // terrain ereaser
+                selectedGO = terrainModels[1]; // rocky hills
             }
-            else if (hitInfo.collider.CompareTag("Snow")) // snow biome
+            else if (terrainToolSelected == terrainTools.plants)
             {
-                if (terrainToolSelected == terrainTools.up)
-                {
-                    selectedGO = terrainModels[2]; // snowy hills
-                }
-                else if (terrainToolSelected == terrainTools.plants)
-                {
-                    selectedGO = terrainModels[4]; // snowy trees
-                }
-            }
-            else if (hitInfo.collider.CompareTag("Sand")) // sand biome
-            {
-                selectedGO = null; // nothing
-            }
-            else // default grass
-            {
-                if (terrainToolSelected == terrainTools.up)
-                {
-                    selectedGO = terrainModels[1]; // rocky hills
-                }
-                else if (terrainToolSelected == terrainTools.plants)
-                {
-                    selectedGO = terrainModels[3]; // norm trees
-                }
+                selectedGO = terrainModels[2]; // norm trees
             }
         }
 
