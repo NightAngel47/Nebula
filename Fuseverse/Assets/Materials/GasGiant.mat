@@ -222,7 +222,7 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color_Bands: {r: 0.30283165, g: 0, b: 1, a: 0}
+    - _Color_Bands: {r: 0, g: 0, b: 0, a: 0}
     - _Color_Base: {r: 1, g: 0.47058824, b: 1, a: 1}
     - _Color_Storms: {r: 0, g: 1, b: 0.8728237, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
