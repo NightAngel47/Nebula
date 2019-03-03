@@ -27,8 +27,8 @@ public class GasGiantController : MonoBehaviour
     Color bandColor;
     Color stormColor;
 
-    public bool bandButton = false;
-    public bool stormSpeedButton = false;
+    bool bandButton = false;
+    bool stormSpeedButton = false;
 
     
 
