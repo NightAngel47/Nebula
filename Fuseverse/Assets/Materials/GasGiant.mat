@@ -116,7 +116,7 @@ Material:
     - _AlphaCutoffPrepass: 0.5
     - _AlphaCutoffShadow: 0.5
     - _Anisotropy: 0
-    - _Bands: 3.95
+    - _Bands: 0
     - _BlendMode: 0
     - _CoatMask: 0
     - _CullMode: 2

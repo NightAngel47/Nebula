@@ -27,16 +27,57 @@ public class GasGiantController : MonoBehaviour
     Color bandColor;
     Color stormColor;
 
+    public bool bandButton = false;
+    public bool stormSpeedButton = false;
+
+    
+
+
+    //Band Variables
+    float bandNumber = 0f;
+    float newBandNumber = 0f;
+    float bandIncrement = 0f;
+
+    public float maxBands = 0f;
+
+
+    //Storm Variables
+    float stormSpeedNumber = 0f;
+    float newStormSpeedNumber = 0f;
+    float stormSpeedIncrement = 0f;
+
+    public float maxStormSpeed = 0f;
+    public float minStormSpeed = 0f;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        rend = GetComponent<Renderer>();
+
+        bandNumber = 0f;
+        bandIncrement = 0f;
+
+        stormSpeedNumber = 0f;
+        stormSpeedIncrement = 0f;
+
     }
-    
+
     // Update is called once per frame
     void Update()
     {
-        
+        if ((Input.touchCount == 1))
+        {
+            if(bandButton)
+            {
+                BandEditor();
+            }
+            else if(stormSpeedButton)
+            {
+                StormEditor();
+            }
+        }
+       
     }
 
     //Change the base color of planet
@@ -243,6 +284,130 @@ public class GasGiantController : MonoBehaviour
 
         stormColor = new Color(rStormValue, gStormValue, bStormValue, 1f);
         rend.material.SetColor("_Color_Storms", stormColor);
+    }
+
+    //Edits band number with touch
+    void BandEditor()
+    {
+        Touch firstTouch = Input.GetTouch(0);
+        Vector2 magFirstTouchPrevPos = (firstTouch.deltaPosition + firstTouch.position);
+
+        if (magFirstTouchPrevPos.x > firstTouch.position.x)
+        {
+            Debug.Log(">0");
+
+            bandIncrement += 0.01f;
+            newBandNumber = (bandNumber + bandIncrement);
+
+            //Keeps band number from hitting a value above 1 and below 0 on slider 
+            if (newBandNumber > maxBands)
+            {
+                newBandNumber = maxBands;
+            }
+            if (newBandNumber < 0f)
+            {
+                newBandNumber = 0f;
+            }
+
+            rend.material.SetFloat("_Bands", newBandNumber);
+
+            Debug.Log("Band Change" + newBandNumber);
+        }
+        else if (magFirstTouchPrevPos.x < firstTouch.position.x)
+        {
+            Debug.Log("<0");
+
+            bandIncrement -= 0.01f;
+            newBandNumber = (bandNumber + bandIncrement);
+
+            //Keeps band number from hitting a value above 1 and below 0 on slider 
+            if (newBandNumber < 0f)
+            {
+                newBandNumber = 0f;
+            }
+            if (newBandNumber > maxBands)
+            {
+                newBandNumber = maxBands;
+            } 
+            rend.material.SetFloat("_Bands", newBandNumber);
+
+            Debug.Log("Band Change" + newBandNumber);
+        }
+    }
+
+
+    //Edits storm speed with touch
+    void StormEditor()
+    {
+        Touch firstTouch = Input.GetTouch(0);
+        Vector2 magFirstTouchPrevPos = (firstTouch.deltaPosition + firstTouch.position);
+
+
+        if (magFirstTouchPrevPos.x > firstTouch.position.x)
+        {
+            Debug.Log(">0");
+
+            stormSpeedIncrement += 0.01f;
+            newStormSpeedNumber = (stormSpeedNumber + stormSpeedIncrement);
+
+            //Keeps band number from hitting a value above 1 and below 0 on slider 
+            if (newStormSpeedNumber > maxStormSpeed)
+            {
+                newStormSpeedNumber = maxStormSpeed;
+            }
+            if (newStormSpeedNumber < minStormSpeed)
+            {
+                newStormSpeedNumber = minStormSpeed;
+            }
+
+            rend.material.SetFloat("_Rotation_Speed", newStormSpeedNumber);
+
+            Debug.Log("Storm Speed Change" + newStormSpeedNumber);
+        }
+        else if (magFirstTouchPrevPos.x < firstTouch.position.x)
+        {
+            Debug.Log("<0");
+
+            stormSpeedIncrement -= 0.01f;
+            newStormSpeedNumber = (stormSpeedNumber + stormSpeedIncrement);
+
+            //Keeps band number from hitting a value above 1 and below 0 on slider 
+            if (newStormSpeedNumber < minStormSpeed)
+            {
+                newStormSpeedNumber = minStormSpeed;
+            }
+            if (newStormSpeedNumber > maxStormSpeed)
+            {
+                newStormSpeedNumber = maxStormSpeed;
+            }
+
+
+            rend.material.SetFloat("_Rotation_Speed", newStormSpeedNumber);
+
+
+            Debug.Log("Storm Speed Number" + newStormSpeedNumber);
+        }
+    }
+
+
+    public void ActivateBands()
+    {
+        bandButton = true;
+    }
+
+    public void DeactivateBands()
+    {
+        bandButton = false;
+    }
+
+    public void ActivateStormSpeed()
+    {
+        stormSpeedButton = true;
+    }
+
+    public void DeactivateStormSpeed()
+    {
+        stormSpeedButton = false;
     }
 
 }
