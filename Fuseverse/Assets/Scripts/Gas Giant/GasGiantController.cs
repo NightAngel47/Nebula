@@ -7,11 +7,25 @@ public class GasGiantController : MonoBehaviour
 
     public Renderer rend;
 
+    //Base Planet Color Values
     float rValue = 0f;
     float gValue = 0f;
     float bValue = 0f;
 
+    //Band Color Values
+    float rBandValue = 0f;
+    float gBandValue = 0f;
+    float bBandValue = 0f;
+
+    //Storm Color Values
+    float rStormValue = 0f;
+    float gStormValue = 0f;
+    float bStormValue = 0f;
+
+    //Color Variables
     Color planetColor;
+    Color bandColor;
+    Color stormColor;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +39,7 @@ public class GasGiantController : MonoBehaviour
         
     }
 
+    //Change the base color of planet
     public void ChangeColor(int atmosphereColorButton)
     {
         switch (atmosphereColorButton)
@@ -113,4 +128,121 @@ public class GasGiantController : MonoBehaviour
         rend.material.SetColor("_Color_Bands", planetColor);
         rend.material.SetColor("_Color_Storms", planetColor);
     }
+
+    //Change the color of bands
+    public void ChangeBandColor(int bandColorButton)
+    {
+        switch (bandColorButton)
+        {
+            case 1:
+                rValue = 1f;
+                gValue = 0f;
+                bValue = 0f;
+                break;
+
+            case 2:
+                rValue = 0.99215686086f;
+                gValue = 0.6078431361f;
+                bValue = 0f;
+                break;
+
+            case 3:
+                rValue = 0.9607843119f;
+                gValue = 0.94901960604f;
+                bValue = 0;
+                break;
+
+            case 4:
+                rValue = 0.58431372438f;
+                gValue = 0.97254901776f;
+                bValue = 0f;
+                break;
+
+            case 5:
+                rValue = 0.18039215652f;
+                gValue = 0.79215686124f;
+                bValue = 0.0784313724f;
+                break;
+
+            case 6:
+                rValue = 0.10980392136f;
+                gValue = 0.91372548846f;
+                bValue = 0.588235293f;
+                break;
+
+            case 7:
+                rValue = 0f;
+                gValue = 0.88627450812f;
+                bValue = 1f;
+                break;
+
+            case 8:
+                rValue = 0f;
+                gValue = 0.01568627448f;
+                bValue = 1f;
+                break;
+        }
+
+        bandColor = new Color(rBandValue, gBandValue, bBandValue, 1);
+        rend.material.SetColor("_Color_Bands", bandColor);
+    }
+
+    //Change the color of storms
+    public void ChangeStormColor(float stormColorButton)
+    {
+        switch (stormColorButton)
+        {
+            case 1:
+                rValue = 1f;
+                gValue = 0f;
+                bValue = 0f;
+                break;
+
+            case 2:
+                rValue = 0.99215686086f;
+                gValue = 0.6078431361f;
+                bValue = 0f;
+                break;
+
+            case 3:
+                rValue = 0.9607843119f;
+                gValue = 0.94901960604f;
+                bValue = 0;
+                break;
+
+            case 4:
+                rValue = 0.58431372438f;
+                gValue = 0.97254901776f;
+                bValue = 0f;
+                break;
+
+            case 5:
+                rValue = 0.18039215652f;
+                gValue = 0.79215686124f;
+                bValue = 0.0784313724f;
+                break;
+
+            case 6:
+                rValue = 0.10980392136f;
+                gValue = 0.91372548846f;
+                bValue = 0.588235293f;
+                break;
+
+            case 7:
+                rValue = 0f;
+                gValue = 0.88627450812f;
+                bValue = 1f;
+                break;
+
+            case 8:
+                rValue = 0f;
+                gValue = 0.01568627448f;
+                bValue = 1f;
+                break;
+        }
+
+        stormColor = new Color(rStormValue, gStormValue, bStormValue, 1f);
+        rend.material.SetColor("_Color_Storms", stormColor);
+    }
+
 }

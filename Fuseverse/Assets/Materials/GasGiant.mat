@@ -199,7 +199,7 @@ Material:
     - _StencilWriteMask: 7
     - _StencilWriteMaskMV: 128
     - _Stiffness: 1
-    - _Storms_Offsets: 126.5
+    - _Storms_Offsets: 317.16
     - _SubsurfaceMask: 1
     - _SupportDecals: 1
     - _SurfaceType: 0
