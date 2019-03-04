@@ -5,8 +5,8 @@ using UnityEngine;
 public class Painter : MonoBehaviour
 {
     public GameObject selectedGO;
-    public GameObject[] terrainModels; // terrainErase, hills rocky, pine norm
-    public GameObject[] biomeTextures; // grass, artic, sand, forest, badlands, mountain, plains, water
+    public GameObject[] terrainModels; // 1 terrainErase, 2 pine, 3 palm, 4 cacti, 5 stump, 6 hill, 7 mountains, 8 ice chunk, 9 rock
+    public GameObject[] biomeTextures; // 1 grass, 2 artic, 3 sand, 4 forest, 5 badlands, 6 mountain, 7 plains, 8 water
     public enum tools {none, terrain, biomes};
     public tools toolSelected;
     public bool canPaint = true;
@@ -97,11 +97,11 @@ public class Painter : MonoBehaviour
         {
             if (terrainToolSelected == terrainTools.up)
             {
-                selectedGO = terrainModels[1]; // rocky hills
+                selectedGO = terrainModels[5]; // hill
             }
             else if (terrainToolSelected == terrainTools.plants)
             {
-                selectedGO = terrainModels[2]; // norm trees
+                selectedGO = terrainModels[1]; // pine
             }
         }
 

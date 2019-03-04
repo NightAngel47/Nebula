@@ -8,8 +8,8 @@ using UnityEngine.UI;
 public class TestingControls : MonoBehaviour
 {
     public GameObject selectedGO;
-    public GameObject[] terrainModels; // terrainErase, hills rocky, pine norm
-    public GameObject[] biomeTextures; // grass, artic, sand, forest, badlands, mountain, plains, water
+    public GameObject[] terrainModels; // 0 terrainErase, 1 pine, 2 palm, 3 cacti, 4 stump, 5 hill, 6 mountains, 7 ice chunk, 8 rock
+    public GameObject[] biomeTextures; // 0 grass, 1 artic, 2 sand, 3 forest, 4 badlands, 5 mountain, 6 plains, 7 water
     public enum tools { none, terrain, biomes };
     public tools toolSelected;
     public bool canPaint = true;
@@ -130,11 +130,11 @@ public class TestingControls : MonoBehaviour
         {
             if (terrainToolSelected == terrainTools.up)
             {
-                selectedGO = terrainModels[1]; // rocky hills
+                selectedGO = terrainModels[5]; // hill
             }
             else if (terrainToolSelected == terrainTools.plants)
             {
-                selectedGO = terrainModels[2]; // norm trees
+                selectedGO = terrainModels[1]; // pine
             }
         }
 
