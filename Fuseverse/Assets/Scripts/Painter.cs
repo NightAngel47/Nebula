@@ -49,14 +49,21 @@ public class Painter : MonoBehaviour
             }
         }
         
-        Invoke("ResetCanPaint", 0.01f);
+        Invoke("ResetCanPaint", Time.deltaTime);
     }
 
     // spawn gameobjects
     void PaintGO(RaycastHit hitInfo)
     {
-        GameObject newGO = Instantiate(selectedGO, hitInfo.point, Quaternion.FromToRotation(Vector3.up, hitInfo.normal));
-        newGO.transform.SetParent(planet.transform);
+        GameObject newGO = Instantiate(selectedGO, hitInfo.point, Quaternion.FromToRotation(Vector3.up, hitInfo.normal), planet.transform);
+        if(toolSelected == tools.biomes)
+        {
+            newGO.transform.Rotate(Vector3.up, Random.Range(0, 360));
+        }
+        if(toolSelected == tools.terrain)
+        {
+            newGO.transform.Rotate(Vector3.up, Random.Range(0, 45));
+        }
     }
 
     // slows down painting
