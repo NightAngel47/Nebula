@@ -49,7 +49,7 @@ public class SwapTerrain : MonoBehaviour
                 ChangeTexture(grass);
             }
         }
-        else if(other.tag == "Snow" && !isSnowy) // if grass on snow
+        else if(other.tag == "Artic" && !isSnowy) // if grass on snow
         {
             if (isTree)
             {

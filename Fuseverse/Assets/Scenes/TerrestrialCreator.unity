@@ -1818,23 +1818,23 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1913211105}
-        m_MethodName: ChangeBiones
+        m_MethodName: ChangeBiomes
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1913211107}
-        m_MethodName: ChangeBiones
+        m_MethodName: ChangeBiomes
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1854,7 +1854,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.21226418, g: 0.5480576, b: 1, a: 1}
+  m_Color: {r: 0.9019608, g: 0.5882353, b: 0.3019608, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4508,7 +4508,29 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1551157001}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1913211105}
+        m_MethodName: ChangeBiomes
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 7
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1913211107}
+        m_MethodName: ChangeBiomes
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 7
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1551157001
@@ -4524,7 +4546,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.22352941, g: 0.3529412, b: 0.8117647, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -4641,23 +4663,23 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1913211105}
-        m_MethodName: ChangeBiones
+        m_MethodName: ChangeBiomes
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 6
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1913211107}
-        m_MethodName: ChangeBiones
+        m_MethodName: ChangeBiomes
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 6
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4677,7 +4699,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9433962, g: 0.5857016, b: 0.15574935, a: 1}
+  m_Color: {r: 0.4117647, g: 0.5372549, b: 0.3137255, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -5337,7 +5359,29 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1767908716}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1913211105}
+        m_MethodName: ChangeBiomes
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1913211107}
+        m_MethodName: ChangeBiomes
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1767908716
@@ -5353,7 +5397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8627451, g: 0.9254902, b: 0.95686275, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -5468,7 +5512,29 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1773206471}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1913211105}
+        m_MethodName: ChangeBiomes
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1913211107}
+        m_MethodName: ChangeBiomes
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1773206471
@@ -5484,7 +5550,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.4509804, g: 0.8784314, b: 0.45490196, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -5601,23 +5667,23 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1913211105}
-        m_MethodName: ChangeBiones
+        m_MethodName: ChangeBiomes
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1913211107}
-        m_MethodName: ChangeBiones
+        m_MethodName: ChangeBiomes
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -5637,7 +5703,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.28315237, g: 0.5943396, b: 0.3246374, a: 1}
+  m_Color: {r: 0.96862745, g: 0.83137256, b: 0.5529412, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -5892,7 +5958,29 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1808085091}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1913211105}
+        m_MethodName: ChangeBiomes
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1913211107}
+        m_MethodName: ChangeBiomes
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1808085091
@@ -5908,7 +5996,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.27058825, g: 0.627451, b: 0.27058825, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -6441,7 +6529,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1913211099}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cbe5018a13e990b4b95fc4c2267d0674, type: 3}
   m_Name: 
@@ -6455,6 +6543,11 @@ MonoBehaviour:
   - {fileID: 4335992246169518186, guid: 5d77412e5d586254bbaf0f8a5f150d0d, type: 3}
   - {fileID: 8641424912866715720, guid: e451330cf7e813747852c0cddd83d690, type: 3}
   - {fileID: 1092640017985081468, guid: a2f0643c219cb194487b61a5dcbcd97d, type: 3}
+  - {fileID: 1119758164663297260, guid: 60c352e3664528446ba55cf1951c34ce, type: 3}
+  - {fileID: 9017382007806448768, guid: c6138093cd3705e4cbb86839ac7fef42, type: 3}
+  - {fileID: 2025461326456479164, guid: f3270c9c2cd6c3840ba3fef5ab93fb37, type: 3}
+  - {fileID: 3814112445662485362, guid: c8ae7b010adcead41b0c31f0a3224c4e, type: 3}
+  - {fileID: 1139861417577780103, guid: ba981508787b31f4d975db5c69b983ee, type: 3}
   toolSelected: 0
   canPaint: 1
   planet: {fileID: 110666244}
@@ -6533,7 +6626,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1913211099}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ebe0ddc093e7f1f4db7cc268b3bb658f, type: 3}
   m_Name: 
@@ -6547,6 +6640,11 @@ MonoBehaviour:
   - {fileID: 4335992246169518186, guid: 5d77412e5d586254bbaf0f8a5f150d0d, type: 3}
   - {fileID: 8641424912866715720, guid: e451330cf7e813747852c0cddd83d690, type: 3}
   - {fileID: 1092640017985081468, guid: a2f0643c219cb194487b61a5dcbcd97d, type: 3}
+  - {fileID: 1119758164663297260, guid: 60c352e3664528446ba55cf1951c34ce, type: 3}
+  - {fileID: 9017382007806448768, guid: c6138093cd3705e4cbb86839ac7fef42, type: 3}
+  - {fileID: 2025461326456479164, guid: f3270c9c2cd6c3840ba3fef5ab93fb37, type: 3}
+  - {fileID: 3814112445662485362, guid: c8ae7b010adcead41b0c31f0a3224c4e, type: 3}
+  - {fileID: 1139861417577780103, guid: ba981508787b31f4d975db5c69b983ee, type: 3}
   toolSelected: 0
   canPaint: 1
   planet: {fileID: 110666244}
@@ -7048,7 +7146,29 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2010191421}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1913211105}
+        m_MethodName: ChangeBiomes
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1913211107}
+        m_MethodName: ChangeBiomes
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2010191421
@@ -7064,7 +7184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5176471, g: 0.5176471, b: 0.5176471, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
