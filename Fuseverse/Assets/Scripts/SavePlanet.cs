@@ -5,7 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class SavePlanet : MonoBehaviour
 {
-    void Start()
+    public static SavePlanet instance;
+    private void Start()
+    {
+        instance = this;
+        UpdatePlanets();
+        
+    }
+
+    public void UpdatePlanets()
     {
         if ((SceneManager.GetActiveScene().name == "TerrestrialCreator" || 
             SceneManager.GetActiveScene().name == "GasCreator") &&
@@ -13,9 +21,16 @@ public class SavePlanet : MonoBehaviour
         {
             DontDestroyOnLoad(gameObject);
         }
-        else
+        else if(SceneManager.GetActiveScene().name == "Main Menu")
         {
             Destroy(gameObject);
+        }
+
+        if (SceneManager.GetActiveScene().name == "Complete Screen")
+        {
+            transform.position = GameObject.FindGameObjectWithTag("FinishPos").transform.position;
+            transform.localScale = GameObject.FindGameObjectWithTag("FinishPos").transform.localScale;
+            gameObject.AddComponent<planetSpin>();
         }
     }
 }

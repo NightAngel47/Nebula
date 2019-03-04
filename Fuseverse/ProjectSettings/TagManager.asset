@@ -14,6 +14,7 @@ TagManager:
   - Forest
   - Plains
   - Mountain
+  - FinishPos
   layers:
   - Default
   - TransparentFX

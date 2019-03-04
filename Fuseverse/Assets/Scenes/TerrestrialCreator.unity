@@ -200,6 +200,7 @@ GameObject:
   - component: {fileID: 110666245}
   - component: {fileID: 110666250}
   - component: {fileID: 110666249}
+  - component: {fileID: 110666251}
   m_Layer: 0
   m_Name: Planet
   m_TagString: Planet
@@ -276,7 +277,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.35, y: 1.35, z: 1.35}
-  m_Children: []
+  m_Children:
+  - {fileID: 332682902}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -312,6 +314,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &110666251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110666244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 394618e27ba66d1428531145781af65d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &133221775
 GameObject:
   m_ObjectHideFlags: 0
@@ -800,10 +814,10 @@ Transform:
   m_GameObject: {fileID: 332682901}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.64, y: 1.64, z: 1.64}
+  m_LocalScale: {x: 1.2148149, y: 1.2148149, z: 1.2148149}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_Father: {fileID: 110666248}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &332682903
 MonoBehaviour:
@@ -3584,7 +3598,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1369565514
 GameObject:
