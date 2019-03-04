@@ -411,4 +411,16 @@ public class GasGiantController : MonoBehaviour
         stormSpeedButton = false;
     }
 
+    public void ResetRotation()
+    {
+        //Resets position to default
+        Vector3 defaultPosition = new Vector3(0, 0, 0);
+        gameObject.transform.position = defaultPosition;
+
+        //Resets rotation to default
+        Quaternion defaultRotation = Quaternion.Euler(0, 0, 0);
+        gameObject.transform.rotation = defaultRotation;
+
+    }
+
 }

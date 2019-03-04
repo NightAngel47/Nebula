@@ -36,40 +36,20 @@ public class CameraRotation : MonoBehaviour
                 rb.AddTorque(Camera.main.transform.up * -touchDeltaPosition.x);
                 rb.AddTorque(Camera.main.transform.right * touchDeltaPosition.y);
             }
-
-
-
-            /*
-            switch (firstTouch.phase)
-            {
-                
-                case TouchPhase.Began:
-                    startPos = firstTouch.position;
-                    break;
-
-                case TouchPhase.Moved:
-                    direction = firstTouch.position - startPos;
-                    if (direction.x < 0)
-                    {
-                        transform.RotateAround(Vector3.zero, Vector3.down, distance.magnitude * rotationSpeed);
-                        direction = startPos;
-
-                    }
-                    else if(direction.x > 0)
-                    {
-                        transform.RotateAround(Vector3.zero, Vector3.up, distance.magnitude * rotationSpeed);
-                        direction = startPos;
-                    }
-                    break;
-                    
-
-                case TouchPhase.Ended:
-                    break;
-                    */
-            
-            
            
         }
+
+    }
+
+    public void ResetRotation()
+    {
+        //Resets position to default
+        Vector3 defaultPosition = new Vector3(0, 0, 0);
+        gameObject.transform.position = defaultPosition;
+
+        //Resets rotation to default
+        Quaternion defaultRotation = Quaternion.Euler(0, 0, 0);
+        gameObject.transform.rotation = defaultRotation;
 
     }
 }
