@@ -166,8 +166,9 @@ public class GasGiantController : MonoBehaviour
         //GetComponent<Renderer>().material.color.a);
 
         planetColor = new Color(rValue, gValue, bValue, 1);
-        rend.material.SetColor("_Color_Bands", planetColor);
-        rend.material.SetColor("_Color_Storms", planetColor);
+        //rend.material.SetColor("_Color_Bands", planetColor);
+        //rend.material.SetColor("_Color_Storms", planetColor);
+        rend.material.SetColor("_Planet_Color", planetColor);
     }
 
     //Change the color of bands
