@@ -6,7 +6,7 @@ public class Painter : MonoBehaviour
 {
     public GameObject selectedGO;
     public GameObject[] terrainModels; // terrainErase, hills rocky, pine norm
-    public GameObject[] biomeTextures; 
+    public GameObject[] biomeTextures; // grass, artic, sand, forest, badlands, mountain, plains, water
     public enum tools {none, terrain, biomes};
     public tools toolSelected;
     public bool canPaint = true;
@@ -109,7 +109,7 @@ public class Painter : MonoBehaviour
     }
 
     // change biome texture object to place
-    public void ChangeBiones(int selectedBiome)
+    public void ChangeBiomes(int selectedBiome)
     {
         selectedGO = biomeTextures[selectedBiome];
         print("ChaneBiome: " + selectedBiome);

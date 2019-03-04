@@ -8,8 +8,12 @@ TagManager:
   - Grass
   - Water
   - Sand
-  - Snow
   - Terrain
+  - Artic
+  - Badlands
+  - Forest
+  - Plains
+  - Mountain
   layers:
   - Default
   - TransparentFX

@@ -38,7 +38,11 @@ public class SwapTerrain : MonoBehaviour
     // updates terrain object based on biome
     void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Grass" && isSnowy) // if snow on grass
+        if(other.tag == "Grass" && 
+            other.tag == "Plains" && 
+            other.tag == "Forest" &&
+            other.tag == "Mountain" &&
+            isSnowy) // if snow on grass
         {
             if (isTree)
             {
@@ -49,7 +53,8 @@ public class SwapTerrain : MonoBehaviour
                 ChangeTexture(grass);
             }
         }
-        else if(other.tag == "Snow" && !isSnowy) // if grass on snow
+        else if(other.tag == "Artic" &&
+            !isSnowy) // if grass on snow
         {
             if (isTree)
             {
@@ -60,7 +65,9 @@ public class SwapTerrain : MonoBehaviour
                 ChangeTexture(snowy);
             }
         }
-        else if(other.tag == "Sand") // if sand
+        else if(other.tag == "Sand" &&
+            other.tag == "Badlands" &&
+            other.tag == "Water") // if not on grass or snow
         {
             Destroy(gameObject);
         }
