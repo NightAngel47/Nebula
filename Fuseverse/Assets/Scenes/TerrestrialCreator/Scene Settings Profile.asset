@@ -47,7 +47,7 @@ MonoBehaviour:
     min: 0
   upperHemisphereLuxValue:
     m_OverrideState: 0
-    m_Value: 0.052708957
+    m_Value: 0.012020885
     min: 0
   desiredLuxValue:
     m_OverrideState: 0
@@ -64,7 +64,7 @@ MonoBehaviour:
     m_Value: 0
   hdriSky:
     m_OverrideState: 1
-    m_Value: {fileID: 8900000, guid: 58ae06d5725998b4291b4047784a0cdf, type: 3}
+    m_Value: {fileID: 8900000, guid: b1038bd8bfdc04b06a1b3e14d35c59a8, type: 3}
 --- !u!114 &114064605464376418
 MonoBehaviour:
   m_ObjectHideFlags: 3

@@ -74,7 +74,7 @@ Material:
     m_Floats:
     - Reprocess: 1
     - _AlphaAsBlurSize: 0
-    - _BlurSize: 4
+    - _BlurSize: 5
     - _BumpAmt: 128
     - _BumpScale: 1
     - _ColorMask: 357.3
@@ -103,8 +103,8 @@ Material:
     - _RenderBlurTex: -1
     - _Reprocess: 1
     - _ReprocessHor: 1
-    - _ScreenHeight: 395
-    - _ScreenWidth: 526
+    - _ScreenHeight: 1080
+    - _ScreenWidth: 1920
     - _Size: 1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
