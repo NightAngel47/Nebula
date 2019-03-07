@@ -138,7 +138,7 @@ Material:
     - _DistortionBlurBlendMode: 0
     - _DistortionBlurDstBlend: 1
     - _DistortionBlurRemapMax: 1
-    - _DistortionBlurRemapMin: 0.51756704
+    - _DistortionBlurRemapMin: 0.3248961
     - _DistortionBlurScale: 0.25
     - _DistortionBlurSrcBlend: 1
     - _DistortionDepthTest: 1
@@ -177,7 +177,7 @@ Material:
     - _IridescenceThickness: 0.01
     - _LinkDetailsWithBase: 1
     - _MaterialID: 3
-    - _Metallic: 0.231
+    - _Metallic: 0
     - _NormalMapSpace: 0
     - _NormalScale: 8
     - _PPDLodThreshold: 5
@@ -191,7 +191,7 @@ Material:
     - _SSRefractionProjectionModel: 0
     - _ShiverDirectionality: 0.5
     - _ShiverDrag: 0.2
-    - _Smoothness: 0.622
+    - _Smoothness: 0.707
     - _SmoothnessRemapMax: 1
     - _SmoothnessRemapMin: 0
     - _SpecularAAScreenSpaceVariance: 0.1
