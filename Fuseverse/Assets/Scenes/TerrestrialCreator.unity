@@ -1708,7 +1708,7 @@ MonoBehaviour:
           m_StringArgument: biomes
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1913211107}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeTool
         m_Mode: 5
         m_Arguments:
@@ -1872,7 +1872,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1913211107}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeBiomes
         m_Mode: 3
         m_Arguments:
@@ -2496,7 +2496,7 @@ MonoBehaviour:
           m_StringArgument: plants
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1913211107}
+      - m_Target: {fileID: 0}
         m_MethodName: TerrainOption
         m_Mode: 5
         m_Arguments:
@@ -2978,7 +2978,7 @@ MonoBehaviour:
           m_StringArgument: erase
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1913211107}
+      - m_Target: {fileID: 0}
         m_MethodName: TerrainOption
         m_Mode: 5
         m_Arguments:
@@ -3489,7 +3489,7 @@ MonoBehaviour:
           m_StringArgument: none
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1913211107}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeTool
         m_Mode: 5
         m_Arguments:
@@ -3927,7 +3927,7 @@ MonoBehaviour:
           m_StringArgument: up
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1913211107}
+      - m_Target: {fileID: 0}
         m_MethodName: TerrainOption
         m_Mode: 5
         m_Arguments:
@@ -4865,7 +4865,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1913211107}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeBiomes
         m_Mode: 3
         m_Arguments:
@@ -5049,7 +5049,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1913211107}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeBiomes
         m_Mode: 3
         m_Arguments:
@@ -5936,7 +5936,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1913211107}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeBiomes
         m_Mode: 3
         m_Arguments:
@@ -6089,7 +6089,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1913211107}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeBiomes
         m_Mode: 3
         m_Arguments:
@@ -6115,7 +6115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4509804, g: 0.8784314, b: 0.45490196, a: 1}
+  m_Color: {r: 0.9254902, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -6242,7 +6242,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1913211107}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeBiomes
         m_Mode: 3
         m_Arguments:
@@ -6382,7 +6382,7 @@ MonoBehaviour:
           m_StringArgument: terrain
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1913211107}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeTool
         m_Mode: 5
         m_Arguments:
@@ -6535,7 +6535,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1913211107}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeBiomes
         m_Mode: 3
         m_Arguments:
@@ -6825,7 +6825,6 @@ GameObject:
   - component: {fileID: 1913211100}
   - component: {fileID: 1913211106}
   - component: {fileID: 1913211105}
-  - component: {fileID: 1913211107}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -7020,41 +7019,6 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 1
       enableBigTilePrepass: 1
       isFptlEnabled: 1
---- !u!114 &1913211107
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1913211099}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebe0ddc093e7f1f4db7cc268b3bb658f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selectedGO: {fileID: 0}
-  terrainModels:
-  - {fileID: 7891452434980419166, guid: c67c69a896290c046b5aaacd333723d8, type: 3}
-  - {fileID: 5940134761172989149, guid: e46e9355881fc104e8ff33d62acf8782, type: 3}
-  - {fileID: 5161480036454553249, guid: 591123ff4ac295346872c9139408628c, type: 3}
-  - {fileID: 3690760201690583808, guid: 5deea085809460344890c65b72780fb6, type: 3}
-  - {fileID: 6134768152592913171, guid: 61a66e97dafa2d64b9b351289735b6ac, type: 3}
-  - {fileID: 428566308308693705, guid: 2f50df0be6fccfd4c92b75fb98bb6aa7, type: 3}
-  - {fileID: 64071519825591325, guid: 33936c7fb76ded94e8093690f2f29bd2, type: 3}
-  - {fileID: 4725492717722511193, guid: 6e6a8f7abb5ca5a4faaf993c16b33e43, type: 3}
-  - {fileID: 3949149549359191000, guid: 86199d97dae332d48a0179777ff21c28, type: 3}
-  biomeTextures:
-  - {fileID: 4335992246169518186, guid: 5d77412e5d586254bbaf0f8a5f150d0d, type: 3}
-  - {fileID: 8641424912866715720, guid: e451330cf7e813747852c0cddd83d690, type: 3}
-  - {fileID: 1092640017985081468, guid: a2f0643c219cb194487b61a5dcbcd97d, type: 3}
-  - {fileID: 1119758164663297260, guid: 60c352e3664528446ba55cf1951c34ce, type: 3}
-  - {fileID: 9017382007806448768, guid: c6138093cd3705e4cbb86839ac7fef42, type: 3}
-  - {fileID: 2025461326456479164, guid: f3270c9c2cd6c3840ba3fef5ab93fb37, type: 3}
-  - {fileID: 3814112445662485362, guid: c8ae7b010adcead41b0c31f0a3224c4e, type: 3}
-  - {fileID: 1139861417577780103, guid: ba981508787b31f4d975db5c69b983ee, type: 3}
-  toolSelected: 0
-  canPaint: 1
-  planet: {fileID: 110666244}
 --- !u!1 &1938150502
 GameObject:
   m_ObjectHideFlags: 0
@@ -7321,7 +7285,7 @@ MonoBehaviour:
           m_StringArgument: terrain
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1913211107}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeTool
         m_Mode: 5
         m_Arguments:
@@ -7637,7 +7601,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1913211107}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeBiomes
         m_Mode: 3
         m_Arguments:

@@ -26,7 +26,6 @@ public class SwapTerrain : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if(
-            other.tag == "Grass" || 
             other.tag == "Plains" || 
             other.tag == "Forest" &&
             isSnowy) // if snow on grass
@@ -34,6 +33,7 @@ public class SwapTerrain : MonoBehaviour
             ChangeTexture(grass);
         }
         else if(
+            other.tag == "Snow" ||
             other.tag == "Artic" ||
             other.tag == "Mountain" &&
             !isSnowy) // if grass on snow

@@ -15,6 +15,7 @@ TagManager:
   - Plains
   - Mountain
   - FinishPos
+  - Snow
   layers:
   - Default
   - TransparentFX
