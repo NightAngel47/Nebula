@@ -9,24 +9,29 @@ public class MenUIChanger : MonoBehaviour
     public Button Terrain_Button;
     public Button Biomes_Button;
     public Button Atmosphere_Button;
+    public Button Finish_Button;
 
     //Defining Canvas Renderers.
     public GameObject terrainCanvas;
     public GameObject colorCanvas;
     public GameObject atmosphereCanvas;
-    
-   
+    public GameObject finishCanvas;
+
+
     void Start()
     {
         //Setting listeners for each button to reduce UI load
         Terrain_Button.onClick.AddListener(onClickTerrain);
         Biomes_Button.onClick.AddListener(onClickBiomes);
         Atmosphere_Button.onClick.AddListener(onClickAtmosphere);
+        Finish_Button.onClick.AddListener(onClickFinish);
 
         //Setting no menu
         terrainCanvas.SetActive(false);
         colorCanvas.SetActive(false);
         atmosphereCanvas.SetActive(false);
+        finishCanvas.SetActive(false);
+
     }
 
     //These Will Switch Right UI presets as well as modifying the Tool Tips
@@ -37,6 +42,7 @@ public class MenUIChanger : MonoBehaviour
         terrainCanvas.SetActive(true);
         colorCanvas.SetActive(false);
         atmosphereCanvas.SetActive(false);
+        finishCanvas.SetActive(false);
     }
     void onClickBiomes()
     {
@@ -44,6 +50,7 @@ public class MenUIChanger : MonoBehaviour
         terrainCanvas.SetActive(false);
         colorCanvas.SetActive(true);
         atmosphereCanvas.SetActive(false);
+        finishCanvas.SetActive(false);
     }
     void onClickAtmosphere()
     {
@@ -51,6 +58,14 @@ public class MenUIChanger : MonoBehaviour
         terrainCanvas.SetActive(false);
         colorCanvas.SetActive(false);
         atmosphereCanvas.SetActive(true);
+        finishCanvas.SetActive(false);
+    }
+    void onClickFinish()
+    {
+        terrainCanvas.SetActive(false);
+        colorCanvas.SetActive(false);
+        atmosphereCanvas.SetActive(false);
+        finishCanvas.SetActive(true);
     }
 
 }
