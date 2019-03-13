@@ -1971,13 +1971,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ExitButton: {fileID: 662518968}
-  FinishButton: {fileID: 0}
+  FinishButton: {fileID: 662518968}
   ConfirmExit: {fileID: 105738338}
   ConfirmFinish: {fileID: 0}
   CancelExit: {fileID: 668793166}
   CancelFinish: {fileID: 0}
   verifyExit: {fileID: 1207901248}
-  verifyFinish: {fileID: 0}
+  verifyFinish: {fileID: 1207901248}
   OtherUI1: {fileID: 2133072821}
   OtherUI2: {fileID: 527893444}
 --- !u!4 &1404884773
