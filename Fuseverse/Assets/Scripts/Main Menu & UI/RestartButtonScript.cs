@@ -59,7 +59,7 @@ public class RestartButtonScript : MonoBehaviour
     }
     void TaskOnClickConfirmFinish()
     {
-        SceneManager.LoadScene("Finish Screen");
+        SceneManager.LoadScene("Complete Screen");
     }
     void TaskOnClickConfirmExit()
     {
