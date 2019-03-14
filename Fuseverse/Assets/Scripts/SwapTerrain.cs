@@ -18,7 +18,7 @@ public class SwapTerrain : MonoBehaviour
 
     void Update()
     {
-        if ((swapObject.name + "(Clone)" != gameObject.name))
+        if ((swapObject != null) && (swapObject.name + "(Clone)" != gameObject.name))
         {
             SpawnNewTerrian();
         }
