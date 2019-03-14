@@ -5,12 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class SavePlanet : MonoBehaviour
 {
-    public static SavePlanet instance;
     private void Start()
     {
-        instance = this;
         UpdatePlanets();
-        
     }
 
     public void UpdatePlanets()
