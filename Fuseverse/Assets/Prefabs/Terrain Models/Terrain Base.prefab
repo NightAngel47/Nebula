@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 6030863518547973679}
   - component: {fileID: 9192774383324995251}
   - component: {fileID: 9114148939245800613}
-  - component: {fileID: 294304632602825398}
   - component: {fileID: 967079959246052782}
+  - component: {fileID: 3547517216116900781}
   m_Layer: 9
-  m_Name: Terrain Object
+  m_Name: Terrain Base
   m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -93,22 +93,7 @@ MeshCollider:
   serializedVersion: 3
   m_Convex: 1
   m_CookingOptions: 14
-  m_Mesh: {fileID: 0}
---- !u!114 &294304632602825398
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8239668296181286150}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 178dad59986500046ba545cb0ac8032e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isSnowy: 0
-  grass: {fileID: 0}
-  snowy: {fileID: 0}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!54 &967079959246052782
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -125,3 +110,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3547517216116900781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8239668296181286150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 178dad59986500046ba545cb0ac8032e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isUp: 0
+  biomes:
+  - 
+  - 

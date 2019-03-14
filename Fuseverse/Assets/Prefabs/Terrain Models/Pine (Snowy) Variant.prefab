@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1895718911770621727
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5940134761172989149, guid: e46e9355881fc104e8ff33d62acf8782,
+        type: 3}
+      propertyPath: m_Name
+      value: Pine (Snowy) Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 708616519552323683, guid: e46e9355881fc104e8ff33d62acf8782,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 708616519552323683, guid: e46e9355881fc104e8ff33d62acf8782,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 708616519552323683, guid: e46e9355881fc104e8ff33d62acf8782,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 708616519552323683, guid: e46e9355881fc104e8ff33d62acf8782,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 708616519552323683, guid: e46e9355881fc104e8ff33d62acf8782,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 708616519552323683, guid: e46e9355881fc104e8ff33d62acf8782,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 708616519552323683, guid: e46e9355881fc104e8ff33d62acf8782,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 708616519552323683, guid: e46e9355881fc104e8ff33d62acf8782,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 708616519552323683, guid: e46e9355881fc104e8ff33d62acf8782,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 708616519552323683, guid: e46e9355881fc104e8ff33d62acf8782,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 708616519552323683, guid: e46e9355881fc104e8ff33d62acf8782,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6892192051662745448, guid: e46e9355881fc104e8ff33d62acf8782,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 97add4e17a0e87f4fb20023645350530, type: 2}
+    - target: {fileID: 1228892964843844214, guid: e46e9355881fc104e8ff33d62acf8782,
+        type: 3}
+      propertyPath: biomes.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228892964843844214, guid: e46e9355881fc104e8ff33d62acf8782,
+        type: 3}
+      propertyPath: biomes.Array.data[0]
+      value: Snow
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228892964843844214, guid: e46e9355881fc104e8ff33d62acf8782,
+        type: 3}
+      propertyPath: biomes.Array.data[1]
+      value: Mountain
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e46e9355881fc104e8ff33d62acf8782, type: 3}

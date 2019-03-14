@@ -4,16 +4,26 @@ using UnityEngine;
 
 public class Painter : MonoBehaviour
 {
-    public GameObject selectedGO;
-    public GameObject[] terrainModels; // 1 terrainErase, 2 pine, 3 palm, 4 cacti, 5 stump, 6 hill, 7 mountains, 8 ice chunk, 9 rock
-    public GameObject[] biomeTextures; // 1 snow, 2 artic, 3 sand, 4 forest, 5 badlands, 6 mountain, 7 plains, 8 water
-    public enum tools {none, terrain, biomes};
-    public tools toolSelected;
-    public bool canPaint = true;
-    public GameObject planet;
+    public GameObject terrainEraser;
+    public GameObject[] biomeTextures;  // 0 snow, 1 artic, 2 sand, 3 forest, 
+                                        // 4 badlands, 5 mountain, 6 plains, 7 water
 
-    private enum terrainTools {none, up, plants, erase}
-    private terrainTools terrainToolSelected;
+    private enum tools { none, terrain, biomes }; // main tools
+    private tools toolSelected; // main tool selected
+
+    private enum terrainTools { none, up, plants, erase } // terrain tools
+    private terrainTools terrainToolSelected; // terrain tool selected
+    private TerrainFeatures tf;  // terrain - biome interactions
+
+    private GameObject selectedGO; // game object to paint
+    private bool canPaint = true;
+    private GameObject planet;
+
+    void Start()
+    {
+        tf = GetComponent<TerrainFeatures>();
+        planet = GameObject.FindGameObjectWithTag("Planet");    
+    }
 
     // Update is called once per frame
     void Update()
@@ -24,6 +34,7 @@ public class Painter : MonoBehaviour
             HandleInput();
         }
 
+        // debug controls
         #if UNITY_EDITOR
         // mouse input
         if (Input.GetMouseButton(0) && canPaint)
@@ -68,7 +79,7 @@ public class Painter : MonoBehaviour
             // gets terrain mode
             if (toolSelected == tools.terrain)
             {
-                ChangeTerrain();
+                ChangeTerrain(ray);
             }
 
             // paint
@@ -121,23 +132,29 @@ public class Painter : MonoBehaviour
     }
 
     // change terrain model object to place
-    private void ChangeTerrain()
+    private void ChangeTerrain(Ray ray)
     {
-        // terrain objects have a script that will update themselves based on biome so spawns default grass version
-
-        if (terrainToolSelected == terrainTools.erase) // erase
+        RaycastHit hitInfo;
+        if (Physics.Raycast(ray, out hitInfo, 100f))
         {
-            selectedGO = terrainModels[0]; // terrain ereaser
-        }
-        else // default grass
-        {
-            if (terrainToolSelected == terrainTools.up)
+            // terrain objects have a script that will update themselves based on biome
+            if (terrainToolSelected == terrainTools.erase) // erase
             {
-                selectedGO = terrainModels[5]; // hill
+                selectedGO = terrainEraser; // terrain ereaser
             }
-            else if (terrainToolSelected == terrainTools.plants)
+            else 
             {
-                selectedGO = terrainModels[1]; // pine
+                bool isUp = false;
+                if (terrainToolSelected == terrainTools.up)
+                {
+                    isUp = true;
+                }
+                else
+                {
+                    isUp = false;
+                }
+
+                selectedGO = tf.BiomeCheck(hitInfo.collider.tag, isUp); // biome check for spawning terrain
             }
         }
 

@@ -4,55 +4,39 @@ using UnityEngine;
 
 public class SwapTerrain : MonoBehaviour
 {
-    public bool isSnowy = false; // current state
-
-    // to change hills
-    public Texture grass; // grass version
-    public Texture snowy; // snow version
-    private Material material; // current material
+    // spawning different terrain
+    public bool isUp = false; // up or plant
+    private TerrainFeatures tf; // terrain - biome interactions
+    private GameObject swapObject;
+    private Transform planet;
 
     void Start()
     {
-        material = GetComponent<Renderer>().material;
+        tf = FindObjectOfType<TerrainFeatures>();
+        planet = GameObject.FindGameObjectWithTag("Planet").GetComponent<Transform>();
+    }
 
-        // sets current state
-        if (material.GetTexture("_BaseColorMap") != grass)
+    void Update()
+    {
+        if ((swapObject.name + "(Clone)" != gameObject.name))
         {
-            isSnowy = true;
+            SpawnNewTerrian();
         }
     }
 
     // updates terrain object based on biome
     void OnTriggerEnter(Collider other)
     {
-        if(
-            other.tag == "Plains" || 
-            other.tag == "Forest" &&
-            isSnowy) // if snow on grass
+        if (!other.CompareTag("Terrain"))
         {
-            ChangeTexture(grass);
-        }
-        else if(
-            other.tag == "Snow" ||
-            other.tag == "Artic" ||
-            other.tag == "Mountain" &&
-            !isSnowy) // if grass on snow
-        {
-            ChangeTexture(snowy);
-        }
-        else if(
-            other.tag == "Sand" ||
-            other.tag == "Badlands" ||
-            other.tag == "Water") // if not on grass or snow
-        {
-            Destroy(gameObject);
+            swapObject = tf.BiomeCheck(other.tag, isUp);
         }
     }
 
-    // changes material texture
-    void ChangeTexture(Texture texture)
+    void SpawnNewTerrian()
     {
-        isSnowy = !isSnowy;
-        material.SetTexture("_BaseColorMap", texture);
+        print("spawning");
+        Instantiate(swapObject, transform.position, transform.rotation, planet);
+        Destroy(gameObject);
     }
 }
