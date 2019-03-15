@@ -2038,9 +2038,9 @@ MonoBehaviour:
   ExitButton: {fileID: 662518968}
   FinishButton: {fileID: 662518968}
   ConfirmExit: {fileID: 105738338}
-  ConfirmFinish: {fileID: 0}
+  ConfirmFinish: {fileID: 105738338}
   CancelExit: {fileID: 668793166}
-  CancelFinish: {fileID: 0}
+  CancelFinish: {fileID: 668793166}
   verifyExit: {fileID: 1207901248}
   verifyFinish: {fileID: 1207901248}
   OtherUI1: {fileID: 2133072821}
