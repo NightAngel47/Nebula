@@ -7433,7 +7433,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1981306973}
-        m_MethodName: ChangeColor
+        m_MethodName: ChangeBandColor
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10120,7 +10120,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1981306973}
-        m_MethodName: ChangeColor
+        m_MethodName: ChangeBandColor
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10529,7 +10529,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1981306973}
-        m_MethodName: ChangeColor
+        m_MethodName: ChangeBandColor
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11814,7 +11814,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1981306973}
-        m_MethodName: ChangeColor
+        m_MethodName: ChangeBandColor
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14225,7 +14225,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1981306973}
-        m_MethodName: ChangeColor
+        m_MethodName: ChangeBandColor
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14795,7 +14795,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1981306973}
-        m_MethodName: ChangeColor
+        m_MethodName: ChangeBandColor
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -17044,7 +17044,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1981306973}
-        m_MethodName: ChangeColor
+        m_MethodName: ChangeBandColor
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -17186,7 +17186,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1981306973}
-        m_MethodName: ChangeColor
+        m_MethodName: ChangeBandColor
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -20626,7 +20626,7 @@ MonoBehaviour:
   rend: {fileID: 1981306970}
   maxBands: 5
   minBands: 0
-  bandIncrementValue: 0.25
+  bandIncrementValue: 0.1
   maxStormSpeed: 0.5
   minStormSpeed: 0.025
 --- !u!1 &1995584583

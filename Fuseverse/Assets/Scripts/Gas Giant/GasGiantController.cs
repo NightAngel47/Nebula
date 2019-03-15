@@ -319,7 +319,7 @@ public class GasGiantController : MonoBehaviour
             }
             if (newBandNumber < minBands)
             {
-                newBandNumber = 0f;
+                newBandNumber = minBands;
             }
 
             rend.material.SetFloat("_Bands", newBandNumber);
@@ -336,7 +336,7 @@ public class GasGiantController : MonoBehaviour
             //Keeps band number from hitting a value above 1 and below 0 on slider 
             if (newBandNumber < minBands)
             {
-                newBandNumber = 0f;
+                newBandNumber = minBands;
             }
             if (newBandNumber > maxBands)
             {

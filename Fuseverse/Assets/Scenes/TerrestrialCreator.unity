@@ -1226,6 +1226,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rend: {fileID: 0}
   atmosphereMax: 0.889994
+  atmosphereMin: 0
+  atmosphereIncrementValue: 0.01
 --- !u!114 &332682908
 MonoBehaviour:
   m_ObjectHideFlags: 0

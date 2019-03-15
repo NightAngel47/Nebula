@@ -14,6 +14,7 @@ public class RingSize : MonoBehaviour
     float newRingDonutRadius;
 
     public float maxRingDonutRadius = 0f;
+    public float minRingDonutRadius = 0f;
     
 
     // Start is called before the first frame update
@@ -51,9 +52,9 @@ public class RingSize : MonoBehaviour
             {
                 newRingDonutRadius = maxRingDonutRadius;
             }
-            if (newRingDonutRadius < 0f)
+            if (newRingDonutRadius < minRingDonutRadius)
             {
-                newRingDonutRadius = 0f;
+                newRingDonutRadius = minRingDonutRadius;
             }
 
             var main = theRings.shape;
@@ -70,9 +71,9 @@ public class RingSize : MonoBehaviour
             newRingDonutRadius = (ringDonutRadius + ringIncrement);
 
             //Keeps band number from hitting a value above 1 and below 0 on slider 
-            if (newRingDonutRadius < 0f)
+            if (newRingDonutRadius < minRingDonutRadius)
             {
-                newRingDonutRadius = 0f;
+                newRingDonutRadius = minRingDonutRadius;
             }
             if (newRingDonutRadius > maxRingDonutRadius)
             {

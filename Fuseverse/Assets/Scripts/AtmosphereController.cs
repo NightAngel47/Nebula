@@ -9,6 +9,8 @@ public class AtmosphereController : MonoBehaviour
     public Renderer rend;
 
     public float atmosphereMax = 0f;
+    public float atmosphereMin = 0f;
+    public float atmosphereIncrementValue = 0f;
     
     //Replacement color of shader
     Color shaderColor;
@@ -85,7 +87,7 @@ public class AtmosphereController : MonoBehaviour
             {
                 Debug.Log(">0");
 
-                alphaIncrement += 0.01f;
+                alphaIncrement += atmosphereIncrementValue;
                 newAlpha = (originalAlpha + alphaIncrement);
 
                 //Keeps alpha from hitting a value above 1 and below 0 on slider 
@@ -93,9 +95,9 @@ public class AtmosphereController : MonoBehaviour
                 {
                     newAlpha = atmosphereMax;
                 }
-                if (newAlpha < 0f)
+                if (newAlpha < atmosphereMin)
                 {
-                    newAlpha = 0f;
+                    newAlpha = atmosphereMin;
                 }
 
                 //Creates color with new alpha and sets material to color
@@ -109,13 +111,13 @@ public class AtmosphereController : MonoBehaviour
             {
                 Debug.Log("<0");
 
-                alphaIncrement -= 0.01f;
+                alphaIncrement -= atmosphereIncrementValue;
                 newAlpha = (originalAlpha + alphaIncrement);
 
                 //Keeps alpha from hitting a value above 1 and below 0 on slider 
-                if (newAlpha < 0f)
+                if (newAlpha < atmosphereMin)
                 {
-                    newAlpha = 0f;
+                    newAlpha = atmosphereMin;
                 }
                 if (newAlpha > atmosphereMax)
                 {
