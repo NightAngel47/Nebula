@@ -9,12 +9,14 @@ public class CameraRotation : MonoBehaviour
     public Vector2 direction;
     public float rotationSpeed = 0;
     public Rigidbody rb;
+    
 
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        RingRotation.canRotate = true;
 
     }
 
@@ -23,7 +25,7 @@ public class CameraRotation : MonoBehaviour
     {
         
 
-        if ((Input.touchCount == 2))
+        if ((Input.touchCount == 2) && (RingRotation.canRotate))
         {
 
             Touch firstTouch = Input.GetTouch(0);

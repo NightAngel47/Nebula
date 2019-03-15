@@ -398,20 +398,6 @@ public class GasGiantController : MonoBehaviour
         }
     }
 
-    public void RingColor()
-    {
-        //var colorMin = ringSystem.MinMaxGradient.colorMin;
-
-        //colorModule.color = new ParticleSystem.MinMaxGradient(Color.green, Color.red);
-
-        //colorMin = new Color(1f, 1f, 1f);
-        //colorMin = new Color(0f, 0f, 0f);
-
-        // ParticleSystem.MinMaxGradient.colorMin;
-
-    }
-
-
     public void ActivateBands()
     {
         bandButton = true;
