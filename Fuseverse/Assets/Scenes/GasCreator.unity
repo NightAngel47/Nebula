@@ -1995,6 +1995,7 @@ GameObject:
   - component: {fileID: 316091847}
   - component: {fileID: 316091846}
   - component: {fileID: 316091845}
+  - component: {fileID: 316091844}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -2002,6 +2003,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &316091844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 316091843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34e497b44cffd734d837dba9b6310edf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rings: {fileID: 356428263}
 --- !u!23 &316091845
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2446,7 +2460,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theRings: {fileID: 356428268}
-  canViewRings: 0
 --- !u!198 &356428268
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -7661,9 +7674,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 356428267}
-        m_MethodName: ChangeRingColor
-        m_Mode: 4
+      - m_Target: {fileID: 316091844}
+        m_MethodName: ViewRings
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
