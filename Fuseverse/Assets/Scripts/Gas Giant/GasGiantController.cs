@@ -41,7 +41,8 @@ public class GasGiantController : MonoBehaviour
     float bandIncrement = 0f;
 
     public float maxBands = 0f;
-
+    public float minBands = 0f;
+    public float bandIncrementValue = 0f;
 
     //Storm Variables
     float stormSpeedNumber = 0f;
@@ -185,56 +186,59 @@ public class GasGiantController : MonoBehaviour
         switch (bandColorButton)
         {
             case 1:
-                rValue = 1f;
-                gValue = 0f;
-                bValue = 0f;
+                rBandValue = 1f;
+                gBandValue = 0f;
+                bBandValue = 0f;
                 break;
 
             case 2:
-                rValue = 0.99215686086f;
-                gValue = 0.6078431361f;
-                bValue = 0f;
+                rBandValue = 0.99215686086f;
+                gBandValue = 0.6078431361f;
+                bBandValue = 0f;
                 break;
 
             case 3:
-                rValue = 0.9607843119f;
-                gValue = 0.94901960604f;
-                bValue = 0;
+                rBandValue = 0.9607843119f;
+                gBandValue = 0.94901960604f;
+                bBandValue = 0;
                 break;
 
             case 4:
-                rValue = 0.58431372438f;
-                gValue = 0.97254901776f;
-                bValue = 0f;
+                rBandValue = 0.58431372438f;
+                gBandValue = 0.97254901776f;
+                bBandValue = 0f;
                 break;
 
             case 5:
-                rValue = 0.18039215652f;
-                gValue = 0.79215686124f;
-                bValue = 0.0784313724f;
+                rBandValue = 0.18039215652f;
+                gBandValue = 0.79215686124f;
+                bBandValue = 0.0784313724f;
                 break;
 
             case 6:
-                rValue = 0.10980392136f;
-                gValue = 0.91372548846f;
-                bValue = 0.588235293f;
+                rBandValue = 0.10980392136f;
+                gBandValue = 0.91372548846f;
+                bBandValue = 0.588235293f;
                 break;
 
             case 7:
-                rValue = 0f;
-                gValue = 0.88627450812f;
-                bValue = 1f;
+                rBandValue = 0f;
+                gBandValue = 0.88627450812f;
+                bBandValue = 1f;
                 break;
 
             case 8:
-                rValue = 0f;
-                gValue = 0.01568627448f;
-                bValue = 1f;
+                rBandValue = 0f;
+                gBandValue = 0.01568627448f;
+                bBandValue = 1f;
                 break;
         }
 
         bandColor = new Color(rBandValue, gBandValue, bBandValue, 1);
         rend.material.SetColor("_Color_Bands", bandColor);
+
+        
+        rend.material.SetColor("_Color_Storms", bandColor);
     }
 
     //Change the color of storms
@@ -305,7 +309,7 @@ public class GasGiantController : MonoBehaviour
         {
             Debug.Log(">0");
 
-            bandIncrement += 0.01f;
+            bandIncrement += bandIncrementValue;
             newBandNumber = (bandNumber + bandIncrement);
 
             //Keeps band number from hitting a value above 1 and below 0 on slider 
@@ -313,7 +317,7 @@ public class GasGiantController : MonoBehaviour
             {
                 newBandNumber = maxBands;
             }
-            if (newBandNumber < 0f)
+            if (newBandNumber < minBands)
             {
                 newBandNumber = 0f;
             }
@@ -326,11 +330,11 @@ public class GasGiantController : MonoBehaviour
         {
             Debug.Log("<0");
 
-            bandIncrement -= 0.01f;
+            bandIncrement -= bandIncrementValue;
             newBandNumber = (bandNumber + bandIncrement);
 
             //Keeps band number from hitting a value above 1 and below 0 on slider 
-            if (newBandNumber < 0f)
+            if (newBandNumber < minBands)
             {
                 newBandNumber = 0f;
             }

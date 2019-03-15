@@ -20624,7 +20624,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 1981306970}
-  maxBands: 10
+  maxBands: 5
+  minBands: 0
+  bandIncrementValue: 0.25
   maxStormSpeed: 0.5
   minStormSpeed: 0.025
 --- !u!1 &1995584583
