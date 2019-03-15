@@ -26,10 +26,20 @@ public class RingRotation : MonoBehaviour
 
             if (Input.GetTouch(0).phase == TouchPhase.Moved)
             {
-                Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
+                if(canRotate == true)
+                {
+                    Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
 
-                rb.AddTorque(gameObject.transform.up * touchDeltaPosition.x);
-                rb.AddTorque(gameObject.transform.right * touchDeltaPosition.y);
+                    rb.AddTorque(Camera.main.gameObject.transform.up * touchDeltaPosition.x);
+                    rb.AddTorque(Camera.main.gameObject.transform.right * touchDeltaPosition.y);
+                }
+                else if(canRotate == false)
+                {
+                    Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
+
+                    rb.AddTorque(gameObject.transform.up * touchDeltaPosition.x);
+                    rb.AddTorque(gameObject.transform.right * touchDeltaPosition.y);
+                }
             }
 
         }
@@ -45,5 +55,17 @@ public class RingRotation : MonoBehaviour
         canRotate = false;
     }
 
+    public void ResetRotation()
+    {
+        //Resets position to default
+        Vector3 defaultPosition = new Vector3(0, 0, 0);
+        gameObject.transform.position = defaultPosition;
+
+        //Resets rotation to default
+        Quaternion defaultRotation = Quaternion.Euler(0, 0, 0);
+        gameObject.transform.rotation = defaultRotation;
+
+    }
+    
 
 }
