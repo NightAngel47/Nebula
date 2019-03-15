@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GasGiantController : MonoBehaviour
 {
+   // public ParticleSystem ringSystem;
+    //ParticleSystem.ColorOverLifetimeModule colorModule;
 
     public Renderer rend;
 
@@ -60,6 +62,12 @@ public class GasGiantController : MonoBehaviour
 
         stormSpeedNumber = 0f;
         stormSpeedIncrement = 0f;
+
+        // ringSystem = GetComponent<ParticleSystem>();
+
+      //  colorModule = ringSystem.colorOverLifetime;
+
+        //RingColor();
 
     }
 
@@ -388,6 +396,19 @@ public class GasGiantController : MonoBehaviour
 
             Debug.Log("Storm Speed Number" + newStormSpeedNumber);
         }
+    }
+
+    public void RingColor()
+    {
+        //var colorMin = ringSystem.MinMaxGradient.colorMin;
+
+        //colorModule.color = new ParticleSystem.MinMaxGradient(Color.green, Color.red);
+
+        //colorMin = new Color(1f, 1f, 1f);
+        //colorMin = new Color(0f, 0f, 0f);
+
+        // ParticleSystem.MinMaxGradient.colorMin;
+
     }
 
 
