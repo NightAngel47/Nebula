@@ -1636,7 +1636,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &276874931
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2372,7 +2372,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &356428264
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2501,7 +2501,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 356428263}
   serializedVersion: 6
-  lengthInSec: 90
+  lengthInSec: 150
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -2686,8 +2686,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 0.20258236, b: 0, a: 1}
-        key1: {r: 1, g: 0.20258236, b: 0, a: 1}
+        key0: {r: 1, g: 1, b: 1, a: 1}
+        key1: {r: 1, g: 1, b: 1, a: 1}
         key2: {r: 1, g: 0.20258236, b: 0, a: 0}
         key3: {r: 1, g: 0.9289478, b: 0.7877358, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -2745,8 +2745,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.2
-      minScalar: 0.1
+      scalar: 0.1
+      minScalar: 0.05
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -3061,7 +3061,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 10000
+    maxNumParticles: 1000
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -3264,7 +3264,7 @@ ParticleSystem:
           m_PostInfinity: 2
           m_RotationOrder: 4
     arc:
-      value: 10
+      value: 15
       mode: 0
       spread: 0
       speed:
@@ -4160,7 +4160,7 @@ ParticleSystem:
     orbitalY:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.1
+      scalar: 1
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -5569,7 +5569,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
   SizeBySpeedModule:
-    enabled: 1
+    enabled: 0
     curve:
       serializedVersion: 2
       minMaxState: 1
@@ -7104,13 +7104,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 356428263}
-  m_LocalRotation: {x: 0.08191204, y: 0.0013630807, z: 0.9959629, w: -0.036694825}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 316091847}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -0.5, y: -350.615, z: -895.82104}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &356428270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7128,6 +7128,7 @@ MonoBehaviour:
   ringDonutRadius: 0
   incrementValue: 0.01
   maxRingDonutRadius: 0.2
+  minRingDonutRadius: 0
 --- !u!1 &379478018
 GameObject:
   m_ObjectHideFlags: 0
@@ -20498,6 +20499,7 @@ GameObject:
   - component: {fileID: 1981306968}
   - component: {fileID: 1981306967}
   - component: {fileID: 1981306973}
+  - component: {fileID: 1981306974}
   m_Layer: 0
   m_Name: Planet
   m_TagString: Planet
@@ -20629,6 +20631,18 @@ MonoBehaviour:
   bandIncrementValue: 0.1
   maxStormSpeed: 0.5
   minStormSpeed: 0.025
+--- !u!114 &1981306974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1981306966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 394618e27ba66d1428531145781af65d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1995584583
 GameObject:
   m_ObjectHideFlags: 0
@@ -21779,7 +21793,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2108803391
 RectTransform:
   m_ObjectHideFlags: 0
