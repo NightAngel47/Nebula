@@ -5,24 +5,10 @@ using UnityEngine;
 public class RingColor : MonoBehaviour
 {
     public ParticleSystem theRings;
-    //public Gradient publicColorGradient;
-
-    //ParticleSystem.ColorOverLifetimeModule colorModule;
-
-    /*
-    GradientColorKey[] colorKey;
-    GradientAlphaKey[] alphaKey;
-
-    public Gradient publicColorGradient2;
-
-    GradientColorKey[] colorKey2;
-    GradientAlphaKey[] alphaKey2;
-    */
 
     float rValue;
     float gValue;
     float bValue;
-    float aValue;
 
     float rValue2;
     float gValue2;
@@ -30,20 +16,10 @@ public class RingColor : MonoBehaviour
 
     void Start()
     {
-      
-      //  var main = theRings.main;
-       // main.startColor = new ParticleSystem.MinMaxGradient(Color.red); // simple color
-        //main.startColor = new ParticleSystem.MinMaxGradient(myGradient); // gradient
-      //  main.startColor = new ParticleSystem.MinMaxGradient(Color.red, Color.green); // random between 2 colors
-        //main.startColor = new ParticleSystem.MinMaxGradient(myGradient, myOtherGradient);
     }
     private void Update()
     {
-        //var main = ringColor.main;
-       // colorModule = theRings.colorOverLifetime;
-
-
-
+          
     }
     public void ChangeRingColor(float RingColorButton)
     {
@@ -159,11 +135,14 @@ public class RingColor : MonoBehaviour
 
     void SetColor()
     {
-        Color color1 = new Color(rValue, gValue, bValue);
-        Color color2 = new Color(rValue2, gValue2, bValue2);
+        Color color1 = new Color(rValue, gValue, bValue, 1f);
+        Color color2 = new Color(rValue2, gValue2, bValue2, 1f);
 
         var main = theRings.main;
         main.startColor = new ParticleSystem.MinMaxGradient(color1, color2); // random between 2 colors
 
     }
+
+    
+    
 }
