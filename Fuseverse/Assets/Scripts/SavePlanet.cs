@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SavePlanet : MonoBehaviour
 {
+    public Transform rings;
+
     private void Start()
     {
         UpdatePlanets();
@@ -28,6 +30,11 @@ public class SavePlanet : MonoBehaviour
             transform.position = GameObject.FindGameObjectWithTag("FinishPos").transform.position;
             transform.localScale = GameObject.FindGameObjectWithTag("FinishPos").transform.localScale;
             gameObject.AddComponent<planetSpin>();
+
+            if (rings != null)
+            {
+                rings.localScale = GameObject.FindGameObjectWithTag("FinishPos").transform.localScale;
+            }
         }
     }
 }
