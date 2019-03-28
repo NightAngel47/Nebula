@@ -5,6 +5,8 @@ using UnityEngine;
 public class RingSize : MonoBehaviour
 {
     public ParticleSystem theRings;
+    public ParticleSystem theRings2;
+
 
     public bool ringButton;
     public float ringDonutRadius;
@@ -60,6 +62,9 @@ public class RingSize : MonoBehaviour
             var main = theRings.shape;
             main.donutRadius = newRingDonutRadius;
 
+            var main2 = theRings2.shape;
+            main2.donutRadius = newRingDonutRadius;
+
             //rend.material.SetFloat("_Bands", newBandNumber);
 
             //Debug.Log("Band Change" + newBandNumber);
@@ -82,6 +87,9 @@ public class RingSize : MonoBehaviour
 
             var main = theRings.shape;
             main.donutRadius = newRingDonutRadius;
+
+            var main2 = theRings2.shape;
+            main2.donutRadius = newRingDonutRadius;
 
             //rend.material.SetFloat("_Bands", newBandNumber);
 

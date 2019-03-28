@@ -30,15 +30,25 @@ public class RingRotation : MonoBehaviour
                 {
                     Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
 
-                    rb.AddTorque(Camera.main.gameObject.transform.up * touchDeltaPosition.x);
-                    rb.AddTorque(Camera.main.gameObject.transform.right * touchDeltaPosition.y);
+                    var rot = Camera.main.gameObject.transform.rotation;
+                    var vectorRot = rot.eulerAngles;
+
+                    vectorRot.x += touchDeltaPosition.x * rotationSpeed;
+                    vectorRot.y += touchDeltaPosition.y * rotationSpeed;
+
+                    rb.MoveRotation(Quaternion.Euler(vectorRot));
                 }
                 else if(canRotate == false)
                 {
                     Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
 
-                    rb.AddTorque(gameObject.transform.up * touchDeltaPosition.x);
-                    rb.AddTorque(gameObject.transform.right * touchDeltaPosition.y);
+                    var rot = transform.rotation;
+                    var vectorRot = rot.eulerAngles;
+
+                    vectorRot.x += touchDeltaPosition.x * rotationSpeed;
+                    vectorRot.y += touchDeltaPosition.y * rotationSpeed;
+
+                    rb.MoveRotation(Quaternion.Euler(vectorRot));
                 }
             }
 

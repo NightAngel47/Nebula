@@ -6,6 +6,8 @@ public class HideRings : MonoBehaviour
 {
     bool canViewRings;
     public GameObject rings;
+    public GameObject rings2;
+
 
     // Start is called before the first frame update
     void Start()
@@ -20,10 +22,14 @@ public class HideRings : MonoBehaviour
         if (canViewRings == true)
         {
             rings.SetActive(true);
+            rings2.SetActive(true);
+
         }
         else if (canViewRings == false)
         {
             rings.SetActive(false);
+            rings2.SetActive(false);
+
         }
     }
 
