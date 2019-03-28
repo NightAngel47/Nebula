@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 6177496023529060484}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.06, z: 0.1}
+  m_LocalScale: {x: 0.033, y: 0.06, z: 0.033}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f19d9143a39eb3b46bc4563e9889cfbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: f418225b682a3a14b844e1f37c7d1de2, type: 2}
+  m_Material: {fileID: 2100000, guid: 500e733574922d04ea961553b1b26a63, type: 2}
   m_DrawDistance: 1000
   m_FadeScale: 1
   m_UVScale: {x: 1, y: 1}
@@ -94,5 +94,5 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.4
+  m_Radius: 0.18
   m_Center: {x: 0, y: 0, z: 0}

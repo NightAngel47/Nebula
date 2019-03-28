@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Painter : MonoBehaviour
 {
+    public bool DebugOn = false;
+
     public GameObject terrainEraser;
     public GameObject[] biomeTextures;  // 0 snow, 1 artic, 2 sand, 3 forest, 
                                         // 4 badlands, 5 mountain, 6 plains, 7 water
@@ -36,30 +38,33 @@ public class Painter : MonoBehaviour
 
         // debug controls
         #if UNITY_EDITOR
-        // mouse input
-        if (Input.GetMouseButton(0) && canPaint)
+        if(DebugOn)
         {
-            HandleInput();
-        }
+            // mouse input
+            if (Input.GetMouseButton(0) && canPaint)
+            {
+                HandleInput();
+            }
 
-        //Arrow key functionality for rotating planet
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            transform.RotateAround(Vector3.zero, Vector3.down, 20 * Time.deltaTime);
+            //Arrow key functionality for rotating planet
+            if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                transform.RotateAround(Vector3.zero, Vector3.down, 20 * Time.deltaTime);
 
-        }
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            transform.RotateAround(Vector3.zero, Vector3.up, 20 * Time.deltaTime);
-        }
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            transform.RotateAround(Vector3.zero, Vector3.left, 20 * Time.deltaTime);
+            }
+            if (Input.GetKey(KeyCode.RightArrow))
+            {
+                transform.RotateAround(Vector3.zero, Vector3.up, 20 * Time.deltaTime);
+            }
+            if (Input.GetKey(KeyCode.UpArrow))
+            {
+                transform.RotateAround(Vector3.zero, Vector3.left, 20 * Time.deltaTime);
 
-        }
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            transform.RotateAround(Vector3.zero, Vector3.right, 20 * Time.deltaTime);
+            }
+            if (Input.GetKey(KeyCode.DownArrow))
+            {
+                transform.RotateAround(Vector3.zero, Vector3.right, 20 * Time.deltaTime);
+            }
         }
         #endif
     }
@@ -98,7 +103,7 @@ public class Painter : MonoBehaviour
         GameObject newGO = Instantiate(selectedGO, hitInfo.point, Quaternion.FromToRotation(Vector3.up, hitInfo.normal), planet.transform);
         if(toolSelected == tools.biomes)
         {
-            newGO.transform.Rotate(Vector3.up, Random.Range(0, 360));
+            newGO.transform.Rotate(Vector3.up, Random.Range(0, 180));
         }
         if(toolSelected == tools.terrain)
         {
