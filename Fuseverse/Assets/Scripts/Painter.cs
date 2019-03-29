@@ -103,7 +103,7 @@ public class Painter : MonoBehaviour
         GameObject newGO = Instantiate(selectedGO, hitInfo.point, Quaternion.FromToRotation(Vector3.up, hitInfo.normal), planet.transform);
         if(toolSelected == tools.biomes)
         {
-            //newGO.transform.Rotate(Vector3.up, Random.Range(0, 45));
+            newGO.transform.Rotate(Vector3.up, Random.Range(0, 45));
         }
         if(toolSelected == tools.terrain)
         {
