@@ -20,8 +20,8 @@ public class BiomeClump : MonoBehaviour
         for(int i = 0; i < biomeTransfroms.Length; ++i)
         {
             // spawn decal
-            Instantiate(biomeDecal, biomeTransfroms[i].position, biomeTransfroms[i].rotation, planet);
-            
+            GameObject newGO = Instantiate(biomeDecal, biomeTransfroms[i].position, biomeTransfroms[i].rotation, planet);
+            newGO.transform.Rotate(Vector3.up, Random.Range(0, 360));
         }
 
         Destroy(gameObject);

@@ -19,7 +19,6 @@ public class GasRotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         var xRot = transform.rotation.x;
         var yRot = transform.rotation.y;
 
@@ -41,7 +40,6 @@ public class GasRotation : MonoBehaviour
 
 
                 transform.Rotate(xRot, 0, yRot, Space.Self);
-
             }
 
         }

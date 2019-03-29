@@ -10,19 +10,17 @@ public class CameraRotation : MonoBehaviour
     public float rotationSpeed = 0;
     public Rigidbody rb;
     
-
-
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        var xRot = transform.rotation.x;
+        var yRot = transform.rotation.y;
 
         if ((Input.touchCount == 2))
         {
@@ -34,12 +32,16 @@ public class CameraRotation : MonoBehaviour
             {
                 Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
 
-                rb.AddTorque(Camera.main.transform.up * -touchDeltaPosition.x);
-                rb.AddTorque(Camera.main.transform.right * touchDeltaPosition.y);
-            }
-           
-        }
+                //rb.AddTorque(Camera.main.transform.up * -touchDeltaPosition.x);
+                //rb.AddTorque(Camera.main.transform.right * touchDeltaPosition.y);
 
+                xRot += (touchDeltaPosition.y);
+                yRot += (-touchDeltaPosition.x);
+
+
+                transform.Rotate(xRot, 0, yRot, Space.Self);
+            }  
+        }
     }
 
     public void ResetRotation()
@@ -51,6 +53,5 @@ public class CameraRotation : MonoBehaviour
         //Resets rotation to default
         Quaternion defaultRotation = Quaternion.Euler(0, 0, 0);
         gameObject.transform.rotation = defaultRotation;
-
     }
 }
