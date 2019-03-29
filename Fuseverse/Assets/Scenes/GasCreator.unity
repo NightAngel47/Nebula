@@ -25306,10 +25306,10 @@ GameObject:
   - component: {fileID: 1981306970}
   - component: {fileID: 1981306969}
   - component: {fileID: 1981306968}
-  - component: {fileID: 1981306967}
   - component: {fileID: 1981306973}
   - component: {fileID: 1981306974}
   - component: {fileID: 1981306975}
+  - component: {fileID: 1981306967}
   m_Layer: 0
   m_Name: Planet
   m_TagString: Planet
@@ -25326,13 +25326,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1981306966}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2adcad746079a024da5da6cbce1f4ae8, type: 3}
+  m_Script: {fileID: 11500000, guid: 05d363a46a063084d932f184b620e248, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   startPos: {x: 0, y: 0}
   direction: {x: 0, y: 0}
-  rotationSpeed: 2
-  rb: {fileID: 1981306968}
+  rotationSpeed: 0
+  rb: {fileID: 0}
 --- !u!54 &1981306968
 Rigidbody:
   m_ObjectHideFlags: 0

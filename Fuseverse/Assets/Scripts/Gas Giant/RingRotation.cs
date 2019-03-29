@@ -28,9 +28,10 @@ public class RingRotation : MonoBehaviour
 
             if (Input.GetTouch(0).phase == TouchPhase.Moved)
             {
-                if(canRotate == true)
-                {
-                    Vector3 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
+                
+               if(canRotate == true)
+               {
+                    //    Vector3 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
 
                     /*
                     var rot = Camera.main.gameObject.transform.rotation;
@@ -40,14 +41,24 @@ public class RingRotation : MonoBehaviour
                     vectorRot.y += touchDeltaPosition.y * rotationSpeed;
                     vectorRot.z += touchDeltaPosition.z * rotationSpeed;
                     */
-                    Vector3 planetPos = new Vector3(planet.transform.position.x, planet.transform.position.y, planet.transform.position.z);
-                    transform.Rotate(planetPos, rotationSpeed);
+                    //    Vector3 planetPos = new Vector3(planet.transform.position.x, planet.transform.position.y, planet.transform.position.z);
+                    //   transform.Rotate(planetPos, rotationSpeed);
 
 
 
-                  //  rb.MoveRotation(Quaternion.Euler(vectorRot));
+                    //  rb.MoveRotation(Quaternion.Euler(vectorRot));
+
+                    //Vector2 distance = firstTouch.deltaPosition * Time.deltaTime;
+
+                    
+                   //     Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
+
+                    //    rb.AddTorque(Camera.main.transform.up * -touchDeltaPosition.x);
+                    //    rb.AddTorque(Camera.main.transform.right * touchDeltaPosition.y);
+                    
                 }
-                else if(canRotate == false)
+            
+                if(canRotate == false)
                 {
                     Vector3 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
 

@@ -16,7 +16,6 @@ public class CameraRotation : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        RingRotation.canRotate = true;
 
     }
 
@@ -25,7 +24,7 @@ public class CameraRotation : MonoBehaviour
     {
         
 
-        if ((Input.touchCount == 2) && (RingRotation.canRotate))
+        if ((Input.touchCount == 2))
         {
 
             Touch firstTouch = Input.GetTouch(0);
