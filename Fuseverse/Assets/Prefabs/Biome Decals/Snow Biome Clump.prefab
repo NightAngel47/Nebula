@@ -69,9 +69,68 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8665681000366632450, guid: 4f387a486bc6f584dba49532350c3d89,
         type: 3}
+      propertyPath: biomeTextures.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300008, guid: 062c461995f4ed246a5269f4969916c9,
+        type: 3}
+    - target: {fileID: 8665681000366632450, guid: 4f387a486bc6f584dba49532350c3d89,
+        type: 3}
+      propertyPath: biomeTextures.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300006, guid: 062c461995f4ed246a5269f4969916c9,
+        type: 3}
+    - target: {fileID: 8665681000366632450, guid: 4f387a486bc6f584dba49532350c3d89,
+        type: 3}
+      propertyPath: biomeTextures.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300012, guid: 062c461995f4ed246a5269f4969916c9,
+        type: 3}
+    - target: {fileID: 8665681000366632450, guid: 4f387a486bc6f584dba49532350c3d89,
+        type: 3}
+      propertyPath: biomeTextures.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300014, guid: 062c461995f4ed246a5269f4969916c9,
+        type: 3}
+    - target: {fileID: 8665681000366632450, guid: 4f387a486bc6f584dba49532350c3d89,
+        type: 3}
+      propertyPath: biomeTextures.Array.data[4]
+      value: 
+      objectReference: {fileID: 21300016, guid: 062c461995f4ed246a5269f4969916c9,
+        type: 3}
+    - target: {fileID: 8665681000366632450, guid: 4f387a486bc6f584dba49532350c3d89,
+        type: 3}
+      propertyPath: biomeTextures.Array.data[5]
+      value: 
+      objectReference: {fileID: 21300010, guid: 062c461995f4ed246a5269f4969916c9,
+        type: 3}
+    - target: {fileID: 8665681000366632450, guid: 4f387a486bc6f584dba49532350c3d89,
+        type: 3}
+      propertyPath: biomeTextures.Array.data[6]
+      value: 
+      objectReference: {fileID: 21300004, guid: 062c461995f4ed246a5269f4969916c9,
+        type: 3}
+    - target: {fileID: 8665681000366632450, guid: 4f387a486bc6f584dba49532350c3d89,
+        type: 3}
+      propertyPath: biomeTextures.Array.data[7]
+      value: 
+      objectReference: {fileID: 21300002, guid: 062c461995f4ed246a5269f4969916c9,
+        type: 3}
+    - target: {fileID: 8665681000366632450, guid: 4f387a486bc6f584dba49532350c3d89,
+        type: 3}
+      propertyPath: biomeTextures.Array.data[8]
+      value: 
+      objectReference: {fileID: 21300000, guid: 062c461995f4ed246a5269f4969916c9,
+        type: 3}
+    - target: {fileID: 8665681000366632450, guid: 4f387a486bc6f584dba49532350c3d89,
+        type: 3}
       propertyPath: biomeDecal
       value: 
       objectReference: {fileID: 4335992246169518186, guid: 5d77412e5d586254bbaf0f8a5f150d0d,
         type: 3}
+    - target: {fileID: 8665681000366632450, guid: 4f387a486bc6f584dba49532350c3d89,
+        type: 3}
+      propertyPath: biomeMat
+      value: 
+      objectReference: {fileID: 2100000, guid: f418225b682a3a14b844e1f37c7d1de2, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f387a486bc6f584dba49532350c3d89, type: 3}

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.HDPipeline;
 
 public class BiomeClump : MonoBehaviour
 {
@@ -15,9 +16,12 @@ public class BiomeClump : MonoBehaviour
 
     void Start()
     {
+        // nince sections of decal
         for(int i = 0; i < biomeTransfroms.Length; ++i)
         {
-           Instantiate(biomeDecal, biomeTransfroms[i].position, biomeTransfroms[i].rotation, planet);
+            // spawn decal
+            Instantiate(biomeDecal, biomeTransfroms[i].position, biomeTransfroms[i].rotation, planet);
+            
         }
 
         Destroy(gameObject);

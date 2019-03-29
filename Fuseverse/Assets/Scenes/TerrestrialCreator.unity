@@ -7832,6 +7832,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbe5018a13e990b4b95fc4c2267d0674, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DebugOn: 1
   terrainEraser: {fileID: 0}
   biomeTextures:
   - {fileID: 2149716870524079106, guid: 445a1726d04cfba46bda96e36334f128, type: 3}
