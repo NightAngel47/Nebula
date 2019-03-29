@@ -2054,6 +2054,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 0
   rb: {fileID: 0}
+  planet: {fileID: 0}
 --- !u!54 &316091849
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7122,8 +7123,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 523e11cd3f92d774ebfcbfc7cab44cce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 0.5
+  rotationSpeed: 10
   rb: {fileID: 0}
+  planet: {fileID: 1981306966}
 --- !u!1 &379478018
 GameObject:
   m_ObjectHideFlags: 0
@@ -13571,8 +13573,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 523e11cd3f92d774ebfcbfc7cab44cce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 0.05
+  rotationSpeed: 0.5
   rb: {fileID: 0}
+  planet: {fileID: 0}
 --- !u!54 &672716329
 Rigidbody:
   m_ObjectHideFlags: 0

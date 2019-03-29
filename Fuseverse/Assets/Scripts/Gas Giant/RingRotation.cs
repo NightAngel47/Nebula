@@ -7,6 +7,8 @@ public class RingRotation : MonoBehaviour
     public float rotationSpeed = 0;
     public Rigidbody rb;
 
+    public GameObject planet;
+
     public static bool canRotate;
 
     // Start is called before the first frame update
@@ -28,27 +30,83 @@ public class RingRotation : MonoBehaviour
             {
                 if(canRotate == true)
                 {
-                    Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
+                    Vector3 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
 
+                    /*
                     var rot = Camera.main.gameObject.transform.rotation;
                     var vectorRot = rot.eulerAngles;
 
                     vectorRot.x += touchDeltaPosition.x * rotationSpeed;
                     vectorRot.y += touchDeltaPosition.y * rotationSpeed;
+                    vectorRot.z += touchDeltaPosition.z * rotationSpeed;
+                    */
+                    Vector3 planetPos = new Vector3(planet.transform.position.x, planet.transform.position.y, planet.transform.position.z);
+                    transform.Rotate(planetPos, rotationSpeed);
 
-                    rb.MoveRotation(Quaternion.Euler(vectorRot));
+
+
+                  //  rb.MoveRotation(Quaternion.Euler(vectorRot));
                 }
                 else if(canRotate == false)
                 {
-                    Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
+                    Vector3 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
 
-                    var rot = transform.rotation;
-                    var vectorRot = rot.eulerAngles;
 
-                    vectorRot.x += touchDeltaPosition.x * rotationSpeed;
-                    vectorRot.y += touchDeltaPosition.y * rotationSpeed;
 
-                    rb.MoveRotation(Quaternion.Euler(vectorRot));
+                    //var rot = transform.rotation;
+                    //var vectorRot = rot.eulerAngles;
+
+                    var xRot = transform.rotation.x;
+                    //var zRot = transform.rotation.z;
+
+                    //vectorRot.x += (touchDeltaPosition.x * Time.deltaTime) * rotationSpeed;
+                    //vectorRot.y += (touchDeltaPosition.y * Time.deltaTime) * rotationSpeed;
+                   
+
+                    if (Input.GetTouch(0).deltaPosition.magnitude < 0)
+                    {
+                        xRot += (touchDeltaPosition.y * Time.deltaTime) * -rotationSpeed;
+                        //zRot += (touchDeltaPosition.x * Time.deltaTime) * -rotationSpeed;
+
+
+                        transform.Rotate(xRot, 0, 0, Space.Self);
+
+                        //transform.rotation = Quaternion.Euler(vectorRot);
+
+                        /*
+                        Vector3 planetPos = new Vector3(planet.transform.position.x, planet.transform.position.y, planet.transform.position.z);
+                        Vector3 spin = new Vector3(vectorRot.x, 0, 0);
+                        transform.RotateAround(planetPos, spin, rotationSpeed);
+                        */
+                    }
+                    else if(Input.GetTouch(0).deltaPosition.magnitude > 0)
+                    {
+                        xRot += (touchDeltaPosition.y * Time.deltaTime) * rotationSpeed;
+                        //zRot += (touchDeltaPosition.x * Time.deltaTime) * rotationSpeed;
+
+                        transform.Rotate(xRot, 0, 0, Space.Self);
+
+                        //transform.rotation = Quaternion.Euler(vectorRot);
+
+                        /*
+                        Vector3 planetPos = new Vector3(planet.transform.position.x, planet.transform.position.y, planet.transform.position.z);
+                        Vector3 spin = new Vector3(vectorRot.x, 0, 0);
+                        transform.RotateAround(planetPos, spin, rotationSpeed);
+                        */
+                    }
+
+
+
+                    //transform.rotation = Quaternion.Euler(vectorRot);
+
+                    // rb.MoveRotation(Quaternion.Euler(vectorRot));
+
+
+                    //transform.Rotate(planetPos, rotationSpeed);
+
+                    //transform.Rotate(vectorRot.x, vectorRot.y, vectorRot.z, Space.Self);
+
+
                 }
             }
 
