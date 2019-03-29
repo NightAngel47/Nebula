@@ -301,7 +301,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPos: {x: 0, y: 0}
   direction: {x: 0, y: 0}
-  rotationSpeed: 2
+  rotationSpeed: 0
   rb: {fileID: 110666250}
 --- !u!54 &110666250
 Rigidbody:
@@ -3241,17 +3241,6 @@ MonoBehaviour:
           m_StringArgument: plants
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: TerrainOption
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: plants
-          m_BoolArgument: 0
-        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &749936181
@@ -3451,17 +3440,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1913211105}
-        m_MethodName: TerrainOption
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: erase
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
         m_MethodName: TerrainOption
         m_Mode: 5
         m_Arguments:
@@ -4774,17 +4752,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1913211105}
-        m_MethodName: TerrainOption
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: up
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
         m_MethodName: TerrainOption
         m_Mode: 5
         m_Arguments:
@@ -7833,7 +7800,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DebugOn: 0
-  terrainEraser: {fileID: 0}
+  terrainEraser: {fileID: 7891452434980419166, guid: c67c69a896290c046b5aaacd333723d8,
+    type: 3}
   biomeTextures:
   - {fileID: 2149716870524079106, guid: 445a1726d04cfba46bda96e36334f128, type: 3}
   - {fileID: 2043495363660660276, guid: 09c5a447199a3e3449113d1d05ad250d, type: 3}
