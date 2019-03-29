@@ -331,6 +331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 394618e27ba66d1428531145781af65d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rings: {fileID: 0}
 --- !u!1 &133221775
 GameObject:
   m_ObjectHideFlags: 0
@@ -7833,14 +7834,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrainEraser: {fileID: 0}
   biomeTextures:
-  - {fileID: 4335992246169518186, guid: 5d77412e5d586254bbaf0f8a5f150d0d, type: 3}
-  - {fileID: 8641424912866715720, guid: e451330cf7e813747852c0cddd83d690, type: 3}
-  - {fileID: 1092640017985081468, guid: a2f0643c219cb194487b61a5dcbcd97d, type: 3}
-  - {fileID: 1119758164663297260, guid: 60c352e3664528446ba55cf1951c34ce, type: 3}
-  - {fileID: 9017382007806448768, guid: c6138093cd3705e4cbb86839ac7fef42, type: 3}
-  - {fileID: 2025461326456479164, guid: f3270c9c2cd6c3840ba3fef5ab93fb37, type: 3}
-  - {fileID: 3814112445662485362, guid: c8ae7b010adcead41b0c31f0a3224c4e, type: 3}
-  - {fileID: 1139861417577780103, guid: ba981508787b31f4d975db5c69b983ee, type: 3}
+  - {fileID: 2149716870524079106, guid: 445a1726d04cfba46bda96e36334f128, type: 3}
+  - {fileID: 2043495363660660276, guid: 09c5a447199a3e3449113d1d05ad250d, type: 3}
+  - {fileID: 2481512748541055363, guid: 7f29b2d1df087e8408dc40fea920b6de, type: 3}
+  - {fileID: 8246271451223225131, guid: 55f6b87ef50e8964190facc7530f6a8c, type: 3}
+  - {fileID: 141370044312625832, guid: efe9115f98391d14b8d29ad0a4ce3ddc, type: 3}
+  - {fileID: 7873048357548408942, guid: 053fc21c22186e44b911d651efa89866, type: 3}
+  - {fileID: 3216737891944524, guid: 0a3b4b9524dbc924f8200846b4ee7868, type: 3}
+  - {fileID: 8593319380285225354, guid: 219f30cfe97f61f45a526b9fa941e458, type: 3}
 --- !u!114 &1913211106
 MonoBehaviour:
   m_ObjectHideFlags: 0
