@@ -27,9 +27,20 @@ public class SavePlanet : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "Complete Screen")
         {
+            // move planet
             transform.position = GameObject.FindGameObjectWithTag("FinishPos").transform.position;
             transform.localScale = GameObject.FindGameObjectWithTag("FinishPos").transform.localScale;
+
+            // make planet spin
             gameObject.AddComponent<planetSpin>();
+
+            // destroy unnessessary componets
+            Destroy(gameObject.GetComponent<Rigidbody>());
+            Destroy(gameObject.GetComponent<CameraRotation>());
+            Destroy(gameObject.GetComponent<MeshCollider>());
+            Destroy(gameObject.GetComponent<GasGiantController>());
+            Destroy(gameObject.GetComponent<HideRings>());
+            Destroy(gameObject.GetComponent<GasRotation>());
 
             if (rings != null)
             {
