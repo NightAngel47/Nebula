@@ -13,7 +13,7 @@ public class GasRotation : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-
+        RingRotation.canRotate = true;
     }
 
     // Update is called once per frame
@@ -23,7 +23,7 @@ public class GasRotation : MonoBehaviour
         var xRot = transform.rotation.x;
         var yRot = transform.rotation.y;
 
-        if ((Input.touchCount == 2))
+        if ((Input.touchCount == 2) && RingRotation.canRotate)
         {
 
             Touch firstTouch = Input.GetTouch(0);
