@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
+
 public class Timer : MonoBehaviour
 {
     public GameObject rotatehands;
@@ -15,7 +17,7 @@ public class Timer : MonoBehaviour
     {
         inputTimer += Time.deltaTime;
         //INPUT CHECK
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.touchCount > 0)
         {
             inputTimer = 0;
             rotatehands.SetActive(false);
