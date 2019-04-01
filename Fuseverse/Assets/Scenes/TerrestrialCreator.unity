@@ -2692,7 +2692,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &697023313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2789,8 +2789,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed787bf41203cdc4496aa41dde71f69c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HandRight: {fileID: 227978783}
-  HandLeft: {fileID: 912066526}
 --- !u!1 &712683513
 GameObject:
   m_ObjectHideFlags: 0
@@ -7577,15 +7575,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 281fe8dc6e0dacb4a97347684229c8bf, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.35
+      value: 0.31
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 281fe8dc6e0dacb4a97347684229c8bf, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.35
+      value: 0.31
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 281fe8dc6e0dacb4a97347684229c8bf, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.35
+      value: 0.31
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 281fe8dc6e0dacb4a97347684229c8bf, type: 3}
       propertyPath: m_Materials.Array.data[0]
