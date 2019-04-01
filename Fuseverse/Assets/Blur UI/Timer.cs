@@ -11,13 +11,14 @@ public class Timer : MonoBehaviour
     private float inputTimer;
     void Start()
     {
-        inputTimer = 0;
+
+        inputTimer = 11;
     }
     void Update()
     {
         inputTimer += Time.deltaTime;
         //INPUT CHECK
-        if (Input.touchCount > 0)
+        if (Input.touchCount > 0 || Input.GetKeyDown("space"))
         {
             inputTimer = 0;
             rotatehands.SetActive(false);
