@@ -283,7 +283,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.35, y: 1.35, z: 1.35}
   m_Children:
-  - {fileID: 332682902}
+  - {fileID: 1812487154}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -424,7 +424,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 332682907}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeColor
         m_Mode: 3
         m_Arguments:
@@ -435,7 +435,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 332682907}
+      - m_Target: {fileID: 0}
         m_MethodName: ActivateAtmosphere
         m_Mode: 1
         m_Arguments:
@@ -939,7 +939,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 1ac3405a0f5104e728ede3652069805e, type: 3}
+    m_Font: {fileID: 12800000, guid: 252eb678225684d64a675a52b0db341c, type: 3}
     m_FontSize: 52
     m_FontStyle: 0
     m_BestFit: 0
@@ -1179,148 +1179,6 @@ RectTransform:
   m_AnchoredPosition: {x: 200, y: -65.00003}
   m_SizeDelta: {x: 358.3, y: 56.7}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &332682901
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 332682902}
-  - component: {fileID: 332682905}
-  - component: {fileID: 332682904}
-  - component: {fileID: 332682903}
-  - component: {fileID: 332682906}
-  - component: {fileID: 332682907}
-  - component: {fileID: 332682908}
-  m_Layer: 0
-  m_Name: Atmosphere
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &332682902
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 332682901}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2148149, y: 1.2148149, z: 1.2148149}
-  m_Children: []
-  m_Father: {fileID: 110666248}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &332682903
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 332682901}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2adcad746079a024da5da6cbce1f4ae8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startPos: {x: 0, y: 0}
-  direction: {x: 0, y: 0}
-  rotationSpeed: 0
-  rb: {fileID: 0}
---- !u!23 &332682904
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 332682901}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 90325ee86f7196641b638bf0d6464458, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!33 &332682905
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 332682901}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &332682906
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 332682901}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 10
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!114 &332682907
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 332682901}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ece1550f39cd9d4b82e2170308bb32e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rend: {fileID: 0}
-  atmosphereMax: 0.889994
-  atmosphereMin: 0
-  atmosphereIncrementValue: 0.01
---- !u!114 &332682908
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 332682901}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c91d3b316f2ecc449ba954c3f98d58eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rend: {fileID: 0}
 --- !u!1 &368290951
 GameObject:
   m_ObjectHideFlags: 0
@@ -1605,7 +1463,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 332682907}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeColor
         m_Mode: 3
         m_Arguments:
@@ -1616,7 +1474,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 332682907}
+      - m_Target: {fileID: 0}
         m_MethodName: ActivateAtmosphere
         m_Mode: 1
         m_Arguments:
@@ -1809,7 +1667,7 @@ GameObject:
   - component: {fileID: 471953766}
   - component: {fileID: 471953765}
   m_Layer: 5
-  m_Name: Biomes Text
+  m_Name: Terrain Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1855,7 +1713,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 1ac3405a0f5104e728ede3652069805e, type: 3}
+    m_Font: {fileID: 12800000, guid: 252eb678225684d64a675a52b0db341c, type: 3}
     m_FontSize: 52
     m_FontStyle: 0
     m_BestFit: 0
@@ -1867,7 +1725,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Biomes
+  m_Text: Terrain
 --- !u!222 &471953766
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2067,7 +1925,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 332682907}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeColor
         m_Mode: 3
         m_Arguments:
@@ -2078,7 +1936,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 332682907}
+      - m_Target: {fileID: 0}
         m_MethodName: ActivateAtmosphere
         m_Mode: 1
         m_Arguments:
@@ -2228,7 +2086,7 @@ MonoBehaviour:
           m_StringArgument: biomes
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 332682907}
+      - m_Target: {fileID: 0}
         m_MethodName: DeactivateAtmosphere
         m_Mode: 1
         m_Arguments:
@@ -2834,7 +2692,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &697023313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2910,6 +2768,7 @@ RectTransform:
   - {fileID: 912066524}
   - {fileID: 1000721607}
   - {fileID: 1536574293}
+  - {fileID: 1195913976}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3227,7 +3086,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 332682907}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeColor
         m_Mode: 3
         m_Arguments:
@@ -3238,7 +3097,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 332682907}
+      - m_Target: {fileID: 0}
         m_MethodName: ActivateAtmosphere
         m_Mode: 1
         m_Arguments:
@@ -3429,7 +3288,7 @@ GameObject:
   - component: {fileID: 801992556}
   - component: {fileID: 801992555}
   m_Layer: 5
-  m_Name: Terrain Text
+  m_Name: Biome Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3488,7 +3347,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Terrain
+  m_Text: Biomes
 --- !u!222 &801992556
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3993,7 +3852,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 1ac3405a0f5104e728ede3652069805e, type: 3}
+    m_Font: {fileID: 12800000, guid: 252eb678225684d64a675a52b0db341c, type: 3}
     m_FontSize: 36
     m_FontStyle: 2
     m_BestFit: 0
@@ -4027,7 +3886,7 @@ GameObject:
   - component: {fileID: 1022020901}
   - component: {fileID: 1022020900}
   m_Layer: 5
-  m_Name: Terrain Select Animation
+  m_Name: Biome Select Animation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4064,7 +3923,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4fa91108c8f81b4ab67c4749329ea91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Tab: {fileID: 1396464501}
+  Tab: {fileID: 1463839835}
   selection: {fileID: 1022020901}
   fillSpeed: 0.5
 --- !u!114 &1022020901
@@ -4421,7 +4280,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 332682907}
+      - m_Target: {fileID: 0}
         m_MethodName: ActivateAtmosphere
         m_Mode: 1
         m_Arguments:
@@ -4492,6 +4351,107 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1137993511}
+  m_CullTransparentMesh: 0
+--- !u!1 &1195913975
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1195913976}
+  - component: {fileID: 1195913979}
+  - component: {fileID: 1195913978}
+  - component: {fileID: 1195913977}
+  m_Layer: 5
+  m_Name: Dismiss
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1195913976
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195913975}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 697023316}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -300}
+  m_SizeDelta: {x: 400, y: 300}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &1195913977
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195913975}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: aa71362c8022cb840a9d08020778fddf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1195913978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195913975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 252eb678225684d64a675a52b0db341c, type: 3}
+    m_FontSize: 42
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 101
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: '
+
+    Tap anywhere to dismiss'
+--- !u!222 &1195913979
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195913975}
   m_CullTransparentMesh: 0
 --- !u!1 &1210966060
 GameObject:
@@ -4605,7 +4565,7 @@ GameObject:
   - component: {fileID: 1276225011}
   - component: {fileID: 1276225010}
   m_Layer: 5
-  m_Name: Biome Select Animation
+  m_Name: Terrain Select Animation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4642,7 +4602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4fa91108c8f81b4ab67c4749329ea91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Tab: {fileID: 1463839835}
+  Tab: {fileID: 1396464501}
   selection: {fileID: 1276225011}
   fillSpeed: 0.5
 --- !u!114 &1276225011
@@ -4771,7 +4731,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 332682907}
+      - m_Target: {fileID: 0}
         m_MethodName: ResetRotation
         m_Mode: 1
         m_Arguments:
@@ -5398,7 +5358,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 332682907}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeColor
         m_Mode: 3
         m_Arguments:
@@ -5409,7 +5369,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 332682907}
+      - m_Target: {fileID: 0}
         m_MethodName: ActivateAtmosphere
         m_Mode: 1
         m_Arguments:
@@ -6076,7 +6036,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 1ac3405a0f5104e728ede3652069805e, type: 3}
+    m_Font: {fileID: 12800000, guid: 252eb678225684d64a675a52b0db341c, type: 3}
     m_FontSize: 36
     m_FontStyle: 2
     m_BestFit: 0
@@ -6679,7 +6639,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 332682907}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeColor
         m_Mode: 3
         m_Arguments:
@@ -6690,7 +6650,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 332682907}
+      - m_Target: {fileID: 0}
         m_MethodName: ActivateAtmosphere
         m_Mode: 1
         m_Arguments:
@@ -7560,6 +7520,85 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1808085087}
   m_CullTransparentMesh: 1
+--- !u!1001 &1812487153
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 110666248}
+    m_Modifications:
+    - target: {fileID: 100002, guid: 281fe8dc6e0dacb4a97347684229c8bf, type: 3}
+      propertyPath: m_Name
+      value: Inv Sphere
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 281fe8dc6e0dacb4a97347684229c8bf, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 281fe8dc6e0dacb4a97347684229c8bf, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 281fe8dc6e0dacb4a97347684229c8bf, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 281fe8dc6e0dacb4a97347684229c8bf, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 281fe8dc6e0dacb4a97347684229c8bf, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 281fe8dc6e0dacb4a97347684229c8bf, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 281fe8dc6e0dacb4a97347684229c8bf, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 281fe8dc6e0dacb4a97347684229c8bf, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 281fe8dc6e0dacb4a97347684229c8bf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 281fe8dc6e0dacb4a97347684229c8bf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 281fe8dc6e0dacb4a97347684229c8bf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 281fe8dc6e0dacb4a97347684229c8bf, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 281fe8dc6e0dacb4a97347684229c8bf, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 281fe8dc6e0dacb4a97347684229c8bf, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 281fe8dc6e0dacb4a97347684229c8bf, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 03a861c4e29365e4299ca6535fec615c, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 281fe8dc6e0dacb4a97347684229c8bf, type: 3}
+--- !u!4 &1812487154 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400002, guid: 281fe8dc6e0dacb4a97347684229c8bf,
+    type: 3}
+  m_PrefabInstance: {fileID: 1812487153}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1852504560
 GameObject:
   m_ObjectHideFlags: 0
@@ -7754,7 +7793,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 332682907}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeColor
         m_Mode: 3
         m_Arguments:
@@ -7765,7 +7804,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 332682907}
+      - m_Target: {fileID: 0}
         m_MethodName: ActivateAtmosphere
         m_Mode: 1
         m_Arguments:
@@ -8080,8 +8119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e2db9e3c6b0f0e4394231ddf37bd71e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Terrain_Button: {fileID: 1988609799}
-  Biomes_Button: {fileID: 593510181}
+  Terrain_Button: {fileID: 593510181}
+  Biomes_Button: {fileID: 1988609799}
   Atmosphere_Button: {fileID: 1137993513}
   Finish_Button: {fileID: 0}
   terrainCanvas: {fileID: 1396464501}
@@ -8701,7 +8740,7 @@ MonoBehaviour:
           m_StringArgument: terrain
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 332682907}
+      - m_Target: {fileID: 0}
         m_MethodName: DeactivateAtmosphere
         m_Mode: 1
         m_Arguments:
@@ -8764,7 +8803,7 @@ GameObject:
   - component: {fileID: 1996181892}
   - component: {fileID: 1996181891}
   m_Layer: 0
-  m_Name: UI Camera (Do Not Touch, Will Brick Rendering)
+  m_Name: UI Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9186,7 +9225,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 1ac3405a0f5104e728ede3652069805e, type: 3}
+    m_Font: {fileID: 12800000, guid: 252eb678225684d64a675a52b0db341c, type: 3}
     m_FontSize: 52
     m_FontStyle: 0
     m_BestFit: 0
@@ -9299,7 +9338,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 332682907}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeColor
         m_Mode: 3
         m_Arguments:
@@ -9310,7 +9349,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 332682907}
+      - m_Target: {fileID: 0}
         m_MethodName: ActivateAtmosphere
         m_Mode: 1
         m_Arguments:
