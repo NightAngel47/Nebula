@@ -11,20 +11,24 @@ public class Timer : MonoBehaviour
     public GameObject tapHands;
     public GameObject rotateHands;
     public Button selectionOne;
-    public Button selectionTwo;
 
     private float inputTimer;
 
     void Start()
     {
-        selectionOne.onClick.AddListener(onClickAtmosphere);
-        selectionTwo.onClick.AddListener(onClickAtmosphere);
-
         inputTimer = 11;
-    }
+        selectionOne.onClick.AddListener(onClickAtmosphere);
 
+    }
+    void onClickAtmosphere()
+    {
+        inputTimer = 11;
+        Debug.Log("you clicked the button, good for you");
+    }
     void Update()
     {
+        //Debug.Log(inputTimer);
+
         inputTimer += Time.deltaTime;
         //INPUT CHECK
         if (Input.touchCount > 0 || Input.GetKeyDown("space"))
@@ -50,15 +54,12 @@ public class Timer : MonoBehaviour
         {
             tapHands.SetActive(false);
         }
-            else
+        if (atmosphereCanvas.activeSelf == false)
             {
             dragHands.SetActive(false);
             }
     }
 
-    void onClickAtmosphere()
-    {
-        inputTimer = 11;
-    }
 
+ 
 }
