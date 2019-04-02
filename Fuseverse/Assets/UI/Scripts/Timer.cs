@@ -25,13 +25,13 @@ public class Timer : MonoBehaviour
         inputTimer = 11;
         Debug.Log("you clicked the button, good for you");
     }
-    void Update()
+    void FixedUpdate()
     {
         //Debug.Log(inputTimer);
 
         inputTimer += Time.deltaTime;
         //INPUT CHECK
-        if (Input.touchCount > 0 || Input.GetKeyDown("space"))
+        if (Input.touchCount > 0 || Input.GetMouseButton(0))
         {
             inputTimer = 0;
             tapHands.SetActive(false);
