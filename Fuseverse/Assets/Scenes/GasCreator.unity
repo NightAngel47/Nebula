@@ -1854,7 +1854,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &276874931
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19715,7 +19715,6 @@ MonoBehaviour:
   tapHands: {fileID: 680570347}
   rotateHands: {fileID: 659890963}
   selectionOne: {fileID: 0}
-  selectionTwo: {fileID: 0}
 --- !u!1 &1785215690
 GameObject:
   m_ObjectHideFlags: 0
