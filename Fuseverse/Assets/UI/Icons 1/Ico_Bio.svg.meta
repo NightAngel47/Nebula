@@ -1,11 +1,10 @@
 fileFormatVersion: 2
-guid: 6a20d3b6a92509f458418699b75a7054
+guid: 7c6f51a4c84d2984baf67b177e3bf4ce
 ScriptedImporter:
   fileIDToRecycleName:
-    100000: gameObject/Ico_Bio
-    400000: gameObject/Ico_Bio/Transform
-    2800000: texAtlas
-    21200000: gameObject/Ico_Bio/SpriteRenderer
+    100002: gameObject/Ico_Bio
+    400002: gameObject/Ico_Bio/Transform
+    21200002: gameObject/Ico_Bio/SpriteRenderer
     21300000: sprite
     100100000: gameObject
   externalObjects: {}
@@ -52,5 +51,5 @@ ScriptedImporter:
         y: 0
         width: 0
         height: 0
-      spriteID: 88914b84bdd815b42b3cb0020963e3c7
+      spriteID: 5f1828b685134054ca34ff1b3ce0a472
     PhysicsOutlines: []
