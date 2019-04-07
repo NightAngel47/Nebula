@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d5b3db8e7dbd4984eaa6cd278941950a
+guid: f99d34ff23c678448a3e072386f0a6b7
 ScriptedImporter:
   fileIDToRecycleName:
-    100000: gameObject/Tool Wheel
-    400000: gameObject/Tool Wheel/Transform
-    21200000: gameObject/Tool Wheel/SpriteRenderer
+    100000: gameObject/Ico_Atm
+    400000: gameObject/Ico_Atm/Transform
+    21200000: gameObject/Ico_Atm/SpriteRenderer
     21300000: sprite
     100100000: gameObject
   externalObjects: {}
@@ -51,5 +51,5 @@ ScriptedImporter:
         y: 0
         width: 0
         height: 0
-      spriteID: bba129b716d31394d9ed6c26ca62f942
+      spriteID: 9c57d44d0346f1c4aa91bf49f90fded3
     PhysicsOutlines: []

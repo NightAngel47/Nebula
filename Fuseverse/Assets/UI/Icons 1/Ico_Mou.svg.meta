@@ -1,8 +1,12 @@
 fileFormatVersion: 2
-guid: bd5af3743f381774cacbf30c11c21b39
+guid: 1fac5e96c787c1f4583192ef0f67917f
 ScriptedImporter:
   fileIDToRecycleName:
-    2186277476908879412: ImportLogs
+    100000: gameObject/Ico_Mou
+    400000: gameObject/Ico_Mou/Transform
+    21200000: gameObject/Ico_Mou/SpriteRenderer
+    21300000: sprite
+    100100000: gameObject
   externalObjects: {}
   userData: 
   assetBundleName: 
@@ -47,5 +51,5 @@ ScriptedImporter:
         y: 0
         width: 0
         height: 0
-      spriteID: 
+      spriteID: 8c524d7684c7b6e4291c91caf2eae41f
     PhysicsOutlines: []

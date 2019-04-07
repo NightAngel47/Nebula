@@ -5,75 +5,81 @@ using UnityEngine.UI;
 
 public class RotaryWheel8 : MonoBehaviour
 {
-    public Button Ocean;
-    public Button Tiaga;
-    public Button Desert;
-    public Button Forest;
-    public Button Rock;
-    public Button Plains;
-    public Button Savanna;
-    public Button Tundra;
+    public Button But1;
+    public Button But2;
+    public Button But3;
+    public Button But4;
+    public Button But5;
+    public Button But6;
+    public Button But7;
+    public Button But8;
 
-    public float speed = 50f;
+    private float speed = 125f;
     public float Zed = 0f;
     public GameObject Rotary;
 
+    public float Z1 = 0f;
+    public float Z2 = 0f;
+    public float Z3 = 0f;
+    public float Z4 = 0f;
+    public float Z5 = 0f;
+    public float Z6 = 0f;
+    public float Z7 = 0f;
+    public float Z8 = 0f;
 
+    public float smoothing = 2f;
 
-
-    // Start is called before the first frame update
     void Start()
     {
-        Ocean.onClick.AddListener(tapOcean);
-        Tiaga.onClick.AddListener(tapTiaga);
-        Desert.onClick.AddListener(tapDesert);
-        Forest.onClick.AddListener(tapForest);
-        Rock.onClick.AddListener(tapRock);
-        Plains.onClick.AddListener(tapPlains);
-        Savanna.onClick.AddListener(tapSavanna);
-        Tundra.onClick.AddListener(tapTundra);
+        But1.onClick.AddListener(TapBut1);
+        But2.onClick.AddListener(TapBut2);
+        But3.onClick.AddListener(TapBut3);
+        But4.onClick.AddListener(TapBut4);
+        But5.onClick.AddListener(TapBut5);
+        But6.onClick.AddListener(TapBut6);
+        But7.onClick.AddListener(TapBut7);
+        But8.onClick.AddListener(TapBut8);
 
     } 
 
-// Update is called once per frame
 void FixedUpdate()
     {
 
         var _targetRotation = Quaternion.Euler(0, 0, Zed);
 
         Rotary.transform.rotation = Quaternion.RotateTowards(transform.rotation, _targetRotation, speed * Time.deltaTime);
-
+        transform.rotation = Quaternion.Slerp(transform.rotation, _targetRotation, smoothing * Time.deltaTime);
     }
-    void tapOcean()
+    void TapBut1()
     {
-        Zed = 0f;
+        Zed = Z1;
     }
-    void tapTiaga()
+    void TapBut2()
     {
-        Zed = 45f;
+        Zed = Z2;
     }
-    void tapDesert()
+    void TapBut3()
     {
-        Zed = 90f;
+        Zed = Z3;
     }
-    void tapForest()
+    void TapBut4()
     {
-        Zed = 135f;
+        Zed = Z4;
     }
-    void tapRock()
+    void TapBut5()
     {
-        Zed = 180f;
+        Zed = Z5;
     }
-    void tapPlains()
+    void TapBut6()
     {
-        Zed = 225f;
+        Zed = Z6;
     }
-    void tapSavanna()
+    void TapBut7()
     {
-        Zed = 270f;
+        Zed = Z7;
     }
-    void tapTundra()
+    void TapBut8()
     {
-        Zed = 315f;
+        Zed = Z8;
     }
 }
