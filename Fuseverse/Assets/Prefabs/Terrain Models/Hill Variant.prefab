@@ -12,6 +12,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hill Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 6030863518547973679, guid: 0e758cf0d148b7649ad169c3a72d1f88,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: e91407698e120b84a99f8ff298a3395b, type: 3}
+    - target: {fileID: 9192774383324995251, guid: 0e758cf0d148b7649ad169c3a72d1f88,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8dc16937572834543a3dacc2d411debe, type: 2}
+    - target: {fileID: 9114148939245800613, guid: 0e758cf0d148b7649ad169c3a72d1f88,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: e91407698e120b84a99f8ff298a3395b, type: 3}
     - target: {fileID: 3018314756083065272, guid: 0e758cf0d148b7649ad169c3a72d1f88,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -69,68 +84,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3547517216116900781, guid: 0e758cf0d148b7649ad169c3a72d1f88,
         type: 3}
-      propertyPath: biomes.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3547517216116900781, guid: 0e758cf0d148b7649ad169c3a72d1f88,
-        type: 3}
-      propertyPath: grass
-      value: 
-      objectReference: {fileID: 2800000, guid: f55c0c95eb8fff446bc669e6a756d820, type: 3}
-    - target: {fileID: 3547517216116900781, guid: 0e758cf0d148b7649ad169c3a72d1f88,
-        type: 3}
-      propertyPath: snowy
-      value: 
-      objectReference: {fileID: 2800000, guid: b3ed34bbda465ee4f9a8cc47aa4fafc7, type: 3}
-    - target: {fileID: 3547517216116900781, guid: 0e758cf0d148b7649ad169c3a72d1f88,
-        type: 3}
       propertyPath: isUp
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3547517216116900781, guid: 0e758cf0d148b7649ad169c3a72d1f88,
-        type: 3}
-      propertyPath: hasSnowyVariant
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3547517216116900781, guid: 0e758cf0d148b7649ad169c3a72d1f88,
-        type: 3}
-      propertyPath: biomes.Array.data[0]
-      value: Forest
-      objectReference: {fileID: 0}
-    - target: {fileID: 3547517216116900781, guid: 0e758cf0d148b7649ad169c3a72d1f88,
-        type: 3}
-      propertyPath: biomes.Array.data[1]
-      value: Forest
-      objectReference: {fileID: 0}
-    - target: {fileID: 9114148939245800613, guid: 0e758cf0d148b7649ad169c3a72d1f88,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300000, guid: 451b651d0512761499b849a3d4e1bfa9, type: 3}
-    - target: {fileID: 9192774383324995251, guid: 0e758cf0d148b7649ad169c3a72d1f88,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 8dc16937572834543a3dacc2d411debe, type: 2}
-    - target: {fileID: 6030863518547973679, guid: 0e758cf0d148b7649ad169c3a72d1f88,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300000, guid: 451b651d0512761499b849a3d4e1bfa9, type: 3}
-    - target: {fileID: 294304632602825398, guid: 0e758cf0d148b7649ad169c3a72d1f88,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 294304632602825398, guid: 0e758cf0d148b7649ad169c3a72d1f88,
-        type: 3}
-      propertyPath: grass
-      value: 
-      objectReference: {fileID: 2800000, guid: f55c0c95eb8fff446bc669e6a756d820, type: 3}
-    - target: {fileID: 294304632602825398, guid: 0e758cf0d148b7649ad169c3a72d1f88,
-        type: 3}
-      propertyPath: snowy
-      value: 
-      objectReference: {fileID: 2800000, guid: b3ed34bbda465ee4f9a8cc47aa4fafc7, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e758cf0d148b7649ad169c3a72d1f88, type: 3}

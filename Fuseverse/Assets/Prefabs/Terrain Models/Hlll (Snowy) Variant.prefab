@@ -72,20 +72,5 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 54a00e510f2e5d941927376ec2f74c1a, type: 2}
-    - target: {fileID: 5084824002000893026, guid: 2f50df0be6fccfd4c92b75fb98bb6aa7,
-        type: 3}
-      propertyPath: biomes.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5084824002000893026, guid: 2f50df0be6fccfd4c92b75fb98bb6aa7,
-        type: 3}
-      propertyPath: biomes.Array.data[1]
-      value: Artic
-      objectReference: {fileID: 0}
-    - target: {fileID: 5084824002000893026, guid: 2f50df0be6fccfd4c92b75fb98bb6aa7,
-        type: 3}
-      propertyPath: biomes.Array.data[0]
-      value: Snow
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f50df0be6fccfd4c92b75fb98bb6aa7, type: 3}

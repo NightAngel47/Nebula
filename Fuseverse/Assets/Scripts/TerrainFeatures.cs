@@ -6,6 +6,7 @@ public class TerrainFeatures : MonoBehaviour
 {
     public GameObject[] terrainObjects; // 0 pine, 1 pine snowy, 2 palm, 3 cacti, 4 stump,
                                         // 5 rock, 6 hill, 7 hill snowy, 8 mountains, 9 ice chuck
+                                        // 10 bush, 11 plateau, 12 rock desert, 13 volcano, 14 islands
 
     // terrain - biome interactions
     public GameObject BiomeCheck(string biomeTag, bool isUp)
@@ -18,7 +19,7 @@ public class TerrainFeatures : MonoBehaviour
             }
             else
             {
-                return terrainObjects[0]; // pine
+                return terrainObjects[10]; // bush
             }
         }
         else if(biomeTag == "Forest")
@@ -36,11 +37,11 @@ public class TerrainFeatures : MonoBehaviour
         {
             if (isUp)
             {
-                return terrainObjects[7]; // hills (snowy)
+                return terrainObjects[9]; // ice chunk
             }
             else
             {
-                return terrainObjects[9]; // ice chunk
+                return terrainObjects[1]; // pines (snowy)
             }
         }
         else if (biomeTag == "Snow")
@@ -62,14 +63,14 @@ public class TerrainFeatures : MonoBehaviour
             }
             else
             {
-                return terrainObjects[1]; // pines (snowy) (this might change)
+                return terrainObjects[1]; // pines (snowy)
             }
         }
         else if (biomeTag == "Sand")
         {
             if (isUp)
             {
-                return null; // idk what up is at the moment
+                return terrainObjects[12]; // rock (desert)
             }
             else
             {
@@ -80,19 +81,27 @@ public class TerrainFeatures : MonoBehaviour
         {
             if (isUp)
             {
-                return terrainObjects[5]; // rock (this will change)
+                return terrainObjects[11]; // plateau
             }
             else
             {
-                return terrainObjects[4]; // stump
+                return terrainObjects[3]; // cacti
             }
         }
         else if (biomeTag == "Water")
         {
-            return null; // nothing goes in water you fuck
+            if (isUp)
+            {
+                return terrainObjects[13]; // volcano
+            }
+            else
+            {
+                return terrainObjects[14]; // islands
+            }
         }
         else
         {
+            print("Tag error - biomtag: " + biomeTag);
             return null;
         }
     }

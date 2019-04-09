@@ -12,6 +12,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ice Chunk Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 6030863518547973679, guid: 0e758cf0d148b7649ad169c3a72d1f88,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: c73fc815b6e6c89448915b651a732688, type: 3}
+    - target: {fileID: 9192774383324995251, guid: 0e758cf0d148b7649ad169c3a72d1f88,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: de49bde27e52b464c939dbfaeebad6c4, type: 2}
+    - target: {fileID: 9114148939245800613, guid: 0e758cf0d148b7649ad169c3a72d1f88,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: c73fc815b6e6c89448915b651a732688, type: 3}
     - target: {fileID: 3018314756083065272, guid: 0e758cf0d148b7649ad169c3a72d1f88,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -66,46 +81,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3547517216116900781, guid: 0e758cf0d148b7649ad169c3a72d1f88,
-        type: 3}
-      propertyPath: biomes.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3547517216116900781, guid: 0e758cf0d148b7649ad169c3a72d1f88,
-        type: 3}
-      propertyPath: biomes.Array.data[0]
-      value: Artic
-      objectReference: {fileID: 0}
-    - target: {fileID: 3547517216116900781, guid: 0e758cf0d148b7649ad169c3a72d1f88,
-        type: 3}
-      propertyPath: biomes.Array.data[1]
-      value: Artic
-      objectReference: {fileID: 0}
-    - target: {fileID: 9114148939245800613, guid: 0e758cf0d148b7649ad169c3a72d1f88,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300000, guid: c73fc815b6e6c89448915b651a732688, type: 3}
-    - target: {fileID: 9192774383324995251, guid: 0e758cf0d148b7649ad169c3a72d1f88,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: de49bde27e52b464c939dbfaeebad6c4, type: 2}
-    - target: {fileID: 6030863518547973679, guid: 0e758cf0d148b7649ad169c3a72d1f88,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300000, guid: c73fc815b6e6c89448915b651a732688, type: 3}
-    - target: {fileID: 294304632602825398, guid: 0e758cf0d148b7649ad169c3a72d1f88,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 294304632602825398, guid: 0e758cf0d148b7649ad169c3a72d1f88,
-        type: 3}
-      propertyPath: isSnowy
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e758cf0d148b7649ad169c3a72d1f88, type: 3}
