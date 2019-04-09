@@ -204,7 +204,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1913211105}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeBiomes
         m_Mode: 3
         m_Arguments:
@@ -356,7 +356,6 @@ GameObject:
   - component: {fileID: 110666247}
   - component: {fileID: 110666246}
   - component: {fileID: 110666245}
-  - component: {fileID: 110666250}
   - component: {fileID: 110666249}
   - component: {fileID: 110666251}
   m_Layer: 0
@@ -377,7 +376,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &110666246
@@ -455,23 +454,7 @@ MonoBehaviour:
   startPos: {x: 0, y: 0}
   direction: {x: 0, y: 0}
   rotationSpeed: 0
-  rb: {fileID: 110666250}
---- !u!54 &110666250
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 110666244}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 10
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  rb: {fileID: 0}
 --- !u!114 &110666251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -957,7 +940,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1913211105}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeBiomes
         m_Mode: 3
         m_Arguments:
@@ -1525,7 +1508,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1913211105}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeBiomes
         m_Mode: 3
         m_Arguments:
@@ -1891,7 +1874,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1913211105}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeBiomes
         m_Mode: 3
         m_Arguments:
@@ -2144,6 +2127,157 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!1 &380538111
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 380538115}
+  - component: {fileID: 380538114}
+  - component: {fileID: 380538113}
+  - component: {fileID: 380538112}
+  m_Layer: 0
+  m_Name: Painter Camera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &380538112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380538111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23c1ce4fb46143f46bc5cb5224c934f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  clearColorMode: 2
+  backgroundColorHDR: {r: 0.025, g: 0.07, b: 0.19, a: 0}
+  clearDepth: 1
+  renderingPath: 0
+  volumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  volumeAnchorOverride: {fileID: 0}
+  aperture: 8
+  shutterSpeed: 0.005
+  iso: 400
+  m_FrameSettings:
+    overrides: 0
+    enableShadow: 1
+    enableContactShadows: 1
+    enableShadowMask: 1
+    enableSSR: 0
+    enableSSAO: 1
+    enableSubsurfaceScattering: 1
+    enableTransmission: 1
+    enableAtmosphericScattering: 1
+    enableVolumetrics: 1
+    enableReprojectionForVolumetrics: 1
+    enableLightLayers: 1
+    diffuseGlobalDimmer: 1
+    specularGlobalDimmer: 1
+    shaderLitMode: 1
+    enableDepthPrepassWithDeferredRendering: 0
+    enableTransparentPrepass: 1
+    enableMotionVectors: 1
+    enableObjectMotionVectors: 1
+    enableDecals: 1
+    enableRoughRefraction: 1
+    enableTransparentPostpass: 1
+    enableDistortion: 1
+    enablePostprocess: 1
+    enableOpaqueObjects: 1
+    enableTransparentObjects: 1
+    enableRealtimePlanarReflection: 1
+    enableMSAA: 0
+    enableAsyncCompute: 1
+    runLightListAsync: 1
+    runSSRAsync: 1
+    runSSAOAsync: 1
+    runContactShadowsAsync: 1
+    runVolumeVoxelizationAsync: 1
+    lightLoopSettings:
+      overrides: 0
+      enableTileAndCluster: 1
+      enableComputeLightEvaluation: 1
+      enableComputeLightVariants: 1
+      enableComputeMaterialVariants: 1
+      enableFptlForForwardOpaque: 1
+      enableBigTilePrepass: 1
+      isFptlEnabled: 1
+--- !u!81 &380538113
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380538111}
+  m_Enabled: 1
+--- !u!20 &380538114
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380538111}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_GateFitMode: 2
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 1
+  orthographic size: 0.5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 8400000, guid: 17f1a3ff94c39dc4a8989939612f77fc, type: 2}
+  m_TargetDisplay: 1
+  m_TargetEye: 3
+  m_HDR: 0
+  m_AllowMSAA: 0
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!4 &380538115
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380538111}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 120, y: 0, z: -5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &416380888
 GameObject:
   m_ObjectHideFlags: 0
@@ -2914,7 +3048,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1913211105}
+      - m_Target: {fileID: 1414935893}
         m_MethodName: ChangeTool
         m_Mode: 5
         m_Arguments:
@@ -3078,8 +3212,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1913211105}
-        m_MethodName: ChangeBiomes
+      - m_Target: {fileID: 1414935893}
+        m_MethodName: ChangeBiome
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3376,7 +3510,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1913211105}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeBiomes
         m_Mode: 3
         m_Arguments:
@@ -4213,7 +4347,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1913211105}
+      - m_Target: {fileID: 1414935893}
         m_MethodName: TerrainOption
         m_Mode: 5
         m_Arguments:
@@ -4517,7 +4651,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1913211105}
+      - m_Target: {fileID: 1414935893}
         m_MethodName: TerrainOption
         m_Mode: 5
         m_Arguments:
@@ -4960,7 +5094,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1913211105}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeBiomes
         m_Mode: 3
         m_Arguments:
@@ -5708,7 +5842,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1913211105}
+      - m_Target: {fileID: 1414935893}
         m_MethodName: ChangeTool
         m_Mode: 5
         m_Arguments:
@@ -5969,6 +6103,36 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1253287590
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1253287591}
+  m_Layer: 0
+  m_Name: UV Pos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1253287591
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1253287590}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 120, y: 0, z: -0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1276225008
 GameObject:
   m_ObjectHideFlags: 0
@@ -6524,7 +6688,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1913211105}
+      - m_Target: {fileID: 1414935893}
         m_MethodName: TerrainOption
         m_Mode: 5
         m_Arguments:
@@ -6753,6 +6917,92 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10a24265ff2d45b4a9cf55c3813d5cb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1414935890
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1414935891}
+  - component: {fileID: 1414935893}
+  - component: {fileID: 1414935892}
+  m_Layer: 0
+  m_Name: Terrestrial Painter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1414935891
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414935890}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1414935892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414935890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0c3234904e969549b794c1a7b23ba9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  terrainObjects:
+  - {fileID: 5940134761172989149, guid: e46e9355881fc104e8ff33d62acf8782, type: 3}
+  - {fileID: 5197553478175130562, guid: d21fdfd9b0ec63a43986edccd43da3dc, type: 3}
+  - {fileID: 5161480036454553249, guid: 591123ff4ac295346872c9139408628c, type: 3}
+  - {fileID: 3690760201690583808, guid: 5deea085809460344890c65b72780fb6, type: 3}
+  - {fileID: 6134768152592913171, guid: 61a66e97dafa2d64b9b351289735b6ac, type: 3}
+  - {fileID: 3949149549359191000, guid: 86199d97dae332d48a0179777ff21c28, type: 3}
+  - {fileID: 428566308308693705, guid: 2f50df0be6fccfd4c92b75fb98bb6aa7, type: 3}
+  - {fileID: 1041255745387430782, guid: 68d8acd767c33b54e8d0e12175e51138, type: 3}
+  - {fileID: 64071519825591325, guid: 33936c7fb76ded94e8093690f2f29bd2, type: 3}
+  - {fileID: 4725492717722511193, guid: 6e6a8f7abb5ca5a4faaf993c16b33e43, type: 3}
+  - {fileID: 8643936280846410849, guid: 3a9a09461da88af40803dc8802179abe, type: 3}
+  - {fileID: 2696429253573620707, guid: 204e74e38018d0447838fbeec9540c1a, type: 3}
+  - {fileID: 1862695764788190887, guid: b3430dd41bcb4794eba86a61ef03119b, type: 3}
+  - {fileID: 64071519825591325, guid: 33936c7fb76ded94e8093690f2f29bd2, type: 3}
+  - {fileID: 428566308308693705, guid: 2f50df0be6fccfd4c92b75fb98bb6aa7, type: 3}
+--- !u!114 &1414935893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414935890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bb2e922c5a99f74b8adc1fc9aababf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UVPos: {fileID: 1253287591}
+  sceneCamera: {fileID: 1913211101}
+  canvasCam: {fileID: 380538114}
+  terrainEraser: {fileID: 7891452434980419166, guid: c67c69a896290c046b5aaacd333723d8,
+    type: 3}
+  biomes:
+  - {fileID: 7570619469991373952, guid: c36c189ba58db564fbb33eea2dd4984a, type: 3}
+  - {fileID: 4770764649659065843, guid: 2f741242b871ed94188517ebf85b0fb6, type: 3}
+  - {fileID: 5377801645996138194, guid: f3204778a68826b4e83434714e36a1f4, type: 3}
+  - {fileID: 6509073695082173793, guid: 661ebc13f2c86624c9a896dc3c91f781, type: 3}
+  - {fileID: 6922059624679476212, guid: bed3c329a0a86134da8f3ed688c382e9, type: 3}
+  - {fileID: 534361926412475991, guid: 544d39929058e0340b9b42067ba25ecf, type: 3}
+  - {fileID: 9051867545221230458, guid: 737547eccd244e4449a69ce05a20b8d3, type: 3}
+  - {fileID: 5824833997211211214, guid: 06cd34ec8b220e34e9f365687acd2c5b, type: 3}
 --- !u!1 &1440858772
 GameObject:
   m_ObjectHideFlags: 0
@@ -7072,7 +7322,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1913211105}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeBiomes
         m_Mode: 3
         m_Arguments:
@@ -8067,8 +8317,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1913211105}
-        m_MethodName: ChangeBiomes
+      - m_Target: {fileID: 1414935893}
+        m_MethodName: ChangeBiome
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8220,8 +8470,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1913211105}
-        m_MethodName: ChangeBiomes
+      - m_Target: {fileID: 1414935893}
+        m_MethodName: ChangeBiome
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9054,8 +9304,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1913211105}
-        m_MethodName: ChangeBiomes
+      - m_Target: {fileID: 1414935893}
+        m_MethodName: ChangeBiome
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9207,8 +9457,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1913211105}
-        m_MethodName: ChangeBiomes
+      - m_Target: {fileID: 1414935893}
+        m_MethodName: ChangeBiome
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9360,8 +9610,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1913211105}
-        m_MethodName: ChangeBiomes
+      - m_Target: {fileID: 1414935893}
+        m_MethodName: ChangeBiome
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9513,8 +9763,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1913211105}
-        m_MethodName: ChangeBiomes
+      - m_Target: {fileID: 1414935893}
+        m_MethodName: ChangeBiome
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9749,7 +9999,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1913211105}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeBiomes
         m_Mode: 3
         m_Arguments:
@@ -10224,8 +10474,6 @@ GameObject:
   - component: {fileID: 1913211101}
   - component: {fileID: 1913211100}
   - component: {fileID: 1913211106}
-  - component: {fileID: 1913211105}
-  - component: {fileID: 1913211103}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -10299,29 +10547,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1913211103
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1913211099}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0c3234904e969549b794c1a7b23ba9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  terrainObjects:
-  - {fileID: 5940134761172989149, guid: e46e9355881fc104e8ff33d62acf8782, type: 3}
-  - {fileID: 5197553478175130562, guid: d21fdfd9b0ec63a43986edccd43da3dc, type: 3}
-  - {fileID: 5161480036454553249, guid: 591123ff4ac295346872c9139408628c, type: 3}
-  - {fileID: 3690760201690583808, guid: 5deea085809460344890c65b72780fb6, type: 3}
-  - {fileID: 6134768152592913171, guid: 61a66e97dafa2d64b9b351289735b6ac, type: 3}
-  - {fileID: 3949149549359191000, guid: 86199d97dae332d48a0179777ff21c28, type: 3}
-  - {fileID: 428566308308693705, guid: 2f50df0be6fccfd4c92b75fb98bb6aa7, type: 3}
-  - {fileID: 1041255745387430782, guid: 68d8acd767c33b54e8d0e12175e51138, type: 3}
-  - {fileID: 64071519825591325, guid: 33936c7fb76ded94e8093690f2f29bd2, type: 3}
-  - {fileID: 4725492717722511193, guid: 6e6a8f7abb5ca5a4faaf993c16b33e43, type: 3}
 --- !u!114 &1913211104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10342,30 +10567,6 @@ MonoBehaviour:
   colorCanvas: {fileID: 1463839835}
   atmosphereCanvas: {fileID: 499976081}
   finishCanvas: {fileID: 1899867584}
---- !u!114 &1913211105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1913211099}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbe5018a13e990b4b95fc4c2267d0674, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DebugOn: 0
-  terrainEraser: {fileID: 7891452434980419166, guid: c67c69a896290c046b5aaacd333723d8,
-    type: 3}
-  biomeTextures:
-  - {fileID: 2149716870524079106, guid: 445a1726d04cfba46bda96e36334f128, type: 3}
-  - {fileID: 2043495363660660276, guid: 09c5a447199a3e3449113d1d05ad250d, type: 3}
-  - {fileID: 2481512748541055363, guid: 7f29b2d1df087e8408dc40fea920b6de, type: 3}
-  - {fileID: 8246271451223225131, guid: 55f6b87ef50e8964190facc7530f6a8c, type: 3}
-  - {fileID: 141370044312625832, guid: efe9115f98391d14b8d29ad0a4ce3ddc, type: 3}
-  - {fileID: 7873048357548408942, guid: 053fc21c22186e44b911d651efa89866, type: 3}
-  - {fileID: 3216737891944524, guid: 0a3b4b9524dbc924f8200846b4ee7868, type: 3}
-  - {fileID: 8593319380285225354, guid: 219f30cfe97f61f45a526b9fa941e458, type: 3}
 --- !u!114 &1913211106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10933,7 +11134,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1913211105}
+      - m_Target: {fileID: 1414935893}
         m_MethodName: ChangeTool
         m_Mode: 5
         m_Arguments:
@@ -11097,8 +11298,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1913211105}
-        m_MethodName: ChangeBiomes
+      - m_Target: {fileID: 1414935893}
+        m_MethodName: ChangeBiome
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11464,6 +11665,98 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2079416020}
   m_CullTransparentMesh: 1
+--- !u!1 &2125780131
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2125780135}
+  - component: {fileID: 2125780134}
+  - component: {fileID: 2125780133}
+  - component: {fileID: 2125780132}
+  m_Layer: 0
+  m_Name: UV Quad
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!64 &2125780132
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125780131}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &2125780133
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125780131}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 924212c2ffb402b4e95e9d01c4919cb4, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &2125780134
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125780131}
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &2125780135
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125780131}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 120, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2131566603
 GameObject:
   m_ObjectHideFlags: 0
