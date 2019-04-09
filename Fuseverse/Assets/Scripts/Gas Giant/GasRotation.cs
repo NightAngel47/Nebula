@@ -39,7 +39,7 @@ public class GasRotation : MonoBehaviour
                 yRot += (-touchDeltaPosition.x);
 
 
-                transform.Rotate(xRot, 0, yRot, Space.Self);
+                transform.Rotate(xRot, yRot, 0, Space.Self);
             }
 
         }
