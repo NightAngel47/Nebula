@@ -11,8 +11,8 @@ public class TerrestrialRotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var xRot = Camera.main.transform.position.x;
-        var yRot = Camera.main.transform.position.y;
+        var xRot = Camera.main.transform.rotation.x;
+        var yRot = Camera.main.transform.rotation.y;
 
         if ((Input.touchCount == 2))
         {

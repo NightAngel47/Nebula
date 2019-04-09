@@ -7,20 +7,20 @@ public class GasRotation : MonoBehaviour
     public Vector2 startPos;
     public Vector2 direction;
     public float rotationSpeed = 0;
-    public Rigidbody rb;
+    //public Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        //rb = GetComponent<Rigidbody>();
         RingRotation.canRotate = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        var xRot = transform.rotation.x;
-        var yRot = transform.rotation.y;
+        var xRot = Camera.main.transform.rotation.x;
+        var yRot = Camera.main.transform.rotation.y;
 
         if ((Input.touchCount == 2) && RingRotation.canRotate)
         {
@@ -35,14 +35,14 @@ public class GasRotation : MonoBehaviour
                 //rb.AddTorque(transform.up * -touchDeltaPosition.x);
                 //rb.AddTorque(transform.right * touchDeltaPosition.y);
 
-                rb.AddTorque(Camera.main.transform.up * -touchDeltaPosition.x);
-                rb.AddTorque(Camera.main.transform.right * touchDeltaPosition.y);
+                //rb.AddTorque(Camera.main.transform.up * -touchDeltaPosition.x);
+                //rb.AddTorque(Camera.main.transform.right * touchDeltaPosition.y);
 
-                // xRot += (touchDeltaPosition.y);
-                // yRot += (-touchDeltaPosition.x);
+                xRot += (touchDeltaPosition.y);
+                yRot += (-touchDeltaPosition.x);
 
 
-                //  transform.Rotate(xRot, yRot, 0, Space.Self);
+                transform.Rotate(xRot, yRot, 0, Space.World);
             }
 
         }

@@ -67,7 +67,7 @@ public class RingRotation : MonoBehaviour
                     //var rot = transform.rotation;
                     //var vectorRot = rot.eulerAngles;
 
-                    var xRot = transform.rotation.x;
+                    var xRot = Camera.main.transform.rotation.x;
                     //var zRot = transform.rotation.z;
 
                     //vectorRot.x += (touchDeltaPosition.x * Time.deltaTime) * rotationSpeed;
@@ -80,7 +80,7 @@ public class RingRotation : MonoBehaviour
                         //zRot += (touchDeltaPosition.x * Time.deltaTime) * -rotationSpeed;
 
 
-                        transform.Rotate(xRot, 0, 0, Space.Self);
+                        transform.Rotate(xRot, 0, 0, Space.World);
 
                         //transform.rotation = Quaternion.Euler(vectorRot);
 
@@ -95,7 +95,7 @@ public class RingRotation : MonoBehaviour
                         xRot += (touchDeltaPosition.y * Time.deltaTime) * rotationSpeed;
                         //zRot += (touchDeltaPosition.x * Time.deltaTime) * rotationSpeed;
 
-                        transform.Rotate(xRot, 0, 0, Space.Self);
+                        transform.Rotate(xRot, 0, 0, Space.World);
 
                         //transform.rotation = Quaternion.Euler(vectorRot);
 
