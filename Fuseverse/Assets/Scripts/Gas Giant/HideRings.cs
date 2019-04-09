@@ -12,7 +12,7 @@ public class HideRings : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        canViewRings = false;
+        canViewRings = true; // needs to be false
 
     }
 

@@ -32,14 +32,14 @@ public class CameraRotation : MonoBehaviour
             {
                 Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
 
-                //rb.AddTorque(Camera.main.transform.up * -touchDeltaPosition.x);
-                //rb.AddTorque(Camera.main.transform.right * touchDeltaPosition.y);
+                rb.AddTorque(Camera.main.transform.up * -touchDeltaPosition.x);
+                rb.AddTorque(Camera.main.transform.right * touchDeltaPosition.y);
 
-                xRot += (touchDeltaPosition.y);
-                yRot += (-touchDeltaPosition.x);
+               // xRot += (touchDeltaPosition.y);
+              //  yRot += (-touchDeltaPosition.x);
 
 
-                transform.Rotate(xRot, 0, yRot, Space.Self);
+              //  transform.Rotate(xRot, 0, yRot, Space.Self);
             }  
         }
     }

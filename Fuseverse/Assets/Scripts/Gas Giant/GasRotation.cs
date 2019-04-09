@@ -35,11 +35,14 @@ public class GasRotation : MonoBehaviour
                 //rb.AddTorque(transform.up * -touchDeltaPosition.x);
                 //rb.AddTorque(transform.right * touchDeltaPosition.y);
 
-                xRot += (touchDeltaPosition.y);
-                yRot += (-touchDeltaPosition.x);
+                rb.AddTorque(Camera.main.transform.up * -touchDeltaPosition.x);
+                rb.AddTorque(Camera.main.transform.right * touchDeltaPosition.y);
+
+                // xRot += (touchDeltaPosition.y);
+                // yRot += (-touchDeltaPosition.x);
 
 
-                transform.Rotate(xRot, yRot, 0, Space.Self);
+                //  transform.Rotate(xRot, yRot, 0, Space.Self);
             }
 
         }
