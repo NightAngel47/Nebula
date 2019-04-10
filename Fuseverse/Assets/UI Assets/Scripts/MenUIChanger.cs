@@ -17,7 +17,7 @@ public class MenUIChanger : MonoBehaviour
     public GameObject atmosphereCanvas;
     public GameObject finishCanvas;
 
-
+    public GameObject RightBlurGas;
     void Start()
     {
         //Setting listeners for each button to reduce UI load
@@ -31,6 +31,8 @@ public class MenUIChanger : MonoBehaviour
         colorCanvas.SetActive(false);
         atmosphereCanvas.SetActive(false);
         finishCanvas.SetActive(false);
+        RightBlurGas.SetActive(true);
+
 
     }
 
@@ -43,6 +45,8 @@ public class MenUIChanger : MonoBehaviour
         colorCanvas.SetActive(false);
         atmosphereCanvas.SetActive(false);
         finishCanvas.SetActive(false);
+        RightBlurGas.SetActive(true);
+
     }
     void onClickBiomes()
     {
@@ -51,6 +55,8 @@ public class MenUIChanger : MonoBehaviour
         colorCanvas.SetActive(true);
         atmosphereCanvas.SetActive(false);
         finishCanvas.SetActive(false);
+        RightBlurGas.SetActive(true);
+
     }
     void onClickAtmosphere()
     {
@@ -59,6 +65,7 @@ public class MenUIChanger : MonoBehaviour
         colorCanvas.SetActive(false);
         atmosphereCanvas.SetActive(true);
         finishCanvas.SetActive(false);
+        RightBlurGas.SetActive(false);
     }
     void onClickFinish()
     {
@@ -66,6 +73,7 @@ public class MenUIChanger : MonoBehaviour
         colorCanvas.SetActive(false);
         atmosphereCanvas.SetActive(false);
         finishCanvas.SetActive(true);
+        RightBlurGas.SetActive(true);
     }
 
 }
