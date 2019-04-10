@@ -356,6 +356,7 @@ GameObject:
   - component: {fileID: 110666247}
   - component: {fileID: 110666246}
   - component: {fileID: 110666245}
+  - component: {fileID: 110666250}
   - component: {fileID: 110666251}
   - component: {fileID: 110666249}
   m_Layer: 0
@@ -454,6 +455,22 @@ MonoBehaviour:
   startPos: {x: 0, y: 0}
   direction: {x: 0, y: 0}
   rotationSpeed: 0
+--- !u!54 &110666250
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110666244}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 10
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 14
+  m_CollisionDetection: 0
 --- !u!114 &110666251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -467,6 +484,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rings: {fileID: 0}
+  canvasTexture: {fileID: 8400000, guid: 17f1a3ff94c39dc4a8989939612f77fc, type: 2}
+  baseMaterial: {fileID: 2100000, guid: 60e29c4f7462ee04a828196d9f58b34d, type: 2}
 --- !u!1 &133221775
 GameObject:
   m_ObjectHideFlags: 0
@@ -1626,7 +1645,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 322048277}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 110666251}
+        m_MethodName: SaveTexture
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &322048277
@@ -6998,7 +7028,7 @@ MonoBehaviour:
   biomes:
   - {fileID: 7570619469991373952, guid: c36c189ba58db564fbb33eea2dd4984a, type: 3}
   - {fileID: 4770764649659065843, guid: 2f741242b871ed94188517ebf85b0fb6, type: 3}
-  - {fileID: 5377801645996138194, guid: f3204778a68826b4e83434714e36a1f4, type: 3}
+  - {fileID: 105002222420583149, guid: f3204778a68826b4e83434714e36a1f4, type: 3}
   - {fileID: 6509073695082173793, guid: 661ebc13f2c86624c9a896dc3c91f781, type: 3}
   - {fileID: 6922059624679476212, guid: bed3c329a0a86134da8f3ed688c382e9, type: 3}
   - {fileID: 534361926412475991, guid: 544d39929058e0340b9b42067ba25ecf, type: 3}

@@ -9,6 +9,7 @@ public class SwapTerrain : MonoBehaviour
     private TerrainFeatures tf; // terrain - biome interactions
     private GameObject swapObject;
     private Transform planet;
+    public Vector3 UVPos;
 
     void Start()
     {
@@ -18,18 +19,28 @@ public class SwapTerrain : MonoBehaviour
 
     void Update()
     {
+        CheckBiome();
+
         if ((swapObject != null) && (swapObject.name + "(Clone)" != gameObject.name))
         {
             SpawnNewTerrian();
         }
     }
 
-    // updates terrain object based on biome
-    void OnTriggerEnter(Collider other)
+    public void SetUVPos(Vector3 UVPosistion)
     {
-        if (!other.CompareTag("Terrain"))
+        UVPos = UVPosistion;
+    }
+
+    // updates terrain object based on biome
+    void CheckBiome()
+    {
+        Debug.DrawLine(UVPos + new Vector3(0, 0, -0.1f), UVPos + new Vector3(0, 0, 0.1f));
+        RaycastHit hit;
+        if (Physics.Linecast(UVPos + new Vector3(0, 0, -0.1f), UVPos + new Vector3(0, 0, 0.1f), out hit))
         {
-            swapObject = tf.BiomeCheck(other.tag, isUp);
+            print(hit.collider.name);
+            swapObject = tf.BiomeCheck(hit.collider.tag, isUp);
         }
     }
 
