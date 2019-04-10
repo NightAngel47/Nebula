@@ -335,7 +335,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Yes, Im done creating
+  m_Text: No, go back to creating
 --- !u!222 &88924633
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1581,7 +1581,7 @@ GameObject:
   - component: {fileID: 322048277}
   - component: {fileID: 322048276}
   m_Layer: 5
-  m_Name: Cancel
+  m_Name: Yes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1642,7 +1642,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.5235849, b: 0.5235849, a: 1}
+  m_Color: {r: 0.5803922, g: 1, b: 0.58431375, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2021,7 +2021,7 @@ GameObject:
   - component: {fileID: 378319257}
   - component: {fileID: 378319259}
   m_Layer: 5
-  m_Name: Yes
+  m_Name: No
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2060,7 +2060,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6, g: 0.9803922, b: 0.5019608, a: 1}
+  m_Color: {r: 1, g: 0.627451, b: 0.627451, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3408,7 +3408,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Yes, Go back to main menu
+  m_Text: No, go back to creating
 --- !u!222 &657240857
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4770,7 +4770,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Cancel, Go back to creating
+  m_Text: 'Yes, exit to the menu
+
+'
 --- !u!222 &933087261
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6440,7 +6442,7 @@ GameObject:
   - component: {fileID: 1332242531}
   - component: {fileID: 1332242533}
   m_Layer: 5
-  m_Name: Yes
+  m_Name: No
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6479,7 +6481,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4484657, g: 1, b: 0.4292453, a: 1}
+  m_Color: {r: 1, g: 0.627451, b: 0.627451, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -7897,7 +7899,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Cancel, Go back to creating
+  m_Text: Yes, I'm done creating
 --- !u!222 &1487094387
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8778,7 +8780,7 @@ GameObject:
   - component: {fileID: 1622739548}
   - component: {fileID: 1622739547}
   m_Layer: 5
-  m_Name: Cancel
+  m_Name: Yes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8839,7 +8841,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.93725497, g: 0.54509807, b: 0.53333336, a: 1}
+  m_Color: {r: 0.5803922, g: 1, b: 0.58431375, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -10566,6 +10568,7 @@ MonoBehaviour:
   colorCanvas: {fileID: 1463839835}
   atmosphereCanvas: {fileID: 499976081}
   finishCanvas: {fileID: 1899867584}
+  RightBlurGas: {fileID: 0}
 --- !u!114 &1913211106
 MonoBehaviour:
   m_ObjectHideFlags: 0
