@@ -7,54 +7,20 @@ public class AtmosphereController : MonoBehaviour
     bool atmosphereButton;
 
     public Renderer rend;
-
-    public float atmosphereMax = 0f;
-    public float atmosphereMin = 0f;
     public float atmosphereIncrementValue = 0f;
-    
-    //Replacement color of shader
-    Color shaderColor;
-
-    //Current shader color
-    Color originalColor;
-
-    //Original alpha channel value
-    float originalAlpha;
-
-    //Value to increment alpha value by
-    float alphaIncrement = 0f;
-
+    public float atmosphereMax;
+    public float atmosphereMin;
     float newAlpha;
 
     public Color[] atmosphereColors;
-
     float rValue;
     float gValue;
     float bValue;
-    
-
 
     // Start is called before the first frame update
     void Start()
     {
-
         rend = GetComponent<Renderer>();
-        
-        //Set shaderColor equal to original color
-        originalColor = GetComponent<Renderer>().material.color;
-        shaderColor = new Color(originalColor.r, originalColor.g, originalColor.b, originalColor.a);
-
-        originalAlpha = originalColor.a;
-
-        rValue = originalColor.r;
-        gValue = originalColor.g;
-        bValue = originalColor.b;
-        
-        //alphaIncrement starts at value 0 on start
-        alphaIncrement = 0f;
-
-
-
     }
 
     // Update is called once per frame
@@ -62,50 +28,22 @@ public class AtmosphereController : MonoBehaviour
     {
         if ((Input.touchCount == 1) && (atmosphereButton))
         {
-            /*
-            //Get current touch positions
-            Touch firstTouch = Input.GetTouch(0);
-            Touch secondTouch = Input.GetTouch(1);
-
-            //Find previous touch positions
-            Vector2 firstTouchPrevPos = firstTouch.position - firstTouch.deltaPosition;
-            Vector2 secondTouchPrevPos = secondTouch.position - secondTouch.deltaPosition;
-
-            //Find magnitude of previous touch positions
-            float prevTouchDeltaMag = (firstTouchPrevPos - secondTouchPrevPos).magnitude;
-
-            //Find magnitude of current touch positions
-            float touchDeltaMag = (firstTouch.position - secondTouch.position).magnitude;
-
-            //Find difference between the current and previous magnitude
-            float deltaMagDif = touchDeltaMag - prevTouchDeltaMag;
-            */
 
             Touch firstTouch = Input.GetTouch(0);
             Vector2 magFirstTouchPrevPos = (firstTouch.deltaPosition + firstTouch.position);
-            
+
+            float newAlpha = rend.material.GetFloat("_strength");
 
             if (magFirstTouchPrevPos.x > firstTouch.position.x)
             {
                 Debug.Log(">0");
 
-                alphaIncrement += atmosphereIncrementValue;
-                newAlpha = (originalAlpha + alphaIncrement);
-
-                //Keeps alpha from hitting a value above 1 and below 0 on slider 
+                newAlpha += atmosphereIncrementValue;
                 if (newAlpha > atmosphereMax)
                 {
                     newAlpha = atmosphereMax;
                 }
-                if (newAlpha < atmosphereMin)
-                {
-                    newAlpha = atmosphereMin;
-                }
-
-                //Creates color with new alpha and sets material to color
-                shaderColor = new Color(rValue, gValue, bValue, newAlpha);
-                rend.material.SetColor("_BaseColor", shaderColor);
-
+                rend.material.SetFloat("_strength", newAlpha);
 
                 Debug.Log("Alpha Change" + newAlpha);
             }
@@ -113,138 +51,25 @@ public class AtmosphereController : MonoBehaviour
             {
                 Debug.Log("<0");
 
-                alphaIncrement -= atmosphereIncrementValue;
-                newAlpha = (originalAlpha + alphaIncrement);
-
-                //Keeps alpha from hitting a value above 1 and below 0 on slider 
+                newAlpha -= atmosphereIncrementValue;
                 if (newAlpha < atmosphereMin)
                 {
                     newAlpha = atmosphereMin;
                 }
-                if (newAlpha > atmosphereMax)
-                {
-                    newAlpha = atmosphereMax;
-                }
-
-                //Creates color with new alpha and sets material to color
-                shaderColor = new Color(rValue, gValue, bValue, newAlpha);
-                rend.material.SetColor("_BaseColor", shaderColor);
-
+                rend.material.SetFloat("_strength", newAlpha);
 
                 Debug.Log("Alpha Change" + newAlpha);
             }
-
         }
-
     }
 
     public void ChangeColor(int colorSelected)
     {
-        /*string[] splittedParams = rgbValue.Split(',');
-
-        //get the first param
-        string FirstParam = splittedParams[0];
-        string SecondParam = splittedParams[1];
-        string ThirdParam = splittedParams[2];
-
-        //Convert it back to int
-        float rValueSet = float.Parse(FirstParam);
-        float gValueSet = float.Parse(SecondParam);
-        float bValueSet = float.Parse(ThirdParam); */
-
-
-
-        /* switch (atmosphereColorButton)
-         {
-             case 1:
-                 rValue = 1f;
-                 gValue = 0f;
-                 bValue = 0f;
-                 break;
-
-             case 2:
-                 rValue = 0.99215686086f;
-                 gValue = 0.6078431361f;
-                 bValue = 0f;
-                 break;
-
-             case 3:
-                 rValue = 0.9607843119f;
-                 gValue = 0.94901960604f;
-                 bValue = 0;
-                 break;
-
-             case 4:
-                 rValue = 0.58431372438f;
-                 gValue = 0.97254901776f;
-                 bValue = 0f;
-                 break;
-
-             case 5:
-                 rValue = 0.18039215652f;
-                 gValue = 0.79215686124f;
-                 bValue = 0.0784313724f;
-                 break;
-
-             case 6:
-                 rValue = 0.10980392136f;
-                 gValue = 0.91372548846f;
-                 bValue = 0.588235293f;
-                 break;
-
-             case 7:
-                 rValue = 0f;
-                 gValue = 0.88627450812f;
-                 bValue = 1f;
-                 break;
-
-             case 8:
-                 rValue = 0f;
-                 gValue = 0.01568627448f;
-                 bValue = 1f;
-                 break;
-
-             case 9:
-                 rValue = 0.7647058809f;
-                 gValue = 0f;
-                 bValue = 1f;
-                 break;
-
-             case 10:
-                 rValue = 0.4705882344f;
-                 gValue = 0.4705882344f;
-                 bValue = 0.4705882344f;
-                 break;
-
-             case 11:
-                 rValue = 0.63137254782f;
-                 gValue = 0.47843137164f;
-                 bValue = 0.33725490132f;
-                 break;
-
-             case 12:
-                 rValue = 0.90588235122f;
-                 gValue = 0.90588235122f;
-                 bValue = 0.90588235122f;
-                 break;
-
-         } */
-
-        //shaderColor = new Color(GetComponent<Renderer>().material.color.r, GetComponent<Renderer>().material.color.g, GetComponent<Renderer>().material.color.b, GetComponent<Renderer>().material.color.a);
-
         rValue = atmosphereColors[colorSelected].r;
         gValue = atmosphereColors[colorSelected].g;
         bValue = atmosphereColors[colorSelected].b;
 
-
-        shaderColor = new Color(rValue, gValue, bValue, newAlpha);
-        rend.material.SetColor("_BaseColor", shaderColor);
-    }
-
-    public void ColorSelected()
-    {
-
-        
+        rend.material.SetColor("_color", new Color(rValue, gValue, bValue, newAlpha));
     }
 
     public void ActivateAtmosphere()
@@ -266,8 +91,5 @@ public class AtmosphereController : MonoBehaviour
         //Resets rotation to default
         Quaternion defaultRotation = Quaternion.Euler(0, 0, 0);
         gameObject.transform.rotation = defaultRotation;
-
     }
 }
-
-

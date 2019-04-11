@@ -112,6 +112,43 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &52733926 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 281fe8dc6e0dacb4a97347684229c8bf,
+    type: 3}
+  m_PrefabInstance: {fileID: 1812487153}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &52733928 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2300000, guid: 281fe8dc6e0dacb4a97347684229c8bf,
+    type: 3}
+  m_PrefabInstance: {fileID: 1812487153}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &52733930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 52733926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ece1550f39cd9d4b82e2170308bb32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rend: {fileID: 52733928}
+  atmosphereIncrementValue: 0.05
+  atmosphereMax: 0.9
+  atmosphereMin: 0.1
+  atmosphereColors:
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &60569139
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,7 +241,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 814266424}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeColor
         m_Mode: 3
         m_Arguments:
@@ -958,7 +995,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 814266424}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeColor
         m_Mode: 3
         m_Arguments:
@@ -1526,7 +1563,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 814266424}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeColor
         m_Mode: 3
         m_Arguments:
@@ -1903,7 +1940,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 814266424}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeColor
         m_Mode: 3
         m_Arguments:
@@ -3088,9 +3125,9 @@ MonoBehaviour:
           m_StringArgument: terrain
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: ChangeTool
-        m_Mode: 5
+      - m_Target: {fileID: 52733930}
+        m_MethodName: DeactivateAtmosphere
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3539,7 +3576,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 814266424}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeColor
         m_Mode: 3
         m_Arguments:
@@ -4506,36 +4543,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 801992552}
   m_CullTransparentMesh: 0
---- !u!1 &814266423 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100002, guid: 281fe8dc6e0dacb4a97347684229c8bf,
-    type: 3}
-  m_PrefabInstance: {fileID: 1812487153}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &814266424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 814266423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ece1550f39cd9d4b82e2170308bb32e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rend: {fileID: 0}
-  atmosphereMax: 0
-  atmosphereMin: 0
-  atmosphereIncrementValue: 0
-  atmosphereColors:
-  - {r: 0, g: 0, b: 0, a: 0}
-  - {r: 0, g: 0, b: 0, a: 0}
-  - {r: 0, g: 0, b: 0, a: 0}
-  - {r: 0, g: 0, b: 0, a: 0}
-  - {r: 0, g: 0, b: 0, a: 0}
-  - {r: 0, g: 0, b: 0, a: 0}
-  - {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &912066523
 GameObject:
   m_ObjectHideFlags: 0
@@ -5155,7 +5162,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 814266424}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeColor
         m_Mode: 3
         m_Arguments:
@@ -5892,7 +5899,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 52733930}
         m_MethodName: ActivateAtmosphere
         m_Mode: 1
         m_Arguments:
@@ -7050,6 +7057,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bb2e922c5a99f74b8adc1fc9aababf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  displacement: 0.0001
+  UVQuad: {fileID: 0}
   UVPos: {fileID: 1253287591}
   sceneCamera: {fileID: 1913211101}
   canvasCam: {fileID: 380538114}
@@ -7383,7 +7392,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 814266424}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeColor
         m_Mode: 3
         m_Arguments:
@@ -7620,7 +7629,29 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1465308828}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 52733930}
+        m_MethodName: DeactivateAtmosphere
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1414935893}
+        m_MethodName: ChangeTool
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: none
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1465308828
@@ -9946,15 +9977,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 281fe8dc6e0dacb4a97347684229c8bf, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.31
+      value: 0.45
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 281fe8dc6e0dacb4a97347684229c8bf, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.31
+      value: 0.45
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 281fe8dc6e0dacb4a97347684229c8bf, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.31
+      value: 0.45
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 281fe8dc6e0dacb4a97347684229c8bf, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -10060,7 +10091,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 814266424}
+      - m_Target: {fileID: 0}
         m_MethodName: ChangeColor
         m_Mode: 3
         m_Arguments:
@@ -11207,9 +11238,9 @@ MonoBehaviour:
           m_StringArgument: biomes
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: ChangeTool
-        m_Mode: 5
+      - m_Target: {fileID: 52733930}
+        m_MethodName: DeactivateAtmosphere
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
