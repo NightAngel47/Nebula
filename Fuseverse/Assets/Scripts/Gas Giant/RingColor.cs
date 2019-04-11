@@ -14,6 +14,9 @@ public class RingColor : MonoBehaviour
     float gValue2;
     float bValue2;
 
+    public Color[] primaryRingColors;
+    public Color[] secondaryRingColors;
+
     void Start()
     {
     }
@@ -21,21 +24,25 @@ public class RingColor : MonoBehaviour
     {
           
     }
-    public void ChangeRingColor(string rgbValue)
+    public void ChangeRingColor(int colorSelected)
     {
 
-        string[] splittedParams = rgbValue.Split(',');
+        /* string[] splittedParams = rgbValue.Split(',');
 
-        //get the first param
-        string FirstParam = splittedParams[0];
-        string SecondParam = splittedParams[1];
-        string ThirdParam = splittedParams[2];
+         //get the first param
+         string FirstParam = splittedParams[0];
+         string SecondParam = splittedParams[1];
+         string ThirdParam = splittedParams[2];
 
-        //Convert it back to int
-        float rValueSet = float.Parse(FirstParam);
-        float gValueSet = float.Parse(SecondParam);
-        float bValueSet = float.Parse(ThirdParam);
+         //Convert it back to int
+         float rValueSet = float.Parse(FirstParam);
+         float gValueSet = float.Parse(SecondParam);
+         float bValueSet = float.Parse(ThirdParam);
+         */
 
+        rValue = primaryRingColors[colorSelected].r;
+        gValue = primaryRingColors[colorSelected].g;
+        bValue = primaryRingColors[colorSelected].b;
 
         /* switch (RingColorButton)
          {
@@ -88,16 +95,12 @@ public class RingColor : MonoBehaviour
                  break;
          }*/
 
-        rValue = (rValueSet / 255);
-        gValue = (gValueSet / 255);
-        bValue = (bValueSet / 255);
-
         SetColor();
     }
 
-    public void ChangeSecondaryRingColor(string rgbValue)
+    public void ChangeSecondaryRingColor(int colorSelected)
     {
-        string[] splittedParams = rgbValue.Split(',');
+        /*string[] splittedParams = rgbValue.Split(',');
 
         //get the first param
         string FirstParam = splittedParams[0];
@@ -107,7 +110,9 @@ public class RingColor : MonoBehaviour
         //Convert it back to int
         float rValueSet = float.Parse(FirstParam);
         float gValueSet = float.Parse(SecondParam);
-        float bValueSet = float.Parse(ThirdParam);
+        float bValueSet = float.Parse(ThirdParam);*/
+
+
 
         /*switch (SecondaryRingColorButton)
         {
@@ -160,9 +165,10 @@ public class RingColor : MonoBehaviour
                 break;
         }*/
 
-        rValue2 = (rValueSet / 255);
-        gValue2 = (gValueSet / 255);
-        bValue2 = (bValueSet / 255);
+        rValue2 = secondaryRingColors[colorSelected].r;
+        gValue2 = secondaryRingColors[colorSelected].g;
+        bValue2 = secondaryRingColors[colorSelected].b;
+
         SetColor();
     }
 
