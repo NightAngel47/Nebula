@@ -1,18 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SwapTerrain : MonoBehaviour
 {
     // spawning different terrain
     public bool isUp = false; // up or plant
     private TerrainFeatures tf; // terrain - biome interactions
+    private TerrestrialPainter tp; // painter
     private GameObject swapObject;
     private Transform planet;
     public Vector3 UVPos;
 
     void Start()
     {
+        tp = FindObjectOfType<TerrestrialPainter>();
         tf = FindObjectOfType<TerrainFeatures>();
         planet = GameObject.FindGameObjectWithTag("Planet").GetComponent<Transform>();
     }
@@ -39,15 +39,15 @@ public class SwapTerrain : MonoBehaviour
         RaycastHit hit;
         if (Physics.Linecast(UVPos + new Vector3(0, 0, -0.1f), UVPos + new Vector3(0, 0, 0.1f), out hit))
         {
-            print(hit.collider.name);
             swapObject = tf.BiomeCheck(hit.collider.tag, isUp);
         }
     }
 
     void SpawnNewTerrian()
     {
-        print("spawning");
-        Instantiate(swapObject, transform.position, transform.rotation, planet);
+        GameObject newGO = Instantiate(swapObject, transform.position, transform.rotation, planet);
+        tp.terrainTransforms.Remove(this);
+        tp.terrainTransforms.Add(newGO.GetComponent<SwapTerrain>());
         Destroy(gameObject);
     }
 }

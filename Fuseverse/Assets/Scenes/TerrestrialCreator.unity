@@ -7057,8 +7057,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bb2e922c5a99f74b8adc1fc9aababf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displacement: 0.0001
-  UVQuad: {fileID: 0}
+  isDebug: 0
+  displacement: 0.001
+  UVQuad: {fileID: 2125780135}
   UVPos: {fileID: 1253287591}
   sceneCamera: {fileID: 1913211101}
   canvasCam: {fileID: 380538114}
