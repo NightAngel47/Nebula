@@ -21,65 +21,95 @@ public class RingColor : MonoBehaviour
     {
           
     }
-    public void ChangeRingColor(float RingColorButton)
+    public void ChangeRingColor(string rgbValue)
     {
-        switch (RingColorButton)
-        {
-            case 1:
-                rValue = 1f;
-                gValue = 0f;
-                bValue = 0f;
-                break;
 
-            case 2:
-                rValue = 0.99215686086f;
-                gValue = 0.6078431361f;
-                bValue = 0f;
-                break;
+        string[] splittedParams = rgbValue.Split(',');
 
-            case 3:
-                rValue = 0.9607843119f;
-                gValue = 0.94901960604f;
-                bValue = 0;
-                break;
+        //get the first param
+        string FirstParam = splittedParams[0];
+        string SecondParam = splittedParams[1];
+        string ThirdParam = splittedParams[2];
 
-            case 4:
-                rValue = 0.58431372438f;
-                gValue = 0.97254901776f;
-                bValue = 0f;
-                break;
+        //Convert it back to int
+        float rValueSet = float.Parse(FirstParam);
+        float gValueSet = float.Parse(SecondParam);
+        float bValueSet = float.Parse(ThirdParam);
 
-            case 5:
-                rValue = 0.18039215652f;
-                gValue = 0.79215686124f;
-                bValue = 0.0784313724f;
-                break;
 
-            case 6:
-                rValue = 0.10980392136f;
-                gValue = 0.91372548846f;
-                bValue = 0.588235293f;
-                break;
+        /* switch (RingColorButton)
+         {
+             case 1:
+                 rValue = 1f;
+                 gValue = 0f;
+                 bValue = 0f;
+                 break;
 
-            case 7:
-                rValue = 0f;
-                gValue = 0.88627450812f;
-                bValue = 1f;
-                break;
+             case 2:
+                 rValue = 0.99215686086f;
+                 gValue = 0.6078431361f;
+                 bValue = 0f;
+                 break;
 
-            case 8:
-                rValue = 0f;
-                gValue = 0.01568627448f;
-                bValue = 1f;
-                break;
-        }
+             case 3:
+                 rValue = 0.9607843119f;
+                 gValue = 0.94901960604f;
+                 bValue = 0;
+                 break;
+
+             case 4:
+                 rValue = 0.58431372438f;
+                 gValue = 0.97254901776f;
+                 bValue = 0f;
+                 break;
+
+             case 5:
+                 rValue = 0.18039215652f;
+                 gValue = 0.79215686124f;
+                 bValue = 0.0784313724f;
+                 break;
+
+             case 6:
+                 rValue = 0.10980392136f;
+                 gValue = 0.91372548846f;
+                 bValue = 0.588235293f;
+                 break;
+
+             case 7:
+                 rValue = 0f;
+                 gValue = 0.88627450812f;
+                 bValue = 1f;
+                 break;
+
+             case 8:
+                 rValue = 0f;
+                 gValue = 0.01568627448f;
+                 bValue = 1f;
+                 break;
+         }*/
+
+        rValue = (rValueSet / 255);
+        gValue = (gValueSet / 255);
+        bValue = (bValueSet / 255);
 
         SetColor();
     }
 
-    public void ChangeSecondaryRingColor(float SecondaryRingColorButton)
+    public void ChangeSecondaryRingColor(string rgbValue)
     {
-        switch (SecondaryRingColorButton)
+        string[] splittedParams = rgbValue.Split(',');
+
+        //get the first param
+        string FirstParam = splittedParams[0];
+        string SecondParam = splittedParams[1];
+        string ThirdParam = splittedParams[2];
+
+        //Convert it back to int
+        float rValueSet = float.Parse(FirstParam);
+        float gValueSet = float.Parse(SecondParam);
+        float bValueSet = float.Parse(ThirdParam);
+
+        /*switch (SecondaryRingColorButton)
         {
             case 1:
                 rValue2 = 1f;
@@ -128,8 +158,11 @@ public class RingColor : MonoBehaviour
                 gValue2 = 0.01568627448f;
                 bValue2 = 1f;
                 break;
-        }
+        }*/
 
+        rValue2 = (rValueSet / 255);
+        gValue2 = (gValueSet / 255);
+        bValue2 = (bValueSet / 255);
         SetColor();
     }
 
