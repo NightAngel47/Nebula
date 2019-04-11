@@ -26,7 +26,7 @@ public class AtmosphereController : MonoBehaviour
 
     float newAlpha;
 
-    public Color[] colors;
+    public Color[] atmosphereColors;
 
     float rValue;
     float gValue;
@@ -138,9 +138,9 @@ public class AtmosphereController : MonoBehaviour
 
     }
 
-    public void ChangeColor(string rgbValue)
+    public void ChangeColor(int colorSelected)
     {
-        string[] splittedParams = rgbValue.Split(',');
+        /*string[] splittedParams = rgbValue.Split(',');
 
         //get the first param
         string FirstParam = splittedParams[0];
@@ -150,7 +150,7 @@ public class AtmosphereController : MonoBehaviour
         //Convert it back to int
         float rValueSet = float.Parse(FirstParam);
         float gValueSet = float.Parse(SecondParam);
-        float bValueSet = float.Parse(ThirdParam);
+        float bValueSet = float.Parse(ThirdParam); */
 
 
 
@@ -232,9 +232,9 @@ public class AtmosphereController : MonoBehaviour
 
         //shaderColor = new Color(GetComponent<Renderer>().material.color.r, GetComponent<Renderer>().material.color.g, GetComponent<Renderer>().material.color.b, GetComponent<Renderer>().material.color.a);
 
-        rValue = (rValueSet / 255);
-        gValue = (gValueSet / 255);
-        bValue = (bValueSet / 255);
+        rValue = atmosphereColors[colorSelected].r;
+        gValue = atmosphereColors[colorSelected].g;
+        bValue = atmosphereColors[colorSelected].b;
 
 
         shaderColor = new Color(rValue, gValue, bValue, newAlpha);
