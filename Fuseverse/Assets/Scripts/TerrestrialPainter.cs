@@ -5,6 +5,8 @@ using UnityEngine;
 //https://codeartist.mx/dynamic-texture-painting/
 public class TerrestrialPainter : MonoBehaviour
 {
+    public float displacement = 0.0001f;
+    public Transform UVQuad;
     public Transform UVPos;
     public Camera sceneCamera, canvasCam; // main camera, uv camera
     private GameObject selectedGO;
@@ -44,6 +46,9 @@ public class TerrestrialPainter : MonoBehaviour
             {
                 GameObject newGO = Instantiate(selectedGO, UVPos.position + uvWorldPosition, Quaternion.identity);
                 newGO.transform.Rotate(Vector3.up, Random.Range(0, 45));
+                // move back in order to place biomes on top of eachother
+                UVPos.position -= new Vector3(0, 0, displacement);
+                canvasCam.transform.position -= new Vector3(0, 0, displacement);
             }
         }
         else if(toolSelected == tools.terrain)
@@ -51,8 +56,9 @@ public class TerrestrialPainter : MonoBehaviour
             Vector3 uvWorldPosition = Vector3.zero;
             if (HitTestUVPosition(cursorRay, ref uvWorldPosition))
             {
+                Vector3 quadPos = UVQuad.position + uvWorldPosition;
                 Vector3 biomePos = UVPos.position + uvWorldPosition;
-                DetermineTerrain(biomePos);
+                DetermineTerrain(quadPos, biomePos);
                 SpawnTerrain(cursorRay, biomePos);
             }
         }
@@ -78,7 +84,7 @@ public class TerrestrialPainter : MonoBehaviour
         }
     }
 
-    void DetermineTerrain(Vector3 biomePos)
+    void DetermineTerrain(Vector3 quadPos, Vector3 biomePos)
     {
         // terrain objects have a script that will update themselves based on biome
         if (terrainToolSelected == terrainTools.erase) // erase
@@ -97,10 +103,10 @@ public class TerrestrialPainter : MonoBehaviour
                 isUp = false;
             }
 
-            //Debug.DrawLine(biomePos + new Vector3(0, 0, -0.1f), biomePos + new Vector3(0, 0, 0.1f));
+            Debug.DrawLine(biomePos + new Vector3(0, 0, -0.1f), quadPos);
             // check uv sprites
             RaycastHit hit;
-            if (Physics.Linecast(biomePos + new Vector3(0, 0, -0.1f), biomePos + new Vector3(0, 0, 0.1f), out hit))
+            if (Physics.Linecast(biomePos + new Vector3(0, 0, -0.1f), quadPos, out hit))
             {
                 //print(hit.collider.name);
                 selectedGO = tf.BiomeCheck(hit.collider.tag, isUp); // biome check for spawning terrain
@@ -115,7 +121,7 @@ public class TerrestrialPainter : MonoBehaviour
     void SpawnTerrain(Ray cursorRay, Vector3 biomePos)
     {
         RaycastHit hit;
-        if (Physics.Raycast(cursorRay, out hit, 200, 9))
+        if (Physics.Raycast(cursorRay, out hit, 100000, 9))
         {
             // spawn on planet
             GameObject newGO = Instantiate(selectedGO, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal), planet.transform);
