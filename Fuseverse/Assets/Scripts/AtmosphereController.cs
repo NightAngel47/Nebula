@@ -26,6 +26,8 @@ public class AtmosphereController : MonoBehaviour
 
     float newAlpha;
 
+    public Color[] colors;
+
     float rValue;
     float gValue;
     float bValue;
@@ -136,87 +138,113 @@ public class AtmosphereController : MonoBehaviour
 
     }
 
-    public void ChangeColor(int atmosphereColorButton)
+    public void ChangeColor(string rgbValue)
     {
-        switch (atmosphereColorButton)
-        {
-            case 1:
-                rValue = 1f;
-                gValue = 0f;
-                bValue = 0f;
-                break;
+        string[] splittedParams = rgbValue.Split(',');
 
-            case 2:
-                rValue = 0.99215686086f;
-                gValue = 0.6078431361f;
-                bValue = 0f;
-                break;
+        //get the first param
+        string FirstParam = splittedParams[0];
+        string SecondParam = splittedParams[1];
+        string ThirdParam = splittedParams[2];
 
-            case 3:
-                rValue = 0.9607843119f;
-                gValue = 0.94901960604f;
-                bValue = 0;
-                break;
+        //Convert it back to int
+        float rValueSet = float.Parse(FirstParam);
+        float gValueSet = float.Parse(SecondParam);
+        float bValueSet = float.Parse(ThirdParam);
 
-            case 4:
-                rValue = 0.58431372438f;
-                gValue = 0.97254901776f;
-                bValue = 0f;
-                break;
 
-            case 5:
-                rValue = 0.18039215652f;
-                gValue = 0.79215686124f;
-                bValue = 0.0784313724f;
-                break;
 
-            case 6:
-                rValue = 0.10980392136f;
-                gValue = 0.91372548846f;
-                bValue = 0.588235293f;
-                break;
+        /* switch (atmosphereColorButton)
+         {
+             case 1:
+                 rValue = 1f;
+                 gValue = 0f;
+                 bValue = 0f;
+                 break;
 
-            case 7:
-                rValue = 0f;
-                gValue = 0.88627450812f;
-                bValue = 1f;
-                break;
+             case 2:
+                 rValue = 0.99215686086f;
+                 gValue = 0.6078431361f;
+                 bValue = 0f;
+                 break;
 
-            case 8:
-                rValue = 0f;
-                gValue = 0.01568627448f;
-                bValue = 1f;
-                break;
+             case 3:
+                 rValue = 0.9607843119f;
+                 gValue = 0.94901960604f;
+                 bValue = 0;
+                 break;
 
-            case 9:
-                rValue = 0.7647058809f;
-                gValue = 0f;
-                bValue = 1f;
-                break;
+             case 4:
+                 rValue = 0.58431372438f;
+                 gValue = 0.97254901776f;
+                 bValue = 0f;
+                 break;
 
-            case 10:
-                rValue = 0.4705882344f;
-                gValue = 0.4705882344f;
-                bValue = 0.4705882344f;
-                break;
+             case 5:
+                 rValue = 0.18039215652f;
+                 gValue = 0.79215686124f;
+                 bValue = 0.0784313724f;
+                 break;
 
-            case 11:
-                rValue = 0.63137254782f;
-                gValue = 0.47843137164f;
-                bValue = 0.33725490132f;
-                break;
+             case 6:
+                 rValue = 0.10980392136f;
+                 gValue = 0.91372548846f;
+                 bValue = 0.588235293f;
+                 break;
 
-            case 12:
-                rValue = 0.90588235122f;
-                gValue = 0.90588235122f;
-                bValue = 0.90588235122f;
-                break;
+             case 7:
+                 rValue = 0f;
+                 gValue = 0.88627450812f;
+                 bValue = 1f;
+                 break;
 
-        }
+             case 8:
+                 rValue = 0f;
+                 gValue = 0.01568627448f;
+                 bValue = 1f;
+                 break;
+
+             case 9:
+                 rValue = 0.7647058809f;
+                 gValue = 0f;
+                 bValue = 1f;
+                 break;
+
+             case 10:
+                 rValue = 0.4705882344f;
+                 gValue = 0.4705882344f;
+                 bValue = 0.4705882344f;
+                 break;
+
+             case 11:
+                 rValue = 0.63137254782f;
+                 gValue = 0.47843137164f;
+                 bValue = 0.33725490132f;
+                 break;
+
+             case 12:
+                 rValue = 0.90588235122f;
+                 gValue = 0.90588235122f;
+                 bValue = 0.90588235122f;
+                 break;
+
+         } */
 
         //shaderColor = new Color(GetComponent<Renderer>().material.color.r, GetComponent<Renderer>().material.color.g, GetComponent<Renderer>().material.color.b, GetComponent<Renderer>().material.color.a);
+
+        rValue = (rValueSet / 255);
+        gValue = (gValueSet / 255);
+        bValue = (bValueSet / 255);
+
+
         shaderColor = new Color(rValue, gValue, bValue, newAlpha);
         rend.material.SetColor("_BaseColor", shaderColor);
+    }
+
+    public void ColorSelected()
+    {
+
+        
     }
 
     public void ActivateAtmosphere()

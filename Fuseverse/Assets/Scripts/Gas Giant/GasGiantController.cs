@@ -32,8 +32,9 @@ public class GasGiantController : MonoBehaviour
     bool bandButton = false;
     bool stormSpeedButton = false;
 
-    
 
+    public Color[] baseColors;
+    public Color[] bandColors;
 
     //Band Variables
     float bandNumber = 0f;
@@ -90,10 +91,10 @@ public class GasGiantController : MonoBehaviour
     }
 
     //Change the base color of planet
-    public void ChangeColor(string rgbValue)
+    public void ChangeColor(int colorSelected)
     {
         //float rValueSet, float gValueSet, float bValueSet
-
+        /*
         string[] splittedParams = rgbValue.Split(',');
 
         //get the first param
@@ -105,6 +106,13 @@ public class GasGiantController : MonoBehaviour
         float rValueSet = float.Parse(FirstParam);
         float gValueSet = float.Parse(SecondParam);
         float bValueSet = float.Parse(ThirdParam);
+        */
+
+        rValue = baseColors[colorSelected].r;
+        gValue = baseColors[colorSelected].g;
+        bValue = baseColors[colorSelected].b; 
+
+       
 
         /* switch (atmosphereColorButton)
          {
@@ -189,30 +197,30 @@ public class GasGiantController : MonoBehaviour
         //shaderColor = new Color(GetComponent<Renderer>().material.color.r, GetComponent<Renderer>().material.color.g, GetComponent<Renderer>().material.color.b, 
         //GetComponent<Renderer>().material.color.a);
 
-        rValue = (rValueSet / 255);
-        gValue = (gValueSet / 255);
-        bValue = (bValueSet / 255);
+       // rValue = (rValueSet / 255);
+      //  gValue = (gValueSet / 255);
+       // bValue = (bValueSet / 255);
 
         planetColor = new Color(rValue, gValue, bValue, 1);
         rend.material.SetColor("_Planet_Color", planetColor);
     }
 
     //Change the color of bands
-    public void ChangeBandColor(string rgbValue)
+    public void ChangeBandColor(int colorSelected)
     {
         //float rValueSet, float gValueSet, float bValueSet
 
-        string[] splittedParams = rgbValue.Split(',');
+        /*  string[] splittedParams = rgbValue.Split(',');
 
-        //get the first param
-        string FirstParam = splittedParams[0];
-        string SecondParam = splittedParams[1];
-        string ThirdParam = splittedParams[2];
+          //get the first param
+          string FirstParam = splittedParams[0];
+          string SecondParam = splittedParams[1];
+          string ThirdParam = splittedParams[2];
 
-        //Convert it back to int
-        float rValueSet = float.Parse(FirstParam);
-        float gValueSet = float.Parse(SecondParam);
-        float bValueSet = float.Parse(ThirdParam);
+          //Convert it back to int
+          float rValueSet = float.Parse(FirstParam);
+          float gValueSet = float.Parse(SecondParam);
+          float bValueSet = float.Parse(ThirdParam); */
 
         /* switch (bandColorButton)
          {
@@ -265,9 +273,9 @@ public class GasGiantController : MonoBehaviour
                  break;
          } */
 
-        rBandValue = (rValueSet / 255);
-        gBandValue = (gValueSet / 255);
-        bBandValue = (bValueSet / 255);
+        rBandValue = bandColors[colorSelected].r;
+        gBandValue = bandColors[colorSelected].g;
+        bBandValue = bandColors[colorSelected].b;
 
         bandColor = new Color(rBandValue, gBandValue, bBandValue, 1);
         rend.material.SetColor("_Color_Bands", bandColor);
