@@ -90,149 +90,170 @@ public class GasGiantController : MonoBehaviour
     }
 
     //Change the base color of planet
-    public void ChangeColor(int atmosphereColorButton)
+    public void ChangeColor(string rgbValue)
     {
-        switch (atmosphereColorButton)
-        {
-            case 1:
-                rValue = 1f;
-                gValue = 0f;
-                bValue = 0f;
-                break;
+        //float rValueSet, float gValueSet, float bValueSet
 
-            case 2:
-                rValue = 0.99215686086f;
-                gValue = 0.6078431361f;
-                bValue = 0f;
-                break;
+        string[] splittedParams = rgbValue.Split(',');
 
-            case 3:
-                rValue = 0.9607843119f;
-                gValue = 0.94901960604f;
-                bValue = 0;
-                break;
+        //get the first param
+        string FirstParam = splittedParams[0];
+        string SecondParam = splittedParams[1];
+        string ThirdParam = splittedParams[2];
 
-            case 4:
-                rValue = 0.58431372438f;
-                gValue = 0.97254901776f;
-                bValue = 0f;
-                break;
+        //Convert it back to int
+        float rValueSet = float.Parse(FirstParam);
+        float gValueSet = float.Parse(SecondParam);
+        float bValueSet = float.Parse(ThirdParam);
 
-            case 5:
-                rValue = 0.18039215652f;
-                gValue = 0.79215686124f;
-                bValue = 0.0784313724f;
-                break;
+        /* switch (atmosphereColorButton)
+         {
+             case 1:
+                 rValue = 1f;
+                 gValue = 0f;
+                 bValue = 0f;
+                 break;
 
-            case 6:
-                rValue = 0.10980392136f;
-                gValue = 0.91372548846f;
-                bValue = 0.588235293f;
-                break;
+             case 2:
+                 rValue = 0.99215686086f;
+                 gValue = 0.6078431361f;
+                 bValue = 0f;
+                 break;
 
-            case 7:
-                rValue = 0f;
-                gValue = 0.88627450812f;
-                bValue = 1f;
-                break;
+             case 3:
+                 rValue = 0.9607843119f;
+                 gValue = 0.94901960604f;
+                 bValue = 0;
+                 break;
 
-            case 8:
-                rValue = 0f;
-                gValue = 0.01568627448f;
-                bValue = 1f;
-                break;
+             case 4:
+                 rValue = 0.58431372438f;
+                 gValue = 0.97254901776f;
+                 bValue = 0f;
+                 break;
 
-                /*
-            case 9:
-                rValue = 0.7647058809f;
-                gValue = 0f;
-                bValue = 1f;
-                break;
+             case 5:
+                 rValue = 0.18039215652f;
+                 gValue = 0.79215686124f;
+                 bValue = 0.0784313724f;
+                 break;
 
-                
-            case 10:
-                rValue = 0.4705882344f;
-                gValue = 0.4705882344f;
-                bValue = 0.4705882344f;
-                break;
+             case 6:
+                 rValue = 0.10980392136f;
+                 gValue = 0.91372548846f;
+                 bValue = 0.588235293f;
+                 break;
 
-            case 11:
-                rValue = 0.63137254782f;
-                gValue = 0.47843137164f;
-                bValue = 0.33725490132f;
-                break;
+             case 7:
+                 rValue = 0f;
+                 gValue = 0.88627450812f;
+                 bValue = 1f;
+                 break;
 
-            case 12:
-                rValue = 0.90588235122f;
-                gValue = 0.90588235122f;
-                bValue = 0.90588235122f;
-                break;
-                */
+             case 8:
+                 rValue = 0f;
+                 gValue = 0.01568627448f;
+                 bValue = 1f;
+                 break;
 
-        }
+
+
+             case 9:
+                 rValue = 0.7647058809f;
+                 gValue = 0f;
+                 bValue = 1f;
+                 break;
+
+
+             case 10:
+                 rValue = 0.4705882344f;
+                 gValue = 0.4705882344f;
+                 bValue = 0.4705882344f;
+                 break;
+
+             case 11:
+                 rValue = 0.63137254782f;
+                 gValue = 0.47843137164f;
+                 bValue = 0.33725490132f;
+                 break;
+
+             case 12:
+                 rValue = 0.90588235122f;
+                 gValue = 0.90588235122f;
+                 bValue = 0.90588235122f;
+                 break;
+
+
+         } */
 
         //shaderColor = new Color(GetComponent<Renderer>().material.color.r, GetComponent<Renderer>().material.color.g, GetComponent<Renderer>().material.color.b, 
         //GetComponent<Renderer>().material.color.a);
 
+        rValue = (rValueSet / 255);
+        gValue = (gValueSet / 255);
+        bValue = (bValueSet / 255);
+
         planetColor = new Color(rValue, gValue, bValue, 1);
-        //rend.material.SetColor("_Color_Bands", planetColor);
-        //rend.material.SetColor("_Color_Storms", planetColor);
         rend.material.SetColor("_Planet_Color", planetColor);
     }
 
     //Change the color of bands
-    public void ChangeBandColor(int bandColorButton)
+    public void ChangeBandColor(float rValueSet, float gValueSet, float bValueSet)
     {
-        switch (bandColorButton)
-        {
-            case 1:
-                rBandValue = 1f;
-                gBandValue = 0f;
-                bBandValue = 0f;
-                break;
+        /* switch (bandColorButton)
+         {
+             case 1:
+                 rBandValue = 1f;
+                 gBandValue = 0f;
+                 bBandValue = 0f;
+                 break;
 
-            case 2:
-                rBandValue = 0.99215686086f;
-                gBandValue = 0.6078431361f;
-                bBandValue = 0f;
-                break;
+             case 2:
+                 rBandValue = 0.99215686086f;
+                 gBandValue = 0.6078431361f;
+                 bBandValue = 0f;
+                 break;
 
-            case 3:
-                rBandValue = 0.9607843119f;
-                gBandValue = 0.94901960604f;
-                bBandValue = 0;
-                break;
+             case 3:
+                 rBandValue = 0.9607843119f;
+                 gBandValue = 0.94901960604f;
+                 bBandValue = 0;
+                 break;
 
-            case 4:
-                rBandValue = 0.58431372438f;
-                gBandValue = 0.97254901776f;
-                bBandValue = 0f;
-                break;
+             case 4:
+                 rBandValue = 0.58431372438f;
+                 gBandValue = 0.97254901776f;
+                 bBandValue = 0f;
+                 break;
 
-            case 5:
-                rBandValue = 0.18039215652f;
-                gBandValue = 0.79215686124f;
-                bBandValue = 0.0784313724f;
-                break;
+             case 5:
+                 rBandValue = 0.18039215652f;
+                 gBandValue = 0.79215686124f;
+                 bBandValue = 0.0784313724f;
+                 break;
 
-            case 6:
-                rBandValue = 0.10980392136f;
-                gBandValue = 0.91372548846f;
-                bBandValue = 0.588235293f;
-                break;
+             case 6:
+                 rBandValue = 0.10980392136f;
+                 gBandValue = 0.91372548846f;
+                 bBandValue = 0.588235293f;
+                 break;
 
-            case 7:
-                rBandValue = 0f;
-                gBandValue = 0.88627450812f;
-                bBandValue = 1f;
-                break;
+             case 7:
+                 rBandValue = 0f;
+                 gBandValue = 0.88627450812f;
+                 bBandValue = 1f;
+                 break;
 
-            case 8:
-                rBandValue = 0f;
-                gBandValue = 0.01568627448f;
-                bBandValue = 1f;
-                break;
-        }
+             case 8:
+                 rBandValue = 0f;
+                 gBandValue = 0.01568627448f;
+                 bBandValue = 1f;
+                 break;
+         } */
+
+        rBandValue = (rValueSet / 255);
+        gBandValue = (gValueSet / 255);
+        bBandValue = (bValueSet / 255);
 
         bandColor = new Color(rBandValue, gBandValue, bBandValue, 1);
         rend.material.SetColor("_Color_Bands", bandColor);
@@ -294,6 +315,7 @@ public class GasGiantController : MonoBehaviour
                 bValue = 1f;
                 break;
         }
+        
 
         stormColor = new Color(rStormValue, gStormValue, bStormValue, 1f);
         rend.material.SetColor("_Color_Storms", stormColor);
