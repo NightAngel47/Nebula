@@ -198,8 +198,22 @@ public class GasGiantController : MonoBehaviour
     }
 
     //Change the color of bands
-    public void ChangeBandColor(float rValueSet, float gValueSet, float bValueSet)
+    public void ChangeBandColor(string rgbValue)
     {
+        //float rValueSet, float gValueSet, float bValueSet
+
+        string[] splittedParams = rgbValue.Split(',');
+
+        //get the first param
+        string FirstParam = splittedParams[0];
+        string SecondParam = splittedParams[1];
+        string ThirdParam = splittedParams[2];
+
+        //Convert it back to int
+        float rValueSet = float.Parse(FirstParam);
+        float gValueSet = float.Parse(SecondParam);
+        float bValueSet = float.Parse(ThirdParam);
+
         /* switch (bandColorButton)
          {
              case 1:
