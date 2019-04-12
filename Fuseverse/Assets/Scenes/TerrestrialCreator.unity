@@ -7074,6 +7074,7 @@ MonoBehaviour:
   - {fileID: 534361926412475991, guid: 544d39929058e0340b9b42067ba25ecf, type: 3}
   - {fileID: 9051867545221230458, guid: 737547eccd244e4449a69ce05a20b8d3, type: 3}
   - {fileID: 5824833997211211214, guid: 06cd34ec8b220e34e9f365687acd2c5b, type: 3}
+  terrainTransforms: []
 --- !u!1 &1440858772
 GameObject:
   m_ObjectHideFlags: 0
@@ -9932,6 +9933,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 281fe8dc6e0dacb4a97347684229c8bf, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 03a861c4e29365e4299ca6535fec615c, type: 2}
     - target: {fileID: 400002, guid: 281fe8dc6e0dacb4a97347684229c8bf, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -9988,10 +9993,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.45
       objectReference: {fileID: 0}
-    - target: {fileID: 2300000, guid: 281fe8dc6e0dacb4a97347684229c8bf, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 03a861c4e29365e4299ca6535fec615c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 281fe8dc6e0dacb4a97347684229c8bf, type: 3}
 --- !u!4 &1812487154 stripped
@@ -11882,10 +11883,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ExitButton: {fileID: 1523789432}
   FinishButton: {fileID: 1465308827}
-  ConfirmExit: {fileID: 378319259}
-  ConfirmFinish: {fileID: 1332242533}
-  CancelExit: {fileID: 1622739547}
-  CancelFinish: {fileID: 322048276}
+  ConfirmExit: {fileID: 1622739547}
+  ConfirmFinish: {fileID: 322048276}
+  CancelExit: {fileID: 378319259}
+  CancelFinish: {fileID: 1332242533}
   verifyExit: {fileID: 1929932422}
   verifyFinish: {fileID: 1963355296}
   OtherUI1: {fileID: 469671403}
