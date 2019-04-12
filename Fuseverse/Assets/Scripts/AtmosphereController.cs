@@ -10,7 +10,7 @@ public class AtmosphereController : MonoBehaviour
     public float atmosphereIncrementValue = 0f;
     public float atmosphereMax;
     public float atmosphereMin;
-    float newAlpha;
+    float newAlpha = 0.1f;
 
     public Color[] atmosphereColors;
     float rValue;

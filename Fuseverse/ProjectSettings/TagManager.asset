@@ -16,6 +16,7 @@ TagManager:
   - Mountain
   - FinishPos
   - Snow
+  - CanvasCam
   layers:
   - Default
   - TransparentFX

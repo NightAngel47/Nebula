@@ -6,48 +6,47 @@ public class SwapTerrain : MonoBehaviour
     public bool isUp = false; // up or plant
     private TerrainFeatures tf; // terrain - biome interactions
     private TerrestrialPainter tp; // painter
+    private Transform canvasCam;
     private GameObject swapObject;
+    private Vector3 uvPos;
     private Transform planet;
-    public Vector3 UVPos;
 
     void Start()
     {
         tp = FindObjectOfType<TerrestrialPainter>();
         tf = FindObjectOfType<TerrainFeatures>();
-        planet = GameObject.FindGameObjectWithTag("Planet").GetComponent<Transform>();
+        canvasCam = GameObject.FindGameObjectWithTag("CanvasCam").transform;
+        planet = GameObject.FindGameObjectWithTag("Planet").transform;
+    }
+
+    public void SetUVPos(Vector3 uvPosition)
+    {
+        uvPos = uvPosition;
     }
 
     void Update()
     {
-        CheckBiome();
+        if(tp.paintingBiome)
+            CheckBiome();
 
         if ((swapObject != null) && (swapObject.name + "(Clone)" != gameObject.name))
-        {
             SpawnNewTerrian();
-        }
     }
-
-    public void SetUVPos(Vector3 UVPosistion)
-    {
-        UVPos = UVPosistion;
-    }
-
+    
     // updates terrain object based on biome
     void CheckBiome()
     {
-        Debug.DrawLine(UVPos + new Vector3(0, 0, -0.1f), UVPos + new Vector3(0, 0, 0.1f));
+        Debug.DrawRay(uvPos + new Vector3(0, 0, canvasCam.position.z), Vector3.forward);
+        // check uv sprites
         RaycastHit hit;
-        if (Physics.Linecast(UVPos + new Vector3(0, 0, -0.1f), UVPos + new Vector3(0, 0, 0.1f), out hit))
-        {
-            swapObject = tf.BiomeCheck(hit.collider.tag, isUp);
-        }
+        if (Physics.Raycast(uvPos + new Vector3(0, 0, canvasCam.position.z), Vector3.forward, out hit))
+            if(!hit.collider.CompareTag("Terrain") || !hit.collider.CompareTag("Planet"))
+                swapObject = tf.BiomeCheck(hit.collider.tag, isUp);
     }
 
     void SpawnNewTerrian()
     {
-        GameObject newGO = Instantiate(swapObject, transform.position, transform.rotation, planet);
-        tp.terrainTransforms.Remove(this);
-        tp.terrainTransforms.Add(newGO.GetComponent<SwapTerrain>());
+        Instantiate(swapObject, transform.position, transform.rotation, planet);
         Destroy(gameObject);
     }
 }

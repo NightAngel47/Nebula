@@ -7,7 +7,6 @@ public class TerrestrialPainter : MonoBehaviour
 {
     public bool isDebug = false;
     public float displacement = 0.0001f;
-    public Transform UVQuad;
     public Transform UVPos;
     public Camera sceneCamera, canvasCam; // main camera, uv camera
     private GameObject selectedGO;
@@ -19,8 +18,7 @@ public class TerrestrialPainter : MonoBehaviour
     private enum terrainTools { none, up, plants, erase } // terrain tools
     private terrainTools terrainToolSelected = terrainTools.none; // terrain tool selected
     private TerrainFeatures tf;  // terrain - biome interactions
-    public List<SwapTerrain> terrainTransforms;
-
+    public bool paintingBiome = false; // terrain biome checking
     private GameObject planet;
     void Start()
     {
@@ -53,6 +51,9 @@ public class TerrestrialPainter : MonoBehaviour
             Vector3 uvWorldPosition = Vector3.zero;
             if (HitTestUVPosition(cursorRay, ref uvWorldPosition))
             {
+
+                paintingBiome = true;
+                Invoke("ResetPainting", Time.deltaTime);
                 GameObject newGO = Instantiate(selectedGO, UVPos.position + uvWorldPosition, Quaternion.identity);
                 newGO.transform.Rotate(Vector3.back, Random.Range(0, 360));
                 // move back in order to place biomes on top of eachother
@@ -61,30 +62,50 @@ public class TerrestrialPainter : MonoBehaviour
         }
         else if(toolSelected == tools.terrain)
         {
-            Vector3 uvWorldPosition = Vector3.zero;
-            if (HitTestUVPosition(cursorRay, ref uvWorldPosition))
+            if(terrainToolSelected == terrainTools.erase)
             {
-                Vector3 quadPos = UVQuad.position + uvWorldPosition;
-                Vector3 biomePos = UVPos.position + uvWorldPosition;
-                DetermineTerrain(quadPos, biomePos);
-                SpawnTerrain(cursorRay, biomePos);
+                RaycastHit hit;
+                if (Physics.Raycast(cursorRay, out hit))
+                    Instantiate(selectedGO, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
+            }
+            else
+            {
+                Vector3 uvWorldPosition = Vector3.zero;
+                if (HitTestUVPosition(cursorRay, ref uvWorldPosition))
+                {
+                    Vector3 biomePos = UVPos.position + uvWorldPosition;
+                    DetermineTerrain(biomePos);
+                    SpawnTerrain(cursorRay, biomePos);
+                }
             }
         }
     }
 
-    bool HitTestUVPosition(Ray cursorRay, ref Vector3 uvWorldPosition)
+    void ResetPainting()
+    {
+        paintingBiome = false;
+    }
+
+    public bool HitTestUVPosition(Ray cursorRay, ref Vector3 uvWorldPosition)
     {
         RaycastHit hit;
         if (Physics.Raycast(cursorRay, out hit))
         {
-            MeshCollider meshCollider = hit.collider as MeshCollider;
-            if (meshCollider == null || meshCollider.sharedMesh == null)
+            if(!hit.collider.CompareTag("Terrain"))
+            {
+                MeshCollider meshCollider = hit.collider as MeshCollider;
+                if (meshCollider == null || meshCollider.sharedMesh == null)
+                    return false;
+                Vector2 pixelUV = new Vector2(hit.textureCoord.x, hit.textureCoord.y);
+                uvWorldPosition.x = pixelUV.x - canvasCam.orthographicSize;//To center the UV on X
+                uvWorldPosition.y = pixelUV.y - canvasCam.orthographicSize;//To center the UV on Y
+                uvWorldPosition.z = 0.0f;
+                return true;
+            }
+            else
+            {
                 return false;
-            Vector2 pixelUV = new Vector2(hit.textureCoord.x, hit.textureCoord.y);
-            uvWorldPosition.x = pixelUV.x - canvasCam.orthographicSize;//To center the UV on X
-            uvWorldPosition.y = pixelUV.y - canvasCam.orthographicSize;//To center the UV on Y
-            uvWorldPosition.z = 0.0f;
-            return true;
+            }
         }
         else
         {
@@ -92,7 +113,7 @@ public class TerrestrialPainter : MonoBehaviour
         }
     }
 
-    void DetermineTerrain(Vector3 quadPos, Vector3 biomePos)
+    void DetermineTerrain(Vector3 biomePos)
     {
         // terrain objects have a script that will update themselves based on biome
         if (terrainToolSelected == terrainTools.erase) // erase
@@ -111,10 +132,10 @@ public class TerrestrialPainter : MonoBehaviour
                 isUp = false;
             }
 
-            Debug.DrawLine(quadPos, biomePos + new Vector3(0, 0, -0.1f));
+            Debug.DrawRay(biomePos + new Vector3(0, 0, displacement), Vector3.forward);
             // check uv sprites
             RaycastHit hit;
-            if (Physics.Linecast(quadPos, biomePos + new Vector3(0, 0, -0.1f), out hit))
+            if (Physics.Raycast(biomePos + new Vector3(0, 0, displacement), Vector3.forward, out hit))
             {
                 selectedGO = tf.BiomeCheck(hit.collider.tag, isUp); // biome check for spawning terrain
             }
@@ -128,15 +149,12 @@ public class TerrestrialPainter : MonoBehaviour
     void SpawnTerrain(Ray cursorRay, Vector3 biomePos)
     {
         RaycastHit hit;
-        if (Physics.Raycast(cursorRay, out hit, 100000, 9))
+        if (Physics.Raycast(cursorRay, out hit, 10000, 9))
         {
             // spawn on planet
             GameObject newGO = Instantiate(selectedGO, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal), planet.transform);
             newGO.transform.Rotate(Vector3.up, Random.Range(0, 45));
-
-            SwapTerrain newGOST = newGO.GetComponent<SwapTerrain>();
-            newGOST.SetUVPos(biomePos);
-            terrainTransforms.Add(newGOST);
+            newGO.GetComponent<SwapTerrain>().SetUVPos(biomePos);
         }
     }
 
@@ -146,10 +164,6 @@ public class TerrestrialPainter : MonoBehaviour
 
         UVPos.position -= displacementVec;
         canvasCam.transform.position -= displacementVec;
-        foreach (SwapTerrain terrainTransform in terrainTransforms)
-        {
-            terrainTransform.UVPos -= displacementVec;
-        }
     }
 
     public void ChangeTool(string tool)

@@ -469,14 +469,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 110666244}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.009150643, y: 0.006784186, z: 0.006873765, w: 0.99991155}
+  m_LocalPosition: {x: -0.000000003204637, y: -0.000000004385167, z: 6.187406e-11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1812487154}
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -1.054, y: 0.77000004, z: 0.781}
 --- !u!114 &110666249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2207,7 +2207,7 @@ GameObject:
   - component: {fileID: 380538112}
   m_Layer: 0
   m_Name: Painter Camera
-  m_TagString: Untagged
+  m_TagString: CanvasCam
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7057,9 +7057,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bb2e922c5a99f74b8adc1fc9aababf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDebug: 0
+  isDebug: 1
   displacement: 0.001
-  UVQuad: {fileID: 2125780135}
   UVPos: {fileID: 1253287591}
   sceneCamera: {fileID: 1913211101}
   canvasCam: {fileID: 380538114}
@@ -7074,7 +7073,6 @@ MonoBehaviour:
   - {fileID: 534361926412475991, guid: 544d39929058e0340b9b42067ba25ecf, type: 3}
   - {fileID: 9051867545221230458, guid: 737547eccd244e4449a69ce05a20b8d3, type: 3}
   - {fileID: 5824833997211211214, guid: 06cd34ec8b220e34e9f365687acd2c5b, type: 3}
-  terrainTransforms: []
 --- !u!1 &1440858772
 GameObject:
   m_ObjectHideFlags: 0
