@@ -34,15 +34,11 @@ public class TerrestrialPainter : MonoBehaviour
             SpawnGO();
         }
 
-        #region debug painting controls
-        #if UNITY_EDITOR
         // mouse debug
         if (Input.GetMouseButton(0) && isDebug)
         {
             SpawnGO();
         }
-        #endif
-        #endregion
     }
 
     void SpawnGO()
