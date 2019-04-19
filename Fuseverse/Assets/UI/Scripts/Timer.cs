@@ -10,20 +10,28 @@ public class Timer : MonoBehaviour
     public GameObject atmosphereCanvas;
     public GameObject tapHands;
     public GameObject rotateHands;
-    public Button selectionOne;
+
+    public Button Terrain_Button;
+    public Button Biomes_Button;
+    public Button Atmosphere_Button;
+
+    public GameObject VerifyFinish;
+    public GameObject VerifyExit;
 
     private float inputTimer;
+    
 
     void Start()
     {
         inputTimer = 11;
-        selectionOne.onClick.AddListener(onClickAtmosphere);
+        Terrain_Button.onClick.AddListener(onClickButton);
+        Biomes_Button.onClick.AddListener(onClickButton);
+        Atmosphere_Button.onClick.AddListener(onClickButton);
 
     }
-    void onClickAtmosphere()
+    void onClickButton()
     {
         inputTimer = 11;
-        Debug.Log("you clicked the button, good for you");
     }
     void FixedUpdate()
     {
@@ -58,6 +66,11 @@ public class Timer : MonoBehaviour
             {
             dragHands.SetActive(false);
             }
+
+        if (VerifyExit.activeSelf == true || VerifyFinish.activeSelf == true)
+        {
+            inputTimer = 1;
+        }
     }
 
 

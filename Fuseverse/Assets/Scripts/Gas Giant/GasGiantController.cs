@@ -37,9 +37,9 @@ public class GasGiantController : MonoBehaviour
     public Color[] bandColors;
 
     //Band Variables
-    float bandNumber = 0f;
-    float newBandNumber = 0f;
-    float bandIncrement = 0f;
+    //float bandNumber = 0f;
+    //float newBandNumber = 0f;
+    //float bandIncrement = 0f;
 
     public float maxBands = 0f;
     public float minBands = 0f;
@@ -59,8 +59,8 @@ public class GasGiantController : MonoBehaviour
     {
         rend = GetComponent<Renderer>();
 
-        bandNumber = 0f;
-        bandIncrement = 0f;
+        //bandNumber = 0f;
+        //bandIncrement = 0f;
 
         stormSpeedNumber = 0f;
         stormSpeedIncrement = 0f;
@@ -281,7 +281,7 @@ public class GasGiantController : MonoBehaviour
         rend.material.SetColor("_Color_Bands", bandColor);
 
         
-        rend.material.SetColor("_Color_Storms", bandColor);
+        //rend.material.SetColor("_Color_Storms", bandColor);
     }
 
     //Change the color of storms
@@ -349,43 +349,35 @@ public class GasGiantController : MonoBehaviour
         Touch firstTouch = Input.GetTouch(0);
         Vector2 magFirstTouchPrevPos = (firstTouch.deltaPosition + firstTouch.position);
 
-        if (magFirstTouchPrevPos.x > firstTouch.position.x)
-        {
-            Debug.Log(">0");
+        float newBandNumber = rend.material.GetFloat("_Bands");
 
-            bandIncrement += bandIncrementValue;
-            newBandNumber = (bandNumber + bandIncrement);
+        if (magFirstTouchPrevPos.y < firstTouch.position.y)
+        {
+            //Debug.Log(">0");
+
+            newBandNumber += bandIncrementValue;
 
             //Keeps band number from hitting a value above 1 and below 0 on slider 
             if (newBandNumber > maxBands)
             {
                 newBandNumber = maxBands;
-            }
-            if (newBandNumber < minBands)
-            {
-                newBandNumber = minBands;
             }
 
             rend.material.SetFloat("_Bands", newBandNumber);
 
             Debug.Log("Band Change" + newBandNumber);
         }
-        else if (magFirstTouchPrevPos.x < firstTouch.position.x)
+        else if (magFirstTouchPrevPos.y > firstTouch.position.y)
         {
-            Debug.Log("<0");
+            //Debug.Log("<0");
 
-            bandIncrement -= bandIncrementValue;
-            newBandNumber = (bandNumber + bandIncrement);
+            newBandNumber -= bandIncrementValue;
 
             //Keeps band number from hitting a value above 1 and below 0 on slider 
             if (newBandNumber < minBands)
             {
                 newBandNumber = minBands;
             }
-            if (newBandNumber > maxBands)
-            {
-                newBandNumber = maxBands;
-            } 
             rend.material.SetFloat("_Bands", newBandNumber);
 
             Debug.Log("Band Change" + newBandNumber);

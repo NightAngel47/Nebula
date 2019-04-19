@@ -28,7 +28,7 @@ public class MenUIChanger : MonoBehaviour
 
         //Setting no menu
         terrainCanvas.SetActive(false);
-        colorCanvas.SetActive(false);
+        colorCanvas.SetActive(true);
         atmosphereCanvas.SetActive(false);
         finishCanvas.SetActive(false);
         RightBlurGas.SetActive(true);

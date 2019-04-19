@@ -7,16 +7,11 @@ public class TerrainFeatures : MonoBehaviour
     public GameObject[] terrainObjects; // 0 pine, 1 pine snowy, 2 palm, 3 cacti, 4 stump,
                                         // 5 rock, 6 hill, 7 hill snowy, 8 mountains, 9 ice chuck
                                         // 10 bush, 11 plateau, 12 rock desert, 13 volcano, 14 islands
-    private string defaultBiomeTag;
-
-    void Start()
-    {
-        defaultBiomeTag = FindObjectOfType<DefaultBiome>().defaultBiome;
-    }
 
     // terrain - biome interactions
     public GameObject BiomeCheck(string biomeTag, bool isUp)
     {
+        //print("TF: " + biomeTag);
         if (biomeTag == "Plains")
         {
             if (isUp)
@@ -105,13 +100,9 @@ public class TerrainFeatures : MonoBehaviour
                 return terrainObjects[14]; // islands
             }
         }
-        else if (biomeTag == defaultBiomeTag || biomeTag == "UVQuad")
-        {
-            return BiomeCheck(defaultBiomeTag, isUp);
-        }
         else
         {
-            print("Tag error - biomtag: " + biomeTag);
+            Debug.LogError("Tag error - biomtag: " + biomeTag);
             return null;
         }
     }

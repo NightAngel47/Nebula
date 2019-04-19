@@ -29,7 +29,7 @@ public class TerrestrialPainter : MonoBehaviour
     void Update()
     {
         // touch
-        if ((Input.touchCount == 1) && !(Input.touchCount == 2))
+        if ((Input.touchCount == 1) && !(Input.touchCount == 2) && Input.GetTouch(0).phase == TouchPhase.Moved)
         {
             SpawnGO();
         }
@@ -55,32 +55,34 @@ public class TerrestrialPainter : MonoBehaviour
             Vector3 uvWorldPosition = Vector3.zero;
             if (HitTestUVPosition(cursorRay, ref uvWorldPosition))
             {
-
                 paintingBiome = true;
                 Invoke("ResetPainting", Time.deltaTime);
                 GameObject newGO = Instantiate(selectedGO, UVPos.position + uvWorldPosition, Quaternion.identity);
                 newGO.transform.Rotate(Vector3.back, Random.Range(0, 360));
+
+                //RaycastHit hit;
+                foreach(RaycastHit hit in Physics.SphereCastAll(cursorRay, 0.05f)) // error switching here
+                {
+                    //print("SphereCastAll: " + hit.collider.name); 
+                    if (!hit.collider.CompareTag("Planet") && hit.collider.CompareTag("Terrain"))
+                    {
+                        //print("SphereCastAll-Terrain: " + hit.collider.name);
+                        hit.collider.GetComponent<SwapTerrain>().CheckBiome(selectedGO.tag);
+                    }
+                }
+
                 // move back in order to place biomes on top of eachother
                 PosDisplacement();
             }
         }
         else if(toolSelected == tools.terrain)
         {
-            if(terrainToolSelected == terrainTools.erase)
+            Vector3 uvWorldPosition = Vector3.zero;
+            if (HitTestUVPosition(cursorRay, ref uvWorldPosition))
             {
-                RaycastHit hit;
-                if (Physics.Raycast(cursorRay, out hit))
-                    Instantiate(selectedGO, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
-            }
-            else
-            {
-                Vector3 uvWorldPosition = Vector3.zero;
-                if (HitTestUVPosition(cursorRay, ref uvWorldPosition))
-                {
-                    Vector3 biomePos = UVPos.position + uvWorldPosition;
-                    DetermineTerrain(biomePos);
-                    SpawnTerrain(cursorRay, biomePos);
-                }
+                Vector3 biomePos = UVPos.position + uvWorldPosition;
+                DetermineTerrain(biomePos);
+                SpawnTerrain(cursorRay, biomePos);
             }
         }
     }
@@ -152,13 +154,20 @@ public class TerrestrialPainter : MonoBehaviour
 
     void SpawnTerrain(Ray cursorRay, Vector3 biomePos)
     {
-        RaycastHit hit;
-        if (Physics.Raycast(cursorRay, out hit, 10000, 9))
+        if (selectedGO != null)
         {
-            // spawn on planet
-            GameObject newGO = Instantiate(selectedGO, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal), planet.transform);
-            newGO.transform.Rotate(Vector3.up, Random.Range(0, 45));
-            newGO.GetComponent<SwapTerrain>().SetUVPos(biomePos);
+            RaycastHit hit;
+            if (Physics.Raycast(cursorRay, out hit, 10000, 9))
+            {
+                // spawn on planet
+                GameObject newGO = Instantiate(selectedGO, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
+                if(terrainToolSelected != terrainTools.erase)
+                {
+                    newGO.transform.Rotate(Vector3.up, Random.Range(0, 45));
+                    newGO.transform.SetParent(planet.transform);
+                    newGO.GetComponent<SwapTerrain>().SetUVPos(biomePos);
+                }
+            }
         }
     }
 

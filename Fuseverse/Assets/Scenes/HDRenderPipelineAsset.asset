@@ -160,8 +160,8 @@ MonoBehaviour:
     supportTransparentBackface: 1
     supportTransparentDepthPrepass: 1
     supportTransparentDepthPostpass: 1
-    supportedLitShaderMode: 2
-    supportDecals: 1
+    supportedLitShaderMode: 1
+    supportDecals: 0
     msaaSampleCount: 1
     supportMotionVectors: 1
     supportRuntimeDebugDisplay: 1

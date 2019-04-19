@@ -10,7 +10,6 @@ public class AtmosphereController : MonoBehaviour
     public float atmosphereIncrementValue = 0f;
     public float atmosphereMax;
     public float atmosphereMin;
-    float newAlpha = 0.1f;
 
     public Color[] atmosphereColors;
     float rValue;
@@ -36,7 +35,7 @@ public class AtmosphereController : MonoBehaviour
 
             if (magFirstTouchPrevPos.x > firstTouch.position.x)
             {
-                Debug.Log(">0");
+                //Debug.Log(">0");
 
                 newAlpha += atmosphereIncrementValue;
                 if (newAlpha > atmosphereMax)
@@ -49,7 +48,7 @@ public class AtmosphereController : MonoBehaviour
             }
             else if(magFirstTouchPrevPos.x < firstTouch.position.x)
             {
-                Debug.Log("<0");
+                //Debug.Log("<0");
 
                 newAlpha -= atmosphereIncrementValue;
                 if (newAlpha < atmosphereMin)
@@ -69,7 +68,7 @@ public class AtmosphereController : MonoBehaviour
         gValue = atmosphereColors[colorSelected].g;
         bValue = atmosphereColors[colorSelected].b;
 
-        rend.material.SetColor("_color", new Color(rValue, gValue, bValue, newAlpha));
+        rend.material.SetColor("_color", new Color(rValue, gValue, bValue, rend.material.GetFloat("_strength")));
     }
 
     public void ActivateAtmosphere()

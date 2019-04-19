@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlanetData : MonoBehaviour
@@ -20,6 +18,12 @@ public class PlanetData : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (isTerrestrial)
+        {
+            print("here");
+            GameObject.FindGameObjectWithTag("Planet").GetComponent<LoadTerrestrialTexture>().LoadTexture();
+        }
+
         biomeData = new int[biomeList.Length];
         terrainData = new int[terrainList.Length];
 
@@ -124,6 +128,6 @@ public class PlanetData : MonoBehaviour
     // gets atmosphere data
     void CollectAtmosphere()
     {
-        atmosphereColor = GameObject.FindObjectOfType<AtmosphereController>().GetComponent<Renderer>().material.color;
+        atmosphereColor = FindObjectOfType<AtmosphereController>().GetComponent<Renderer>().material.color;
     }
 }

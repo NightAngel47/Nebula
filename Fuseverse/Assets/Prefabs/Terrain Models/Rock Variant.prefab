@@ -16,7 +16,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 4300000, guid: b334c7b5308ccec47b4a9dd56f965d7f, type: 3}
+      objectReference: {fileID: 4300000, guid: 9a61416d29ba68f4491904b953de9403, type: 3}
     - target: {fileID: 9192774383324995251, guid: 0e758cf0d148b7649ad169c3a72d1f88,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -26,7 +26,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 4300000, guid: b334c7b5308ccec47b4a9dd56f965d7f, type: 3}
+      objectReference: {fileID: 4300000, guid: 9a61416d29ba68f4491904b953de9403, type: 3}
+    - target: {fileID: 3547517216116900781, guid: 0e758cf0d148b7649ad169c3a72d1f88,
+        type: 3}
+      propertyPath: isUp
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3018314756083065272, guid: 0e758cf0d148b7649ad169c3a72d1f88,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -81,11 +86,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3547517216116900781, guid: 0e758cf0d148b7649ad169c3a72d1f88,
-        type: 3}
-      propertyPath: isUp
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e758cf0d148b7649ad169c3a72d1f88, type: 3}

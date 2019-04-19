@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -29,25 +28,8 @@ public class SavePlanet : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "Complete Screen")
         {
-            // move planet
-            transform.position = GameObject.FindGameObjectWithTag("FinishPos").transform.position;
-            transform.localScale = GameObject.FindGameObjectWithTag("FinishPos").transform.localScale;
-
             // make planet spin
             gameObject.AddComponent<planetSpin>();
-
-            // destroy unnessessary componets
-            Destroy(gameObject.GetComponent<Rigidbody>());
-            Destroy(gameObject.GetComponent<CameraRotation>());
-            Destroy(gameObject.GetComponent<MeshCollider>());
-            Destroy(gameObject.GetComponent<GasGiantController>());
-            Destroy(gameObject.GetComponent<HideRings>());
-            Destroy(gameObject.GetComponent<GasRotation>());
-
-            if (rings != null)
-            {
-                rings.localScale = GameObject.FindGameObjectWithTag("FinishPos").transform.localScale;
-            }
         }
     }
 
@@ -57,7 +39,7 @@ public class SavePlanet : MonoBehaviour
     {
         System.DateTime date = System.DateTime.Now;
         RenderTexture.active = canvasTexture;
-        Texture2D tex = new Texture2D(canvasTexture.width, canvasTexture.height, TextureFormat.RGB24, false);
+        Texture2D tex = new Texture2D(canvasTexture.width, canvasTexture.height, TextureFormat.RGBAFloat, true);
         tex.ReadPixels(new Rect(0, 0, canvasTexture.width, canvasTexture.height), 0, 0);
         tex.Apply();
         RenderTexture.active = null;
@@ -71,7 +53,7 @@ public class SavePlanet : MonoBehaviour
 
     IEnumerator SaveTextureToFile(Texture2D savedTexture)
     {
-        string fullPath = System.IO.Directory.GetCurrentDirectory() + "\\UserCanvas\\";
+        string fullPath = Application.persistentDataPath + "//UserCanvas//";
         System.DateTime date = System.DateTime.Now;
         string fileName = "CanvasTexture.png";
         if (!System.IO.Directory.Exists(fullPath))

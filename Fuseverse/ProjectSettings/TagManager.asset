@@ -17,8 +17,8 @@ TagManager:
   - FinishPos
   - Snow
   - CanvasCam
-  - UVQuad
   - Compass
+  - UVQuad
   layers:
   - Default
   - TransparentFX
