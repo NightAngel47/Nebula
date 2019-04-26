@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Complete Screen.unity
     guid: b73ef9af49a428f43b2f0e71e2c91819
+  - enabled: 1
+    path: Assets/Scenes/Loading Screen.unity
+    guid: 8756d7f8dc7de9c4cb2ae05f8c74ec71
   m_configObjects: {}
