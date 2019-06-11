@@ -31,18 +31,26 @@ public class RotaryWheel8 : MonoBehaviour
 
     void Start()
     {
-        But1.onClick.AddListener(TapBut1);
-        But2.onClick.AddListener(TapBut2);
-        But3.onClick.AddListener(TapBut3);
-        But4.onClick.AddListener(TapBut4);
-        But5.onClick.AddListener(TapBut5);
-        But6.onClick.AddListener(TapBut6);
-        But7.onClick.AddListener(TapBut7);
-        But8.onClick.AddListener(TapBut8);
+        if (But1 != null)
+            But1.onClick.AddListener(TapBut1);
+        if (But2 != null)
+            But2.onClick.AddListener(TapBut2);
+        if (But3 != null)
+            But3.onClick.AddListener(TapBut3);
+        if (But4 != null)
+            But4.onClick.AddListener(TapBut4);
+        if (But5 != null)
+            But5.onClick.AddListener(TapBut5);
+        if (But6 != null)
+            But6.onClick.AddListener(TapBut6);
+        if (But7 != null)
+            But7.onClick.AddListener(TapBut7);
+        if (But8 != null)
+            But8.onClick.AddListener(TapBut8);
 
     } 
 
-void FixedUpdate()
+    void FixedUpdate()
     {
 
         var _targetRotation = Quaternion.Euler(0, 0, Zed);
