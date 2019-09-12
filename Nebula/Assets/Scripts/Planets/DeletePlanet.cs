@@ -12,5 +12,6 @@ public class DeletePlanet : MonoBehaviour
         {
             temp.UpdatePlanets();
         }
+        
     }
 }

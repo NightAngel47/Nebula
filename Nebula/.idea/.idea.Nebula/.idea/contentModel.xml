@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\sjdro\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\sjdro\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_Nebula.803423500.00" t="ExcludeRecursive" />
+    <e p="D:\GitHub\Nebula\Nebula" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="BlurDisable.cs" t="Include" />
+        <e p="Scripts" t="Include">
+          <e p="Main Menu &amp; UI" t="Include">
+            <e p="GameManager.cs" t="Include" />
+            <e p="GasMenUIChanger.cs" t="Include" />
+            <e p="Idle.cs" t="Include" />
+            <e p="LoadingScene.cs" t="Include" />
+            <e p="planetSpin.cs" t="Include" />
+            <e p="RestartButtonScript.cs" t="Include" />
+            <e p="SceneSwitcher.cs" t="Include" />
+          </e>
+          <e p="Planets" t="Include">
+            <e p="DeletePlanet.cs" t="Include" />
+            <e p="Gas Giant" t="Include">
+              <e p="GasGiantController.cs" t="Include" />
+              <e p="GasRotation.cs" t="Include" />
+              <e p="HideRings.cs" t="Include" />
+              <e p="RingColor.cs" t="Include" />
+              <e p="RingRotation.cs" t="Include" />
+              <e p="RingSize.cs" t="Include" />
+            </e>
+            <e p="PlanetData.cs" t="Include" />
+            <e p="SavePlanet.cs" t="Include" />
+            <e p="Terrestrial" t="Include">
+              <e p="AtmosphereController.cs" t="Include" />
+              <e p="DefaultBiome.cs" t="Include" />
+              <e p="LoadTerrestrialTexture.cs" t="Include" />
+              <e p="SwapTerrain.cs" t="Include" />
+              <e p="TerrainErase.cs" t="Include" />
+              <e p="TerrainFeatures.cs" t="Include" />
+              <e p="TerrestrialLoadTexture.cs" t="Include" />
+              <e p="TerrestrialPainter.cs" t="Include" />
+              <e p="TerrestrialRotation.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="UI" t="Include">
+          <e p="GaussianBlur" t="Include">
+            <e p="FPSDisplay.cs" t="Include" />
+            <e p="GaussianBlur_LiveBlur" t="Include">
+              <e p="Demo" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="AlwaysFace.cs" t="Include" />
+                  <e p="DemoSliderControl.cs" t="Include" />
+                  <e p="Rotate.cs" t="Include" />
+                  <e p="SyncCoordinates.cs" t="Include" />
+                </e>
+              </e>
+              <e p="Resources" t="Include">
+                <e p="GaussianBlur_LiveBlur.shader" t="Include" />
+                <e p="GaussianBlur_LiveBlur_NoSmear.shader" t="Include" />
+              </e>
+            </e>
+            <e p="GaussianBlur_Mobile" t="Include">
+              <e p="Demo" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="AddTorqueOnStart.cs" t="Include" />
+                  <e p="AlwaysFace.cs" t="Include" />
+                  <e p="DemoSliderControl.cs" t="Include" />
+                  <e p="Move.cs" t="Include" />
+                  <e p="PausePlay.cs" t="Include" />
+                  <e p="Rotate.cs" t="Include" />
+                </e>
+              </e>
+              <e p="Resources" t="Include">
+                <e p="DropShadow_Mobile.shader" t="Include" />
+                <e p="GaussianBlur_Mobile(hidden).shader" t="Include" />
+                <e p="GaussianBlur_Mobile.shader" t="Include" />
+                <e p="GaussianBlur_Mobile_ScreenSpaceCamera.shader" t="Include" />
+              </e>
+              <e p="Scripts" t="Include">
+                <e p="BlurRenderer.cs" t="Include" />
+                <e p="BlurRenderer_Mobile.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="Icons 1" t="Include">
+            <e p="IgnoreRotation.cs" t="Include" />
+          </e>
+          <e p="Scripts" t="Include">
+            <e p="AreYouSure.cs" t="Include" />
+            <e p="BarFillSelect.cs" t="Include" />
+            <e p="DescGen.cs" t="Include" />
+            <e p="GasTimer.cs" t="Include" />
+            <e p="Mover.cs" t="Include" />
+            <e p="NameGen.cs" t="Include" />
+            <e p="Names.cs" t="Include" />
+            <e p="RotaryWheel8.cs" t="Include" />
+            <e p="Streamer.cs" t="Include" />
+            <e p="Timer.cs" t="Include" />
+          </e>
+        </e>
+        <e p="UI Assets" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="FindExplore.cs" t="Include" />
+            <e p="GasChanger.cs" t="Include" />
+            <e p="MenUIChanger.cs" t="Include" />
+            <e p="MenUIColor.cs" t="Include" />
+          </e>
+          <e p="TransparencyIngore.cs" t="Include" />
+        </e>
+      </e>
+      <e p="Nebula.sln" t="IncludeFlat" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
