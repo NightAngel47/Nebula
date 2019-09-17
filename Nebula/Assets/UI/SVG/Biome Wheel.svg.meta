@@ -1,13 +1,24 @@
 fileFormatVersion: 2
 guid: 9820c95a993840a46befa47cdef357f8
 ScriptedImporter:
-  fileIDToRecycleName:
-    100002: gameObject/Biome Wheel
-    400002: gameObject/Biome Wheel/Transform
-    21200002: gameObject/Biome Wheel/SpriteRenderer
-    21300000: sprite
-    100100000: gameObject
+  internalIDToNameTable:
+  - first:
+      1: 100002
+    second: gameObject/Biome Wheel
+  - first:
+      4: 400002
+    second: gameObject/Biome Wheel/Transform
+  - first:
+      212: 21200002
+    second: gameObject/Biome Wheel/SpriteRenderer
+  - first:
+      213: 21300000
+    second: sprite
+  - first:
+      1001: 100100000
+    second: gameObject
   externalObjects: {}
+  serializedVersion: 2
   userData: 
   assetBundleName: 
   assetBundleVariant: 
@@ -19,6 +30,7 @@ ScriptedImporter:
   alignment: 0
   customPivot: {x: 0, y: 0}
   generatePhysicsShape: 0
+  viewportOptions: 0
   preserveViewport: 0
   advancedMode: 0
   predefinedResolutionIndex: 0
@@ -52,4 +64,5 @@ ScriptedImporter:
         width: 0
         height: 0
       spriteID: fff1027663044e04a9b6238c84ed3f4f
+      internalID: 0
     PhysicsOutlines: []

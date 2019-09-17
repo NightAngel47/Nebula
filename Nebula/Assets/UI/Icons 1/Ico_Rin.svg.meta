@@ -1,13 +1,24 @@
 fileFormatVersion: 2
 guid: dc3351ed99e19a140bbc8207dbc17001
 ScriptedImporter:
-  fileIDToRecycleName:
-    100000: gameObject/Ico_Rin
-    400000: gameObject/Ico_Rin/Transform
-    21200000: gameObject/Ico_Rin/SpriteRenderer
-    21300000: sprite
-    100100000: gameObject
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: gameObject/Ico_Rin
+  - first:
+      4: 400000
+    second: gameObject/Ico_Rin/Transform
+  - first:
+      212: 21200000
+    second: gameObject/Ico_Rin/SpriteRenderer
+  - first:
+      213: 21300000
+    second: sprite
+  - first:
+      1001: 100100000
+    second: gameObject
   externalObjects: {}
+  serializedVersion: 2
   userData: 
   assetBundleName: 
   assetBundleVariant: 
@@ -19,6 +30,7 @@ ScriptedImporter:
   alignment: 0
   customPivot: {x: 0, y: 0}
   generatePhysicsShape: 0
+  viewportOptions: 0
   preserveViewport: 0
   advancedMode: 0
   predefinedResolutionIndex: 0
@@ -52,4 +64,5 @@ ScriptedImporter:
         width: 0
         height: 0
       spriteID: fb309316a81c3824ebbe7e990a8fc5a2
+      internalID: 0
     PhysicsOutlines: []
