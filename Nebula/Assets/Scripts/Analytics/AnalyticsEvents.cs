@@ -21,7 +21,6 @@ public class AnalyticsEvents : MonoBehaviour
     /// The active scene
     /// </summary>
     private Scene _thisScene;
-    
     /// <summary>
     /// The total time that the scene has been playing
     /// </summary>
@@ -31,10 +30,15 @@ public class AnalyticsEvents : MonoBehaviour
     /// </summary>
     private float _tutorialSecondsElapsed = 0;
     /// <summary>
+    /// Tracks the amount of times that the help button was tapped
+    /// </summary>
+    private float _tutorialHelpButtonCount = 0;
+    
+    /// <summary>
     /// Tracks the current state of the tutorial
     /// </summary>
     private bool _isTutorialActive = false;
-    
+
     /// <summary>
     /// All collected data packaged to be saved
     /// </summary>
@@ -78,6 +82,14 @@ public class AnalyticsEvents : MonoBehaviour
     }
 
     /// <summary>
+    /// Increases the tutorial help button count when the help button is tapped
+    /// </summary>
+    public void IncrementTutorialHelpCount()
+    {
+        ++_tutorialHelpButtonCount;
+    }
+
+    /// <summary>
     /// Packages the collected data into the dictionary _collectedData
     /// </summary>
     void PackageData()
@@ -85,16 +97,20 @@ public class AnalyticsEvents : MonoBehaviour
         /*
          adds these custom params to analytics data:
          time
+         platform
          scene name
          played seconds
          tutorial seconds
+         tutorial help button count
         */
         _collectedData = new Dictionary<string, object>
         {
-            {"utc_time", System.DateTime.UtcNow},
-            {"scene_name", _thisScene.name},
-            {"played_seconds", _gameSecondsElapsed},
-            {"tutorial_seconds", _tutorialSecondsElapsed}
+            {"UTC Time", System.DateTime.UtcNow},
+            {"Platform", Application.platform},
+            {"Scene Name", _thisScene.name},
+            {"Played Seconds", _gameSecondsElapsed},
+            {"Tutorial Seconds", _tutorialSecondsElapsed},
+            {"Tutorial Help Button Count", _tutorialHelpButtonCount}
         };
     }
 
@@ -108,7 +124,17 @@ public class AnalyticsEvents : MonoBehaviour
         if (!File.Exists(_dataPath))
         {
             writer = new StreamWriter(_dataPath, false);
-            writer.WriteLine("UTC Time,Scene Name,Seconds Played,Tutorial Seconds");
+            foreach (var key in _collectedData)
+            {
+                if (!key.Equals(_collectedData.Last()))
+                {
+                    writer.Write(key.Key + ",");
+                }
+                else
+                {
+                    writer.Write(key.Key + "\n");
+                }
+            }
         }
         else
         {
@@ -133,6 +159,7 @@ public class AnalyticsEvents : MonoBehaviour
         Debug.Log("Analytics file saved here: " + _dataPath);
     }
 
+    // Packages, writes local, then sends unity analytics event
     void OnDestroy()
     {
         // package data for analytics
