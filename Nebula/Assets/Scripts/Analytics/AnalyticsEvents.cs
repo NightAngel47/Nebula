@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -9,18 +10,12 @@ public class AnalyticsEvents : MonoBehaviour
 {
     #region Scene State Vars
     
-    ///<summary>
-    /// Possible states of the scene.
-    /// </summary>
-    public enum PlayState {InProgress, Completed, Quit}
-    /// <summary>
-    /// Tracks the current state of the scene
-    /// </summary>
-    private PlayState _state = PlayState.InProgress;
     /// <summary>
     /// The active scene
     /// </summary>
     private Scene _thisScene;
+
+    private Scene _scene;
     
     #endregion
 
@@ -35,6 +30,7 @@ public class AnalyticsEvents : MonoBehaviour
     /// Game seconds, tutorial seconds, planet feature 1, planet feature 2, planet feature 3.
     /// </summary>
     private float[] _secondsElapsed = new float[5];
+    
     /// <summary>
     /// The different tracked active states for the _activeStates array
     /// </summary>
@@ -44,6 +40,7 @@ public class AnalyticsEvents : MonoBehaviour
     /// Tutorial state, Feature 1 state, Feature 2 state, Feature 3 state
     /// </summary>
     private bool[] _activeStates = new bool[4];
+    
     /// <summary>
     /// Tracks the amount of times that the help button was tapped
     /// </summary>
@@ -52,12 +49,33 @@ public class AnalyticsEvents : MonoBehaviour
     #endregion
 
     #region Terrestrial Data Vars
+
+    /// <summary>
+    /// The starting biome for the terrestrial planet
+    /// </summary>
+    private string _terrestrialStartBiome;
     
     /// <summary>
-    /// Tracks the usage of each biome type for the terrestrial planet
+    /// List of Terrestrial Biomes
     /// </summary>
-    private int[] _terrestrialBiomesUsed = new int[8]; // 0 water, 1 plains, 2 sand, 3 snow, 4 forest, 5 artic, 6 badlands, 7 mountain
-
+    private GameObject[] _terrestrialBiomes;
+    
+    /// <summary>
+    /// List of Terrestrial Terrain Objects
+    /// </summary>
+    private GameObject[] _terrestrialTerrain; 
+    
+    /// <summary>
+    /// The names of the terrain options
+    /// </summary>
+    private readonly string[] _terrestrialTerrainOptionsNames = {"Terrain Up", "Terrain Tree", "Terrain Erase"};
+    /// <summary>
+    /// The count of usage of the terrain features. 0 terrain up, 1 terrain tree, 2 terrain erase
+    /// </summary>
+    private readonly int[] _terrestrialTerrainOptionsCount = new int [3];
+    
+    private static readonly int Color = Shader.PropertyToID("_color");
+    
     #endregion
 
     #region Gas Giant Data Vars
@@ -82,22 +100,45 @@ public class AnalyticsEvents : MonoBehaviour
 
     void Awake ()
     {
-        _dataPath = Application.persistentDataPath + "Analytics.csv";
         _thisScene = SceneManager.GetActiveScene();
+
+        // Setup analytics per scene
+        switch (_thisScene.name)
+        {
+            case "TerrestrialCreator":
+                // Set data path to terrestrial analytics file
+                _dataPath = Application.persistentDataPath + "//Analytics//TerrestrialAnalytics.csv";
+                
+                // Get biome names
+                _terrestrialBiomes = FindObjectOfType<TerrestrialPainter>().biomes;
+                
+                // Get terrain names
+                _terrestrialTerrain = FindObjectOfType<TerrainFeatures>().terrainObjects;
+
+                break;
+            case "GasCreator":
+                // Set data path to gas gaint analytics file
+                _dataPath = Application.persistentDataPath + "//Analytics//GasGiantAnalytics.csv";
+                
+                break;
+            case "Complete Screen":
+                // Set data path to complate screen analytics file
+                _dataPath = Application.persistentDataPath + "//Analytics//TerrestrialAnalytics.csv";
+                
+                break;
+            default:
+                // default file
+                _dataPath = Application.persistentDataPath + "//Analytics//Analytics.csv";
+                Debug.LogError("Analytics not setup for this scene.");
+                
+                break;
+        }
     }
     
     void Update()
     {
         TrackGameSecondsElapsed();
         TrackTutorialSecondsElapsed();
-    }
-
-    /// <summary>
-    /// Changes the current play state to the new play state
-    /// </summary>
-    /// <param name="newState">The new state that play state will be set to</param>
-    public void SetPlayState(PlayState newState){
-        _state = newState;
     }
 
     #region Seconds Elapsed Functions
@@ -160,6 +201,19 @@ public class AnalyticsEvents : MonoBehaviour
     {
         _activeStates[(int) ActiveStates.Feature3] = state;
     }
+
+    /// <summary>
+    /// Sets the active states of the 3 planet features.
+    /// </summary>
+    /// <param name="feature1">State for Feature 1</param>
+    /// <param name="feature2">State for Feature 2</param>
+    /// <param name="feature3">State for Feature 3</param>
+    public void SetFeatureActiveStates(bool feature1, bool feature2, bool feature3)
+    {
+        _activeStates[(int) ActiveStates.Feature1] = feature1;
+        _activeStates[(int) ActiveStates.Feature2] = feature2;
+        _activeStates[(int) ActiveStates.Feature3] = feature3;
+    }
     
     #endregion
 
@@ -171,44 +225,117 @@ public class AnalyticsEvents : MonoBehaviour
         ++_tutorialHelpButtonCount;
     }
 
+    #region Terrestrial Tracking Functions
+
     /// <summary>
-    /// Increased the placement count of the biome selected
+    /// Sets the starting biome of the terrestrial planet
     /// </summary>
-    /// <param name="biomeSelected">The biome placed that's count will be increased'</param>
-    public void IncreaseBiomeUsed(int biomeSelected)
+    /// <param name="biome">The biome name</param>
+    public void SetStartingBiome(string biome)
     {
-        ++_terrestrialBiomesUsed[biomeSelected];
+        _terrestrialStartBiome = biome;
     }
+    
+    /// <summary>
+    /// Collects the amount that each biome was placed
+    /// </summary>
+    private void FinalBiomeCount()
+    {
+        foreach (var biome in _terrestrialBiomes)
+        {
+            GameObject[] biomeType = GameObject.FindGameObjectsWithTag(biome.tag);
+            if (biomeType.Length > 0)
+            {
+                _collectedData.Add(biome.tag, biomeType.Length);
+            }
+            else
+            {
+                _collectedData.Add(biome.tag, 0);
+            }
+        }
+    }
+    
+    /// <summary>
+    /// Collects the final amount of each terrain feature
+    /// </summary>
+    private void FinalTerrainCount()
+    {
+        List<GameObject> terrainFeatures = GameObject.FindGameObjectsWithTag("Terrain").ToList();
+        
+        foreach (var feature in _terrestrialTerrain)
+        {
+            int featureCount = 0;
+            if (terrainFeatures.Count > 0)
+            {
+                foreach (var terrain in terrainFeatures)
+                {
+                    if (terrain.name.Equals(feature.name))
+                    {
+                        ++featureCount;
+                        terrainFeatures.Remove(terrain);
+                    }
+                }
+            }
+            _collectedData.Add(feature.name, featureCount);
+        }
+    }
+    
+    /// <summary>
+    /// Increased the usage count of terrain options
+    /// </summary>
+    /// <param name="terrainOptions">The terrain option selected.'</param>
+    public void IncreaseTerrainOptionsUsed(int terrainOptions)
+    {
+        ++_terrestrialTerrainOptionsCount[terrainOptions];
+    }
+
+    #endregion
 
     /// <summary>
     /// Packages the collected data into the dictionary _collectedData
     /// </summary>
     void PackageData()
     {
-        /*
-         adds these custom params to analytics data:
-         time
-         platform
-         scene name
-         played seconds
-         tutorial seconds
-         tutorial help button count
-         feature 1 seconds
-         feature 2 seconds
-         feature 3 seconds
-        */
+        // Basic data (also, the only data for the complete screen)
         _collectedData = new Dictionary<string, object>
         {
-            {"UTC Time", System.DateTime.UtcNow},
-            {"Platform", Application.platform},
-            {"Scene Name", _thisScene.name},
-            {"Played Seconds", _secondsElapsed[(int) SecondsElapsed.Game]},
-            {"Tutorial Seconds", _secondsElapsed[(int) SecondsElapsed.Tutorial]},
-            {"Tutorial Help Button Count", _tutorialHelpButtonCount},
-            {"Feature 1 Seconds", _secondsElapsed[(int) SecondsElapsed.Feature1]},
-            {"Feature 2 Seconds", _secondsElapsed[(int) SecondsElapsed.Feature2]},
-            {"Feature 3 Seconds", _secondsElapsed[(int) SecondsElapsed.Feature3]}
+            {"Time", System.DateTime.Now},
+            {"Played Seconds", _secondsElapsed[(int) SecondsElapsed.Game]}
         };
+            
+        // package data for planets
+        if (!_thisScene.name.Equals("Complete Screen"))
+        {
+            // General planet data
+            _collectedData.Add("Tutorial Seconds", _secondsElapsed[(int) SecondsElapsed.Tutorial]);
+            _collectedData.Add("Tutorial Help Button Count", _tutorialHelpButtonCount);
+            _collectedData.Add("Feature 1 Seconds", _secondsElapsed[(int) SecondsElapsed.Feature1]);
+            _collectedData.Add("Feature 2 Seconds", _secondsElapsed[(int) SecondsElapsed.Feature2]);
+            _collectedData.Add("Feature 3 Seconds", _secondsElapsed[(int) SecondsElapsed.Feature3]);
+            
+            // Terrestrial planet additional data
+            if (_thisScene.name.Equals("TerrestrialCreator"))
+            {
+                // adds starting biome
+                _collectedData.Add("Starting Biome", _terrestrialStartBiome);
+                
+                FinalBiomeCount();
+                FinalTerrainCount();
+                
+                // adds terrain options to _collectedData
+                for (int i = 0; i < _terrestrialTerrainOptionsCount.Length; ++i)
+                {
+                    _collectedData.Add(_terrestrialTerrainOptionsNames[i], _terrestrialTerrainOptionsCount[i]);
+                }
+                
+                // adds ending atmosphere color to _collectedData
+                _collectedData.Add("Atmosphere Color", GameObject.FindGameObjectWithTag("Planet").GetComponentInChildren<AtmosphereController>().rend.material.GetColor(Color).ToString());
+            }
+            else // Gas Giant additional data
+            {
+                
+            }
+        }
     }
 
     /// <summary>
@@ -253,7 +380,7 @@ public class AnalyticsEvents : MonoBehaviour
 
         writer.Close();
 
-        Debug.Log("Analytics file saved here: " + _dataPath);
+        Debug.Log("<color=orange>Analytics file saved here: </color>" + _dataPath);
     }
 
     // Packages, writes local, then sends unity analytics event

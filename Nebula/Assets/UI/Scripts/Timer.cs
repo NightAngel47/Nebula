@@ -24,6 +24,8 @@ public class Timer : MonoBehaviour
     private float inputTimer;
     public float Tmax = 6;
 
+    private AnalyticsEvents ae;
+    
     void Start()
     {
         inputTimer = Tmax + 1;
@@ -31,6 +33,8 @@ public class Timer : MonoBehaviour
         Biomes_Button.onClick.AddListener(onClickBiomes);
         Atmosphere_Button.onClick.AddListener(onClickAtmosphere);
         Help_Button.onClick.AddListener(onClickHelp);
+
+        ae = FindObjectOfType<AnalyticsEvents>();
     }
     
   
@@ -43,6 +47,8 @@ public class Timer : MonoBehaviour
             terrainHelp.SetActive(false);
             biomeHelp.SetActive(false);
             atmosphereHelp.SetActive(false);
+
+            ae.SetTutorialActive(false);
         }
 
 
@@ -61,17 +67,20 @@ public class Timer : MonoBehaviour
         if (screenIndex == 0 && inputTimer >= Tmax)
         {
             terrainHelp.SetActive(true);
-
+            
+            ae.SetTutorialActive(true);
         }
         if (screenIndex == 1 && inputTimer >= Tmax)
         {
             biomeHelp.SetActive(true);
-
+            
+            ae.SetTutorialActive(true);
         }
         if (screenIndex == 2 && inputTimer >= Tmax)
         {
             atmosphereHelp.SetActive(true);
-
+            
+            ae.SetTutorialActive(true);
         }
     }
 
