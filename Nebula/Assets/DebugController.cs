@@ -7,12 +7,27 @@ public class DebugController : MonoBehaviour
     public static bool debugEnabled;
     private bool currentlyEnabled;
 
+    public static DebugController instance;
+
+    void OnAwake()
+    {
+       
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad(gameObject);
-        debugEnabled = false;
-        currentlyEnabled = false;
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+            debugEnabled = false;
+            currentlyEnabled = false;
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
     }
 
     // Update is called once per frame
