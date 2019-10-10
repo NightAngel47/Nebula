@@ -26,13 +26,23 @@ public class RingSize : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(DebugController.debugEnabled)
+        {
+            if((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow)) && ringButton)
+            {
+                PlayRingsAudio();
+                ChangeRingRadiusDebug();
+            }
+        }
         if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Moved && ringButton)
         {
             PlayRingsAudio();
             ChangeRingRadius();
         }
         else
+        {
             ringSource.Stop();
+        }
     }
 
     void ChangeRingRadius()
@@ -64,6 +74,46 @@ public class RingSize : MonoBehaviour
                 ringSize = ringSizeMin;
             else
                 mainMixer.SetFloat("RingsEffect", audioEffect -= ringIncrement * effectAmount);
+        }
+
+        var main = theRings.shape;
+        main.scale = new Vector3(ringSize, theRings.shape.scale.y, theRings.shape.scale.z);
+    }
+
+    void ChangeRingRadiusDebug()
+    {
+        float audioEffect;
+        mainMixer.GetFloat("RingsEffect", out audioEffect);
+
+        float ringSize = theRings.shape.scale.x;
+
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            ringSize += ringIncrement;
+
+            //Keeps band number from hitting a value above 1 and below 0 on slider 
+            if (ringSize > ringSizeMax)
+            {
+                ringSize = ringSizeMax;
+            }
+            else
+            {
+                mainMixer.SetFloat("RingsEffect", audioEffect += ringIncrement * effectAmount);
+            }
+        }
+        else if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            ringSize -= ringIncrement;
+
+            //Keeps band number from hitting a value above 1 and below 0 on slider 
+            if (ringSize < ringSizeMin)
+            {
+                ringSize = ringSizeMin;
+            }
+            else
+            {
+                mainMixer.SetFloat("RingsEffect", audioEffect -= ringIncrement * effectAmount);
+            }
         }
 
         var main = theRings.shape;
