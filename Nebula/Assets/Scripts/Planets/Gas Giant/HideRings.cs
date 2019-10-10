@@ -18,6 +18,14 @@ public class HideRings : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(DebugController.debugEnabled)
+        {
+            if(Input.GetKeyDown(KeyCode.M))
+            {
+                ViewRings();
+            }
+        }
+
         if (canViewRings == true)
         {
             rings.SetActive(true);
