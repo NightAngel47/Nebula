@@ -9,6 +9,9 @@ public class GasRotation : MonoBehaviour
     [SerializeField] private float gasRotationSpeedDebug;
     [SerializeField] private float gasRotationFastSpeedDebug;
 
+    Vector3 mPrevPos = Vector3.zero;
+    Vector3 mPosDelta = Vector3.zero;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +23,7 @@ public class GasRotation : MonoBehaviour
     {
         if(DebugController.debugEnabled && !RingRotation.canRingRotate)
         {
-            if(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow))
+            if(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetMouseButton(0))
             {
                 DebugGasRotator();
             }
@@ -76,6 +79,23 @@ public class GasRotation : MonoBehaviour
         var xRot = Camera.main.transform.rotation.x;
         var yRot = Camera.main.transform.rotation.y;
         //var zRot = Camera.main.transform.rotation.z;
+
+        //Following mouse rotation code from https://www.youtube.com/watch?v=kplusZYqBok
+        if (Input.GetMouseButton(0))
+        {
+            mPosDelta = Input.mousePosition - mPrevPos;
+            if(Vector3.Dot(transform.up, Vector3.up) >= 0)
+            {
+                transform.Rotate(transform.up, -Vector3.Dot(mPosDelta, Camera.main.transform.right), Space.World);
+            }
+            else
+            {
+                transform.Rotate(transform.up, Vector3.Dot(mPosDelta, Camera.main.transform.right), Space.World);
+            }
+
+            transform.Rotate(Camera.main.transform.right, Vector3.Dot(mPosDelta, Camera.main.transform.up), Space.World);
+        }
+        mPrevPos = Input.mousePosition;
 
         if (Input.GetKey(KeyCode.RightArrow))
         {
