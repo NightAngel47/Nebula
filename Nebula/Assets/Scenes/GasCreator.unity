@@ -11475,6 +11475,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   source: {fileID: 268068711}
   rotationSpeed: 10
+  gasRingRotationSpeedDebug: 1
+  gasRingRotationFastSpeedDebug: 5
 --- !u!198 &1536191724
 ParticleSystem:
   m_ObjectHideFlags: 0
