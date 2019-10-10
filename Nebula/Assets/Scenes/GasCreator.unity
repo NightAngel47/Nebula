@@ -19204,6 +19204,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   source: {fileID: 1820111350}
+  gasRotationSpeedDebug: 1
+  gasRotationFastSpeedDebug: 5
 --- !u!82 &1981306968
 AudioSource:
   m_ObjectHideFlags: 0
