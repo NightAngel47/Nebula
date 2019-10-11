@@ -54,7 +54,6 @@ public class AnalyticsEvents : MonoBehaviour
     /// The starting biome for the terrestrial planet
     /// </summary>
     private string _terrestrialStartBiome;
-    
     /// <summary>
     /// List of Terrestrial Biomes
     /// </summary>
@@ -63,8 +62,7 @@ public class AnalyticsEvents : MonoBehaviour
     /// <summary>
     /// List of Terrestrial Terrain Objects
     /// </summary>
-    private GameObject[] _terrestrialTerrain; 
-    
+    private GameObject[] _terrestrialTerrain;
     /// <summary>
     /// The names of the terrain options
     /// </summary>
@@ -74,6 +72,9 @@ public class AnalyticsEvents : MonoBehaviour
     /// </summary>
     private readonly int[] _terrestrialTerrainOptionsCount = new int [3];
     
+    /// <summary>
+    /// The atmosphere color
+    /// </summary>
     private static readonly int Color = Shader.PropertyToID("_color");
     
     #endregion
@@ -139,6 +140,7 @@ public class AnalyticsEvents : MonoBehaviour
     {
         TrackGameSecondsElapsed();
         TrackTutorialSecondsElapsed();
+        TrackFeaturesActiveSecondsElapsed();
     }
 
     #region Seconds Elapsed Functions
@@ -161,6 +163,25 @@ public class AnalyticsEvents : MonoBehaviour
             _secondsElapsed[(int) SecondsElapsed.Tutorial] += Time.deltaTime;
         }
     }
+
+    /// <summary>
+    /// Tracks the seconds elapsed for the time that each feature is active
+    /// </summary>
+    private void TrackFeaturesActiveSecondsElapsed()
+    {
+        if (_activeStates[(int) ActiveStates.Feature1])
+        { 
+            _secondsElapsed[(int) SecondsElapsed.Feature1] += Time.deltaTime;
+        }
+        else if (_activeStates[(int) ActiveStates.Feature2])
+        { 
+            _secondsElapsed[(int) SecondsElapsed.Feature2] += Time.deltaTime;
+        }
+        else if (_activeStates[(int) ActiveStates.Feature3])
+        { 
+            _secondsElapsed[(int) SecondsElapsed.Feature3] += Time.deltaTime;
+        }
+    }
     
     #endregion
 
@@ -174,47 +195,43 @@ public class AnalyticsEvents : MonoBehaviour
     {
         _activeStates[(int) ActiveStates.Tutorial] = state;
     }
-    
+
     /// <summary>
-    /// Changes the current state of feature 1
+    /// Changes the states of the the features
     /// </summary>
-    /// <param name="state">The new state that feature 1 will be set to</param>
-    public void SetFeature1Active(bool state)
+    /// <param name="featureNum">The feature number that is being set to true</param>
+    public void SetFeatureActive(int featureNum)
     {
-        _activeStates[(int) ActiveStates.Feature1] = state;
-    }
-    
-    /// <summary>
-    /// Changes the current state of feature 2
-    /// </summary>
-    /// <param name="state">The new state that feature 2 will be set to</param>
-    public void SetFeature2Active(bool state)
-    {
-        _activeStates[(int) ActiveStates.Feature2] = state;
-    }
-    
-    /// <summary>
-    /// Changes the current state of feature 3
-    /// </summary>
-    /// <param name="state">The new state that feature 3 will be set to</param>
-    public void SetFeature3Active(bool state)
-    {
-        _activeStates[(int) ActiveStates.Feature3] = state;
+        switch (featureNum)
+        {
+            case 1:
+                ChangeFeatureStates(true, false, false);
+                break;
+            case 2:
+                ChangeFeatureStates(false, true, false);
+                break;
+            case 3:
+                ChangeFeatureStates(false, false, true);
+                break;
+            default:
+                ChangeFeatureStates(false, false, false);
+                break;
+        }
     }
 
     /// <summary>
-    /// Sets the active states of the 3 planet features.
+    /// Changes the states of the all the features
     /// </summary>
-    /// <param name="feature1">State for Feature 1</param>
-    /// <param name="feature2">State for Feature 2</param>
-    /// <param name="feature3">State for Feature 3</param>
-    public void SetFeatureActiveStates(bool feature1, bool feature2, bool feature3)
+    /// <param name="state1">The state of Feature 1</param>
+    /// <param name="state2">The state of Feature 2</param>
+    /// <param name="state3">The state of Feature 3</param>
+    private void ChangeFeatureStates(bool state1, bool state2, bool state3)
     {
-        _activeStates[(int) ActiveStates.Feature1] = feature1;
-        _activeStates[(int) ActiveStates.Feature2] = feature2;
-        _activeStates[(int) ActiveStates.Feature3] = feature3;
+        _activeStates[(int) ActiveStates.Feature1] = state1;
+        _activeStates[(int) ActiveStates.Feature2] = state2;
+        _activeStates[(int) ActiveStates.Feature3] = state3;
     }
-    
+
     #endregion
 
     /// <summary>
@@ -374,7 +391,7 @@ public class AnalyticsEvents : MonoBehaviour
             }
             else
             {
-                writer.Write(key.Value);
+                writer.Write(key.Value + "\n");
             }
         }
 
