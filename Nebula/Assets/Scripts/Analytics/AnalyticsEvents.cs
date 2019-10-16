@@ -80,8 +80,19 @@ public class AnalyticsEvents : MonoBehaviour
     #endregion
 
     #region Gas Giant Data Vars
-
     
+    /// <summary>
+    /// Gas Giant base planet color shader property
+    /// </summary>
+    private static readonly int PlanetColor = Shader.PropertyToID("_Planet_Color");
+    /// <summary>
+    /// Gas Giant bands color shader property
+    /// </summary>
+    private static readonly int ColorBands = Shader.PropertyToID("_Color_Bands");
+    /// <summary>
+    /// Gas Giant bands size shader property
+    /// </summary>
+    private static readonly int Bands = Shader.PropertyToID("_Bands");
 
     #endregion
 
@@ -97,18 +108,26 @@ public class AnalyticsEvents : MonoBehaviour
     /// </summary>
     private string _dataPath;
 
+
     #endregion
 
     void Awake ()
     {
-        _thisScene = SceneManager.GetActiveScene();
+        // sets feature 1 active at start because that is how the system works
+        _activeStates[(int) ActiveStates.Feature1] = true;
 
+        // Sets up analytics directory
+        _dataPath = Application.persistentDataPath + "//Analytics//";
+        if (!Directory.Exists(_dataPath))
+            Directory.CreateDirectory(_dataPath);
+        
+        _thisScene = SceneManager.GetActiveScene();
         // Setup analytics per scene
         switch (_thisScene.name)
         {
             case "TerrestrialCreator":
                 // Set data path to terrestrial analytics file
-                _dataPath = Application.persistentDataPath + "//Analytics//TerrestrialAnalytics.csv";
+                _dataPath += "TerrestrialAnalytics.csv";
                 
                 // Get biome names
                 _terrestrialBiomes = FindObjectOfType<TerrestrialPainter>().biomes;
@@ -119,17 +138,17 @@ public class AnalyticsEvents : MonoBehaviour
                 break;
             case "GasCreator":
                 // Set data path to gas gaint analytics file
-                _dataPath = Application.persistentDataPath + "//Analytics//GasGiantAnalytics.csv";
+                _dataPath += "GasGiantAnalytics.csv";
                 
                 break;
             case "Complete Screen":
                 // Set data path to complate screen analytics file
-                _dataPath = Application.persistentDataPath + "//Analytics//TerrestrialAnalytics.csv";
+                _dataPath += "CompleteScreenAnalytics.csv";
                 
                 break;
             default:
                 // default file
-                _dataPath = Application.persistentDataPath + "//Analytics//Analytics.csv";
+                _dataPath += "Analytics.csv";
                 Debug.LogError("Analytics not setup for this scene.");
                 
                 break;
@@ -309,17 +328,32 @@ public class AnalyticsEvents : MonoBehaviour
     #endregion
 
     /// <summary>
+    /// Adds color data RGB for selected feature into _collectedData
+    /// </summary>
+    /// <param name="featureName">The name of the feature that the color is for</param>
+    /// <param name="color">The color that is being outputted as a string</param>
+    private void AddColorData(String featureName, Color color)
+    {
+        _collectedData.Add(featureName + " (R)", color.r);
+        _collectedData.Add(featureName + " (G)", color.g);
+        _collectedData.Add(featureName + " (B)", color.b);
+    }
+    
+    /// <summary>
     /// Packages the collected data into the dictionary _collectedData
     /// </summary>
     void PackageData()
     {
-        // Basic data (also, the only data for the complete screen)
+        // Basic data
         _collectedData = new Dictionary<string, object>
         {
             {"Time", System.DateTime.Now},
             {"Played Seconds", _secondsElapsed[(int) SecondsElapsed.Game]}
         };
-            
+        
+        // the current planet
+        GameObject planet = GameObject.FindGameObjectWithTag("Planet");
+        
         // package data for planets
         if (!_thisScene.name.Equals("Complete Screen"))
         {
@@ -329,7 +363,7 @@ public class AnalyticsEvents : MonoBehaviour
             _collectedData.Add("Feature 1 Seconds", _secondsElapsed[(int) SecondsElapsed.Feature1]);
             _collectedData.Add("Feature 2 Seconds", _secondsElapsed[(int) SecondsElapsed.Feature2]);
             _collectedData.Add("Feature 3 Seconds", _secondsElapsed[(int) SecondsElapsed.Feature3]);
-            
+
             // Terrestrial planet additional data
             if (_thisScene.name.Equals("TerrestrialCreator"))
             {
@@ -346,12 +380,33 @@ public class AnalyticsEvents : MonoBehaviour
                 }
                 
                 // adds ending atmosphere color to _collectedData
-                _collectedData.Add("Atmosphere Color", GameObject.FindGameObjectWithTag("Planet").GetComponentInChildren<AtmosphereController>().rend.material.GetColor(Color).ToString());
+                AddColorData("Atmosphere Color", planet.GetComponentInChildren<AtmosphereController>().rend.material.GetColor(Color));
             }
             else // Gas Giant additional data
             {
+                // ref to Gas Giant shader
+                Material planetMat = planet.GetComponent<MeshRenderer>().material;
                 
+                //ref to Rings
+                ParticleSystem rings = planet.GetComponentInChildren<ParticleSystem>();
+                
+                // adds primary color data
+                AddColorData("Primary Color", planetMat.GetColor(PlanetColor));
+                
+                // adds bands data
+                AddColorData("Bands Color", planetMat.GetColor(ColorBands));
+                _collectedData.Add("Bands Size", planetMat.GetFloat(Bands));
+                
+                // adds rings data
+                AddColorData("Rings Primary Color", rings.main.startColor.colorMin);
+                AddColorData("Rings Secondary Color", rings.main.startColor.colorMax);
+                _collectedData.Add("Rings Size", rings.shape.scale.x);
             }
+        }
+        else // additional data for the complete screen
+        {
+            // adds planet type
+            _collectedData.Add("Planet Type", planet.GetComponent<GasGiantController>() ? "Gas Giant" : "Terrestrial");
         }
     }
 
