@@ -19,6 +19,9 @@ TagManager:
   - CanvasCam
   - Compass
   - UVQuad
+  - DebugCanvas
+  - DebugModeText
+  - DebugModeRotationText
   layers:
   - Default
   - TransparentFX

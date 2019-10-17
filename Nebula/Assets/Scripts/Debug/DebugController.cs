@@ -1,11 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class DebugController : MonoBehaviour
 {
     public static bool debugEnabled;
     public static bool mouseRotationEnabled;
+
+    private GameObject debugCanvas;
+    private Text debugText;
+    private Text mouseRotationText;
+
+    private bool debugCanvasEnabled;
 
     private bool currentlyEnabled;
 
@@ -20,6 +25,12 @@ public class DebugController : MonoBehaviour
             DontDestroyOnLoad(gameObject);
             debugEnabled = false;
             currentlyEnabled = false;
+            debugCanvasEnabled = true;
+
+            debugCanvas = GameObject.FindGameObjectWithTag("DebugCanvas");
+            debugText = GameObject.FindGameObjectWithTag("DebugModeText").GetComponent<Text>();
+            mouseRotationText = GameObject.FindGameObjectWithTag("DebugModeRotationText").GetComponent<Text>();
+
         }
         else if (instance != this)
         {
@@ -31,6 +42,11 @@ public class DebugController : MonoBehaviour
     void Update()
     {
         DebugCheck();
+
+        if(Input.GetKeyDown(KeyCode.C))
+        {
+            HideDebugCanvas();
+        }
     }
 
     /// <summary>
@@ -44,12 +60,16 @@ public class DebugController : MonoBehaviour
             {
                 debugEnabled = false;
                 currentlyEnabled = false;
+                mouseRotationEnabled = false;
+                DebugText();
+                MouseRotationText();
                 Debug.Log("Debug Mode Enabled " + debugEnabled);
             }
             else if(!currentlyEnabled)
             {
                 debugEnabled = true;
                 currentlyEnabled = true;
+                DebugText();
                 Debug.Log("Debug Mode Enabled " + debugEnabled);
             }
             
@@ -62,12 +82,52 @@ public class DebugController : MonoBehaviour
                 if(mouseRotationEnabled)
                 {
                     mouseRotationEnabled = false;
+                    MouseRotationText();
                 }
                 else if(!mouseRotationEnabled)
                 {
                     mouseRotationEnabled = true;
+                    MouseRotationText();
                 }
             }
+        }
+    }
+
+    private void DebugText()
+    {
+        if(debugEnabled)
+        {
+            debugText.text = "Debug Mode: True";
+        }
+        else if(!debugEnabled)
+        {
+            debugText.text = "Debug Mode: False";
+        }
+    }
+
+    private void MouseRotationText()
+    {
+        if(mouseRotationEnabled)
+        {
+            mouseRotationText.text = "Mouse Rotation: True";
+        }
+        else if(!mouseRotationEnabled)
+        {
+            mouseRotationText.text = "Mouse Rotation: False";
+        }
+    }
+
+    private void HideDebugCanvas()
+    {
+        if(debugCanvasEnabled)
+        {
+            debugCanvas.SetActive(false);
+            debugCanvasEnabled = false;
+        }
+        else if(!debugCanvasEnabled)
+        {
+            debugCanvas.SetActive(true);
+            debugCanvasEnabled = true;
         }
     }
 }
