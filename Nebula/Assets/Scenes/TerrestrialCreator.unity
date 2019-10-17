@@ -920,6 +920,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   source: {fileID: 1139689189}
+  rotationSpeedDebug: 1
+  rotationFastSpeedDebug: 5
 --- !u!54 &110666250
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11786,6 +11788,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 281fe8dc6e0dacb4a97347684229c8bf, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 03a861c4e29365e4299ca6535fec615c, type: 2}
     - target: {fileID: 400002, guid: 281fe8dc6e0dacb4a97347684229c8bf, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -11850,10 +11856,6 @@ PrefabInstance:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2300000, guid: 281fe8dc6e0dacb4a97347684229c8bf, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 03a861c4e29365e4299ca6535fec615c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 281fe8dc6e0dacb4a97347684229c8bf, type: 3}
 --- !u!4 &1812487154 stripped
