@@ -19,7 +19,7 @@ public class TerrestrialRotation : MonoBehaviour
 
         if(DebugController.debugEnabled)
         {
-            if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetMouseButton(0))
+            if ((Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetMouseButton(0)) && !AtmosphereController.debugRotationLock)
             {
                 DebugRotation();
             }
