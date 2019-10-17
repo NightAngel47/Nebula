@@ -44,7 +44,6 @@ public class MenUIChanger : MonoBehaviour
         atmosphereCanvas.SetActive(false);
         finishCanvas.SetActive(false);
         RightBlurGas.SetActive(true);
-
     }
     void onClickBiomes()
     {
@@ -54,7 +53,6 @@ public class MenUIChanger : MonoBehaviour
         atmosphereCanvas.SetActive(false);
         finishCanvas.SetActive(false);
         RightBlurGas.SetActive(true);
-
     }
     void onClickAtmosphere()
     {
