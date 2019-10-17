@@ -19,7 +19,7 @@ public class TerrestrialRotation : MonoBehaviour
 
         if(DebugController.debugEnabled)
         {
-            if ((Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetMouseButton(0)) && !AtmosphereController.debugRotationLock)
+            if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetMouseButton(0))
             {
                 DebugRotation();
             }
@@ -92,94 +92,97 @@ public class TerrestrialRotation : MonoBehaviour
 
         mPrevPos = Input.mousePosition;
 
-        if (Input.GetKey(KeyCode.RightArrow))
+        if(!AtmosphereController.debugRotationLock)
         {
-            yRot -= rotationSpeed;
-
-            if (!source.isPlaying)
+            if (Input.GetKey(KeyCode.RightArrow))
             {
-                source.Play();
+                yRot -= rotationSpeed;
+
+                if (!source.isPlaying)
+                {
+                    source.Play();
+                }
+
+                if (Input.GetKey(KeyCode.UpArrow))
+                {
+                    xRot += rotationSpeed;
+                }
+                else if (Input.GetKey(KeyCode.DownArrow))
+                {
+                    xRot -= rotationSpeed;
+                }
+
+                transform.Rotate(xRot, yRot, 0, Space.World);
             }
-
-            if (Input.GetKey(KeyCode.UpArrow))
+            else if (Input.GetKey(KeyCode.LeftArrow))
             {
+
+                yRot += rotationSpeed;
+
+                if (Input.GetKey(KeyCode.UpArrow))
+                {
+                    xRot += rotationSpeed;
+                }
+                else if (Input.GetKey(KeyCode.DownArrow))
+                {
+                    xRot -= rotationSpeed;
+                }
+
+                if (!source.isPlaying)
+                {
+                    source.Play();
+                }
+
+                transform.Rotate(xRot, yRot, 0, Space.World);
+            }
+            else if (Input.GetKey(KeyCode.UpArrow))
+            {
+
+                if (Input.GetKey(KeyCode.LeftArrow))
+                {
+                    yRot += rotationSpeed;
+                }
+                else if (Input.GetKey(KeyCode.RightArrow))
+                {
+                    yRot -= rotationSpeed;
+                }
+
+
+                if (!source.isPlaying)
+                {
+                    source.Play();
+                }
+
                 xRot += rotationSpeed;
+
+                transform.Rotate(xRot, yRot, 0, Space.World);
             }
             else if (Input.GetKey(KeyCode.DownArrow))
             {
+
+                if (Input.GetKey(KeyCode.LeftArrow))
+                {
+                    yRot += rotationSpeed;
+                }
+                else if (Input.GetKey(KeyCode.RightArrow))
+                {
+                    yRot -= rotationSpeed;
+                }
+
+
+                if (!source.isPlaying)
+                {
+                    source.Play();
+                }
+
                 xRot -= rotationSpeed;
+
+                transform.Rotate(xRot, yRot, 0, Space.World);
             }
-
-            transform.Rotate(xRot, yRot, 0, Space.World);
-        }
-        else if (Input.GetKey(KeyCode.LeftArrow))
-        {
-
-            yRot += rotationSpeed;
-
-            if (Input.GetKey(KeyCode.UpArrow))
+            else
             {
-                xRot += rotationSpeed;
+                source.Stop();
             }
-            else if (Input.GetKey(KeyCode.DownArrow))
-            {
-                xRot -= rotationSpeed;
-            }
-
-            if (!source.isPlaying)
-            {
-                source.Play();
-            }
-
-            transform.Rotate(xRot, yRot, 0, Space.World);
-        }
-        else if (Input.GetKey(KeyCode.UpArrow))
-        {
-
-            if (Input.GetKey(KeyCode.LeftArrow))
-            {
-                yRot += rotationSpeed;
-            }
-            else if (Input.GetKey(KeyCode.RightArrow))
-            {
-                yRot -= rotationSpeed;
-            }
-
-
-            if (!source.isPlaying)
-            {
-                source.Play();
-            }
-
-            xRot += rotationSpeed;
-
-            transform.Rotate(xRot, yRot, 0, Space.World);
-        }
-        else if (Input.GetKey(KeyCode.DownArrow))
-        {
-
-            if (Input.GetKey(KeyCode.LeftArrow))
-            {
-                yRot += rotationSpeed;
-            }
-            else if (Input.GetKey(KeyCode.RightArrow))
-            {
-                yRot -= rotationSpeed;
-            }
-
-
-            if (!source.isPlaying)
-            {
-                source.Play();
-            }
-
-            xRot -= rotationSpeed;
-
-            transform.Rotate(xRot, yRot, 0, Space.World);
-        }
-        else
-        {
-            source.Stop();
         }
     }
 }
