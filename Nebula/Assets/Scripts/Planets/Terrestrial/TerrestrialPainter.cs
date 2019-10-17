@@ -51,7 +51,9 @@ public class TerrestrialPainter : MonoBehaviour
         #region debug painting controls
         #if UNITY_EDITOR
         // mouse debug
-        if (Input.GetMouseButton(0) && isDebug)
+        //if (Input.GetMouseButton(0) && isDebug)
+
+        if (Input.GetMouseButton(0) && DebugController.debugEnabled)
         {
             SpawnGO();
         }
