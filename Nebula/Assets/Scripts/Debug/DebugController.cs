@@ -5,14 +5,11 @@ using UnityEngine;
 public class DebugController : MonoBehaviour
 {
     public static bool debugEnabled;
+    public static bool mouseRotationEnabled;
+
     private bool currentlyEnabled;
 
     public static DebugController instance;
-
-    void OnAwake()
-    {
-       
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +34,7 @@ public class DebugController : MonoBehaviour
     }
 
     /// <summary>
-    /// 
+    /// Method switches scene between debug mode and play mode.
     /// </summary>
     private void DebugCheck()
     {
@@ -56,6 +53,21 @@ public class DebugController : MonoBehaviour
                 Debug.Log("Debug Mode Enabled " + debugEnabled);
             }
             
+        }
+
+        if(currentlyEnabled)
+        {
+            if(Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                if(mouseRotationEnabled)
+                {
+                    mouseRotationEnabled = false;
+                }
+                else if(!mouseRotationEnabled)
+                {
+                    mouseRotationEnabled = true;
+                }
+            }
         }
     }
 }

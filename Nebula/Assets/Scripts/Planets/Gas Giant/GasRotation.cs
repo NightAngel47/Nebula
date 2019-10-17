@@ -79,22 +79,26 @@ public class GasRotation : MonoBehaviour
         var xRot = Camera.main.transform.rotation.x;
         var yRot = Camera.main.transform.rotation.y;
         //var zRot = Camera.main.transform.rotation.z;
-
-        //Following mouse rotation code from https://www.youtube.com/watch?v=kplusZYqBok
-        if (Input.GetMouseButton(0))
+        
+        if(DebugController.mouseRotationEnabled)
         {
-            mPosDelta = Input.mousePosition - mPrevPos;
-            if(Vector3.Dot(transform.up, Vector3.up) >= 0)
+            //Following mouse rotation code from https://www.youtube.com/watch?v=kplusZYqBok
+            if (Input.GetMouseButton(0))
             {
-                transform.Rotate(transform.up, -Vector3.Dot(mPosDelta, Camera.main.transform.right), Space.World);
-            }
-            else
-            {
-                transform.Rotate(transform.up, Vector3.Dot(mPosDelta, Camera.main.transform.right), Space.World);
-            }
+                mPosDelta = Input.mousePosition - mPrevPos;
+                if (Vector3.Dot(transform.up, Vector3.up) >= 0)
+                {
+                    transform.Rotate(transform.up, -Vector3.Dot(mPosDelta, Camera.main.transform.right), Space.World);
+                }
+                else
+                {
+                    transform.Rotate(transform.up, Vector3.Dot(mPosDelta, Camera.main.transform.right), Space.World);
+                }
 
-            transform.Rotate(Camera.main.transform.right, Vector3.Dot(mPosDelta, Camera.main.transform.up), Space.World);
+                transform.Rotate(Camera.main.transform.right, Vector3.Dot(mPosDelta, Camera.main.transform.up), Space.World);
+            }
         }
+       
         mPrevPos = Input.mousePosition;
 
         if (Input.GetKey(KeyCode.RightArrow))
