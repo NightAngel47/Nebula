@@ -18,13 +18,17 @@ public class HideRings : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(DebugController.debugEnabled)
+        #region debug hide rings
+#if UNITY_EDITOR
+        if (DebugController.debugEnabled)
         {
             if(Input.GetKeyDown(KeyCode.M))
             {
                 ViewRings();
             }
         }
+#endif
+        #endregion
 
         if (canViewRings == true)
         {

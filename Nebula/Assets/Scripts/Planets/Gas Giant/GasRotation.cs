@@ -6,11 +6,15 @@ public class GasRotation : MonoBehaviour
 {
     public AudioSource source;
 
+    #region debug gas rotation
+#if UNITY_EDITOR
     [SerializeField] private float gasRotationSpeedDebug;
     [SerializeField] private float gasRotationFastSpeedDebug;
 
     Vector3 mPrevPos = Vector3.zero;
     Vector3 mPosDelta = Vector3.zero;
+#endif
+    #endregion
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +25,9 @@ public class GasRotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(DebugController.debugEnabled && !RingRotation.canRingRotate)
+        #region debug gas rotation
+#if UNITY_EDITOR
+        if (DebugController.debugEnabled && !RingRotation.canRingRotate)
         {
             if(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetMouseButton(0))
             {
@@ -33,6 +39,8 @@ public class GasRotation : MonoBehaviour
         {
             GasRotator();
         }
+#endif
+        #endregion
     }
 
     void GasRotator()
@@ -63,6 +71,8 @@ public class GasRotation : MonoBehaviour
         }
     }
 
+    #region debug gas rotation
+#if UNITY_EDITOR
     void DebugGasRotator()
     {
         float rotationSpeed = gasRotationSpeedDebug;
@@ -191,4 +201,6 @@ public class GasRotation : MonoBehaviour
             source.Stop();
         }
     }
+#endif
+    #endregion
 }

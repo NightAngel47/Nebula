@@ -9,21 +9,28 @@ public class TerrestrialRotation : MonoBehaviour
     [SerializeField] private float rotationSpeedDebug;
     [SerializeField] private float rotationFastSpeedDebug;
 
+    #region debug terrestrial rotation
+    #if UNITY_EDITOR
     Vector3 mPrevPos = Vector3.zero;
     Vector3 mPosDelta = Vector3.zero;
+    #endif
+    #endregion
 
     // Update is called once per frame
     void Update()
     {
         Rotation();
-
-        if(DebugController.debugEnabled)
+        #region debug terrestrial rotation
+        #if UNITY_EDITOR
+        if (DebugController.debugEnabled)
         {
             if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetMouseButton(0))
             {
                 DebugRotation();
             }
         }
+        #endif
+        #endregion
     }
 
     void Rotation()
@@ -54,6 +61,8 @@ public class TerrestrialRotation : MonoBehaviour
         }
     }
 
+    #region debug terrestrial rotation
+    #if UNITY_EDITOR
     void DebugRotation()
     {
         float rotationSpeed = rotationSpeedDebug;
@@ -185,4 +194,6 @@ public class TerrestrialRotation : MonoBehaviour
             }
         }
     }
+    #endif
+    #endregion
 }

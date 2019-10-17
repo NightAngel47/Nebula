@@ -8,13 +8,19 @@ public class RingRotation : MonoBehaviour
     public float rotationSpeed = 0;
     public static bool canRingRotate = false;
 
+    #region debug ring rotation
+#if UNITY_EDITOR
     [SerializeField] private float gasRingRotationSpeedDebug;
     [SerializeField] private float gasRingRotationFastSpeedDebug;
+#endif
+    #endregion
 
     // Update is called once per frame
     void Update()
     {
-        if(DebugController.debugEnabled)
+        #region debug ring rotation
+#if UNITY_EDITOR
+        if (DebugController.debugEnabled)
         {
             if((Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.UpArrow)) && canRingRotate)
             {
@@ -22,6 +28,9 @@ public class RingRotation : MonoBehaviour
                 PlayAudio();
             }
         }
+#endif
+        #endregion
+
         if (Input.touchCount == 2 && Input.GetTouch(0).phase == TouchPhase.Moved && canRingRotate == true)
         {
             RotateRings();
@@ -53,6 +62,8 @@ public class RingRotation : MonoBehaviour
         }
     }
 
+    #region debug ring rotation
+#if UNITY_EDITOR
     void RotateRingsDebug()
     {
         float ringRotationSpeed = gasRingRotationSpeedDebug;
@@ -80,6 +91,8 @@ public class RingRotation : MonoBehaviour
             transform.Rotate(xRot, 0, 0, Space.World);
         }
     }
+#endif
+    #endregion
 
     void PlayAudio()
     {

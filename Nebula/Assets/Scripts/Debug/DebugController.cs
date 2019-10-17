@@ -1,5 +1,9 @@
-﻿using UnityEngine;
+﻿#region debug controller
+#if UNITY_EDITOR
+
+using UnityEngine;
 using UnityEngine.UI;
+
 
 public class DebugController : MonoBehaviour
 {
@@ -131,3 +135,5 @@ public class DebugController : MonoBehaviour
         }
     }
 }
+#endif
+#endregion

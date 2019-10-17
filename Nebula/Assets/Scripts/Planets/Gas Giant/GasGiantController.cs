@@ -34,7 +34,9 @@ public class GasGiantController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(DebugController.debugEnabled)
+        #region debug band editor
+#if UNITY_EDITOR
+        if (DebugController.debugEnabled)
         {
             if((Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow)) && bandButton)
             {
@@ -42,6 +44,8 @@ public class GasGiantController : MonoBehaviour
                 DebugBandEditor();
             }
         }
+#endif
+        #endregion
 
         if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Moved && bandButton)
         {
@@ -112,6 +116,8 @@ public class GasGiantController : MonoBehaviour
         }
     }
 
+    #region debug band editor
+#if UNITY_EDITOR
     void DebugBandEditor()
     {
         float newBandNumber = rend.material.GetFloat("_Bands");
@@ -157,6 +163,8 @@ public class GasGiantController : MonoBehaviour
         }
 
     }
+#endif
+    #endregion
 
     void PlayBandsAudio()
     {

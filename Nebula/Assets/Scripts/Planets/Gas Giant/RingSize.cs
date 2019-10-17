@@ -26,7 +26,9 @@ public class RingSize : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(DebugController.debugEnabled)
+        #region debug ring radius
+#if UNITY_EDITOR
+        if (DebugController.debugEnabled)
         {
             if((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow)) && ringButton)
             {
@@ -34,6 +36,9 @@ public class RingSize : MonoBehaviour
                 ChangeRingRadiusDebug();
             }
         }
+#endif
+        #endregion
+
         if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Moved && ringButton)
         {
             PlayRingsAudio();
@@ -80,6 +85,8 @@ public class RingSize : MonoBehaviour
         main.scale = new Vector3(ringSize, theRings.shape.scale.y, theRings.shape.scale.z);
     }
 
+    #region debug ring radius
+#if UNITY_EDITOR
     void ChangeRingRadiusDebug()
     {
         float audioEffect;
@@ -119,6 +126,8 @@ public class RingSize : MonoBehaviour
         var main = theRings.shape;
         main.scale = new Vector3(ringSize, theRings.shape.scale.y, theRings.shape.scale.z);
     }
+#endif
+    #endregion
 
     void PlayRingsAudio()
     {

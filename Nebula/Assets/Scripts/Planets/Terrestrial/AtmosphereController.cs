@@ -28,7 +28,9 @@ public class AtmosphereController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(DebugController.debugEnabled && atmosphereButton)
+        #region debug atmosphere density
+        #if UNITY_EDITOR
+        if (DebugController.debugEnabled && atmosphereButton)
         {
             if(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))
             {
@@ -41,6 +43,8 @@ public class AtmosphereController : MonoBehaviour
                 source.Stop();
             }
         }
+        #endif
+        #endregion
 
         if (Input.touchCount == 1 && atmosphereButton)
         {
@@ -92,6 +96,8 @@ public class AtmosphereController : MonoBehaviour
         }
     }
 
+    #region debug atmosphere density
+    #if UNITY_EDITOR
     void DebugControlDensity()
     {
         float newAlpha = rend.material.GetFloat("_strength");
@@ -131,6 +137,8 @@ public class AtmosphereController : MonoBehaviour
             debugRotationLock = false;
         }
     }
+    #endif
+    #endregion
 
     void PlayAudio()
     {

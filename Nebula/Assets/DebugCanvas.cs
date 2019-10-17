@@ -9,6 +9,8 @@ public class DebugCanvas : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        #region debug canvas
+        #if UNITY_EDITOR
         if (instance == null)
         {
             instance = this;
@@ -18,5 +20,11 @@ public class DebugCanvas : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        #endif
+        #endregion
+
+        #if UNITY_STANDALONE && !UNITY_EDITOR
+        Destroy(gameObject);
+        #endif
     }
 }
