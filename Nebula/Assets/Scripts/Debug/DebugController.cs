@@ -14,9 +14,11 @@ public class DebugController : MonoBehaviour
     private Text debugText;
     private Text mouseRotationText;
 
-    private bool debugCanvasEnabled;
+    private GameObject debugPanel;
 
-    private bool currentlyEnabled;
+    private bool debugCanvasEnabled;
+    private bool debugPanelEnabled;
+
 
     public static DebugController instance;
 
@@ -28,10 +30,11 @@ public class DebugController : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
             debugEnabled = false;
-            currentlyEnabled = false;
             debugCanvasEnabled = true;
+            debugPanelEnabled = false;
 
             debugCanvas = GameObject.FindGameObjectWithTag("DebugCanvas");
+            debugPanel = GameObject.FindGameObjectWithTag("DebugPanel");
             debugText = GameObject.FindGameObjectWithTag("DebugModeText").GetComponent<Text>();
             mouseRotationText = GameObject.FindGameObjectWithTag("DebugModeRotationText").GetComponent<Text>();
 
@@ -46,11 +49,12 @@ public class DebugController : MonoBehaviour
     void Update()
     {
         DebugCheck();
+        HideDebugPanel();
 
-        if(Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.C))
         {
             HideDebugCanvas();
-        }
+        }        
     }
 
     /// <summary>
@@ -60,26 +64,25 @@ public class DebugController : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.F1))
         {
-            if(currentlyEnabled)
+            if(debugEnabled)
             {
                 debugEnabled = false;
-                currentlyEnabled = false;
                 mouseRotationEnabled = false;
+                debugPanelEnabled = false;
                 DebugText();
                 MouseRotationText();
                 Debug.Log("Debug Mode Enabled " + debugEnabled);
             }
-            else if(!currentlyEnabled)
+            else if(!debugEnabled)
             {
                 debugEnabled = true;
-                currentlyEnabled = true;
                 DebugText();
                 Debug.Log("Debug Mode Enabled " + debugEnabled);
             }
             
         }
 
-        if(currentlyEnabled)
+        if(debugEnabled)
         {
             if(Input.GetKeyDown(KeyCode.Alpha1))
             {
@@ -106,6 +109,27 @@ public class DebugController : MonoBehaviour
         else if(!debugEnabled)
         {
             debugText.text = "Debug Mode: False";
+        }
+    }
+
+    private void HideDebugPanel()
+    {
+        if(!debugEnabled)
+        {
+            debugPanel.SetActive(false);
+        }
+        else if (Input.GetKeyDown(KeyCode.F2) && debugEnabled)
+        {
+            if (debugPanelEnabled)
+            {
+                debugPanelEnabled = false;
+                debugPanel.SetActive(false);
+            }
+            else if (!debugPanelEnabled)
+            {
+                debugPanelEnabled = true;
+                debugPanel.SetActive(true);
+            }
         }
     }
 

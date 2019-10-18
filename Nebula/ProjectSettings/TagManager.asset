@@ -22,6 +22,7 @@ TagManager:
   - DebugCanvas
   - DebugModeText
   - DebugModeRotationText
+  - DebugPanel
   layers:
   - Default
   - TransparentFX
