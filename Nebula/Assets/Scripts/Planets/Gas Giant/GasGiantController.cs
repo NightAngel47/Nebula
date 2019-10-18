@@ -7,6 +7,12 @@ public class GasGiantController : MonoBehaviour
 {
     public Renderer rend;
 
+    #region debug band editor rotation lock
+#if UNITY_EDITOR
+    public static bool gasDebugRotationLock;
+#endif
+    #endregion
+
     //Color Variables
     Color planetColor;
     Color bandColor;
@@ -42,6 +48,11 @@ public class GasGiantController : MonoBehaviour
             {
                 PlayBandsAudio();
                 DebugBandEditor();
+                gasDebugRotationLock = true;
+            }
+            else
+            {
+                gasDebugRotationLock = false;
             }
         }
 #endif

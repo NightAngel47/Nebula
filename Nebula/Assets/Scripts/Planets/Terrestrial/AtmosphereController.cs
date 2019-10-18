@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class AtmosphereController : MonoBehaviour
 {
+    #region debug rotation lock
+#if UNITY_EDITOR
     public static bool debugRotationLock;
+#endif
+    #endregion
 
     bool atmosphereButton;
 

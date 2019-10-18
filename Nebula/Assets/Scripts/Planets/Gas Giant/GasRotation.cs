@@ -29,7 +29,7 @@ public class GasRotation : MonoBehaviour
 #if UNITY_EDITOR
         if (DebugController.debugEnabled && !RingRotation.canRingRotate)
         {
-            if(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetMouseButton(0))
+            if((Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetMouseButton(0)) && !GasGiantController.gasDebugRotationLock)
             {
                 DebugGasRotator();
             }
