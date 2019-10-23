@@ -31,7 +31,7 @@ public class HideRings : MonoBehaviour
 
         #region debug hide rings
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
-        if (DebugController.debugEnabled)
+        if (DebugController.DebugEnabled)
         {
             if (Input.GetKeyDown(KeyCode.M))
             {

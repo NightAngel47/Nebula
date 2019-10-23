@@ -53,7 +53,7 @@ public class TerrestrialPainter : MonoBehaviour
         // mouse debug
         //if (Input.GetMouseButton(0) && isDebug)
 
-        if (Input.GetMouseButton(0) && DebugController.debugEnabled)
+        if (Input.GetMouseButton(0) && DebugController.DebugEnabled)
         {
             SpawnGO();
         }

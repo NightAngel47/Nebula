@@ -28,7 +28,7 @@ public class RingSize : MonoBehaviour
     {
         #region debug ring radius
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
-        if (DebugController.debugEnabled)
+        if (DebugController.DebugEnabled)
         {
             if ((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow)) && ringButton)
             {

@@ -31,7 +31,7 @@ public class RingRotation : MonoBehaviour
 
         #region debug ring rotation
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
-        if (DebugController.debugEnabled)
+        if (DebugController.DebugEnabled)
         {
             if ((Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.UpArrow)) && canRingRotate)
             {

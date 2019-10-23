@@ -34,7 +34,7 @@ public class AtmosphereController : MonoBehaviour
     {
         #region debug atmosphere density
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
-        if (DebugController.debugEnabled && atmosphereButton)
+        if (DebugController.DebugEnabled && atmosphereButton)
         {
             if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))
             {

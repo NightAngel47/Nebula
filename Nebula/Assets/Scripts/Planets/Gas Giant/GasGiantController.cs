@@ -42,7 +42,7 @@ public class GasGiantController : MonoBehaviour
     {
         #region debug band editor
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
-        if (DebugController.debugEnabled)
+        if (DebugController.DebugEnabled)
         {
             if ((Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow)) && bandButton)
             {

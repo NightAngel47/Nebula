@@ -22,7 +22,7 @@ public class TerrestrialRotation : MonoBehaviour
         Rotation();
         #region debug terrestrial rotation
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
-        if (DebugController.debugEnabled)
+        if (DebugController.DebugEnabled)
         {
             if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetMouseButton(0))
             {

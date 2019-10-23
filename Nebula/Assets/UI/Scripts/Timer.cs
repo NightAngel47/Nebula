@@ -65,7 +65,7 @@ public class Timer : MonoBehaviour
 
         #region debug timer
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
-        if (DebugController.debugEnabled)
+        if (DebugController.DebugEnabled)
         {
             bool mouseMoved = false;
 

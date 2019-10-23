@@ -1,134 +1,102 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 
 public class DebugController : MonoBehaviour
 {
-    public static bool debugEnabled;
-
+    /// <summary>
+    /// The Instance of the Debug Controller
+    /// </summary>
+    public static DebugController Instance;
+    /// <summary>
+    /// The state of the debug controls. True is on, False is off.
+    /// </summary>
+    public static bool DebugEnabled;
+    
+    /// <summary>
+    /// The Debug UI Canvas
+    /// </summary>
     private GameObject debugCanvas;
-
-    private GameObject debugTextObj;
-
+    /// <summary>
+    /// The Debug Mode Text
+    /// </summary>
+    private GameObject debugModeText;
+    /// <summary>
+    /// The Debug Controls Panel
+    /// </summary>
     private GameObject debugPanel;
-
-    private bool debugCanvasEnabled;
-    private bool debugPanelEnabled;
-
-
-    public static DebugController instance;
 
     // Start is called before the first frame update
     void Start()
     {
-#if UNITY_EDITOR || DEVELOPMENT_BUILD
-        if (instance == null)
+        #if UNITY_EDITOR || DEVELOPMENT_BUILD
+        if (Instance == null)
         {
-            instance = this;
+            // Sets instance settings
+            Instance = this;
             DontDestroyOnLoad(gameObject);
-            debugEnabled = false;
-            debugCanvasEnabled = true;
-            debugPanelEnabled = false;
+            DebugEnabled = false;
 
-            debugCanvas = GameObject.FindGameObjectWithTag("DebugCanvas");
-            debugPanel = GameObject.FindGameObjectWithTag("DebugPanel");
-            debugTextObj = GameObject.FindGameObjectWithTag("DebugModeText");
-
-            debugTextObj.SetActive(false);
+            // Gets the references
+            debugCanvas = GetComponentInChildren<Canvas>().gameObject; //gets first canvas (debug canvas)
+            debugPanel = debugCanvas.GetComponentInChildren<Image>().gameObject; // gets first image (debug panel)
+            debugModeText = debugCanvas.GetComponentInChildren<TMP_Text>().gameObject; // gets first text (debug mode text)
+            
+            // Sets Debug UI to false
+            debugPanel.SetActive(false);
+            debugModeText.SetActive(false);
         }
-        else if (instance != this)
+        else if (Instance != this)
         {
             Destroy(gameObject);
         }
-#else
+        #else
+        // Destroys debug manager and children if not in UNITY_EDITOR or DEVELOPMENT_BUILD
         Destroy(gameObject);
-#endif
+        #endif
     }
 
     // Update is called once per frame
     void Update()
     {
         DebugCheck();
-        HideDebugPanel();
-
-        if (Input.GetKeyDown(KeyCode.C) && debugEnabled)
-        {
-            HideDebugCanvas();
-        }
+        ShowHideDebugPanel();
+        ShowHideDebugCanvas();
     }
 
     /// <summary>
-    /// Method switches scene between debug mode and play mode.
+    /// Toggles Debug Mode
     /// </summary>
     private void DebugCheck()
     {
         if (Input.GetKeyDown(KeyCode.F1))
         {
-            if (debugEnabled)
-            {
-                debugEnabled = false;
-                debugPanelEnabled = false;
-                DebugText();
-                Debug.Log("Debug Mode Enabled " + debugEnabled);
-            }
-            else if (!debugEnabled)
-            {
-                debugEnabled = true;
-
-                debugCanvasEnabled = true;
-                debugCanvas.SetActive(true);
-
-                DebugText();
-                Debug.Log("Debug Mode Enabled " + debugEnabled);
-            }
-
-        }
-    }
-
-    private void DebugText()
-    {
-        if (debugEnabled)
-        {
-            debugTextObj.SetActive(true);
-        }
-        else if (!debugEnabled)
-        {
-            debugTextObj.SetActive(false);
-        }
-    }
-
-    private void HideDebugPanel()
-    {
-        if (!debugEnabled)
-        {
+            DebugEnabled = !DebugEnabled;
+            debugModeText.SetActive(!debugModeText.activeSelf);
             debugPanel.SetActive(false);
-        }
-        else if (Input.GetKeyDown(KeyCode.F2) && debugEnabled)
-        {
-            if (debugPanelEnabled)
-            {
-                debugPanelEnabled = false;
-                debugPanel.SetActive(false);
-            }
-            else if (!debugPanelEnabled)
-            {
-                debugPanelEnabled = true;
-                debugPanel.SetActive(true);
-            }
+            Debug.Log("Debug Mode Enabled " + DebugEnabled);
         }
     }
 
-    private void HideDebugCanvas()
+    /// <summary>
+    /// Toggles Debug Panel state
+    /// </summary>
+    private void ShowHideDebugPanel()
     {
-        if (debugCanvasEnabled)
+        if (DebugEnabled && Input.GetKeyDown(KeyCode.F2))
         {
-            debugCanvas.SetActive(false);
-            debugCanvasEnabled = false;
+            debugPanel.SetActive(!debugPanel.activeSelf);
         }
-        else if (!debugCanvasEnabled)
+    }
+    
+    /// <summary>
+    /// Toggles Debug Canvas
+    /// </summary>
+    private void ShowHideDebugCanvas()
+    {
+        if (DebugEnabled && Input.GetKeyDown(KeyCode.C))
         {
-            debugCanvas.SetActive(true);
-            debugCanvasEnabled = true;
+            debugCanvas.SetActive(!debugCanvas.activeSelf);
         }
     }
 }

@@ -27,7 +27,7 @@ public class GasRotation : MonoBehaviour
     {
         #region debug gas rotation
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
-        if (DebugController.debugEnabled && !RingRotation.canRingRotate)
+        if (DebugController.DebugEnabled && !RingRotation.canRingRotate)
         {
             if ((Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetMouseButton(0)) && !GasGiantController.gasDebugRotationLock)
             {
