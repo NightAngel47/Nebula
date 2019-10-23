@@ -7,6 +7,12 @@ public class GasGiantController : MonoBehaviour
 {
     public Renderer rend;
 
+    #region debug band editor rotation lock
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+    public static bool gasDebugRotationLock;
+#endif
+    #endregion
+
     //Color Variables
     Color planetColor;
     Color bandColor;
@@ -34,6 +40,24 @@ public class GasGiantController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        #region debug band editor
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+        if (DebugController.debugEnabled)
+        {
+            if ((Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow)) && bandButton)
+            {
+                PlayBandsAudio();
+                DebugBandEditor();
+                gasDebugRotationLock = true;
+            }
+            else
+            {
+                gasDebugRotationLock = false;
+            }
+        }
+#endif
+        #endregion
+
         if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Moved && bandButton)
         {
             PlayBandsAudio();
@@ -102,6 +126,56 @@ public class GasGiantController : MonoBehaviour
             Debug.Log("Band Change" + newBandNumber);
         }
     }
+
+    #region debug band editor
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+    void DebugBandEditor()
+    {
+        float newBandNumber = rend.material.GetFloat("_Bands");
+
+        float bandsEffect;
+        mainMixer.GetFloat("BandsEffect", out bandsEffect);
+
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            newBandNumber += bandIncrementValue;
+
+            //Keeps band number from hitting a value above 1 and below 0 on slider 
+            if (newBandNumber > maxBands)
+            {
+                newBandNumber = maxBands;
+            }
+            else
+            {
+                mainMixer.SetFloat("BandsEffect", bandsEffect -= bandIncrementValue * bandEffectAmount);
+            }
+            rend.material.SetFloat("_Bands", newBandNumber);
+
+
+            Debug.Log("Band Change" + newBandNumber);
+        }
+        else if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            newBandNumber -= bandIncrementValue;
+
+            //Keeps band number from hitting a value above 1 and below 0 on slider 
+            if (newBandNumber < minBands)
+            {
+                newBandNumber = minBands;
+            }
+            else
+            {
+                mainMixer.SetFloat("BandsEffect", bandsEffect += bandIncrementValue * bandEffectAmount);
+            }
+
+            rend.material.SetFloat("_Bands", newBandNumber);
+
+            Debug.Log("Band Change" + newBandNumber);
+        }
+
+    }
+#endif
+    #endregion
 
     void PlayBandsAudio()
     {

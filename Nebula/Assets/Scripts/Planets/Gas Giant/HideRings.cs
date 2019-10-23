@@ -11,6 +11,18 @@ public class HideRings : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        #region debug hide rings
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+        if (DebugController.debugEnabled)
+        {
+            if (Input.GetKeyDown(KeyCode.M))
+            {
+                ViewRings();
+            }
+        }
+#endif
+        #endregion
+
         canViewRings = true; // needs to be false
 
     }
