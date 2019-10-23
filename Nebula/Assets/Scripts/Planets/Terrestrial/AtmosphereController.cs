@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class AtmosphereController : MonoBehaviour
 {
+    #region debug rotation lock
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+    public static bool debugRotationLock;
+#endif
+    #endregion
+
     bool atmosphereButton;
 
     public Renderer rend;
@@ -26,13 +32,33 @@ public class AtmosphereController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        #region debug atmosphere density
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+        if (DebugController.DebugEnabled && atmosphereButton)
+        {
+            if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))
+            {
+                PlayAudio();
+                DebugControlDensity();
+            }
+            else
+            {
+                debugRotationLock = false;
+                source.Stop();
+            }
+        }
+#endif
+        #endregion
+
         if (Input.touchCount == 1 && atmosphereButton)
         {
             PlayAudio();
             ControlDensity();
         }
         else
+        {
             source.Stop();
+        }
     }
 
     void ControlDensity()
@@ -73,6 +99,50 @@ public class AtmosphereController : MonoBehaviour
             Debug.Log("Alpha Change" + newAlpha);
         }
     }
+
+    #region debug atmosphere density
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+    void DebugControlDensity()
+    {
+        float newAlpha = rend.material.GetFloat("_strength");
+
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            debugRotationLock = true;
+
+            newAlpha += atmosphereIncrementValue;
+            if (newAlpha > atmosphereMax)
+            {
+                newAlpha = atmosphereMax;
+            }
+            rend.material.SetFloat("_strength", newAlpha);
+
+            source.pitch += atmosphereIncrementValue;
+
+            Debug.Log("Alpha Change" + newAlpha);
+        }
+        else if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            debugRotationLock = true;
+
+            newAlpha -= atmosphereIncrementValue;
+            if (newAlpha < atmosphereMin)
+            {
+                newAlpha = atmosphereMin;
+            }
+            rend.material.SetFloat("_strength", newAlpha);
+
+            source.pitch -= atmosphereIncrementValue;
+
+            Debug.Log("Alpha Change" + newAlpha);
+        }
+        else
+        {
+            debugRotationLock = false;
+        }
+    }
+#endif
+    #endregion
 
     void PlayAudio()
     {

@@ -12,7 +12,6 @@ public class HideRings : MonoBehaviour
     void Start()
     {
         canViewRings = true; // needs to be false
-
     }
 
     // Update is called once per frame
@@ -28,6 +27,19 @@ public class HideRings : MonoBehaviour
             rings.SetActive(false);
 
         }
+
+
+        #region debug hide rings
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+        if (DebugController.DebugEnabled)
+        {
+            if (Input.GetKeyDown(KeyCode.M))
+            {
+                ViewRings();
+            }
+        }
+#endif
+        #endregion
     }
 
     public void ViewRings()
