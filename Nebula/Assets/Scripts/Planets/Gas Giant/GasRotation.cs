@@ -34,14 +34,13 @@ public class GasRotation : MonoBehaviour
                 DebugGasRotator();
             }
         }
+#endif
+        #endregion
 
         if ((Input.touchCount == 2) && !RingRotation.canRingRotate)
         {
             GasRotator();
         }
-#endif
-        #endregion
-
     }
 
     void GasRotator()

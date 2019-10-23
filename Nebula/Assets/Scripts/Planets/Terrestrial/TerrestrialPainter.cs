@@ -49,13 +49,15 @@ public class TerrestrialPainter : MonoBehaviour
             placeAudioSource.Stop();
 
         #region debug painting controls
-        #if UNITY_EDITOR
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
         // mouse debug
-        if (Input.GetMouseButton(0) && isDebug)
+        //if (Input.GetMouseButton(0) && isDebug)
+
+        if (Input.GetMouseButton(0) && DebugController.debugEnabled)
         {
             SpawnGO();
         }
-        #endif
+#endif
         #endregion
     }
 

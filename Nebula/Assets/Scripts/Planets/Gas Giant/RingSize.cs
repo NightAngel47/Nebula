@@ -26,6 +26,19 @@ public class RingSize : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        #region debug ring radius
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+        if (DebugController.debugEnabled)
+        {
+            if ((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow)) && ringButton)
+            {
+                PlayRingsAudio();
+                ChangeRingRadiusDebug();
+            }
+        }
+#endif
+        #endregion
+
         if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Moved && ringButton)
         {
             PlayRingsAudio();
@@ -69,6 +82,50 @@ public class RingSize : MonoBehaviour
         var main = theRings.shape;
         main.scale = new Vector3(ringSize, theRings.shape.scale.y, theRings.shape.scale.z);
     }
+
+    #region debug ring radius
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+    void ChangeRingRadiusDebug()
+    {
+        float audioEffect;
+        mainMixer.GetFloat("RingsEffect", out audioEffect);
+
+        float ringSize = theRings.shape.scale.x;
+
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            ringSize += ringIncrement;
+
+            //Keeps band number from hitting a value above 1 and below 0 on slider 
+            if (ringSize > ringSizeMax)
+            {
+                ringSize = ringSizeMax;
+            }
+            else
+            {
+                mainMixer.SetFloat("RingsEffect", audioEffect += ringIncrement * effectAmount);
+            }
+        }
+        else if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            ringSize -= ringIncrement;
+
+            //Keeps band number from hitting a value above 1 and below 0 on slider 
+            if (ringSize < ringSizeMin)
+            {
+                ringSize = ringSizeMin;
+            }
+            else
+            {
+                mainMixer.SetFloat("RingsEffect", audioEffect -= ringIncrement * effectAmount);
+            }
+        }
+
+        var main = theRings.shape;
+        main.scale = new Vector3(ringSize, theRings.shape.scale.y, theRings.shape.scale.z);
+    }
+#endif
+    #endregion
 
     void PlayRingsAudio()
     {
