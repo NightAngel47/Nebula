@@ -56,7 +56,9 @@ public class AtmosphereController : MonoBehaviour
             ControlDensity();
         }
         else
+        {
             source.Stop();
+        }
     }
 
     void ControlDensity()
