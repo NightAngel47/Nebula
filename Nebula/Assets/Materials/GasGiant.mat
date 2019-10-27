@@ -8,7 +8,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: GasGiant
-  m_Shader: {fileID: 4800000, guid: 725d3e76baa494c469236a7273e93cf2, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 5b6d75718fcd08c4eabea69cca26a462,
+    type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
@@ -21,6 +22,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_9F2C2F3E:
+        m_Texture: {fileID: 2800000, guid: 10dc0a864a725aa4c908950c620fb2a9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _AnisotropyMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -81,6 +86,18 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_193CA58D_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 4eaeb9bab5f361341aa36b2e3c649125, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_2F419707_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 3b6d066e8195e0c4aa8b27eda61e40f4, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_A310EE13_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 4eaeb9bab5f361341aa36b2e3c649125, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SpecularColorMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -97,6 +114,14 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_11CFFDED_Out_0:
+        m_Texture: {fileID: 2800000, guid: 3b6d066e8195e0c4aa8b27eda61e40f4, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_1BF7928A_Out_0:
+        m_Texture: {fileID: 2800000, guid: 3b6d066e8195e0c4aa8b27eda61e40f4, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _ThicknessMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -106,6 +131,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_25E46029: 0.1
+    - Vector1_F1AEE55B: 0.1
     - _AORemapMax: 1
     - _AORemapMin: 0
     - _ATDistance: 1
@@ -116,7 +143,7 @@ Material:
     - _AlphaCutoffPrepass: 0.5
     - _AlphaCutoffShadow: 0.5
     - _Anisotropy: 0
-    - _Bands: 0.5
+    - _Bands: 1.22
     - _BlendMode: 0
     - _CoatMask: 0
     - _CullMode: 2
@@ -199,7 +226,7 @@ Material:
     - _StencilWriteMask: 7
     - _StencilWriteMaskMV: 128
     - _Stiffness: 1
-    - _Storms_Offsets: 100
+    - _Storms_Offsets: 50
     - _SubsurfaceMask: 1
     - _SupportDecals: 1
     - _SurfaceType: 0
@@ -222,7 +249,7 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color_Bands: {r: 0.6784314, g: 0.14117648, b: 0.25490198, a: 0}
+    - _Color_Bands: {r: 0.9811321, g: 0.1342115, b: 0.45893696, a: 0}
     - _Color_Base: {r: 1, g: 0.47058824, b: 1, a: 1}
     - _Color_Storms: {r: 1, g: 1, b: 1, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
@@ -230,7 +257,7 @@ Material:
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}
     - _InvPrimScale: {r: 1, g: 1, b: 0, a: 0}
     - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
-    - _Planet_Color: {r: 0.9607843, g: 0.7647059, b: 0.94509804, a: 0}
+    - _Planet_Color: {r: 0.9150943, g: 0.7640174, b: 0.80434936, a: 0}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _Storms_Offset: {r: 0, g: 0, b: 0, a: 0}
     - _ThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
