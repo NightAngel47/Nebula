@@ -24,21 +24,52 @@ public class BiomePainter : MonoBehaviour
     /// The names of the biome masks
     /// </summary>
     private enum MaskNames {Red, Green, Blue, Master};
+    
+    [Header("Mask Variables")]
     /// <summary>
     /// The positions of the painting poses for the biome masks. 
     /// </summary>
-    private List<Transform> maskUVPoses;
+    [SerializeField, Tooltip("The positions of the painting poses for the biome masks. ")]
+    private List<Transform> maskUVPoses = new List<Transform>(4);
     /// <summary>
     /// The painting cameras for the uv masks
     /// </summary>
-    private List<Camera> maskPainterCams;
+    [SerializeField, Tooltip("The painting cameras for the uv masks")] 
+    private List<Camera> maskPainterCams = new List<Camera>(4);
+    /// <summary>
+    /// Array of the color prefabs: Red, Green, Blue
+    /// </summary>
+    [SerializeField, Tooltip("Array of the color prefabs: Red, Green, Blue")]
+    private GameObject[] colorPrefabs = new GameObject[3];
+    
+    #endregion
+
+    #region Biome Select
+
+    /// <summary>
+    /// The names of the biomes
+    /// </summary>
+    private enum BiomeNames
+    {
+        Plains,
+        Savana,
+        Tropical,
+        Coniferous,
+        Taiga,
+        Temperate,
+        Ice,
+        Ocean
+    };
+    /// <summary>
+    /// The selected biome
+    /// </summary>
+    private BiomeNames selectedBiome;
 
     #endregion
 
     private void Awake()
     {
         SetupReferences();
-        SetupMasks();
     }
 
     /// <summary>
@@ -51,20 +82,11 @@ public class BiomePainter : MonoBehaviour
     }
 
     /// <summary>
-    /// Sets up the masks for the terrain shader
+    /// Changes the selected biome to the biome passed in. Called by UI button
     /// </summary>
-    private void SetupMasks()
+    /// <param name="biomeName">The name of the biome that the selected biome is changing to</param>
+    public void ChangeBiome(string biomeName)
     {
-        // Gets the transforms of the UVPoses
-        foreach (var uvPos in GameObject.FindGameObjectsWithTag("UVPos"))
-        {
-            maskUVPoses.Add(uvPos.transform);
-        }
-        
-        // Gets painter cams
-        foreach (var cam in GetComponentsInChildren<Camera>())
-        {
-            maskPainterCams.Add(cam);
-        }
+        selectedBiome = (BiomeNames) Enum.Parse(typeof(BiomeNames), biomeName);
     }
 }

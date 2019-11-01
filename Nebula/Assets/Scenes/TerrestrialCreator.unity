@@ -1200,7 +1200,7 @@ GameObject:
   - component: {fileID: 178490052}
   - component: {fileID: 178490051}
   m_Layer: 0
-  m_Name: Painter Camera (2)
+  m_Name: Painter Camera (Blue)
   m_TagString: CanvasCam
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2865,7 +2865,7 @@ GameObject:
   - component: {fileID: 380538114}
   - component: {fileID: 380538112}
   m_Layer: 0
-  m_Name: Painter Camera
+  m_Name: Painter Camera (Red)
   m_TagString: CanvasCam
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3826,7 +3826,7 @@ GameObject:
   m_Component:
   - component: {fileID: 588334185}
   m_Layer: 0
-  m_Name: UV Pos
+  m_Name: UV Pos (Master)
   m_TagString: UVPos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4054,6 +4054,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58cb62e75f11c794eb11ea19386d4416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maskUVPoses:
+  - {fileID: 1253287591}
+  - {fileID: 783114392}
+  - {fileID: 2059864732}
+  - {fileID: 588334185}
+  maskPainterCams:
+  - {fileID: 380538114}
+  - {fileID: 1712847817}
+  - {fileID: 178490052}
+  - {fileID: 1194561038}
+  colorPrefabs:
+  - {fileID: 1326275819864202805, guid: 4532c958efd8eec44bd31bdc7ca18ef2, type: 3}
+  - {fileID: 2853097155861746225, guid: c1c6e08c38b2a9e48b3a3a1591cf1321, type: 3}
+  - {fileID: 8801246138605416815, guid: 23f26aabfe07a93459a61d632547106a, type: 3}
 --- !u!1 &615415941
 GameObject:
   m_ObjectHideFlags: 0
@@ -5690,7 +5704,7 @@ GameObject:
   m_Component:
   - component: {fileID: 783114392}
   m_Layer: 0
-  m_Name: UV Pos (1)
+  m_Name: UV Pos (Green)
   m_TagString: UVPos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6490,7 +6504,7 @@ GameObject:
   - component: {fileID: 971678162}
   - component: {fileID: 971678161}
   m_Layer: 0
-  m_Name: UV Quad (1)
+  m_Name: UV Quad (Green)
   m_TagString: UVQuad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7772,7 +7786,7 @@ GameObject:
   - component: {fileID: 1182341450}
   - component: {fileID: 1182341449}
   m_Layer: 0
-  m_Name: UV Quad (2)
+  m_Name: UV Quad (Master)
   m_TagString: UVQuad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7888,7 +7902,7 @@ GameObject:
   - component: {fileID: 1194561038}
   - component: {fileID: 1194561037}
   m_Layer: 0
-  m_Name: Painter Camera
+  m_Name: Painter Camera (Master)
   m_TagString: CanvasCam
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8337,7 +8351,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1253287591}
   m_Layer: 0
-  m_Name: UV Pos
+  m_Name: UV Pos (Red)
   m_TagString: UVPos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11902,7 +11916,7 @@ GameObject:
   - component: {fileID: 1712847817}
   - component: {fileID: 1712847816}
   m_Layer: 0
-  m_Name: Painter Camera (1)
+  m_Name: Painter Camera (Green)
   m_TagString: CanvasCam
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15268,7 +15282,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2059864732}
   m_Layer: 0
-  m_Name: UV Pos (2)
+  m_Name: UV Pos (Blue)
   m_TagString: UVPos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15606,7 +15620,7 @@ GameObject:
   - component: {fileID: 2096704284}
   - component: {fileID: 2096704283}
   m_Layer: 0
-  m_Name: UV Quad (2)
+  m_Name: UV Quad (Blue)
   m_TagString: UVQuad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15724,7 +15738,7 @@ GameObject:
   - component: {fileID: 2125780132}
   - component: {fileID: 2125780136}
   m_Layer: 0
-  m_Name: UV Quad
+  m_Name: UV Quad (Red)
   m_TagString: UVQuad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
