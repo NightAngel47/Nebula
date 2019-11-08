@@ -4065,9 +4065,10 @@ MonoBehaviour:
   - {fileID: 178490052}
   - {fileID: 1194561038}
   colorPrefabs:
-  - {fileID: 1326275819864202805, guid: 4532c958efd8eec44bd31bdc7ca18ef2, type: 3}
-  - {fileID: 2853097155861746225, guid: c1c6e08c38b2a9e48b3a3a1591cf1321, type: 3}
-  - {fileID: 8801246138605416815, guid: 23f26aabfe07a93459a61d632547106a, type: 3}
+  - {fileID: 1287076765594531159, guid: 99e50e8a5fcb2604dbc14b8a857b752a, type: 3}
+  - {fileID: 1320175973149077419, guid: 3d48884441eecdc439694739930ce790, type: 3}
+  - {fileID: 1629551681801534795, guid: 0cc7fd646e0dc784d83caa25c181bbf9, type: 3}
+  startBiome: Ocean
 --- !u!1 &615415941
 GameObject:
   m_ObjectHideFlags: 0
@@ -6502,7 +6503,6 @@ GameObject:
   - component: {fileID: 971678164}
   - component: {fileID: 971678163}
   - component: {fileID: 971678162}
-  - component: {fileID: 971678161}
   m_Layer: 0
   m_Name: UV Quad (Green)
   m_TagString: UVQuad
@@ -6524,30 +6524,6 @@ Transform:
   m_Father: {fileID: 750496602}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &971678161
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 971678159}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 483d62e16a799bc42b0aee97a823ea37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  biomeTexs:
-  - {fileID: 2800000, guid: c5b705138407f404d8ab00eddfef9989, type: 3}
-  - {fileID: 2800000, guid: df48c33a2ff575e428cb92b6f5e79aa4, type: 3}
-  - {fileID: 2800000, guid: 2f5a06230d0752a4b85b00a61e68a885, type: 3}
-  - {fileID: 2800000, guid: 5036496be5904db47b3c66b75e31bdff, type: 3}
-  - {fileID: 2800000, guid: 57a0480023a582f44be832226e8cfb2e, type: 3}
-  biomeTags:
-  - Water
-  - Plains
-  - Sand
-  - Snow
-  - Forest
 --- !u!64 &971678162
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7784,7 +7760,6 @@ GameObject:
   - component: {fileID: 1182341452}
   - component: {fileID: 1182341451}
   - component: {fileID: 1182341450}
-  - component: {fileID: 1182341449}
   m_Layer: 0
   m_Name: UV Quad (Master)
   m_TagString: UVQuad
@@ -7806,30 +7781,6 @@ Transform:
   m_Father: {fileID: 358159284}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1182341449
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1182341447}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 483d62e16a799bc42b0aee97a823ea37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  biomeTexs:
-  - {fileID: 2800000, guid: c5b705138407f404d8ab00eddfef9989, type: 3}
-  - {fileID: 2800000, guid: df48c33a2ff575e428cb92b6f5e79aa4, type: 3}
-  - {fileID: 2800000, guid: 2f5a06230d0752a4b85b00a61e68a885, type: 3}
-  - {fileID: 2800000, guid: 5036496be5904db47b3c66b75e31bdff, type: 3}
-  - {fileID: 2800000, guid: 57a0480023a582f44be832226e8cfb2e, type: 3}
-  biomeTags:
-  - Water
-  - Plains
-  - Sand
-  - Snow
-  - Forest
 --- !u!64 &1182341450
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -15618,7 +15569,6 @@ GameObject:
   - component: {fileID: 2096704286}
   - component: {fileID: 2096704285}
   - component: {fileID: 2096704284}
-  - component: {fileID: 2096704283}
   m_Layer: 0
   m_Name: UV Quad (Blue)
   m_TagString: UVQuad
@@ -15640,30 +15590,6 @@ Transform:
   m_Father: {fileID: 1797891386}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2096704283
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2096704281}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 483d62e16a799bc42b0aee97a823ea37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  biomeTexs:
-  - {fileID: 2800000, guid: c5b705138407f404d8ab00eddfef9989, type: 3}
-  - {fileID: 2800000, guid: df48c33a2ff575e428cb92b6f5e79aa4, type: 3}
-  - {fileID: 2800000, guid: 2f5a06230d0752a4b85b00a61e68a885, type: 3}
-  - {fileID: 2800000, guid: 5036496be5904db47b3c66b75e31bdff, type: 3}
-  - {fileID: 2800000, guid: 57a0480023a582f44be832226e8cfb2e, type: 3}
-  biomeTags:
-  - Water
-  - Plains
-  - Sand
-  - Snow
-  - Forest
 --- !u!64 &2096704284
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -15736,7 +15662,6 @@ GameObject:
   - component: {fileID: 2125780134}
   - component: {fileID: 2125780133}
   - component: {fileID: 2125780132}
-  - component: {fileID: 2125780136}
   m_Layer: 0
   m_Name: UV Quad (Red)
   m_TagString: UVQuad
@@ -15818,30 +15743,6 @@ Transform:
   m_Father: {fileID: 1963115364}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2125780136
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2125780131}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 483d62e16a799bc42b0aee97a823ea37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  biomeTexs:
-  - {fileID: 2800000, guid: c5b705138407f404d8ab00eddfef9989, type: 3}
-  - {fileID: 2800000, guid: df48c33a2ff575e428cb92b6f5e79aa4, type: 3}
-  - {fileID: 2800000, guid: 2f5a06230d0752a4b85b00a61e68a885, type: 3}
-  - {fileID: 2800000, guid: 5036496be5904db47b3c66b75e31bdff, type: 3}
-  - {fileID: 2800000, guid: 57a0480023a582f44be832226e8cfb2e, type: 3}
-  biomeTags:
-  - Water
-  - Plains
-  - Sand
-  - Snow
-  - Forest
 --- !u!1 &2131566603
 GameObject:
   m_ObjectHideFlags: 0
