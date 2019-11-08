@@ -77,20 +77,16 @@ public class BiomePainter : MonoBehaviour
     #endregion
 
     #region To Paint Variables
-
+    
     /// <summary>
-    /// The color prefab to be painted
+    /// The name of the mask color
     /// </summary>
-    private GameObject maskColorToPaint;
+    private MaskNames maskColorName;
     /// <summary>
-    /// The uv pos to paint prefab at
+    /// The name of the master color
     /// </summary>
-    private Transform uvPosToPaint;
-    /// <summary>
-    /// The camera of the mask for painting
-    /// </summary>
-    private Camera maskCamToPaint;
-
+    private MaskNames masterColorName;
+    
     #endregion
     
     private void Awake()
@@ -125,49 +121,41 @@ public class BiomePainter : MonoBehaviour
     public void ChangeBiome(string biomeName)
     {
         selectedBiome = (BiomeNames) Enum.Parse(typeof(BiomeNames), biomeName);
-
+        
         // Sets ToPaint variables based on selected biome
         switch (selectedBiome)
         {
             case BiomeNames.Plains:
-                maskColorToPaint = colorPrefabs[(int) MaskNames.Red];
-                uvPosToPaint = maskUVPoses[(int) MaskNames.Red];
-                maskCamToPaint = maskPainterCams[(int) MaskNames.Red];
+                maskColorName = MaskNames.Red;
+                masterColorName = MaskNames.Red;
                 break;
             case BiomeNames.Savana:
-                maskColorToPaint = colorPrefabs[(int) MaskNames.Green];
-                uvPosToPaint = maskUVPoses[(int) MaskNames.Red];
-                maskCamToPaint = maskPainterCams[(int) MaskNames.Red];
+                maskColorName = MaskNames.Green;
+                masterColorName = MaskNames.Red;
                 break;
             case BiomeNames.Tropical:
-                maskColorToPaint = colorPrefabs[(int) MaskNames.Blue];
-                uvPosToPaint = maskUVPoses[(int) MaskNames.Red];
-                maskCamToPaint = maskPainterCams[(int) MaskNames.Red];
+                maskColorName = MaskNames.Blue;
+                masterColorName = MaskNames.Red;
                 break;
             case BiomeNames.Temperate:
-                maskColorToPaint = colorPrefabs[(int) MaskNames.Red];
-                uvPosToPaint = maskUVPoses[(int) MaskNames.Green];
-                maskCamToPaint = maskPainterCams[(int) MaskNames.Green];
+                maskColorName = MaskNames.Red;
+                masterColorName = MaskNames.Green;
                 break;
             case BiomeNames.Coniferous:
-                maskColorToPaint = colorPrefabs[(int) MaskNames.Green];
-                uvPosToPaint = maskUVPoses[(int) MaskNames.Green];
-                maskCamToPaint = maskPainterCams[(int) MaskNames.Green];
+                maskColorName = MaskNames.Green;
+                masterColorName = MaskNames.Green;
                 break;
             case BiomeNames.Taiga:
-                maskColorToPaint = colorPrefabs[(int) MaskNames.Blue];
-                uvPosToPaint = maskUVPoses[(int) MaskNames.Green];
-                maskCamToPaint = maskPainterCams[(int) MaskNames.Green];
+                maskColorName = MaskNames.Blue;
+                masterColorName = MaskNames.Green;
                 break;
             case BiomeNames.Ocean:
-                maskColorToPaint = colorPrefabs[(int) MaskNames.Red];
-                uvPosToPaint = maskUVPoses[(int) MaskNames.Blue];
-                maskCamToPaint = maskPainterCams[(int) MaskNames.Blue];
+                maskColorName = MaskNames.Red;
+                masterColorName = MaskNames.Blue;
                 break;
             case BiomeNames.Ice:
-                maskColorToPaint = colorPrefabs[(int) MaskNames.Green];
-                uvPosToPaint = maskUVPoses[(int) MaskNames.Blue];
-                maskCamToPaint = maskPainterCams[(int) MaskNames.Blue];
+                maskColorName = MaskNames.Green;
+                masterColorName = MaskNames.Blue;
                 break;
             default:
                 Debug.LogError("Unrecognized Biome Passed In. Name passed in was : " + selectedBiome);
@@ -175,15 +163,23 @@ public class BiomePainter : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Spawns color prefab at mask and master
+    /// </summary>
+    /// <param name="inputPos">The position of the hit</param>
     private void SpawnBiome(Vector2 inputPos)
     {
         Ray cursorRay = mainCam.ScreenPointToRay(inputPos);
-
+        
         Vector3 uvWorldPosition = Vector3.zero;
-        if (HitTestUVPosition(cursorRay, ref uvWorldPosition, maskCamToPaint))
+        if (HitTestUVPosition(cursorRay, ref uvWorldPosition, maskPainterCams[(int) masterColorName]))
         {
-            Instantiate(maskColorToPaint, uvPosToPaint.position + uvWorldPosition, Quaternion.identity);
-            PosDisplacement(uvPosToPaint, maskCamToPaint);
+            // paint on mask
+            Instantiate(colorPrefabs[(int) maskColorName], maskUVPoses[(int) masterColorName].position + uvWorldPosition, Quaternion.identity);
+            // paint on master
+            Instantiate(colorPrefabs[(int) masterColorName], maskUVPoses[(int) MaskNames.Master].position + uvWorldPosition, Quaternion.identity);
+            
+            PosDisplacement();
         }
     }
     
@@ -212,14 +208,20 @@ public class BiomePainter : MonoBehaviour
     }
 
     /// <summary>
-    /// Moves UV Pos and Mask Cam back in order to not run out of room
+    /// Moves mask and master cam uv pos and camera back
     /// </summary>
-    /// <param name="uvPos">The UV Pos to move back</param>
-    /// <param name="maskCam">The Mask Cam to move back</param>
-    private void PosDisplacement(Transform uvPos, Camera maskCam)
+    private void PosDisplacement()
     {
         Vector3 displacementVec = new Vector3(0, 0, displacement);
-        uvPos.position -= displacementVec;
-        maskCam.transform.position -= displacementVec;
+
+        foreach (var uvPos in maskUVPoses)
+        {
+            uvPos.position -= displacementVec;
+        }
+        
+        foreach (var cam in maskPainterCams)
+        {
+            cam.transform.position -= displacementVec;
+        }
     }
 }
