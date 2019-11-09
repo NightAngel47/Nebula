@@ -32,10 +32,10 @@ public class BiomePainter : MonoBehaviour
     [SerializeField, Tooltip("The positions of the painting poses for the biome masks. ")]
     private List<Transform> maskUVPoses = new List<Transform>(4);
     /// <summary>
-    /// The painting cameras for the uv masks
+    /// The master painting camera
     /// </summary>
-    [SerializeField, Tooltip("The painting cameras for the uv masks")] 
-    private List<Camera> maskPainterCams = new List<Camera>(4);
+    [SerializeField, Tooltip("The master painting camera")] 
+    private Camera masterPaintCamera;
     /// <summary>
     /// Array of the color prefabs: Red, Green, Blue
     /// </summary>
@@ -172,7 +172,7 @@ public class BiomePainter : MonoBehaviour
         Ray cursorRay = mainCam.ScreenPointToRay(inputPos);
         
         Vector3 uvWorldPosition = Vector3.zero;
-        if (HitTestUVPosition(cursorRay, ref uvWorldPosition, maskPainterCams[(int) masterColorName]))
+        if (HitTestUVPosition(cursorRay, ref uvWorldPosition))
         {
             // paint on mask
             Instantiate(colorPrefabs[(int) maskColorName], maskUVPoses[(int) masterColorName].position + uvWorldPosition, Quaternion.identity);
@@ -190,12 +190,12 @@ public class BiomePainter : MonoBehaviour
     /// <param name="uvWorldPosition">The Vector3 to track the position of the hit on the UV</param>
     /// <param name="maskCam">The Camera of the UV mask</param>
     /// <returns></returns>
-    private bool HitTestUVPosition(Ray cursorRay, ref Vector3 uvWorldPosition, Camera maskCam)
+    private bool HitTestUVPosition(Ray cursorRay, ref Vector3 uvWorldPosition)
     {
         if (Physics.Raycast(cursorRay, out var hit))
         {
             Vector2 pixelUV = new Vector2(hit.textureCoord.x, hit.textureCoord.y);
-            var orthographicSize = maskCam.orthographicSize;
+            var orthographicSize = masterPaintCamera.orthographicSize;
             uvWorldPosition.x = pixelUV.x - orthographicSize;//To center the UV on X
             uvWorldPosition.y = pixelUV.y - orthographicSize;//To center the UV on Y
             uvWorldPosition.z = 0.0f;
@@ -217,11 +217,6 @@ public class BiomePainter : MonoBehaviour
         foreach (var uvPos in maskUVPoses)
         {
             uvPos.position -= displacementVec;
-        }
-        
-        foreach (var cam in maskPainterCams)
-        {
-            cam.transform.position -= displacementVec;
         }
     }
 }

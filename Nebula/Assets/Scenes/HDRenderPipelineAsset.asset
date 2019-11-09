@@ -45,7 +45,7 @@ MonoBehaviour:
     supportSSAO: 1
     supportSubsurfaceScattering: 1
     increaseSssSampleCount: 1
-    supportVolumetrics: 1
+    supportVolumetrics: 0
     increaseResolutionOfVolumetrics: 0
     supportLightLayers: 0
     supportDistortion: 1
@@ -62,15 +62,15 @@ MonoBehaviour:
     supportRayTracing: 0
     supportedRaytracingTier: 2
     lightLoopSettings:
-      cookieSize: 128
-      cookieTexArraySize: 16
-      pointCookieSize: 128
-      cubeCookieTexArraySize: 16
+      cookieSize: 512
+      cookieTexArraySize: 250
+      pointCookieSize: 256
+      cubeCookieTexArraySize: 250
       planarReflectionProbeCacheSize: 2
       planarReflectionTextureSize: 1024
-      reflectionProbeCacheSize: 64
-      reflectionCubemapSize: 256
-      reflectionCacheCompressed: 0
+      reflectionProbeCacheSize: 250
+      reflectionCubemapSize: 128
+      reflectionCacheCompressed: 1
       planarReflectionCacheCompressed: 0
       skyReflectionSize: 256
       skyLightingOverrideLayerMask:
