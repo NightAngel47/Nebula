@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blue Decal
       objectReference: {fileID: 0}
+    - target: {fileID: 5377801645996138194, guid: bd26e804126b8f443b229c7b52c3b9d4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Blue
+      objectReference: {fileID: 0}
     - target: {fileID: 4666991101176447799, guid: bd26e804126b8f443b229c7b52c3b9d4,
         type: 3}
       propertyPath: m_LocalPosition.x

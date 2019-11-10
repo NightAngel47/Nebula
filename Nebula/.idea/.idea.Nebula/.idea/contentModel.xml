@@ -37,11 +37,14 @@
               <e p="BiomePainter.cs" t="Include" />
               <e p="DefaultBiome.cs" t="Include" />
               <e p="LoadTerrestrialTexture.cs" t="Include" />
+              <e p="OLD" t="Include">
+                <e p="TerrainFeatures.cs" t="Include" />
+                <e p="TerrestrialPainter.cs" t="Include" />
+              </e>
               <e p="SwapTerrain.cs" t="Include" />
               <e p="TerrainErase.cs" t="Include" />
-              <e p="TerrainFeatures.cs" t="Include" />
               <e p="TerrainPainter.cs" t="Include" />
-              <e p="TerrestrialPainter.cs" t="Include" />
+              <e p="TerrainSelect.cs" t="Include" />
               <e p="TerrestrialRotation.cs" t="Include" />
             </e>
           </e>

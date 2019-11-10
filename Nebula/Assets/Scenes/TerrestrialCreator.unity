@@ -6501,7 +6501,7 @@ GameObject:
   - component: {fileID: 971678162}
   m_Layer: 0
   m_Name: UV Quad (Green)
-  m_TagString: UVQuad
+  m_TagString: Green
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7758,7 +7758,7 @@ GameObject:
   - component: {fileID: 1182341450}
   m_Layer: 0
   m_Name: UV Quad (Master)
-  m_TagString: UVQuad
+  m_TagString: Green
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15387,7 +15387,7 @@ GameObject:
   - component: {fileID: 2096704284}
   m_Layer: 0
   m_Name: UV Quad (Blue)
-  m_TagString: UVQuad
+  m_TagString: Blue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15480,7 +15480,7 @@ GameObject:
   - component: {fileID: 2125780132}
   m_Layer: 0
   m_Name: UV Quad (Red)
-  m_TagString: UVQuad
+  m_TagString: Red
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -15,6 +15,10 @@ public class TerrainPainter : MonoBehaviour
     /// The main camera of the scene
     /// </summary>
     private Camera mainCam;
+    /// <summary>
+    /// The terrain select script for determining which terrain object to spawn
+    /// </summary>
+    private TerrainSelect ts;
 
     #endregion
     
@@ -51,15 +55,15 @@ public class TerrainPainter : MonoBehaviour
     /// </summary>
     private terrainTools terrainToolSelected = terrainTools.plants;
     /// <summary>
-    /// terrain - biome interactions
+    /// Selected Terrain object to spawn
     /// </summary>
-    private TerrainFeatures tf;
+    private GameObject selectedTerrain;
     /// <summary>
     /// Terrain erase object
     /// </summary>
     [SerializeField, Tooltip("Terrain erase object")]
     private GameObject terrainEraser;
-    
+
     #endregion
 
     private void Awake()
@@ -86,9 +90,29 @@ public class TerrainPainter : MonoBehaviour
         Ray cursorRay = mainCam.ScreenPointToRay(inputPos);
         
         Vector3 uvWorldPosition = Vector3.zero;
+        string masterDecalTag = MaskNames.Green.ToString(); // default color of master
         if (HitTestUVPosition(cursorRay, ref uvWorldPosition, maskPainterCams[(int) MaskNames.Master]))
         {
-            
+            // determine which mask cam to check based on master decal tag
+            Vector3 checkMaskCamPos = Vector3.zero;
+            if (masterDecalTag == MaskNames.Red.ToString())
+            {
+                checkMaskCamPos = maskPainterCams[(int) MaskNames.Red].transform.position;
+            }
+            else if (masterDecalTag == MaskNames.Green.ToString())
+            {
+                checkMaskCamPos = maskPainterCams[(int) MaskNames.Green].transform.position;
+            }
+            else 
+            {
+                checkMaskCamPos = maskPainterCams[(int) MaskNames.Blue].transform.position;
+            }
+
+            // check mask cam for mask cam decal tag and send to terrain select
+            if (Physics.Raycast(checkMaskCamPos, Vector3.forward, out var hit))
+            {
+                //selectedTerrain = ts.SelectedTerrain(masterDecalTag, hit.collider.tag, true);
+            }
         }
     }
     
@@ -98,6 +122,7 @@ public class TerrainPainter : MonoBehaviour
     /// <param name="cursorRay">The Ray of the hit on the object</param>
     /// <param name="uvWorldPosition">The Vector3 to track the position of the hit on the UV</param>
     /// <param name="maskCam">The Camera of the UV mask</param>
+    /// <param name="decalTag">The tag of the color decal hit</param>
     /// <returns></returns>
     private bool HitTestUVPosition(Ray cursorRay, ref Vector3 uvWorldPosition, Camera maskCam)
     {

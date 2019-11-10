@@ -20,6 +20,9 @@ TagManager:
   - Compass
   - UVQuad
   - UVPos
+  - Red
+  - Green
+  - Blue
   layers:
   - Default
   - TransparentFX
