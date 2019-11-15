@@ -53,7 +53,7 @@ public class TerrainSelect : MonoBehaviour
             {
                 return isUp ? terrainObjects[(int) TerrainNames.Rock] : terrainObjects[(int) TerrainNames.Bush];
             }
-            else if (masterDecalTag == MaskNames.Green.ToString()) // savanna
+            else if (maskDecalTag == MaskNames.Green.ToString()) // savanna
             {
                 return isUp ? terrainObjects[(int) TerrainNames.RockDesert] : terrainObjects[(int) TerrainNames.Cacti];
             }
@@ -68,7 +68,7 @@ public class TerrainSelect : MonoBehaviour
             {
                 return isUp ? terrainObjects[(int) TerrainNames.Mountain] : terrainObjects[(int) TerrainNames.PineSnowy];
             }
-            else if (masterDecalTag == MaskNames.Green.ToString()) // coniferous
+            else if (maskDecalTag == MaskNames.Green.ToString()) // coniferous
             {
                 return isUp ? terrainObjects[(int) TerrainNames.Hill] : terrainObjects[(int) TerrainNames.Pine];
             }
@@ -88,12 +88,10 @@ public class TerrainSelect : MonoBehaviour
                 return isUp ? terrainObjects[(int) TerrainNames.IceChunk] : terrainObjects[(int) TerrainNames.PineSnowy];
             }
         }
-        else
-        {
-            Debug.LogError("Could not select terrain. MasterDecalTag: " + masterDecalTag + 
-                                                                " MaskDecalTag: " + maskDecalTag + 
-                                                                " isUp: " + isUp);
-            return null;
-        }
+        
+        Debug.LogError("Could not select terrain. MasterDecalTag: " + masterDecalTag + 
+                       " MaskDecalTag: " + maskDecalTag + 
+                       " isUp: " + isUp);
+        return null;
     }
 }

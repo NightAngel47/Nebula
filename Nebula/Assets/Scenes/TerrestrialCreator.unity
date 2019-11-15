@@ -4064,6 +4064,9 @@ MonoBehaviour:
   - {fileID: 1287076765594531159, guid: 99e50e8a5fcb2604dbc14b8a857b752a, type: 3}
   - {fileID: 1320175973149077419, guid: 3d48884441eecdc439694739930ce790, type: 3}
   - {fileID: 1629551681801534795, guid: 0cc7fd646e0dc784d83caa25c181bbf9, type: 3}
+  checkLayers:
+    serializedVersion: 2
+    m_Bits: 1
   startBiome: Ocean
 --- !u!1 &615415941
 GameObject:
@@ -5589,7 +5592,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1414935893}
+      - m_Target: {fileID: 1667172236}
         m_MethodName: TerrainOption
         m_Mode: 5
         m_Arguments:
@@ -5597,7 +5600,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: plants
+          m_StringArgument: Plants
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 481753655}
@@ -6047,7 +6050,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1414935893}
+      - m_Target: {fileID: 1667172236}
         m_MethodName: TerrainOption
         m_Mode: 5
         m_Arguments:
@@ -6055,7 +6058,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: erase
+          m_StringArgument: Erase
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 481753655}
@@ -8983,7 +8986,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1414935893}
+      - m_Target: {fileID: 1667172236}
         m_MethodName: TerrainOption
         m_Mode: 5
         m_Arguments:
@@ -8991,7 +8994,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: up
+          m_StringArgument: Up
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 481753655}
@@ -9827,7 +9830,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1463839836
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11683,6 +11686,9 @@ MonoBehaviour:
   - {fileID: 1712847817}
   - {fileID: 178490052}
   - {fileID: 1194561038}
+  checkLayers:
+    serializedVersion: 2
+    m_Bits: 1
   terrainEraser: {fileID: 7891452434980419166, guid: c67c69a896290c046b5aaacd333723d8,
     type: 3}
 --- !u!114 &1667172237

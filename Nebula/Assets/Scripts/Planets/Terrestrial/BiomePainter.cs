@@ -45,6 +45,8 @@ public class BiomePainter : MonoBehaviour
     /// The amount that the UVPos and Mask Cam displace after placing a color prefab
     /// </summary>
     private float displacement = 0.001f;
+    [SerializeField, Tooltip("Layers to check")] 
+    private LayerMask checkLayers;
     
     #endregion
 
@@ -192,7 +194,7 @@ public class BiomePainter : MonoBehaviour
     /// <returns></returns>
     private bool HitTestUVPosition(Ray cursorRay, ref Vector3 uvWorldPosition)
     {
-        if (Physics.Raycast(cursorRay, out var hit))
+        if (Physics.Raycast(cursorRay, out var hit, 1000, checkLayers))
         {
             Vector2 pixelUV = new Vector2(hit.textureCoord.x, hit.textureCoord.y);
             var orthographicSize = masterPaintCamera.orthographicSize;
@@ -208,7 +210,7 @@ public class BiomePainter : MonoBehaviour
     }
 
     /// <summary>
-    /// Moves mask and master cam uv pos and camera back
+    /// Moves mask and master cam uv pos
     /// </summary>
     private void PosDisplacement()
     {
