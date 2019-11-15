@@ -4064,9 +4064,12 @@ MonoBehaviour:
   - {fileID: 1287076765594531159, guid: 99e50e8a5fcb2604dbc14b8a857b752a, type: 3}
   - {fileID: 1320175973149077419, guid: 3d48884441eecdc439694739930ce790, type: 3}
   - {fileID: 1629551681801534795, guid: 0cc7fd646e0dc784d83caa25c181bbf9, type: 3}
-  checkLayers:
+  biomeCheckLayers:
     serializedVersion: 2
     m_Bits: 1
+  terrainCheckLayers:
+    serializedVersion: 2
+    m_Bits: 256
   startBiome: Ocean
 --- !u!1 &615415941
 GameObject:

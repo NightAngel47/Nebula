@@ -11,7 +11,7 @@ public class TerrainPainter : MonoBehaviour
     /// <summary>
     /// The current planet
     /// </summary>
-    private GameObject planet;
+    private Transform planet;
     /// <summary>
     /// The main camera of the scene
     /// </summary>
@@ -34,8 +34,8 @@ public class TerrainPainter : MonoBehaviour
     /// <summary>
     /// The painting cameras for the uv masks
     /// </summary>
-    [SerializeField, Tooltip("The painting cameras for the uv masks")] 
-    private List<Camera> maskPainterCams = new List<Camera>(4);
+    [Tooltip("The painting cameras for the uv masks")] 
+    public List<Camera> maskPainterCams = new List<Camera>(4);
     
     [SerializeField, Tooltip("Layers to check")] 
     private LayerMask checkLayers;
@@ -71,7 +71,7 @@ public class TerrainPainter : MonoBehaviour
 
     private void Awake()
     {
-        planet = GameObject.FindGameObjectWithTag("Planet");
+        planet = GameObject.FindGameObjectWithTag("Planet").transform;
         mainCam = Camera.main;
         ts = GetComponent<TerrainSelect>();
     }
@@ -93,7 +93,6 @@ public class TerrainPainter : MonoBehaviour
     private void SpawnTerrain(Ray cursorRay)
     {
         DetermineTerrain(cursorRay);
-        SpawnTerrainOnPlanet(cursorRay);
     }
 
     /// <summary>
@@ -127,31 +126,54 @@ public class TerrainPainter : MonoBehaviour
             {
                 checkMaskCamPos = maskPainterCams[(int) MaskNames.Blue].transform.position;
             }
+
+            string biomeName = null;
             
             // check mask cam for mask cam decal tag and send to terrain select
             if (!Physics.Raycast(checkMaskCamPos + uvWorldPosition, Vector3.forward, out var hitMask)) return;
             switch (terrainToolSelected)
             {
                 case TerrainTools.Plants:
-                    selectedTerrain = ts.SelectedTerrain(hitMaster.collider.tag, hitMask.collider.tag, false);
+                    selectedTerrain = ts.SelectedTerrain(ref biomeName, hitMaster.collider.tag, hitMask.collider.tag, false);
                     break;
                 case TerrainTools.Up:
-                    selectedTerrain = ts.SelectedTerrain(hitMaster.collider.tag, hitMask.collider.tag, true);
+                    selectedTerrain = ts.SelectedTerrain(ref biomeName, hitMaster.collider.tag, hitMask.collider.tag, true);
                     break;
             }
+            
+            SpawnTerrainOnPlanet(cursorRay, biomeName, hitMaster.collider.tag, hitMask.collider.tag, uvWorldPosition);
         }
+        
+        SpawnTerrainEraser(cursorRay);
     }
 
     /// <summary>
     /// Instantiates selected terrain on the planet at the hit position 
     /// </summary>
-    /// <param name="cursorRay"></param>
-    private void SpawnTerrainOnPlanet(Ray cursorRay)
+    /// <param name="cursorRay">Input position</param>
+    /// <param name="biomeName">The biomeName for the new terrain</param>
+    /// <param name="masterDecalTag">The masterDecalTag for the new terrain</param>
+    /// <param name="maskDecalTag">The maskDecalTag for the new terrain</param>
+    /// <param name="uvPos">The uvPos for the new terrain</param>
+    private void SpawnTerrainOnPlanet(Ray cursorRay, string biomeName, string masterDecalTag, string maskDecalTag, Vector3 uvPos)
     {
         if (Physics.Raycast(cursorRay, out var hit , 1000, checkLayers))
         {
             GameObject terrain = Instantiate(selectedTerrain, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
             terrain.transform.SetParent(planet.transform);
+            terrain.GetComponent<TerrainBehaviour>().SetTerrainValues(biomeName, masterDecalTag, maskDecalTag, uvPos);
+        }
+    }
+
+    /// <summary>
+    /// Spawns terrain eraser at hit position
+    /// </summary>
+    /// <param name="cursorRay">Input position</param>
+    private void SpawnTerrainEraser(Ray cursorRay)
+    {
+        if (Physics.Raycast(cursorRay, out var hit , 1000, checkLayers))
+        {
+            Instantiate(selectedTerrain, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
         }
     }
     

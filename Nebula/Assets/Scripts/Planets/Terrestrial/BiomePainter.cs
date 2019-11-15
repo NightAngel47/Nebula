@@ -8,10 +8,6 @@ public class BiomePainter : MonoBehaviour
     #region References
 
     /// <summary>
-    /// The current planet
-    /// </summary>
-    private GameObject planet;
-    /// <summary>
     /// The main camera of the scene
     /// </summary>
     private Camera mainCam;
@@ -45,8 +41,10 @@ public class BiomePainter : MonoBehaviour
     /// The amount that the UVPos and Mask Cam displace after placing a color prefab
     /// </summary>
     private float displacement = 0.001f;
-    [SerializeField, Tooltip("Layers to check")] 
-    private LayerMask checkLayers;
+    [SerializeField, Tooltip("Biome layers to check")] 
+    private LayerMask biomeCheckLayers;
+    [SerializeField, Tooltip("Terrain layers to check")] 
+    private LayerMask terrainCheckLayers;
     
     #endregion
 
@@ -101,7 +99,6 @@ public class BiomePainter : MonoBehaviour
     /// </summary>
     private void SetupReferences()
     {
-        planet = GameObject.FindGameObjectWithTag("Planet");
         mainCam = Camera.main;
         
         ChangeBiome(startBiome);
@@ -180,6 +177,15 @@ public class BiomePainter : MonoBehaviour
             Instantiate(colorPrefabs[(int) maskColorName], maskUVPoses[(int) masterColorName].position + uvWorldPosition, Quaternion.identity);
             // paint on master
             Instantiate(colorPrefabs[(int) masterColorName], maskUVPoses[(int) MaskNames.Master].position + uvWorldPosition, Quaternion.identity);
+
+            foreach (var hit in Physics.SphereCastAll(cursorRay, .05f, 50, terrainCheckLayers))
+            {
+                if (!(hit.point.z <= 0)) continue;
+                
+                //print("Before: " + hit.collider.name + " Biome: " + selectedBiome);
+                hit.collider.GetComponent<TerrainBehaviour>().CheckBiome(selectedBiome.ToString());
+                //print("After:  " + hit.collider.name + " Biome: " + selectedBiome);
+            }
             
             PosDisplacement();
         }
@@ -194,7 +200,7 @@ public class BiomePainter : MonoBehaviour
     /// <returns></returns>
     private bool HitTestUVPosition(Ray cursorRay, ref Vector3 uvWorldPosition)
     {
-        if (Physics.Raycast(cursorRay, out var hit, 1000, checkLayers))
+        if (Physics.Raycast(cursorRay, out var hit, 1000, biomeCheckLayers))
         {
             Vector2 pixelUV = new Vector2(hit.textureCoord.x, hit.textureCoord.y);
             var orthographicSize = masterPaintCamera.orthographicSize;

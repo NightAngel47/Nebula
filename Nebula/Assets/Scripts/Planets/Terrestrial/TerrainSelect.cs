@@ -10,6 +10,21 @@ public class TerrainSelect : MonoBehaviour
     private enum MaskNames {Red, Green, Blue};
     
     /// <summary>
+    /// The names of the biomes
+    /// </summary>
+    private enum BiomeNames
+    {
+        Plains,
+        Savana,
+        Tropical,
+        Coniferous,
+        Taiga,
+        Temperate,
+        Ice,
+        Ocean
+    };
+    
+    /// <summary>
     /// The names of the terrainObjects in order.
     /// WILL NEED TO CHANGE WITH FINAL ART!
     /// </summary>
@@ -45,20 +60,23 @@ public class TerrainSelect : MonoBehaviour
     /// <param name="maskDecalTag">The color of the maskDecal</param>
     /// <param name="isUp">Is the terrain up or plant</param>
     /// <returns></returns>
-    public GameObject SelectedTerrain(string masterDecalTag, string maskDecalTag, bool isUp)
+    public GameObject SelectedTerrain(ref string biomeName, string masterDecalTag, string maskDecalTag, bool isUp)
     {
         if (masterDecalTag == MaskNames.Red.ToString())
         {
             if (maskDecalTag == MaskNames.Red.ToString()) // plains
             {
+                biomeName = BiomeNames.Plains.ToString();
                 return isUp ? terrainObjects[(int) TerrainNames.Rock] : terrainObjects[(int) TerrainNames.Bush];
             }
             else if (maskDecalTag == MaskNames.Green.ToString()) // savanna
             {
+                biomeName = BiomeNames.Savana.ToString();
                 return isUp ? terrainObjects[(int) TerrainNames.RockDesert] : terrainObjects[(int) TerrainNames.Cacti];
             }
             else // tropical
             {
+                biomeName = BiomeNames.Tropical.ToString();
                 return isUp ? terrainObjects[(int) TerrainNames.Plateau] : terrainObjects[(int) TerrainNames.Cacti];
             }
         }
@@ -66,14 +84,17 @@ public class TerrainSelect : MonoBehaviour
         {
             if (maskDecalTag == MaskNames.Red.ToString()) // temperate
             {
+                biomeName = BiomeNames.Temperate.ToString();
                 return isUp ? terrainObjects[(int) TerrainNames.Mountain] : terrainObjects[(int) TerrainNames.PineSnowy];
             }
             else if (maskDecalTag == MaskNames.Green.ToString()) // coniferous
             {
+                biomeName = BiomeNames.Coniferous.ToString();
                 return isUp ? terrainObjects[(int) TerrainNames.Hill] : terrainObjects[(int) TerrainNames.Pine];
             }
             else // taiga
             {
+                biomeName = BiomeNames.Taiga.ToString();
                 return isUp ? terrainObjects[(int) TerrainNames.HillSnowy] : terrainObjects[(int) TerrainNames.PineSnowy];
             }
         }
@@ -81,10 +102,12 @@ public class TerrainSelect : MonoBehaviour
         {
             if (maskDecalTag == MaskNames.Red.ToString()) // ocean
             {
+                biomeName = BiomeNames.Ocean.ToString();
                 return isUp ? terrainObjects[(int) TerrainNames.Volcano] : terrainObjects[(int) TerrainNames.Island];
             }
             else // ice
             {
+                biomeName = BiomeNames.Ice.ToString();
                 return isUp ? terrainObjects[(int) TerrainNames.IceChunk] : terrainObjects[(int) TerrainNames.PineSnowy];
             }
         }
