@@ -37,9 +37,14 @@ public class TerrainPainter : MonoBehaviour
     [Tooltip("The painting cameras for the uv masks")] 
     public List<Camera> maskPainterCams = new List<Camera>(4);
     
-    [SerializeField, Tooltip("Layers to check")] 
-    private LayerMask checkLayers;
+    [SerializeField, Tooltip("Biome layers to check")] 
+    private LayerMask biomeCheckLayers;
+    [SerializeField, Tooltip("Terrain layers to check")] 
+    private LayerMask terrainCheckLayers;
     
+    [SerializeField, Tooltip("The amount of terrain objects to check per biome placement")]
+    private int terrainCheckSize = 100;
+
     #endregion
 
     #region Terrain Variables
@@ -71,7 +76,7 @@ public class TerrainPainter : MonoBehaviour
 
     private void Awake()
     {
-        planet = GameObject.FindGameObjectWithTag("Planet").transform;
+        planet = FindObjectOfType<TerrestrialRotation>().transform;
         mainCam = Camera.main;
         ts = GetComponent<TerrainSelect>();
     }
@@ -113,6 +118,7 @@ public class TerrainPainter : MonoBehaviour
             
             // determine which mask cam to check based on masterDecalTag
             if (!Physics.Raycast(maskPainterCams[(int) MaskNames.Master].transform.position + uvWorldPosition, Vector3.forward, out var hitMaster)) return;
+            
             Vector3 checkMaskCamPos;
             if (hitMaster.collider.CompareTag(MaskNames.Red.ToString()))
             {
@@ -127,21 +133,22 @@ public class TerrainPainter : MonoBehaviour
                 checkMaskCamPos = maskPainterCams[(int) MaskNames.Blue].transform.position;
             }
 
-            string biomeName = null;
-            
             // check mask cam for mask cam decal tag and send to terrain select
             if (!Physics.Raycast(checkMaskCamPos + uvWorldPosition, Vector3.forward, out var hitMask)) return;
+
             switch (terrainToolSelected)
             {
                 case TerrainTools.Plants:
-                    selectedTerrain = ts.SelectedTerrain(ref biomeName, hitMaster.collider.tag, hitMask.collider.tag, false);
+                    selectedTerrain = ts.SelectedTerrain(hitMaster.collider.tag, hitMask.collider.tag, false);
                     break;
                 case TerrainTools.Up:
-                    selectedTerrain = ts.SelectedTerrain(ref biomeName, hitMaster.collider.tag, hitMask.collider.tag, true);
+                    selectedTerrain = ts.SelectedTerrain(hitMaster.collider.tag, hitMask.collider.tag, true);
                     break;
             }
             
-            SpawnTerrainOnPlanet(cursorRay, biomeName, hitMaster.collider.tag, hitMask.collider.tag, uvWorldPosition);
+            Debug.Log("<b>Master:</b> " + hitMaster.collider.tag + " <b>Mask:</b> " + hitMask.collider.tag + " <b>Terrain:</b> " + selectedTerrain.name);
+
+            SpawnTerrainOnPlanet(cursorRay, hitMaster.collider.tag, hitMask.collider.tag, uvWorldPosition);
         }
         
         SpawnTerrainEraser(cursorRay);
@@ -151,18 +158,22 @@ public class TerrainPainter : MonoBehaviour
     /// Instantiates selected terrain on the planet at the hit position 
     /// </summary>
     /// <param name="cursorRay">Input position</param>
-    /// <param name="biomeName">The biomeName for the new terrain</param>
     /// <param name="masterDecalTag">The masterDecalTag for the new terrain</param>
     /// <param name="maskDecalTag">The maskDecalTag for the new terrain</param>
     /// <param name="uvPos">The uvPos for the new terrain</param>
-    private void SpawnTerrainOnPlanet(Ray cursorRay, string biomeName, string masterDecalTag, string maskDecalTag, Vector3 uvPos)
+    private void SpawnTerrainOnPlanet(Ray cursorRay, string masterDecalTag, string maskDecalTag, Vector3 uvPos)
     {
-        if (Physics.Raycast(cursorRay, out var hit , 1000, checkLayers))
-        {
-            GameObject terrain = Instantiate(selectedTerrain, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
-            terrain.transform.SetParent(planet.transform);
-            terrain.GetComponent<TerrainBehaviour>().SetTerrainValues(biomeName, masterDecalTag, maskDecalTag, uvPos);
-        }
+        // check planet hit
+        if (!Physics.Raycast(cursorRay, out var hit, 50, biomeCheckLayers)) return;
+        
+        // check for terrain collision
+        RaycastHit[] hits = new RaycastHit[terrainCheckSize];
+        if (Physics.SphereCastNonAlloc(cursorRay, 0.05f, hits, 50, terrainCheckLayers) >= 1) return;
+        
+        // spawn terrain
+        GameObject terrain = Instantiate(selectedTerrain, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal), planet);
+        print("<b>Parent:</b> " + terrain.transform.parent.name);
+        terrain.GetComponent<TerrainBehaviour>().SetTerrainValues(masterDecalTag, maskDecalTag, uvPos);
     }
 
     /// <summary>
@@ -171,10 +182,9 @@ public class TerrainPainter : MonoBehaviour
     /// <param name="cursorRay">Input position</param>
     private void SpawnTerrainEraser(Ray cursorRay)
     {
-        if (Physics.Raycast(cursorRay, out var hit , 1000, checkLayers))
-        {
-            Instantiate(selectedTerrain, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
-        }
+        if (!Physics.Raycast(cursorRay, out var hit, 50, biomeCheckLayers)) return;
+        
+        Instantiate(selectedTerrain, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
     }
     
     /// <summary>
@@ -186,17 +196,15 @@ public class TerrainPainter : MonoBehaviour
     /// <returns></returns>
     private bool HitTestUVPosition(Ray cursorRay, ref Vector3 uvWorldPosition, Camera maskCam)
     {
-        if (Physics.Raycast(cursorRay, out var hit))
-        {
-            Vector2 pixelUV = new Vector2(hit.textureCoord.x, hit.textureCoord.y);
-            var orthographicSize = maskCam.orthographicSize;
-            uvWorldPosition.x = pixelUV.x - orthographicSize;//To center the UV on X
-            uvWorldPosition.y = pixelUV.y - orthographicSize;//To center the UV on Y
-            uvWorldPosition.z = 0.0f;
-            return true;
-        }
+        if (!Physics.Raycast(cursorRay, out var hit, 2000, biomeCheckLayers)) return false;
         
-        return false;
+        Vector2 pixelUV = new Vector2(hit.textureCoord.x, hit.textureCoord.y);
+        var orthographicSize = maskCam.orthographicSize;
+        uvWorldPosition.x = pixelUV.x - orthographicSize;//To center the UV on X
+        uvWorldPosition.y = pixelUV.y - orthographicSize;//To center the UV on Y
+        uvWorldPosition.z = 0.0f;
+        return true;
+
     }
     
     /// <summary>
@@ -205,6 +213,16 @@ public class TerrainPainter : MonoBehaviour
     /// <param name="tool">Terrain Feature Type</param>
     public void TerrainOption(string tool)
     {
-        terrainToolSelected = (TerrainTools)System.Enum.Parse(typeof(TerrainTools), tool);
+        terrainToolSelected = (TerrainTools)Enum.Parse(typeof(TerrainTools), tool);
+    }
+
+    private void OnDrawGizmos()
+    {
+        /*
+        Vector3 cursorPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.0f);
+        Ray cursorRay = mainCam.ScreenPointToRay(cursorPos);
+        Physics.Raycast(cursorRay, out var hit, 50, biomeCheckLayers);
+        Gizmos.DrawWireSphere(hit.point, 0.05f);
+        */
     }
 }

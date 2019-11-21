@@ -5,14 +5,13 @@ using UnityEngine;
 
 public class TerrainBehaviour : MonoBehaviour
 {
-    
+    #region References
+
     /// <summary>
     /// The names of the biome masks
     /// </summary>
     private enum MaskNames {Red, Green, Blue, Master};
-    
-    [SerializeField, Tooltip("Is terrain up or plant")]
-    private bool isUp;
+
     /// <summary>
     /// Terrain select for determining terrain
     /// </summary>
@@ -22,9 +21,16 @@ public class TerrainBehaviour : MonoBehaviour
     /// </summary>
     private TerrainPainter tp;
     /// <summary>
-    /// The name of the biome this terrain was spawned on
+    /// Reference to the planet
     /// </summary>
-    private string biomeName;
+    private Transform planet;
+
+    #endregion
+
+    #region Terrain Variables
+    
+    [SerializeField, Tooltip("Is terrain up or plant")]
+    private bool isUp;
     /// <summary>
     /// The master decal tag for the terrain
     /// </summary>
@@ -37,28 +43,26 @@ public class TerrainBehaviour : MonoBehaviour
     /// The uv pos for master and mask cam
     /// </summary>
     private Vector3 uvPos;
-    /// <summary>
-    /// Reference to the planet
-    /// </summary>
-    private Transform planet;
 
-    private void Start()
+    #endregion
+
+    private void Awake()
     {
         ts = FindObjectOfType<TerrainSelect>();
         tp = FindObjectOfType<TerrainPainter>();
-        planet = GameObject.FindGameObjectWithTag("Planet").transform;
+        planet = FindObjectOfType<TerrestrialRotation>().transform;
+
+        FixErrors();
     }
 
     /// <summary>
     /// Sets the values of the terrain
     /// </summary>
-    /// <param name="biome">The biome for this terrain</param>
     /// <param name="master">The master decal tag for this terrain</param>
     /// <param name="mask">The mask decal tag for this terrain</param>
     /// <param name="pos">The uvPos for this terrain</param>
-    public void SetTerrainValues(string biome, string master, string mask, Vector3 pos)
+    public void SetTerrainValues(string master, string mask, Vector3 pos)
     {
-        biomeName = biome;
         masterDecalTag = master;
         maskDecalTag = mask;
         uvPos = pos;
@@ -67,14 +71,11 @@ public class TerrainBehaviour : MonoBehaviour
     /// <summary>
     /// Checks biome at terrain uv position and spawns different terrain if needed
     /// </summary>
-    /// <param name="biome">The name of the biome that is currently being placed</param>
-    public void CheckBiome(string biome)
+    public void CheckBiome()
     {
-        if(biomeName == biome) return;
-
         // determine which mask cam to check based on masterDecalTag
         if (!Physics.Raycast(tp.maskPainterCams[(int) MaskNames.Master].transform.position + uvPos, Vector3.forward, out var hitMaster)) return;
-
+            
         Vector3 checkMaskCamPos;
         if (hitMaster.collider.CompareTag(MaskNames.Red.ToString()))
         {
@@ -88,24 +89,36 @@ public class TerrainBehaviour : MonoBehaviour
         {
             checkMaskCamPos = tp.maskPainterCams[(int) MaskNames.Blue].transform.position;
         }
-            
+
         // check mask cam for mask cam decal tag and send to terrain select
         if (!Physics.Raycast(checkMaskCamPos + uvPos, Vector3.forward, out var hitMask)) return;
-
-        // check if different terrain
-        if (hitMaster.collider.tag.Equals(masterDecalTag) && hitMask.collider.tag.Equals(maskDecalTag)) return;
         
         // spawns new terrain
-        string newBiome = null;
-        GameObject selectedTerrain = ts.SelectedTerrain(ref newBiome, hitMaster.collider.tag, hitMask.collider.tag, isUp);
-        selectedTerrain.GetComponent<TerrainBehaviour>().SetTerrainValues(newBiome, hitMaster.collider.tag, hitMask.collider.tag, uvPos);
+        GameObject selectedTerrain = ts.SelectedTerrain(hitMaster.collider.tag, hitMask.collider.tag, isUp);
+
+        // check if same terrain
+        if (gameObject.name.Contains(selectedTerrain.name)) return;
         
-        print(gameObject.name + " to " +  selectedTerrain.name);
-        
+        // spawn new terrain
         var pos = transform;
-        Instantiate(selectedTerrain, pos.position, pos.rotation, planet);
+        GameObject spawnedTerrain = Instantiate(selectedTerrain, pos.position, pos.rotation, planet);
+        spawnedTerrain.GetComponent<TerrainBehaviour>().SetTerrainValues(hitMaster.collider.tag, hitMask.collider.tag, uvPos);
         
+        //print("<b>GameObject: </b>" + gameObject.name + " <b>Parent: </b>" + spawnedTerrain.transform.parent.name);
+        Debug.Log("<b>Old Master:</b> " + masterDecalTag + "<b> New Master:</b> " + hitMaster.collider.tag + " <b>Old Mask:</b> " + maskDecalTag + " <b>New Mask:</b> " + hitMask.collider.tag + " <b>Old Terrain:</b> " + gameObject.name + " <b>New Terrain:</b> " + selectedTerrain.name);
+
         // destroy old
         Destroy(gameObject);
+    }
+
+    /// <summary>
+    /// Destroys terrain errors where they don't get parented to the planet
+    /// </summary>
+    private void FixErrors()
+    {
+        if(gameObject.transform.parent == null)
+        {
+            Destroy(gameObject);
+        }
     }
 }

@@ -73,6 +73,8 @@ public class BiomePainter : MonoBehaviour
     /// </summary>
     [SerializeField, Tooltip("The starting selected biome")] 
     private string startBiome;
+    [SerializeField, Tooltip("The amount of terrain objects to check per biome placement")]
+    private int terrainCheckSize = 10;
 
     #endregion
 
@@ -171,23 +173,22 @@ public class BiomePainter : MonoBehaviour
         Ray cursorRay = mainCam.ScreenPointToRay(inputPos);
         
         Vector3 uvWorldPosition = Vector3.zero;
-        if (HitTestUVPosition(cursorRay, ref uvWorldPosition))
-        {
-            // paint on mask
-            Instantiate(colorPrefabs[(int) maskColorName], maskUVPoses[(int) masterColorName].position + uvWorldPosition, Quaternion.identity);
-            // paint on master
-            Instantiate(colorPrefabs[(int) masterColorName], maskUVPoses[(int) MaskNames.Master].position + uvWorldPosition, Quaternion.identity);
+        if (!HitTestUVPosition(cursorRay, ref uvWorldPosition)) return;
+        
+        // paint on mask
+        Instantiate(colorPrefabs[(int) maskColorName], maskUVPoses[(int) masterColorName].position + uvWorldPosition, Quaternion.identity);
+        // paint on master
+        Instantiate(colorPrefabs[(int) masterColorName], maskUVPoses[(int) MaskNames.Master].position + uvWorldPosition, Quaternion.identity);
 
-            foreach (var hit in Physics.SphereCastAll(cursorRay, .05f, 50, terrainCheckLayers))
-            {
-                if (!(hit.point.z <= 0)) continue;
-                
-                //print("Before: " + hit.collider.name + " Biome: " + selectedBiome);
-                hit.collider.GetComponent<TerrainBehaviour>().CheckBiome(selectedBiome.ToString());
-                //print("After:  " + hit.collider.name + " Biome: " + selectedBiome);
-            }
+        PosDisplacement();
+        
+        // check for terrain in sphere radius of hit
+        RaycastHit[] hits = new RaycastHit[terrainCheckSize];
+        for(int i = 0; i < Physics.SphereCastNonAlloc(cursorRay, 0.05f, hits, 50f, terrainCheckLayers, QueryTriggerInteraction.Collide); ++i)
+        {
+            if (!(hits[i].point.z <= 0)) continue;
             
-            PosDisplacement();
+            hits[i].collider.GetComponent<TerrainBehaviour>().CheckBiome();
         }
     }
     
