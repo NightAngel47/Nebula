@@ -18,7 +18,6 @@ public class SavePlanet : MonoBehaviour
             SceneManager.GetActiveScene().name == "GasCreator") &&
             SceneManager.GetActiveScene().name != "Complete Screen")
         {
-            AttachBiomePainter();
             DontDestroyOnLoad(gameObject);
         }
         else if(SceneManager.GetActiveScene().name == "Main Menu")
@@ -38,7 +37,7 @@ public class SavePlanet : MonoBehaviour
     /// <summary>
     /// Attaches biome painter to planet
     /// </summary>
-    private void AttachBiomePainter()
+    public void AttachBiomePainter()
     {
         if (biomePainter == null) return;
         biomePainter.transform.SetParent(transform);

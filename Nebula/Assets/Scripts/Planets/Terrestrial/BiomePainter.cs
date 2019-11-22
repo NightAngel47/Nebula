@@ -119,7 +119,7 @@ public class BiomePainter : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButton(0) && toolSelect.toolSelected == ToolSelect.Tools.Biome)
+        if (Input.touchCount == 1 && Input.touchCount != 2 && Input.GetTouch(0).phase == TouchPhase.Moved)
         {
             Vector3 cursorPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.0f);
             SpawnBiome(cursorPos);
@@ -129,6 +129,22 @@ public class BiomePainter : MonoBehaviour
         {
             placementAudio.StopPlacementAudio();
         }
+
+        #region debug painting controls
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+        if (Input.GetMouseButton(0) && toolSelect.toolSelected == ToolSelect.Tools.Biome && DebugController.DebugEnabled)
+        {
+            Vector3 cursorPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.0f);
+            SpawnBiome(cursorPos);
+            placementAudio.PlayPlacementAudio();
+        }
+        else
+        {
+            placementAudio.StopPlacementAudio();
+        }
+        
+#endif
+        #endregion
     }
 
     /// <summary>

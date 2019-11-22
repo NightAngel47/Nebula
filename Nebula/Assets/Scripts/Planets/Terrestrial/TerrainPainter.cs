@@ -94,7 +94,7 @@ public class TerrainPainter : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetMouseButton(1) && toolSelect.toolSelected == ToolSelect.Tools.Terrain)
+        if (Input.touchCount == 1 && Input.touchCount != 2 && Input.GetTouch(0).phase == TouchPhase.Moved)
         {
             Vector3 cursorPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.0f);
             Ray cursorRay = mainCam.ScreenPointToRay(cursorPos);
@@ -105,6 +105,22 @@ public class TerrainPainter : MonoBehaviour
         {
             placementAudio.StopPlacementAudio();
         }
+        
+        #region debug painting controls
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+        if (Input.GetMouseButton(0) && toolSelect.toolSelected == ToolSelect.Tools.Terrain && DebugController.DebugEnabled)
+        {
+            Vector3 cursorPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.0f);
+            Ray cursorRay = mainCam.ScreenPointToRay(cursorPos);
+            SpawnTerrain(cursorRay);
+            placementAudio.PlayPlacementAudio();
+        }
+        else
+        {
+            placementAudio.StopPlacementAudio();
+        }
+#endif
+        #endregion
     }
 
     /// <summary>
