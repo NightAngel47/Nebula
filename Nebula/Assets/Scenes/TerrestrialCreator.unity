@@ -3927,26 +3927,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1414935893}
-        m_MethodName: ChangeTool
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: terrain
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 52733930}
-        m_MethodName: DeactivateAtmosphere
+      - m_Target: {fileID: 2638481740452726658}
+        m_MethodName: TerrainSelected
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: biomes
+          m_StringArgument: terrain
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 481753655}
@@ -4059,6 +4048,15 @@ MonoBehaviour:
   - {fileID: 783114392}
   - {fileID: 2059864732}
   - {fileID: 588334185}
+  maskQuads:
+  - {fileID: 2125780133}
+  - {fileID: 971678163}
+  - {fileID: 2096704285}
+  - {fileID: 1182341451}
+  colorMaterials:
+  - {fileID: 2100000, guid: 7cf2870f8694255439180c610a60844b, type: 2}
+  - {fileID: 2100000, guid: 2d2c69d16ffff7a4990d23be03679831, type: 2}
+  - {fileID: 2100000, guid: 697df1783a22ba548940902704e83bd0, type: 2}
   masterPaintCamera: {fileID: 1194561038}
   colorPrefabs:
   - {fileID: 1287076765594531159, guid: 99e50e8a5fcb2604dbc14b8a857b752a, type: 3}
@@ -7571,26 +7569,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1414935893}
-        m_MethodName: ChangeTool
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: terrain
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 52733930}
-        m_MethodName: DeactivateAtmosphere
+      - m_Target: {fileID: 2638481740452726658}
+        m_MethodName: AtmosphereSelected
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: biomes
+          m_StringArgument: terrain
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 481753655}
@@ -9868,7 +9855,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1463839836
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10030,8 +10017,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 52733930}
-        m_MethodName: DeactivateAtmosphere
+      - m_Target: {fileID: 2638481740452726658}
+        m_MethodName: NoneSelected
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10039,28 +10026,6 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1414935893}
-        m_MethodName: ChangeTool
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: none
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 481753655}
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: none
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 481753655}
@@ -14581,26 +14546,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1414935893}
-        m_MethodName: ChangeTool
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: terrain
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 52733930}
-        m_MethodName: DeactivateAtmosphere
+      - m_Target: {fileID: 2638481740452726658}
+        m_MethodName: BiomeSelected
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: biomes
+          m_StringArgument: terrain
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 481753655}
@@ -15966,6 +15920,87 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e83b43468b6e82847a0f65d3d302a123, type: 3}
+--- !u!1001 &2638481740452726657
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3873913530848552198, guid: f29860849bbb4574c99aaa330fb627bf,
+        type: 3}
+      propertyPath: m_Name
+      value: Tool Select
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972331992376260115, guid: f29860849bbb4574c99aaa330fb627bf,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972331992376260115, guid: f29860849bbb4574c99aaa330fb627bf,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972331992376260115, guid: f29860849bbb4574c99aaa330fb627bf,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972331992376260115, guid: f29860849bbb4574c99aaa330fb627bf,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972331992376260115, guid: f29860849bbb4574c99aaa330fb627bf,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972331992376260115, guid: f29860849bbb4574c99aaa330fb627bf,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972331992376260115, guid: f29860849bbb4574c99aaa330fb627bf,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972331992376260115, guid: f29860849bbb4574c99aaa330fb627bf,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972331992376260115, guid: f29860849bbb4574c99aaa330fb627bf,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972331992376260115, guid: f29860849bbb4574c99aaa330fb627bf,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972331992376260115, guid: f29860849bbb4574c99aaa330fb627bf,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f29860849bbb4574c99aaa330fb627bf, type: 3}
+--- !u!114 &2638481740452726658 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2034231049918118472, guid: f29860849bbb4574c99aaa330fb627bf,
+    type: 3}
+  m_PrefabInstance: {fileID: 2638481740452726657}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8323fab7ae46ad647b81b11e5c651b44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2920691487187675971
 PrefabInstance:
   m_ObjectHideFlags: 0

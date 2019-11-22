@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class BiomePainter : MonoBehaviour
 {
@@ -11,6 +12,10 @@ public class BiomePainter : MonoBehaviour
     /// The main camera of the scene
     /// </summary>
     private Camera mainCam;
+    /// <summary>
+    /// Tracks selected tool
+    /// </summary>
+    private ToolSelect toolSelect;
 
     #endregion
     
@@ -27,6 +32,10 @@ public class BiomePainter : MonoBehaviour
     /// </summary>
     [SerializeField, Tooltip("The positions of the painting poses for the biome masks. ")]
     private List<Transform> maskUVPoses = new List<Transform>(4);
+    [SerializeField, Tooltip("List of uv quads")]
+    private MeshRenderer[] maskQuads = new MeshRenderer[4];
+    [SerializeField, Tooltip("List of materials colors for uv quads")]
+    private Material[] colorMaterials = new Material[3];
     /// <summary>
     /// The master painting camera
     /// </summary>
@@ -93,22 +102,15 @@ public class BiomePainter : MonoBehaviour
     
     private void Awake()
     {
-        SetupReferences();
-    }
-
-    /// <summary>
-    /// Sets up overall reference
-    /// </summary>
-    private void SetupReferences()
-    {
         mainCam = Camera.main;
-        
+        toolSelect = FindObjectOfType<ToolSelect>();
         ChangeBiome(startBiome);
+        DefaultBiome();
     }
 
     private void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && toolSelect.toolSelected == ToolSelect.Tools.Biome)
         {
             Vector3 cursorPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.0f);
             SpawnBiome(cursorPos);
@@ -157,6 +159,86 @@ public class BiomePainter : MonoBehaviour
             case BiomeNames.Ice:
                 maskColorName = MaskNames.Green;
                 masterColorName = MaskNames.Blue;
+                break;
+            default:
+                Debug.LogError("Unrecognized Biome Passed In. Name passed in was : " + selectedBiome);
+                break;
+        }
+    }
+
+    /// <summary>
+    /// Changes default biome of planet at start
+    /// </summary>
+    private void DefaultBiome()
+    {
+        var biomeValues = Enum.GetValues(typeof(BiomeNames));
+        BiomeNames defualtBiome = (BiomeNames) biomeValues.GetValue(Random.Range(0, biomeValues.Length));
+
+        switch (defualtBiome)
+        {
+            case BiomeNames.Plains:
+                maskQuads[(int) MaskNames.Red].material = colorMaterials[(int) MaskNames.Red];
+                maskQuads[(int) MaskNames.Red].tag = MaskNames.Red.ToString();
+                
+                maskQuads[(int) MaskNames.Master].material = colorMaterials[(int) MaskNames.Red];
+                maskQuads[(int) MaskNames.Master].tag = MaskNames.Red.ToString();
+                
+                break;
+            case BiomeNames.Savana:
+                maskQuads[(int) MaskNames.Red].material = colorMaterials[(int) MaskNames.Green];
+                maskQuads[(int) MaskNames.Red].tag = MaskNames.Green.ToString();
+                
+                maskQuads[(int) MaskNames.Master].material = colorMaterials[(int) MaskNames.Red];
+                maskQuads[(int) MaskNames.Master].tag = MaskNames.Red.ToString();
+                
+                break;
+            case BiomeNames.Tropical:
+                maskQuads[(int) MaskNames.Red].material = colorMaterials[(int) MaskNames.Blue];
+                maskQuads[(int) MaskNames.Red].tag = MaskNames.Blue.ToString();
+                
+                maskQuads[(int) MaskNames.Master].material = colorMaterials[(int) MaskNames.Red];
+                maskQuads[(int) MaskNames.Master].tag = MaskNames.Red.ToString();
+                
+                break;
+            case BiomeNames.Temperate:
+                maskQuads[(int) MaskNames.Green].material = colorMaterials[(int) MaskNames.Red];
+                maskQuads[(int) MaskNames.Green].tag = MaskNames.Red.ToString();
+                
+                maskQuads[(int) MaskNames.Master].material = colorMaterials[(int) MaskNames.Green];
+                maskQuads[(int) MaskNames.Master].tag = MaskNames.Green.ToString();
+                
+                break;
+            case BiomeNames.Coniferous:
+                maskQuads[(int) MaskNames.Green].material = colorMaterials[(int) MaskNames.Green];
+                maskQuads[(int) MaskNames.Green].tag = MaskNames.Green.ToString();
+                
+                maskQuads[(int) MaskNames.Master].material = colorMaterials[(int) MaskNames.Green];
+                maskQuads[(int) MaskNames.Master].tag = MaskNames.Green.ToString();
+                
+                break;
+            case BiomeNames.Taiga:
+                maskQuads[(int) MaskNames.Green].material = colorMaterials[(int) MaskNames.Blue];
+                maskQuads[(int) MaskNames.Green].tag = MaskNames.Blue.ToString();
+                
+                maskQuads[(int) MaskNames.Master].material = colorMaterials[(int) MaskNames.Green];
+                maskQuads[(int) MaskNames.Master].tag = MaskNames.Green.ToString();
+                
+                break;
+            case BiomeNames.Ocean:
+                maskQuads[(int) MaskNames.Blue].material = colorMaterials[(int) MaskNames.Red];
+                maskQuads[(int) MaskNames.Blue].tag = MaskNames.Red.ToString();
+                
+                maskQuads[(int) MaskNames.Master].material = colorMaterials[(int) MaskNames.Blue];
+                maskQuads[(int) MaskNames.Master].tag = MaskNames.Blue.ToString();
+                
+                break;
+            case BiomeNames.Ice:
+                maskQuads[(int) MaskNames.Blue].material = colorMaterials[(int) MaskNames.Green];
+                maskQuads[(int) MaskNames.Blue].tag = MaskNames.Green.ToString();
+                
+                maskQuads[(int) MaskNames.Master].material = colorMaterials[(int) MaskNames.Blue];
+                maskQuads[(int) MaskNames.Master].tag = MaskNames.Blue.ToString();
+                
                 break;
             default:
                 Debug.LogError("Unrecognized Biome Passed In. Name passed in was : " + selectedBiome);

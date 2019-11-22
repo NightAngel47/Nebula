@@ -8,22 +8,7 @@ public class TerrainSelect : MonoBehaviour
     /// The names of the biome masks
     /// </summary>
     private enum MaskNames {Red, Green, Blue};
-    
-    /// <summary>
-    /// The names of the biomes
-    /// </summary>
-    private enum BiomeNames
-    {
-        Plains,
-        Savana,
-        Tropical,
-        Coniferous,
-        Taiga,
-        Temperate,
-        Ice,
-        Ocean
-    };
-    
+
     /// <summary>
     /// The names of the terrainObjects in order.
     /// WILL NEED TO CHANGE WITH FINAL ART!

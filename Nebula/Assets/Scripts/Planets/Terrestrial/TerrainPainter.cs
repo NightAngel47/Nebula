@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(TerrainSelect))]
 public class TerrainPainter : MonoBehaviour
@@ -20,6 +21,10 @@ public class TerrainPainter : MonoBehaviour
     /// The terrain select script for determining which terrain object to spawn
     /// </summary>
     private TerrainSelect ts;
+    /// <summary>
+    /// Tracks tool selected
+    /// </summary>
+    private ToolSelect toolSelect;
     
     #endregion
     
@@ -79,11 +84,12 @@ public class TerrainPainter : MonoBehaviour
         planet = FindObjectOfType<TerrestrialRotation>().transform;
         mainCam = Camera.main;
         ts = GetComponent<TerrainSelect>();
+        toolSelect = FindObjectOfType<ToolSelect>();
     }
     
     void Update()
     {
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButton(1) && toolSelect.toolSelected == ToolSelect.Tools.Terrain)
         {
             Vector3 cursorPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.0f);
             Ray cursorRay = mainCam.ScreenPointToRay(cursorPos);
@@ -146,7 +152,7 @@ public class TerrainPainter : MonoBehaviour
                     break;
             }
             
-            Debug.Log("<b>Master:</b> " + hitMaster.collider.tag + " <b>Mask:</b> " + hitMask.collider.tag + " <b>Terrain:</b> " + selectedTerrain.name);
+            //Debug.Log("<b>Master:</b> " + hitMaster.collider.tag + " <b>Mask:</b> " + hitMask.collider.tag + " <b>Terrain:</b> " + selectedTerrain.name);
 
             SpawnTerrainOnPlanet(cursorRay, hitMaster.collider.tag, hitMask.collider.tag, uvWorldPosition);
         }
@@ -172,7 +178,7 @@ public class TerrainPainter : MonoBehaviour
         
         // spawn terrain
         GameObject terrain = Instantiate(selectedTerrain, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal), planet);
-        print("<b>Parent:</b> " + terrain.transform.parent.name);
+        transform.Rotate(Vector3.up, Random.Range(0, 45));
         terrain.GetComponent<TerrainBehaviour>().SetTerrainValues(masterDecalTag, maskDecalTag, uvPos);
     }
 

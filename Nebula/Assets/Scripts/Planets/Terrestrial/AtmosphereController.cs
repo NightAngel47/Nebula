@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class AtmosphereController : MonoBehaviour
 {
-    bool atmosphereButton;
-
+    /// <summary>
+    /// Tracks selected tool
+    /// </summary>
+    private ToolSelect toolSelect;
+    
     public Renderer rend;
 
     public float atmosphereIncrementValue = 0f;
@@ -19,6 +22,7 @@ public class AtmosphereController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        toolSelect = FindObjectOfType<ToolSelect>();
         rend = GetComponent<Renderer>();
         source = GetComponent<AudioSource>();
     }
@@ -26,7 +30,7 @@ public class AtmosphereController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.touchCount == 1 && atmosphereButton)
+        if (Input.touchCount == 1 && toolSelect.toolSelected == ToolSelect.Tools.Atmosphere)
         {
             PlayAudio();
             ControlDensity();
@@ -83,16 +87,6 @@ public class AtmosphereController : MonoBehaviour
     public void ChangeColor(int colorSelected)
     {
         rend.material.SetColor("_color", new Color(atmosphereColors[colorSelected].r, atmosphereColors[colorSelected].g, atmosphereColors[colorSelected].b, rend.material.GetFloat("_strength")));
-    }
-
-    public void ActivateAtmosphere()
-    {
-        atmosphereButton = true;
-    }
-
-    public void DeactivateAtmosphere()
-    {
-        atmosphereButton = false;
     }
 
     public void ResetRotation()
