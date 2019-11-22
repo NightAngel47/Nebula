@@ -297,7 +297,7 @@ public class AnalyticsEvents : MonoBehaviour
     private void FinalTerrainCount()
     {
         List<GameObject> terrainFeatures = GameObject.FindGameObjectsWithTag("Terrain").ToList();
-        
+
         foreach (var feature in _terrestrialTerrain)
         {
             int featureCount = 0;
@@ -305,10 +305,9 @@ public class AnalyticsEvents : MonoBehaviour
             {
                 foreach (var terrain in terrainFeatures)
                 {
-                    if (terrain.name.Equals(feature.name))
+                    if (terrain.name == feature.name + "(Clone)")
                     {
                         ++featureCount;
-                        terrainFeatures.Remove(terrain);
                     }
                 }
             }

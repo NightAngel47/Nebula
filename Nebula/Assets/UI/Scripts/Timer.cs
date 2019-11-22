@@ -25,9 +25,21 @@ public class Timer : MonoBehaviour
     public float Tmax = 6;
 
     private AnalyticsEvents ae;
-    
+
+    #region debug timer
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+    private Vector3 tempMousePos;
+#endif
+    #endregion
+
     void Start()
     {
+        #region debug timer
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+        tempMousePos = Input.mousePosition;
+#endif
+        #endregion
+
         inputTimer = Tmax + 1;
         Terrain_Button.onClick.AddListener(onClickTerrain);
         Biomes_Button.onClick.AddListener(onClickBiomes);
@@ -50,6 +62,29 @@ public class Timer : MonoBehaviour
 
             ae.SetTutorialActive(false);
         }
+
+        #region debug timer
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+        if (DebugController.DebugEnabled)
+        {
+            bool mouseMoved = false;
+
+            if (tempMousePos != Input.mousePosition)
+            {
+                mouseMoved = true;
+                tempMousePos = Input.mousePosition;
+            }
+
+            if (Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.M) || mouseMoved)
+            {
+                inputTimer = 0;
+                terrainHelp.SetActive(false);
+                biomeHelp.SetActive(false);
+                atmosphereHelp.SetActive(false);
+            }
+        }
+#endif
+        #endregion
 
 
         if (VerifyExit.activeSelf == true || VerifyFinish.activeSelf == true)
