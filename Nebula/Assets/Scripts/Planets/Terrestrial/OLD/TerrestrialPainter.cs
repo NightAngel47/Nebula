@@ -185,12 +185,16 @@ public class TerrestrialPainter : MonoBehaviour
     {
         if (selectedBiome == 1 || selectedBiome == 4)
             placeAudioSource.clip = placeAudioClips[4]; // grass
+        
         else if (selectedBiome == 2 || selectedBiome == 6)
             placeAudioSource.clip = placeAudioClips[7]; // sand
+        
         else if (selectedBiome == 3 || selectedBiome == 5)
             placeAudioSource.clip = placeAudioClips[3]; // snow
+        
         else if (selectedBiome == 0)
             placeAudioSource.clip = placeAudioClips[8]; // water
+        
         else if (selectedBiome == 7)
             placeAudioSource.clip = placeAudioClips[5]; // rocks
     }
@@ -199,20 +203,24 @@ public class TerrestrialPainter : MonoBehaviour
     {
         if (selectedGO == terrainEraser)
             placeAudioSource.clip = placeAudioClips[9];
-        else if (selectedGO == tf.terrainObjects[0] ||
-            selectedGO == tf.terrainObjects[1])
+        else if (selectedGO == tf.terrainObjects[0] || selectedGO == tf.terrainObjects[1])
             placeAudioSource.clip = placeAudioClips[0];
+        
         else if (selectedGO == tf.terrainObjects[3])
             placeAudioSource.clip = placeAudioClips[1];
+        
         else if (selectedGO == tf.terrainObjects[14])
             placeAudioSource.clip = placeAudioClips[2];
-        else if (selectedGO == tf.terrainObjects[5] ||
-                selectedGO == tf.terrainObjects[12])
+        
+        else if (selectedGO == tf.terrainObjects[5] || selectedGO == tf.terrainObjects[12])
             placeAudioSource.clip = placeAudioClips[5];
+        
         else if (selectedGO == tf.terrainObjects[7])
             placeAudioSource.clip = placeAudioClips[3];
+        
         else if (selectedGO == tf.terrainObjects[10])
             placeAudioSource.clip = placeAudioClips[4];
+        
         else
             placeAudioSource.clip = placeAudioClips[6];
     }

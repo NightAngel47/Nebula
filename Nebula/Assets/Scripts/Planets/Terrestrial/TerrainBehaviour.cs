@@ -105,7 +105,7 @@ public class TerrainBehaviour : MonoBehaviour
         spawnedTerrain.GetComponent<TerrainBehaviour>().SetTerrainValues(hitMaster.collider.tag, hitMask.collider.tag, uvPos);
         
         //print("<b>GameObject: </b>" + gameObject.name + " <b>Parent: </b>" + spawnedTerrain.transform.parent.name);
-        Debug.Log("<b>Old Master:</b> " + masterDecalTag + "<b> New Master:</b> " + hitMaster.collider.tag + " <b>Old Mask:</b> " + maskDecalTag + " <b>New Mask:</b> " + hitMask.collider.tag + " <b>Old Terrain:</b> " + gameObject.name + " <b>New Terrain:</b> " + selectedTerrain.name);
+        //Debug.Log("<b>Old Master:</b> " + masterDecalTag + "<b> New Master:</b> " + hitMaster.collider.tag + " <b>Old Mask:</b> " + maskDecalTag + " <b>New Mask:</b> " + hitMask.collider.tag + " <b>Old Terrain:</b> " + gameObject.name + " <b>New Terrain:</b> " + selectedTerrain.name);
 
         // destroy old
         Destroy(gameObject);

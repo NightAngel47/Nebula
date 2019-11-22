@@ -1,9 +1,20 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ToolSelect : MonoBehaviour
 {
+    /// <summary>
+    /// Placement audio
+    /// </summary>
+    private PlacementAudio placementAudio;
+
+    private void Start()
+    {
+        placementAudio = FindObjectOfType<PlacementAudio>();
+    }
+
     /// <summary>
     /// The different tools for the terrestrial planet
     /// </summary>
@@ -26,6 +37,7 @@ public class ToolSelect : MonoBehaviour
     public void NoneSelected()
     {
         toolSelected = Tools.None;
+        placementAudio.StopPlacementAudio();
     }
 
     /// <summary>

@@ -25,6 +25,10 @@ public class TerrainPainter : MonoBehaviour
     /// Tracks tool selected
     /// </summary>
     private ToolSelect toolSelect;
+    /// <summary>
+    /// Placement audio
+    /// </summary>
+    private PlacementAudio placementAudio;
     
     #endregion
     
@@ -85,6 +89,7 @@ public class TerrainPainter : MonoBehaviour
         mainCam = Camera.main;
         ts = GetComponent<TerrainSelect>();
         toolSelect = FindObjectOfType<ToolSelect>();
+        placementAudio = FindObjectOfType<PlacementAudio>();
     }
     
     void Update()
@@ -94,6 +99,11 @@ public class TerrainPainter : MonoBehaviour
             Vector3 cursorPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.0f);
             Ray cursorRay = mainCam.ScreenPointToRay(cursorPos);
             SpawnTerrain(cursorRay);
+            placementAudio.PlayPlacementAudio();
+        }
+        else
+        {
+            placementAudio.StopPlacementAudio();
         }
     }
 
@@ -151,11 +161,14 @@ public class TerrainPainter : MonoBehaviour
                     selectedTerrain = ts.SelectedTerrain(hitMaster.collider.tag, hitMask.collider.tag, true);
                     break;
             }
-            
+
             //Debug.Log("<b>Master:</b> " + hitMaster.collider.tag + " <b>Mask:</b> " + hitMask.collider.tag + " <b>Terrain:</b> " + selectedTerrain.name);
 
             SpawnTerrainOnPlanet(cursorRay, hitMaster.collider.tag, hitMask.collider.tag, uvWorldPosition);
         }
+        
+        // choose terrain audio
+        placementAudio.ChooseTerrainAudio(selectedTerrain);
         
         SpawnTerrainEraser(cursorRay);
     }

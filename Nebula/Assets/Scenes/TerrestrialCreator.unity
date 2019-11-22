@@ -688,6 +688,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 100787419}
+  - component: {fileID: 100787420}
   - component: {fileID: 100787418}
   m_Layer: 0
   m_Name: Placement Audio
@@ -807,6 +808,29 @@ Transform:
   m_Father: {fileID: 110666248}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &100787420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100787417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a8cad979cdb66149822798920497aeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  placeAudioClips:
+  - {fileID: 8300000, guid: 83b577d84f6f2a5489cb4e21d50cecb3, type: 3}
+  - {fileID: 8300000, guid: 1c82e3f5b1f0a094da69b430bec5b29b, type: 3}
+  - {fileID: 8300000, guid: 80435cce0ff618c42a6f8e7f1ecefe5f, type: 3}
+  - {fileID: 8300000, guid: 37ebca14b78bc7d4c8df43e3314c80d5, type: 3}
+  - {fileID: 8300000, guid: e6fedaffd12274f4790a611fc6df6833, type: 3}
+  - {fileID: 8300000, guid: 68d94b27f835e76478feb68eaf050a33, type: 3}
+  - {fileID: 8300000, guid: 0bb46ded0f2f2d84c871626c77e1388c, type: 3}
+  - {fileID: 8300000, guid: 893c84d81a13f4b40b3d02f19d70f6af, type: 3}
+  - {fileID: 8300000, guid: 356133fb01825d04a94f609772adf80d, type: 3}
+  - {fileID: 8300000, guid: da39f138faffdfa4e8eb7ee7be457481, type: 3}
 --- !u!1 &110666244
 GameObject:
   m_ObjectHideFlags: 0
@@ -1599,7 +1623,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2159,7 +2183,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
+          m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2573,7 +2597,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4535,7 +4559,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -6678,7 +6702,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
+          m_IntArgument: 6
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -9661,7 +9685,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -12963,7 +12987,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
+          m_IntArgument: 7
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

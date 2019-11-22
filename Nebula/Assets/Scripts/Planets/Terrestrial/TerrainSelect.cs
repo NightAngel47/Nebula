@@ -13,7 +13,7 @@ public class TerrainSelect : MonoBehaviour
     /// The names of the terrainObjects in order.
     /// WILL NEED TO CHANGE WITH FINAL ART!
     /// </summary>
-    private enum TerrainNames
+    public enum TerrainNames
     {
         Pine,
         PineSnowy,
@@ -36,7 +36,7 @@ public class TerrainSelect : MonoBehaviour
     /// Array of terrain objects that can be painted. 
     /// </summary>
     [SerializeField, Tooltip("Array of terrain objects that can be painted.")]
-    private GameObject[] terrainObjects;
+    public GameObject[] terrainObjects;
 
     /// <summary>
     /// Selects terrain to spawn based on masterDecalTag, maskDecalTag, and isUp

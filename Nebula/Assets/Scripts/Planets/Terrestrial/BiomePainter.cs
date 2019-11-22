@@ -16,6 +16,10 @@ public class BiomePainter : MonoBehaviour
     /// Tracks selected tool
     /// </summary>
     private ToolSelect toolSelect;
+    /// <summary>
+    /// Placement audio
+    /// </summary>
+    private PlacementAudio placementAudio;
 
     #endregion
     
@@ -62,7 +66,7 @@ public class BiomePainter : MonoBehaviour
     /// <summary>
     /// The names of the biomes
     /// </summary>
-    private enum BiomeNames
+    public enum BiomeNames
     {
         Plains,
         Savana,
@@ -104,6 +108,11 @@ public class BiomePainter : MonoBehaviour
     {
         mainCam = Camera.main;
         toolSelect = FindObjectOfType<ToolSelect>();
+        placementAudio = FindObjectOfType<PlacementAudio>();
+    }
+
+    private void Start()
+    {
         ChangeBiome(startBiome);
         DefaultBiome();
     }
@@ -114,6 +123,11 @@ public class BiomePainter : MonoBehaviour
         {
             Vector3 cursorPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.0f);
             SpawnBiome(cursorPos);
+            placementAudio.PlayPlacementAudio();
+        }
+        else
+        {
+            placementAudio.StopPlacementAudio();
         }
     }
 
@@ -124,6 +138,9 @@ public class BiomePainter : MonoBehaviour
     public void ChangeBiome(string biomeName)
     {
         selectedBiome = (BiomeNames) Enum.Parse(typeof(BiomeNames), biomeName);
+        
+        // select audio
+        placementAudio.ChooseBiomeAudio(selectedBiome);
         
         // Sets ToPaint variables based on selected biome
         switch (selectedBiome)
@@ -161,7 +178,7 @@ public class BiomePainter : MonoBehaviour
                 masterColorName = MaskNames.Blue;
                 break;
             default:
-                Debug.LogError("Unrecognized Biome Passed In. Name passed in was : " + selectedBiome);
+                Debug.LogError("Unrecognized Biome Passed In. Name passed in was: " + selectedBiome);
                 break;
         }
     }
