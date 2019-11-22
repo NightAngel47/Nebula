@@ -35,9 +35,9 @@
             <e p="Terrestrial" t="Include">
               <e p="AtmosphereController.cs" t="Include" />
               <e p="BiomePainter.cs" t="Include" />
-              <e p="LoadTerrestrialTexture.cs" t="Include" />
               <e p="OLD" t="Include">
                 <e p="DefaultBiome.cs" t="Include" />
+                <e p="LoadTerrestrialTexture.cs" t="Include" />
                 <e p="SwapTerrain.cs" t="Include" />
                 <e p="TerrainFeatures.cs" t="Include" />
                 <e p="TerrestrialPainter.cs" t="Include" />

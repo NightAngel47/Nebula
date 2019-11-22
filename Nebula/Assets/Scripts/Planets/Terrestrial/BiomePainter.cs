@@ -258,9 +258,9 @@ public class BiomePainter : MonoBehaviour
         if (!HitTestUVPosition(cursorRay, ref uvWorldPosition)) return;
         
         // paint on mask
-        Instantiate(colorPrefabs[(int) maskColorName], maskUVPoses[(int) masterColorName].position + uvWorldPosition, Quaternion.identity);
+        Instantiate(colorPrefabs[(int) maskColorName], maskUVPoses[(int) masterColorName].position + uvWorldPosition, Quaternion.identity, maskQuads[(int) masterColorName].transform);
         // paint on master
-        Instantiate(colorPrefabs[(int) masterColorName], maskUVPoses[(int) MaskNames.Master].position + uvWorldPosition, Quaternion.identity);
+        Instantiate(colorPrefabs[(int) masterColorName], maskUVPoses[(int) MaskNames.Master].position + uvWorldPosition, Quaternion.identity, maskQuads[(int) MaskNames.Master].transform);
 
         PosDisplacement();
         
