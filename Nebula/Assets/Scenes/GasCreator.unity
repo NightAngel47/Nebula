@@ -2866,7 +2866,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   volumeAnchorOverride: {fileID: 0}
-  antialiasing: 0
+  antialiasing: 2
   SMAAQuality: 2
   dithering: 0
   stopNaNs: 0
@@ -4496,6 +4496,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 503059612063971158, guid: 4c7e3ac03dd90574eaae4ee3e8f28654,
+        type: 3}
+      propertyPath: m_Name
+      value: Analytics
+      objectReference: {fileID: 0}
     - target: {fileID: 503059612063971157, guid: 4c7e3ac03dd90574eaae4ee3e8f28654,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4550,11 +4555,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 503059612063971158, guid: 4c7e3ac03dd90574eaae4ee3e8f28654,
-        type: 3}
-      propertyPath: m_Name
-      value: Analytics
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c7e3ac03dd90574eaae4ee3e8f28654, type: 3}
@@ -10372,6 +10372,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DebugManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8750766019869486647, guid: 8791c821dda748d4994cadcce855177f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8750766019869486641, guid: 8791c821dda748d4994cadcce855177f,
         type: 3}
@@ -19581,8 +19586,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 394618e27ba66d1428531145781af65d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasTexture: {fileID: 0}
-  baseMaterial: {fileID: 0}
+  biomePainter: {fileID: 0}
 --- !u!114 &1981306975
 MonoBehaviour:
   m_ObjectHideFlags: 0

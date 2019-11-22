@@ -4,9 +4,9 @@ using UnityEngine.SceneManagement;
 
 public class SavePlanet : MonoBehaviour
 {
-    public RenderTexture canvasTexture;
-    public Material baseMaterial;
-
+    [SerializeField, Tooltip("Reference to biome painter for terrestrial texture")] 
+    private BiomePainter biomePainter;
+    
     private void Start()
     {
         UpdatePlanets();
@@ -22,43 +22,42 @@ public class SavePlanet : MonoBehaviour
         }
         else if(SceneManager.GetActiveScene().name == "Main Menu")
         {
+            DestroyBiomePainter();
             Destroy(gameObject);
         }
 
         if (SceneManager.GetActiveScene().name == "Complete Screen")
         {
+            DetachBiomePainter();
             // make planet spin
             gameObject.AddComponent<planetSpin>();
         }
     }
 
-    //https://codeartist.mx/dynamic-texture-painting/
-
-    public void SaveTexture()
+    /// <summary>
+    /// Attaches biome painter to planet
+    /// </summary>
+    public void AttachBiomePainter()
     {
-        System.DateTime date = System.DateTime.Now;
-        RenderTexture.active = canvasTexture;
-        Texture2D tex = new Texture2D(canvasTexture.width, canvasTexture.height, TextureFormat.RGBAFloat, true);
-        tex.ReadPixels(new Rect(0, 0, canvasTexture.width, canvasTexture.height), 0, 0);
-        tex.Apply();
-        RenderTexture.active = null;
-        baseMaterial.mainTexture = tex; //Put the painted texture as the base
-       
-        StartCoroutine(SaveTextureToFile(tex)); // save the texture
+        if (biomePainter == null) return;
+        biomePainter.transform.SetParent(transform);
     }
 
-    IEnumerator SaveTextureToFile(Texture2D savedTexture)
+    /// <summary>
+    /// Detaches biome painter from planet
+    /// </summary>
+    private void DetachBiomePainter()
     {
-        string fullPath = Application.persistentDataPath + "//UserCanvas//";
-        System.DateTime date = System.DateTime.Now;
-        string fileName = "CanvasTexture.png";
-        if (!System.IO.Directory.Exists(fullPath))
-            System.IO.Directory.CreateDirectory(fullPath);
-        var bytes = savedTexture.EncodeToPNG();
-        System.IO.File.WriteAllBytes(fullPath + fileName, bytes);
-        Debug.Log("<color=orange>Saved Successfully!</color>" + fullPath + fileName);
-        yield return null;
+        if (biomePainter == null) return;
+        biomePainter.transform.SetParent(null);
+    }
 
-        //System.GC.Collect();
+    /// <summary>
+    /// Destroys biome painter
+    /// </summary>
+    private void DestroyBiomePainter()
+    {
+        if (biomePainter == null) return;
+        Destroy(biomePainter.gameObject);
     }
 }

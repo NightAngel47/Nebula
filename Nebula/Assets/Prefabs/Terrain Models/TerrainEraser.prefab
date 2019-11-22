@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 385105390493518442}
   - component: {fileID: 4371934294298701342}
   - component: {fileID: 4965819713255433726}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: TerrainEraser
   m_TagString: Untagged
   m_Icon: {fileID: 0}

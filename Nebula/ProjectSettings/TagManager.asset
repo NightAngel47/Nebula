@@ -19,6 +19,10 @@ TagManager:
   - CanvasCam
   - Compass
   - UVQuad
+  - UVPos
+  - Red
+  - Green
+  - Blue
   layers:
   - Default
   - TransparentFX
@@ -28,9 +32,9 @@ TagManager:
   - UI
   - 
   - 
-  - PostProcessing
-  - Painted
-  - TestPostProcessing
+  - Terrain
+  - 
+  - 
   - 
   - 
   - 

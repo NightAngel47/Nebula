@@ -20,13 +20,13 @@ public class PlanetData : MonoBehaviour
     {
         if (isTerrestrial)
         {
-            GameObject.FindGameObjectWithTag("Planet").GetComponent<LoadTerrestrialTexture>().LoadTexture();
+            //GameObject.FindGameObjectWithTag("Planet").GetComponent<LoadTerrestrialTexture>().LoadTexture();
         }
 
         biomeData = new int[biomeList.Length];
         terrainData = new int[terrainList.Length];
 
-        CollectData();
+        //CollectData();
     }
 
     void CollectData()

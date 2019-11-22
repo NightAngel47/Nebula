@@ -7,19 +7,20 @@ using UnityEngine.SceneManagement;
 public class LoadTerrestrialTexture : MonoBehaviour
 {
     bool textureLoaded = false;
+    private static readonly int Texture = Shader.PropertyToID("_Texture");
 
     void Update()
     {
         if (!textureLoaded && SceneManager.GetActiveScene().name == "Complete Screen")
         {
             textureLoaded = true;
-            LoadTexture();
+            //LoadTexture();
         }
     }
 
     public void LoadTexture()
     {
-        GetComponent<Renderer>().material.SetTexture("_Texture", LoadPNG(Application.persistentDataPath + "//UserCanvas//CanvasTexture.png"));
+        GetComponent<Renderer>().material.SetTexture(Texture, LoadPNG(Application.persistentDataPath + "//UserCanvas//CanvasTexture.png"));
     }
 
     //https://answers.unity.com/questions/432655/loading-texture-file-from-pngjpg-file-on-disk.html

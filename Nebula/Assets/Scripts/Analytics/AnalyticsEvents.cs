@@ -57,7 +57,7 @@ public class AnalyticsEvents : MonoBehaviour
     /// <summary>
     /// List of Terrestrial Biomes
     /// </summary>
-    private GameObject[] _terrestrialBiomes;
+    private BiomePainter.BiomeNames _terrestrialBiomes;
     
     /// <summary>
     /// List of Terrestrial Terrain Objects
@@ -129,11 +129,8 @@ public class AnalyticsEvents : MonoBehaviour
                 // Set data path to terrestrial analytics file
                 _dataPath += "TerrestrialAnalytics.csv";
                 
-                // Get biome names
-                _terrestrialBiomes = FindObjectOfType<TerrestrialPainter>().biomes;
-                
                 // Get terrain names
-                _terrestrialTerrain = FindObjectOfType<TerrainFeatures>().terrainObjects;
+                _terrestrialTerrain = FindObjectOfType<TerrainSelect>().terrainObjects;
 
                 break;
             case "GasCreator":
@@ -277,17 +274,9 @@ public class AnalyticsEvents : MonoBehaviour
     /// </summary>
     private void FinalBiomeCount()
     {
-        foreach (var biome in _terrestrialBiomes)
+        foreach (var biome in Enum.GetValues(typeof(BiomePainter.BiomeNames)))
         {
-            GameObject[] biomeType = GameObject.FindGameObjectsWithTag(biome.tag);
-            if (biomeType.Length > 0)
-            {
-                _collectedData.Add(biome.tag, biomeType.Length);
-            }
-            else
-            {
-                _collectedData.Add(biome.tag, 0);
-            }
+            //TODO track biomes placed
         }
     }
     
@@ -369,7 +358,7 @@ public class AnalyticsEvents : MonoBehaviour
                 // adds starting biome
                 _collectedData.Add("Starting Biome", _terrestrialStartBiome);
                 
-                FinalBiomeCount();
+                //FinalBiomeCount();
                 FinalTerrainCount();
                 
                 // adds terrain options to _collectedData

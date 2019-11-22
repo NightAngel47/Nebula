@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class AtmosphereController : MonoBehaviour
 {
+
     #region debug rotation lock
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
     public static bool debugRotationLock;
 #endif
+
     #endregion
 
-    bool atmosphereButton;
+    /// <summary>
+    /// Tracks selected tool
+    /// </summary>
+    private ToolSelect toolSelect;
 
     public Renderer rend;
 
@@ -25,6 +30,7 @@ public class AtmosphereController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        toolSelect = FindObjectOfType<ToolSelect>();
         rend = GetComponent<Renderer>();
         source = GetComponent<AudioSource>();
     }
@@ -34,7 +40,7 @@ public class AtmosphereController : MonoBehaviour
     {
         #region debug atmosphere density
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
-        if (DebugController.DebugEnabled && atmosphereButton)
+        if (DebugController.DebugEnabled && toolSelect.toolSelected == ToolSelect.Tools.Atmosphere)
         {
             if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))
             {
@@ -50,7 +56,7 @@ public class AtmosphereController : MonoBehaviour
 #endif
         #endregion
 
-        if (Input.touchCount == 1 && atmosphereButton)
+        if (Input.touchCount == 1 && toolSelect.toolSelected == ToolSelect.Tools.Atmosphere)
         {
             PlayAudio();
             ControlDensity();
@@ -153,16 +159,6 @@ public class AtmosphereController : MonoBehaviour
     public void ChangeColor(int colorSelected)
     {
         rend.material.SetColor("_color", new Color(atmosphereColors[colorSelected].r, atmosphereColors[colorSelected].g, atmosphereColors[colorSelected].b, rend.material.GetFloat("_strength")));
-    }
-
-    public void ActivateAtmosphere()
-    {
-        atmosphereButton = true;
-    }
-
-    public void DeactivateAtmosphere()
-    {
-        atmosphereButton = false;
     }
 
     public void ResetRotation()
