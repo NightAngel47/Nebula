@@ -119,7 +119,7 @@ public class BiomePainter : MonoBehaviour
 
     private void Update()
     {
-        if (Input.touchCount == 1 && Input.touchCount != 2 && Input.GetTouch(0).phase == TouchPhase.Moved)
+        if (Input.touchCount == 1 && Input.touchCount != 2 && Input.GetTouch(0).phase == TouchPhase.Moved && toolSelect.toolSelected == ToolSelect.Tools.Biome)
         {
             Vector3 cursorPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.0f);
             SpawnBiome(cursorPos);

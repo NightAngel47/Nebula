@@ -94,7 +94,7 @@ public class TerrainPainter : MonoBehaviour
     
     void Update()
     {
-        if (Input.touchCount == 1 && Input.touchCount != 2 && Input.GetTouch(0).phase == TouchPhase.Moved)
+        if (Input.touchCount == 1 && Input.touchCount != 2 && Input.GetTouch(0).phase == TouchPhase.Moved && toolSelect.toolSelected == ToolSelect.Tools.Terrain)
         {
             Vector3 cursorPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.0f);
             Ray cursorRay = mainCam.ScreenPointToRay(cursorPos);
