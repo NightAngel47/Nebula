@@ -1,14 +1,67 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Random = UnityEngine.Random;
 
 public class ScienceScreenBehavior : MonoBehaviour
 {
-    [SerializeField] private TextAsset factCSV = null;
-    public TextAsset FactCSV { get => factCSV; set => factCSV = value; }
+    [SerializeField] private TextAsset terrestrialFactsCSV, gasGiantFactsCSV;
+    public TextAsset TerrestrialFactsCSV { get => terrestrialFactsCSV; set => terrestrialFactsCSV = value; }
+    public TextAsset GasGiantFactsCSV { get => gasGiantFactsCSV; set => gasGiantFactsCSV = value; }
 
+    private string[] terrestrialFactRows = new string[0];
+    private string[] gasGiantFactRows = new string[0];
+    
     private string[] factRows = new string[0];
     private List<int> rowsUsed = new List<int>();
+
+    [SerializeField] private string[] planetBaseNames =
+    {
+        "YZ Ceti",
+        "Gliese 876",
+        "82 G. Eridani",
+        "Gliese 581",
+        "HR 8832",
+        "61 Virginis",
+        "54 Piscium",
+        "Rho Coronae Borealis",
+        "55 Cancri",
+        "HD 217107",
+        "Pi Mensae",
+        "23 Librae",
+        "Kepler-444 ",
+        "Kepler-42",
+        "HR 8799",
+        "Gamma Librae",
+        "HIP 14810",
+        "Kepler-445",
+        "Kepler-90",
+        "Kepler-11",
+        "Regulus",
+        "WASP-47",
+        "Mu Arae",
+        "Upsilon Andromedae",
+        "HD 40307",
+        "HIP 57274",
+        "HD 141399",
+        "HD 10180",
+        "HR 8799",
+        "HD 34445",
+        "Kepler-37",
+        "Kepler-100",
+        "Kepler-92",
+        "Kepler-11",
+        "Kepler-9",
+        "Kepler-9",
+        "HD 27894",
+        "Kepler-1047",
+        "HD 125612",
+        "PSR B1257+12",
+        "Kelper-289",
+        "Kepler-1254"
+    };
+    string[] alphabet = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N" };
 
     [Header("Text Objects")]
     [SerializeField] private TMP_Text planetNameText = null;
@@ -16,12 +69,19 @@ public class ScienceScreenBehavior : MonoBehaviour
 
     private void OnValidate()
     {
-        factRows = factCSV.text.Split("\n"[0]); // Splits the CSV into an array of strings based on rows.
+        terrestrialFactRows = terrestrialFactsCSV.text.Split("\n"[0]); // Splits the CSV into an array of strings based on rows.
+        gasGiantFactRows = gasGiantFactsCSV.text.Split("\n"[0]); // Splits the CSV into an array of strings based on rows.
+    }
+
+    private void Awake()
+    {
+        // selects which list of facts to use based on planet type
+        factRows = FindObjectOfType<GasGiantController>() ? gasGiantFactRows : terrestrialFactRows;
     }
 
     private void Start()
     {
-        InitalizeScienceScreen("Test Planet 1 2 3");
+        InitalizeScienceScreen(PlanetNameGen());
     }
 
     /// <summary> Initalizes the values within the ScienceScreen. </summary>
@@ -29,7 +89,7 @@ public class ScienceScreenBehavior : MonoBehaviour
     /// <param name="fact1"> Type of fact for the first fact. </param>
     /// <param name="fact2"> Type of fact for the second fact. </param>
     /// <param name="fact3"> Type of fact for the third fact. </param>
-    public void InitalizeScienceScreen(string planetName, FactTypes? fact1 = null, FactTypes? fact2 = null, FactTypes? fact3 = null)
+    private void InitalizeScienceScreen(string planetName, FactTypes? fact1 = null, FactTypes? fact2 = null, FactTypes? fact3 = null)
     {
         rowsUsed = new List<int>();
 
@@ -84,6 +144,15 @@ public class ScienceScreenBehavior : MonoBehaviour
         }
 
         return new string[] { "FactType Not Found" , "Fact Not Found" };
+    }
+    
+    /// <summary>
+    /// Generates a random planet name
+    /// </summary>
+    /// <returns>Generated planet name</returns>
+    private string PlanetNameGen()
+    {
+        return planetBaseNames[Random.Range(0, planetBaseNames.Length)] + " - " + alphabet[Random.Range(0, alphabet.Length)];
     }
 
     public enum FactTypes

@@ -4,6 +4,7 @@
     <e p="C:\Users\sjdro\.Rider2019.2\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\sjdro\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_Nebula.803423500.00" t="ExcludeRecursive" />
     <e p="D:\GitHub\Nebula\Nebula" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="BlurDisable.cs" t="Include" />
@@ -140,6 +141,17 @@
             <e p="MenUIColor.cs" t="Include" />
           </e>
           <e p="TransparencyIngore.cs" t="Include" />
+        </e>
+        <e p="UI Refactoring" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="Editor" t="Include">
+              <e p="CustomInspectorElementWithBlurImage.cs" t="Include" />
+              <e p="CustomInspectorScienceScreenBehavior.cs" t="Include" />
+            </e>
+            <e p="ElementWithBlurImage.cs" t="Include" />
+            <e p="FactElementBehavior.cs" t="Include" />
+            <e p="ScienceScreenBehavior.cs" t="Include" />
+          </e>
         </e>
       </e>
       <e p="Nebula.sln" t="IncludeFlat" />

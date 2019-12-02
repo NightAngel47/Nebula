@@ -300,7 +300,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 959008525fdb82249aa611687500004b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  factCSV: {fileID: 4900000, guid: 64d74fe386b122d468d89795a1061e9f, type: 3}
+  terrestrialFactsCSV: {fileID: 4900000, guid: 64d74fe386b122d468d89795a1061e9f, type: 3}
+  gasGiantFactsCSV: {fileID: 4900000, guid: e956a6bf6933abe458c00d73381b5505, type: 3}
   planetNameText: {fileID: 8584377922418151065}
   factElements:
   - {fileID: 8584377922915698477}
@@ -524,11 +525,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8584377924118303256}
     m_Modifications:
-    - target: {fileID: 6603238602081844500, guid: 7ba213fbaa7fbf244b01aa75df599814,
-        type: 3}
-      propertyPath: m_Name
-      value: Fact Element 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6603238602081844501, guid: 7ba213fbaa7fbf244b01aa75df599814,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -633,6 +629,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603238602081844500, guid: 7ba213fbaa7fbf244b01aa75df599814,
+        type: 3}
+      propertyPath: m_Name
+      value: Fact Element 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ba213fbaa7fbf244b01aa75df599814, type: 3}
@@ -972,11 +973,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8584377924118303256}
     m_Modifications:
-    - target: {fileID: 6603238602081844500, guid: 7ba213fbaa7fbf244b01aa75df599814,
-        type: 3}
-      propertyPath: m_Name
-      value: Fact Element 2
-      objectReference: {fileID: 0}
     - target: {fileID: 6603238602081844501, guid: 7ba213fbaa7fbf244b01aa75df599814,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1082,6 +1078,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6603238602081844500, guid: 7ba213fbaa7fbf244b01aa75df599814,
+        type: 3}
+      propertyPath: m_Name
+      value: Fact Element 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ba213fbaa7fbf244b01aa75df599814, type: 3}
 --- !u!224 &3207333386885035537 stripped
@@ -1109,11 +1110,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8584377924118303256}
     m_Modifications:
-    - target: {fileID: 6603238602081844500, guid: 7ba213fbaa7fbf244b01aa75df599814,
-        type: 3}
-      propertyPath: m_Name
-      value: Fact Element 3
-      objectReference: {fileID: 0}
     - target: {fileID: 6603238602081844501, guid: 7ba213fbaa7fbf244b01aa75df599814,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1218,6 +1214,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603238602081844500, guid: 7ba213fbaa7fbf244b01aa75df599814,
+        type: 3}
+      propertyPath: m_Name
+      value: Fact Element 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ba213fbaa7fbf244b01aa75df599814, type: 3}
