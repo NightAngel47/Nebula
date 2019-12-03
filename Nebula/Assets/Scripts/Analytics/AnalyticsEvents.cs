@@ -55,9 +55,13 @@ public class AnalyticsEvents : MonoBehaviour
     /// </summary>
     private string _terrestrialStartBiome;
     /// <summary>
-    /// List of Terrestrial Biomes
+    /// List of biome names from BiomeNames
     /// </summary>
-    private BiomePainter.BiomeNames _terrestrialBiomes;
+    private List<string> _terrestiralBiomeNames = new List<string>();
+    /// <summary>
+    /// List of counts for each biome in BiomeNames
+    /// </summary>
+    private int[] _terrestrialBiomeCounts;
     
     /// <summary>
     /// List of Terrestrial Terrain Objects
@@ -131,6 +135,7 @@ public class AnalyticsEvents : MonoBehaviour
                 
                 // Get terrain names
                 _terrestrialTerrain = FindObjectOfType<TerrainSelect>().terrainObjects;
+                SetupBiomeTracking();
 
                 break;
             case "GasCreator":
@@ -261,6 +266,16 @@ public class AnalyticsEvents : MonoBehaviour
     #region Terrestrial Tracking Functions
 
     /// <summary>
+    /// Sets up biome tracking
+    /// </summary>
+    private void SetupBiomeTracking()
+    {
+        // Get biome names
+        _terrestiralBiomeNames.AddRange(Enum.GetNames(typeof(BiomePainter.BiomeNames)));
+        _terrestrialBiomeCounts = new int[_terrestiralBiomeNames.Count];
+    }
+    
+    /// <summary>
     /// Sets the starting biome of the terrestrial planet
     /// </summary>
     /// <param name="biome">The biome name</param>
@@ -270,13 +285,14 @@ public class AnalyticsEvents : MonoBehaviour
     }
     
     /// <summary>
-    /// Collects the amount that each biome was placed
+    /// Increases the biome count for the passed in biome
     /// </summary>
-    private void FinalBiomeCount()
+    /// ,<param name="biome">The name of the placed</param>
+    public void IncreaseBiomeCount(string biome)
     {
-        foreach (var biome in Enum.GetValues(typeof(BiomePainter.BiomeNames)))
+        if (_terrestiralBiomeNames.Contains(biome))
         {
-            //TODO track biomes placed
+            _terrestrialBiomeCounts[_terrestiralBiomeNames.IndexOf(biome)]++;
         }
     }
     
@@ -358,7 +374,12 @@ public class AnalyticsEvents : MonoBehaviour
                 // adds starting biome
                 _collectedData.Add("Starting Biome", _terrestrialStartBiome);
                 
-                //FinalBiomeCount();
+                // add in biome usage
+                foreach (var biomeName in _terrestiralBiomeNames)
+                {
+                    _collectedData.Add(biomeName, _terrestrialBiomeCounts[_terrestiralBiomeNames.IndexOf(biomeName)]);
+                }
+                
                 FinalTerrainCount();
                 
                 // adds terrain options to _collectedData
