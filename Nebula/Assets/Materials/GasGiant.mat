@@ -117,7 +117,7 @@ Material:
     - _AlphaCutoffPrepass: 0.5
     - _AlphaCutoffShadow: 0.5
     - _Anisotropy: 0
-    - _Bands: 0.5
+    - _Bands: 2.96
     - _BlendMode: 0
     - _CoatMask: 0
     - _CullMode: 2
@@ -223,7 +223,7 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color_Bands: {r: 0.6784314, g: 0.14117648, b: 0.25490198, a: 0}
+    - _Color_Bands: {r: 0.8901961, g: 0.2901961, b: 0.44313726, a: 1}
     - _Color_Base: {r: 1, g: 0.47058824, b: 1, a: 1}
     - _Color_Storms: {r: 1, g: 1, b: 1, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
@@ -231,7 +231,7 @@ Material:
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}
     - _InvPrimScale: {r: 1, g: 1, b: 0, a: 0}
     - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
-    - _Planet_Color: {r: 0.9607843, g: 0.7647059, b: 0.94509804, a: 0}
+    - _Planet_Color: {r: 0.8980392, g: 0.36862746, b: 0.7137255, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _Storms_Offset: {r: 0, g: 0, b: 0, a: 0}
     - _ThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
