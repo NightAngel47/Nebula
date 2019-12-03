@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 4036508585080653233}
   - component: {fileID: 3622107549413200226}
   - component: {fileID: 5433291036993895826}
-  m_Layer: 0
+  - component: {fileID: 3527955839606471920}
+  - component: {fileID: 5042062875104591021}
+  m_Layer: 8
   m_Name: default
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,6 +80,35 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &3527955839606471920
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3908354347039211783}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -2432090755550338912, guid: 82fbe7c5eb1484466ab635fd5822d9d6, type: 3}
+--- !u!114 &5042062875104591021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3908354347039211783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 366c2a8bac1c3934aa583e62ba5fddeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isUp: 0
+  masterDecalTag: 
+  maskDecalTag: 
 --- !u!1 &7363677025600054426
 GameObject:
   m_ObjectHideFlags: 0
@@ -87,8 +118,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5794532816789067401}
-  m_Layer: 0
-  m_Name: Oak
+  m_Layer: 8
+  m_Name: oak
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,6 +152,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: slightly organized chunk
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 13bbe19a930404cf687d224a9785f9e3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 13bbe19a930404cf687d224a9785f9e3,
         type: 3}
@@ -187,6 +223,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 83d301d5b35584d268b8d6bbd30a7b8a, type: 2}
+    - target: {fileID: 2534866581884222612, guid: 13bbe19a930404cf687d224a9785f9e3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13bbe19a930404cf687d224a9785f9e3, type: 3}
 --- !u!4 &5794532815674259766 stripped

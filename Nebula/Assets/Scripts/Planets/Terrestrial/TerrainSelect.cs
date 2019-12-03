@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿    using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -29,7 +29,20 @@ public class TerrainSelect : MonoBehaviour
         Plateau,
         RockDesert,
         Volcano,
-        Island
+        Island,
+        IceSheet,
+        Iceberg,
+        TundraIsland,
+        ConiferousBoulder,
+        ConiferousMountain,
+        ConiferousTree,
+        BirchTree,
+        DeciduousRock,
+        OakTree,
+        Flower1,
+        Flower2,
+        Flower3,
+        Grass
     };
 
     /// <summary>
@@ -51,7 +64,25 @@ public class TerrainSelect : MonoBehaviour
         {
             if (maskDecalTag == MaskNames.Red.ToString()) // plains
             {
-                return isUp ? terrainObjects[(int) TerrainNames.Rock] : terrainObjects[(int) TerrainNames.Bush];
+                if (isUp)
+                {
+                    int randNum = Random.Range(0, 3);
+                    {
+                        switch (randNum)
+                        {
+                            case 0:
+                                return terrainObjects[(int) TerrainNames.Flower1];
+                            case 1:
+                                return terrainObjects[(int) TerrainNames.Flower2];
+                            case 2:
+                                return terrainObjects[(int) TerrainNames.Flower3];
+                        }
+                    }
+                }
+                else
+                {
+                    return terrainObjects[(int) TerrainNames.Grass];
+                }
             }
             else if (maskDecalTag == MaskNames.Green.ToString()) // savanna
             {
@@ -70,11 +101,27 @@ public class TerrainSelect : MonoBehaviour
             }
             else if (maskDecalTag == MaskNames.Green.ToString()) // coniferous
             {
-                return isUp ? terrainObjects[(int) TerrainNames.Hill] : terrainObjects[(int) TerrainNames.Pine];
+                if (isUp)
+                {
+                    float randNum = Random.value;
+                    return randNum >= 0.75f ? terrainObjects[(int) TerrainNames.ConiferousMountain] : terrainObjects[(int) TerrainNames.ConiferousBoulder];
+                }
+                else
+                {
+                    return terrainObjects[(int) TerrainNames.ConiferousTree];
+                }
             }
             else // taiga
             {
-                return isUp ? terrainObjects[(int) TerrainNames.HillSnowy] : terrainObjects[(int) TerrainNames.PineSnowy];
+                if (isUp)
+                {
+                    return terrainObjects[(int) TerrainNames.DeciduousRock];
+                }
+                else
+                {
+                    float randNum = Random.value;
+                    return randNum >= 0.5f ? terrainObjects[(int) TerrainNames.BirchTree] : terrainObjects[(int) TerrainNames.OakTree];
+                }
             }
         }
         else if (masterDecalTag == MaskNames.Blue.ToString())
@@ -85,7 +132,15 @@ public class TerrainSelect : MonoBehaviour
             }
             else // ice
             {
-                return isUp ? terrainObjects[(int) TerrainNames.IceChunk] : terrainObjects[(int) TerrainNames.PineSnowy];
+                if (isUp)
+                {
+                    float randNum = Random.value;
+                    return randNum >= 0.5f ? terrainObjects[(int) TerrainNames.IceSheet] : terrainObjects[(int) TerrainNames.Iceberg];
+                }
+                else
+                {
+                    return terrainObjects[(int) TerrainNames.TundraIsland];
+                }
             }
         }
         

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 752126020184390516}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: flowers_clump_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4335646449749313895}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 399.61072, y: -6.2163285e-17, z: 55.99171}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7070309947655415884}
@@ -42,9 +42,11 @@ GameObject:
   - component: {fileID: 7070309947655415884}
   - component: {fileID: 7520459302988790943}
   - component: {fileID: 1260070206696378479}
-  m_Layer: 0
+  - component: {fileID: 4893688586521364332}
+  - component: {fileID: 50003133329712968}
+  m_Layer: 8
   m_Name: default
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,3 +111,32 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &4893688586521364332
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7793204097754410234}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -2432090755550338912, guid: c669c9f3b2042b5478d94f6f47e99bd6, type: 3}
+--- !u!114 &50003133329712968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7793204097754410234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 366c2a8bac1c3934aa583e62ba5fddeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isUp: 0
+  masterDecalTag: 
+  maskDecalTag: 

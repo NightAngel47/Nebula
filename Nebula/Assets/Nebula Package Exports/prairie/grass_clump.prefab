@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 469756889466029835}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: grass_clump
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3521727763733853464}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 420.13425, y: -5.798331e-17, z: 52.226723}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7992260586017133619}
@@ -42,9 +42,11 @@ GameObject:
   - component: {fileID: 7992260586017133619}
   - component: {fileID: 7253880782608711904}
   - component: {fileID: 2128044191323892752}
-  m_Layer: 0
+  - component: {fileID: 8497235882857301908}
+  - component: {fileID: 5246363308198299680}
+  m_Layer: 8
   m_Name: default
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,3 +111,32 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &8497235882857301908
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6977195201748291717}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -2432090755550338912, guid: 00874d7306b221e4496ae8a2f3624ef3, type: 3}
+--- !u!114 &5246363308198299680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6977195201748291717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 366c2a8bac1c3934aa583e62ba5fddeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isUp: 0
+  masterDecalTag: 
+  maskDecalTag: 

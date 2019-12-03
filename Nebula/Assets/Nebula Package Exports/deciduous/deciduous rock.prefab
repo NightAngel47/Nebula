@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1648664278057738278}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: deciduous rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,9 +42,11 @@ GameObject:
   - component: {fileID: 9119759161679393566}
   - component: {fileID: 8416985984717514701}
   - component: {fileID: 1003606593483967293}
-  m_Layer: 0
+  - component: {fileID: 6391651337331372442}
+  - component: {fileID: 1637938475160536875}
+  m_Layer: 8
   m_Name: default
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,3 +111,32 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &6391651337331372442
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8121723071488849832}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -2432090755550338912, guid: 91c5b56925c404863b80ef88c06f64cb, type: 3}
+--- !u!114 &1637938475160536875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8121723071488849832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 366c2a8bac1c3934aa583e62ba5fddeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isUp: 1
+  masterDecalTag: 
+  maskDecalTag: 
