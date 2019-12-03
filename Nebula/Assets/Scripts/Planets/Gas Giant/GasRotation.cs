@@ -16,18 +16,12 @@ public class GasRotation : MonoBehaviour
 #endif
     #endregion
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        RingRotation.canRingRotate = false;
-    }
-
     // Update is called once per frame
     void Update()
     {
         #region debug gas rotation
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
-        if (DebugController.DebugEnabled && !RingRotation.canRingRotate)
+        if (DebugController.DebugEnabled)
         {
             if ((Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetMouseButton(0)) && !GasGiantController.gasDebugRotationLock)
             {
@@ -37,7 +31,7 @@ public class GasRotation : MonoBehaviour
 #endif
         #endregion
 
-        if ((Input.touchCount == 2) && !RingRotation.canRingRotate)
+        if ((Input.touchCount == 2))
         {
             GasRotator();
         }
