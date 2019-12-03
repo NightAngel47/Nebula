@@ -89,6 +89,9 @@ public class ScienceScreenBehavior : MonoBehaviour
 
     private void OnValidate()
     {
+        terrestrialFactsCSV = (TextAsset) Resources.Load("CSVs/TerrestrialFactsFile");
+        gasGiantFactsCSV = (TextAsset) Resources.Load("CSVs/GasGiantFactsFile");
+
         terrestrialFactRows = terrestrialFactsCSV.text.Split("\n"[0]); // Splits the CSV into an array of strings based on rows.
         gasGiantFactRows = gasGiantFactsCSV.text.Split("\n"[0]); // Splits the CSV into an array of strings based on rows.
     }
