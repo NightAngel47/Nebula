@@ -302,11 +302,62 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terrestrialFactsCSV: {fileID: 4900000, guid: 64d74fe386b122d468d89795a1061e9f, type: 3}
   gasGiantFactsCSV: {fileID: 4900000, guid: e956a6bf6933abe458c00d73381b5505, type: 3}
+  planetBaseNames:
+  - YZ Ceti
+  - Gliese 876
+  - 82 G. Eridani
+  - Gliese 581
+  - HR 8832
+  - 61 Virginis
+  - 54 Piscium
+  - Rho Coronae Borealis
+  - 55 Cancri
+  - HD 217107
+  - Pi Mensae
+  - 23 Librae
+  - 'Kepler-444 '
+  - Kepler-42
+  - HR 8799
+  - Gamma Librae
+  - HIP 14810
+  - Kepler-445
+  - Kepler-90
+  - Kepler-11
+  - Regulus
+  - WASP-47
+  - Mu Arae
+  - Upsilon Andromedae
+  - HD 40307
+  - HIP 57274
+  - HD 141399
+  - HD 10180
+  - HR 8799
+  - HD 34445
+  - Kepler-37
+  - Kepler-100
+  - Kepler-92
+  - Kepler-11
+  - Kepler-9
+  - Kepler-9
+  - HD 27894
+  - Kepler-1047
+  - HD 125612
+  - PSR B1257+12
+  - Kelper-289
+  - Kepler-1254
   planetNameText: {fileID: 8584377922418151065}
   factElements:
   - {fileID: 8584377922915698477}
   - {fileID: 3207333386885035550}
   - {fileID: 3207333385978187820}
+  terrestrialHaders:
+  - Starting Biome
+  - Most Painted Biome
+  - Atmosphere
+  gasGiantHeaders:
+  - Primary Gas
+  - Secondary Gas
+  - Ring System
 --- !u!1 &8584377924118303257
 GameObject:
   m_ObjectHideFlags: 0
@@ -957,6 +1008,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.wordCount
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 140227774354008834, guid: f787301cf6bdd6149bb7e5320d113599,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 140227774354008834, guid: f787301cf6bdd6149bb7e5320d113599,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 140227774354008834, guid: f787301cf6bdd6149bb7e5320d113599,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 140227774354008834, guid: f787301cf6bdd6149bb7e5320d113599,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 140227774354008834, guid: f787301cf6bdd6149bb7e5320d113599,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f787301cf6bdd6149bb7e5320d113599, type: 3}

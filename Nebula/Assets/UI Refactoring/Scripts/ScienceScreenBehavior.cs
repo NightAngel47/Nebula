@@ -16,7 +16,23 @@ public class ScienceScreenBehavior : MonoBehaviour
     private string[] factRows = new string[0];
     private List<int> rowsUsed = new List<int>();
 
-    [SerializeField] private string[] planetBaseNames =
+    private bool isGasGiant;
+
+    private GameObject planet;
+    /// <summary>
+    /// Gas Giant base planet color shader property
+    /// </summary>
+    private static readonly int PlanetColor = Shader.PropertyToID("_Planet_Color");
+    /// <summary>
+    /// Gas Giant bands color shader property
+    /// </summary>
+    private static readonly int ColorBands = Shader.PropertyToID("_Color_Bands");
+
+    private FactTypes? fact1 = null;
+    private FactTypes? fact2 = null;
+    private FactTypes? fact3 = null;
+
+    [SerializeField] private string[] planetBaseNames = 
     {
         "YZ Ceti",
         "Gliese 876",
@@ -66,6 +82,10 @@ public class ScienceScreenBehavior : MonoBehaviour
     [Header("Text Objects")]
     [SerializeField] private TMP_Text planetNameText = null;
     [SerializeField] private FactElementBehavior[] factElements = null;
+    
+    [Header("Fact Header text for Terrestial and Gas Giant")]
+    [SerializeField] private string[] terrestrialHaders = new string[3];
+    [SerializeField] private string[] gasGiantHeaders = new string[3];
 
     private void OnValidate()
     {
@@ -75,13 +95,122 @@ public class ScienceScreenBehavior : MonoBehaviour
 
     private void Awake()
     {
+        planet = GameObject.FindGameObjectWithTag("planet");
+        
         // selects which list of facts to use based on planet type
-        factRows = FindObjectOfType<GasGiantController>() ? gasGiantFactRows : terrestrialFactRows;
+        if (planet.GetComponent<GasGiantController>())
+        {
+            isGasGiant = true;
+            factRows = gasGiantFactRows;
+        }
+        else
+        {
+            isGasGiant = false;
+            factRows = terrestrialFactRows;
+        }
     }
 
     private void Start()
     {
-        InitalizeScienceScreen(PlanetNameGen());
+        DetermineFacts();
+        InitalizeScienceScreen(PlanetNameGen(), fact1, fact2, fact3);
+    }
+
+    private void DetermineFacts()
+    {
+        if (isGasGiant)
+        {
+            // ref to Gas Giant shader
+            Material planetMat = planet.GetComponent<MeshRenderer>().material;
+            var baseColor = planetMat.GetColor(PlanetColor);
+            var bandsColor = planetMat.GetColor(ColorBands);
+
+            GasGiantController gasGiant = planet.GetComponent<GasGiantController>();
+
+            #region determine base color fact
+
+            if (baseColor.Compare(gasGiant.baseColors[0]))
+            {
+                fact1 = FactTypes.Chlorine;
+            }
+            else if (baseColor.Compare(gasGiant.baseColors[1]))
+            {
+                fact1 = FactTypes.Ozone;
+            }
+            else if (baseColor.Compare(gasGiant.baseColors[2]))
+            {
+                fact1 = FactTypes.Fluorine;
+            }
+            else if (baseColor.Compare(gasGiant.baseColors[3]))
+            {
+                fact1 = FactTypes.Potassium;
+            }
+            else if (baseColor.Compare(gasGiant.baseColors[4]))
+            {
+                fact1 = FactTypes.Strontium;
+            }
+            else if (baseColor.Compare(gasGiant.baseColors[5]))
+            {
+                fact1 = FactTypes.Rubidium;
+            }
+            else if (baseColor.Compare(gasGiant.baseColors[6]))
+            {
+                fact1 = FactTypes.Hydrogen;
+            }
+            else if (baseColor.Compare(gasGiant.baseColors[7]))
+            {
+                fact1 = FactTypes.Bromine;
+            }
+
+            #endregion
+            
+            #region determine bands color fact
+
+            if (bandsColor.Compare(gasGiant.bandColors[0]))
+            {
+                fact2 = FactTypes.Barium;
+            }
+            else if (bandsColor.Compare(gasGiant.bandColors[1]))
+            {
+                fact2 = FactTypes.Ozone;
+            }
+            else if (bandsColor.Compare(gasGiant.bandColors[2]))
+            {
+                fact2 = FactTypes.Sodium;
+            }
+            else if (bandsColor.Compare(gasGiant.bandColors[3]))
+            {
+                fact2 = FactTypes.Iodine;
+            }
+            else if (bandsColor.Compare(gasGiant.bandColors[4]))
+            {
+                fact2 = FactTypes.Lithium;
+            }
+            else if (bandsColor.Compare(gasGiant.bandColors[5]))
+            {
+                fact2 = FactTypes.Calcium;
+            }
+            else if (bandsColor.Compare(gasGiant.bandColors[6]))
+            {
+                fact2 = FactTypes.Magnesium;
+            }
+            else if (bandsColor.Compare(gasGiant.bandColors[7]))
+            {
+                fact2 = FactTypes.NitrogenDioxide;
+            }
+
+            #endregion
+
+            fact3 = FactTypes.Rings;
+        }
+        else
+        {
+            //TODO determine based on placement
+            fact1 = FactTypes.Oceania;
+            fact2 = FactTypes.TemperateForest;
+            
+            fact3 = FactTypes.Atmosphere;
+        }
     }
 
     /// <summary> Initalizes the values within the ScienceScreen. </summary>
@@ -96,16 +225,31 @@ public class ScienceScreenBehavior : MonoBehaviour
         UpdatePlanetNameText(planetName);
 
         string[] factRow1 = GetNewFactRow(fact1);
-        factElements[0].UpdateHeaderText(factRow1[0]);  // Currently this just sets the header to the FactType.
-        factElements[0].UpdateInfoText(factRow1[1]);
-
         string[] factRow2 = GetNewFactRow(fact2);
-        factElements[1].UpdateHeaderText(factRow2[0]);  // Currently this just sets the header to the FactType.
-        factElements[1].UpdateInfoText(factRow2[1]);
-
         string[] factRow3 = GetNewFactRow(fact3);
-        factElements[2].UpdateHeaderText(factRow3[0]);  // Currently this just sets the header to the FactType.
-        factElements[2].UpdateInfoText(factRow3[1]);
+        
+        if (isGasGiant)
+        {
+            factElements[0].UpdateHeaderText(gasGiantHeaders[0]);
+            factElements[0].UpdateInfoText(factRow1[1]);
+
+            factElements[1].UpdateHeaderText(gasGiantHeaders[1]);
+            factElements[1].UpdateInfoText(factRow2[1]);
+
+            factElements[2].UpdateHeaderText(gasGiantHeaders[2]);
+            factElements[2].UpdateInfoText(factRow3[1]);
+        }
+        else
+        {
+            factElements[0].UpdateHeaderText(terrestrialHaders[0]);
+            factElements[0].UpdateInfoText(factRow1[1]);
+
+            factElements[1].UpdateHeaderText(terrestrialHaders[1]);
+            factElements[1].UpdateInfoText(factRow2[1]);
+
+            factElements[2].UpdateHeaderText(terrestrialHaders[2]);
+            factElements[2].UpdateInfoText(factRow3[1]);
+        }
     }
 
     /// <summary> Updates the value of planetNameText.text to the value of the given string. </summary>
@@ -157,6 +301,7 @@ public class ScienceScreenBehavior : MonoBehaviour
 
     public enum FactTypes
     {
+        // terrestrial
         ArcticTundra,
         Oceania,
         Savanna,
@@ -165,8 +310,9 @@ public class ScienceScreenBehavior : MonoBehaviour
         TemperateForest,
         TemperateGrasslands,
         TropicalDesert,
-        Terrestrial_Atmospheric,
-        Terrestrial_Other,
+        Atmosphere,
+        
+        // gas giant
         Barium,
         Bromine,
         Calcium,
@@ -181,8 +327,7 @@ public class ScienceScreenBehavior : MonoBehaviour
         Rubidium,
         Sodium,
         Strontium,
-        Gas_Color,
-        Gas_Rings,
-        Gas_Other,
+        Ozone,
+        Rings
     }
 }
