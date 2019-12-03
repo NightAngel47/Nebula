@@ -322,12 +322,15 @@ public class BiomePainter : MonoBehaviour
         
         // check for terrain in sphere radius of hit
         RaycastHit[] hits = new RaycastHit[terrainCheckSize];
-        for(int i = 0; i < Physics.SphereCastNonAlloc(cursorRay, 0.05f, hits, 50f, terrainCheckLayers, QueryTriggerInteraction.Collide); ++i)
+        int debugCount = 0;
+        for(int i = 0; i < Physics.SphereCastNonAlloc(cursorRay, 0.5f, hits, 50f, terrainCheckLayers, QueryTriggerInteraction.Collide); ++i)
         {
+            debugCount++;
             if (!(hits[i].point.z <= 0)) continue;
             
             hits[i].collider.GetComponent<TerrainBehaviour>().CheckBiome();
         }
+        print(debugCount);
     }
     
     /// <summary>
@@ -365,5 +368,15 @@ public class BiomePainter : MonoBehaviour
         {
             uvPos.position -= displacementVec;
         }
+    }
+    
+    private void OnDrawGizmos()
+    {
+        /*
+        Vector3 cursorPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.0f);
+        Ray cursorRay = mainCam.ScreenPointToRay(cursorPos);
+        Physics.Raycast(cursorRay, out var hit, 50, biomeCheckLayers);
+        Gizmos.DrawWireSphere(hit.point, 0.055f);
+        */
     }
 }

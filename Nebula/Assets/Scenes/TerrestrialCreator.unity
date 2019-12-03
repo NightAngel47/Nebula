@@ -4160,7 +4160,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   startBiome: Ocean
-  terrainCheckSize: 100
+  terrainCheckSize: 10
   defaultPlanetBiome: 
   mostUsedBiome: 
 --- !u!1 &615415941
@@ -11788,7 +11788,7 @@ MonoBehaviour:
   terrainCheckLayers:
     serializedVersion: 2
     m_Bits: 256
-  terrainCheckSize: 100
+  terrainCheckSize: 15
   terrainEraser: {fileID: 7891452434980419166, guid: c67c69a896290c046b5aaacd333723d8,
     type: 3}
 --- !u!114 &1667172237

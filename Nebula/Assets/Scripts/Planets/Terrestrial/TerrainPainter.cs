@@ -203,7 +203,7 @@ public class TerrainPainter : MonoBehaviour
         
         // check for terrain collision
         RaycastHit[] hits = new RaycastHit[terrainCheckSize];
-        if (Physics.SphereCastNonAlloc(cursorRay, 0.05f, hits, 50, terrainCheckLayers) >= 1) return;
+        if (Physics.SphereCastNonAlloc(cursorRay, 0.055f, hits, 50, terrainCheckLayers) >= 1) return;
         
         // spawn terrain
         GameObject terrain = Instantiate(selectedTerrain, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal), planet);
