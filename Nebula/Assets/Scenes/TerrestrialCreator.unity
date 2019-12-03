@@ -4156,6 +4156,8 @@ MonoBehaviour:
     m_Bits: 256
   startBiome: Ocean
   terrainCheckSize: 100
+  defaultPlanetBiome: 
+  mostUsedBiome: 
 --- !u!1 &615415941
 GameObject:
   m_ObjectHideFlags: 0
@@ -13846,7 +13848,7 @@ MonoBehaviour:
   Help_Button: {fileID: 986660077}
   VerifyFinish: {fileID: 1963355296}
   VerifyExit: {fileID: 1929932422}
-  Tmax: 6
+  Tmax: 10
 --- !u!4 &1912458177
 Transform:
   m_ObjectHideFlags: 0
