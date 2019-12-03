@@ -21,8 +21,17 @@ public class FactElementBehavior : MonoBehaviour
 
     /// <summary> Updates the value of infoText.text to the value of the given string. </summary>
     /// <param name="text"> The value to set infoText.text to. </param>
-    public void UpdateInfoText(string text)
+    public void UpdateInfoText(string[] text)
     {
-        infoText.text = text;
+        
+        string finalText = "";
+
+        for (int i = 1; i < text.Length; ++i)
+        {
+            finalText += text[i];
+        }
+        
+        
+        infoText.text = finalText;
     }
 }

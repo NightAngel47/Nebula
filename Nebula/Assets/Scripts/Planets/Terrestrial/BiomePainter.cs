@@ -92,7 +92,16 @@ public class BiomePainter : MonoBehaviour
     private string startBiome;
     [SerializeField, Tooltip("The amount of terrain objects to check per biome placement")]
     private int terrainCheckSize = 10;
-
+    
+    /// <summary>
+    /// The name of the planet's starting biome
+    /// </summary>
+    public string defaultPlanetBiome;
+    /// <summary>
+    /// The name of the most used biome
+    /// </summary>
+    public string mostUsedBiome;
+    
     #endregion
 
     #region To Paint Variables
@@ -211,6 +220,9 @@ public class BiomePainter : MonoBehaviour
     {
         var biomeValues = Enum.GetValues(typeof(BiomeNames));
         BiomeNames defualtBiome = (BiomeNames) biomeValues.GetValue(Random.Range(0, biomeValues.Length));
+
+        defaultPlanetBiome = defualtBiome.ToString();
+        mostUsedBiome= defualtBiome.ToString();
         
         // send analytics
         analytics.SetStartingBiome(selectedBiome.ToString());

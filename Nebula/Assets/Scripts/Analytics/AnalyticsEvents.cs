@@ -50,6 +50,8 @@ public class AnalyticsEvents : MonoBehaviour
 
     #region Terrestrial Data Vars
 
+    private BiomePainter bp;
+    
     /// <summary>
     /// The starting biome for the terrestrial planet
     /// </summary>
@@ -133,7 +135,7 @@ public class AnalyticsEvents : MonoBehaviour
                 // Set data path to terrestrial analytics file
                 _dataPath += "TerrestrialAnalytics.csv";
                 
-                // Get terrain names
+                bp = FindObjectOfType<BiomePainter>();
                 _terrestrialTerrain = FindObjectOfType<TerrainSelect>().terrainObjects;
                 SetupBiomeTracking();
 
@@ -375,8 +377,17 @@ public class AnalyticsEvents : MonoBehaviour
                 _collectedData.Add("Starting Biome", _terrestrialStartBiome);
                 
                 // add in biome usage
-                foreach (var biomeName in _terrestiralBiomeNames)
+                int mostUsedBiomeCount = 0;
+                foreach (string biomeName in _terrestiralBiomeNames)
                 {
+                    // checks most used
+                    if (_terrestrialBiomeCounts[_terrestiralBiomeNames.IndexOf(biomeName)] > mostUsedBiomeCount)
+                    {
+                        mostUsedBiomeCount = _terrestrialBiomeCounts[_terrestiralBiomeNames.IndexOf(biomeName)];
+                        bp.mostUsedBiome = biomeName;
+                    }
+                    
+                    // adds data
                     _collectedData.Add(biomeName, _terrestrialBiomeCounts[_terrestiralBiomeNames.IndexOf(biomeName)]);
                 }
                 

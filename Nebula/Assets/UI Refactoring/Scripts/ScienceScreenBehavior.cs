@@ -95,7 +95,7 @@ public class ScienceScreenBehavior : MonoBehaviour
 
     private void Awake()
     {
-        planet = GameObject.FindGameObjectWithTag("planet");
+        planet = GameObject.FindGameObjectWithTag("Planet");
         
         // selects which list of facts to use based on planet type
         if (planet.GetComponent<GasGiantController>())
@@ -205,9 +205,85 @@ public class ScienceScreenBehavior : MonoBehaviour
         }
         else
         {
-            //TODO determine based on placement
-            fact1 = FactTypes.Oceania;
-            fact2 = FactTypes.TemperateForest;
+            BiomePainter bp = FindObjectOfType<BiomePainter>();
+
+            #region determine default biome
+
+            if (bp.defaultPlanetBiome == BiomePainter.BiomeNames.Ocean.ToString())
+            {
+                fact1 = FactTypes.Oceania;
+            }
+            else if (bp.defaultPlanetBiome == BiomePainter.BiomeNames.Savana.ToString())
+            {
+                fact1 = FactTypes.Savanna;
+            }
+            else if (bp.defaultPlanetBiome == BiomePainter.BiomeNames.Ice.ToString())
+            {
+                fact1 = FactTypes.ArcticTundra;
+            }
+            else if (bp.defaultPlanetBiome == BiomePainter.BiomeNames.Plains.ToString())
+            {
+                fact1 = FactTypes.TemperateGrasslands;
+            }
+            else if (bp.defaultPlanetBiome == BiomePainter.BiomeNames.Tropical.ToString())
+            {
+                fact1 = FactTypes.TropicalDesert;
+            }
+            else if (bp.defaultPlanetBiome == BiomePainter.BiomeNames.Temperate.ToString())
+            {
+                fact1 = FactTypes.TemperateDesert;
+            }
+            else if (bp.defaultPlanetBiome == BiomePainter.BiomeNames.Coniferous.ToString())
+            {
+                fact1 = FactTypes.TemperateForest;
+            }
+            else if (bp.defaultPlanetBiome == BiomePainter.BiomeNames.Taiga.ToString())
+            {
+                fact1 = FactTypes.TaigaForest;
+            }
+
+            #endregion
+            
+            #region determine most used biome
+
+            if (bp.mostUsedBiome == bp.defaultPlanetBiome)
+            {
+                fact2 = FactTypes.SingleBiome;
+            }
+            else if (bp.mostUsedBiome == BiomePainter.BiomeNames.Ocean.ToString())
+            {
+                fact2 = FactTypes.Oceania;
+            }
+            else if (bp.mostUsedBiome == BiomePainter.BiomeNames.Savana.ToString())
+            {
+                fact2 = FactTypes.Savanna;
+            }
+            else if (bp.mostUsedBiome == BiomePainter.BiomeNames.Ice.ToString())
+            {
+                fact2 = FactTypes.ArcticTundra;
+            }
+            else if (bp.mostUsedBiome == BiomePainter.BiomeNames.Plains.ToString())
+            {
+                fact2 = FactTypes.TemperateGrasslands;
+            }
+            else if (bp.mostUsedBiome == BiomePainter.BiomeNames.Tropical.ToString())
+            {
+                fact2 = FactTypes.TropicalDesert;
+            }
+            else if (bp.mostUsedBiome == BiomePainter.BiomeNames.Temperate.ToString())
+            {
+                fact2 = FactTypes.TemperateDesert;
+            }
+            else if (bp.mostUsedBiome == BiomePainter.BiomeNames.Coniferous.ToString())
+            {
+                fact2 = FactTypes.TemperateForest;
+            }
+            else if (bp.mostUsedBiome == BiomePainter.BiomeNames.Taiga.ToString())
+            {
+                fact2 = FactTypes.TaigaForest;
+            }
+
+            #endregion
             
             fact3 = FactTypes.Atmosphere;
         }
@@ -231,24 +307,24 @@ public class ScienceScreenBehavior : MonoBehaviour
         if (isGasGiant)
         {
             factElements[0].UpdateHeaderText(gasGiantHeaders[0]);
-            factElements[0].UpdateInfoText(factRow1[1]);
+            factElements[0].UpdateInfoText(factRow1);
 
             factElements[1].UpdateHeaderText(gasGiantHeaders[1]);
-            factElements[1].UpdateInfoText(factRow2[1]);
+            factElements[1].UpdateInfoText(factRow2);
 
             factElements[2].UpdateHeaderText(gasGiantHeaders[2]);
-            factElements[2].UpdateInfoText(factRow3[1]);
+            factElements[2].UpdateInfoText(factRow3);
         }
         else
         {
             factElements[0].UpdateHeaderText(terrestrialHaders[0]);
-            factElements[0].UpdateInfoText(factRow1[1]);
+            factElements[0].UpdateInfoText(factRow1);
 
             factElements[1].UpdateHeaderText(terrestrialHaders[1]);
-            factElements[1].UpdateInfoText(factRow2[1]);
+            factElements[1].UpdateInfoText(factRow2);
 
             factElements[2].UpdateHeaderText(terrestrialHaders[2]);
-            factElements[2].UpdateInfoText(factRow3[1]);
+            factElements[2].UpdateInfoText(factRow3);
         }
     }
 
@@ -276,18 +352,29 @@ public class ScienceScreenBehavior : MonoBehaviour
             return factRows[randomIndex].Replace("\"", string.Empty).Split(","[0]);
         }
 
+        List<string[]> factTypeRows = new List<string[]>();
+        List<int> factTypeRowIndexes = new List<int>();
+        
         for (int rowIndex = 0; rowIndex < factRows.Length; rowIndex++)
         {
             string[] row = factRows[rowIndex].Replace("\"", string.Empty).Split(","[0]);    // Removes quotation marks and spilts the row based on the comma.
 
             if (factType.ToString() == row[0] && !rowsUsed.Contains(rowIndex))
             {
-                rowsUsed.Add(rowIndex);
-                return row;
+                factTypeRows.Add(row);
+                factTypeRowIndexes.Add(rowIndex);
             }
         }
 
-        return new string[] { "FactType Not Found" , "Fact Not Found" };
+        if (factTypeRows.Count > 0)
+        {
+            // selects random fact from possible factType facts
+            int randFact = Random.Range(0, factTypeRows.Count);
+            rowsUsed.Add(factTypeRowIndexes[randFact]);
+            return factTypeRows[randFact];
+        }
+
+        return new string[] { "FactType: " + factType , "Fact Not Found" };
     }
     
     /// <summary>
@@ -311,6 +398,7 @@ public class ScienceScreenBehavior : MonoBehaviour
         TemperateGrasslands,
         TropicalDesert,
         Atmosphere,
+        SingleBiome,
         
         // gas giant
         Barium,
