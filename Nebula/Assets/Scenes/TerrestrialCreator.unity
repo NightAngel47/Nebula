@@ -3594,6 +3594,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DebugManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8750766019869486647, guid: 8791c821dda748d4994cadcce855177f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8750766019869486641, guid: 8791c821dda748d4994cadcce855177f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4375,7 +4380,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &657240854
 GameObject:
@@ -11799,21 +11804,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terrainObjects:
-  - {fileID: 5940134761172989149, guid: e46e9355881fc104e8ff33d62acf8782, type: 3}
-  - {fileID: 5197553478175130562, guid: d21fdfd9b0ec63a43986edccd43da3dc, type: 3}
-  - {fileID: 5161480036454553249, guid: 591123ff4ac295346872c9139408628c, type: 3}
-  - {fileID: 3690760201690583808, guid: 5deea085809460344890c65b72780fb6, type: 3}
-  - {fileID: 6134768152592913171, guid: 61a66e97dafa2d64b9b351289735b6ac, type: 3}
-  - {fileID: 3949149549359191000, guid: 86199d97dae332d48a0179777ff21c28, type: 3}
-  - {fileID: 428566308308693705, guid: 2f50df0be6fccfd4c92b75fb98bb6aa7, type: 3}
-  - {fileID: 1041255745387430782, guid: 68d8acd767c33b54e8d0e12175e51138, type: 3}
-  - {fileID: 64071519825591325, guid: 33936c7fb76ded94e8093690f2f29bd2, type: 3}
-  - {fileID: 4725492717722511193, guid: 6e6a8f7abb5ca5a4faaf993c16b33e43, type: 3}
-  - {fileID: 8643936280846410849, guid: 3a9a09461da88af40803dc8802179abe, type: 3}
-  - {fileID: 2696429253573620707, guid: 204e74e38018d0447838fbeec9540c1a, type: 3}
-  - {fileID: 1862695764788190887, guid: b3430dd41bcb4794eba86a61ef03119b, type: 3}
-  - {fileID: 1816624884864742936, guid: 0ed4f39951fced54b885c9c966f1441a, type: 3}
-  - {fileID: 7579925497624014296, guid: 784138bdd15d4164fb3dc348cdf2b90a, type: 3}
   - {fileID: 5984967840365340169, guid: 5f662969a12d9604d86c1fe887ce4377, type: 3}
   - {fileID: 5611561828773642441, guid: 6789d943aea43d34e980a7712a337e3b, type: 3}
   - {fileID: 2666179309780768897, guid: 43e8c94fa5eefcf4aa53bdbc0c0d026d, type: 3}
@@ -11823,10 +11813,22 @@ MonoBehaviour:
   - {fileID: 1893771387082192732, guid: 0f02ead77755ed847918b2b1cbeb32ad, type: 3}
   - {fileID: 2358305888304304693, guid: 2fab67900d1594246a1593ff6fe37ab7, type: 3}
   - {fileID: 7363677025600054426, guid: 5700f8480e76acd468e8d3f5f7c41ab1, type: 3}
+  - {fileID: 3278506620851675991, guid: a5811f975a5961c498eedb5744c77498, type: 3}
+  - {fileID: 5436202520618204706, guid: 6650f370f84b2244e9347cee7ef085ce, type: 3}
+  - {fileID: 6661080698964095705, guid: 715c899521e3597418864e15071a6554, type: 3}
   - {fileID: 4335646449749313895, guid: 13a591b8cd28ea541b7c821223fb59b0, type: 3}
   - {fileID: 2629497628320699479, guid: e5fc32f9130bc02469cd6b1ed788f0a1, type: 3}
   - {fileID: 7087884935577491282, guid: 822eae5fb7c66df4e9e578e65178696c, type: 3}
   - {fileID: 3521727763733853464, guid: 4afece46c2388854e9f3bb1a82300750, type: 3}
+  - {fileID: 6661080698964095705, guid: ac6ff66f73d1bce48ad36d8f666a9f55, type: 3}
+  - {fileID: 55462487478213387, guid: 4f9f6062091a18b428e6b792b98bed49, type: 3}
+  - {fileID: 4205458833916907313, guid: 55dded3547bc70d4fa5ca9636aac99f4, type: 3}
+  - {fileID: 4414020973119335589, guid: 2548ceabeb9785f4189a8a7bc0f30a1d, type: 3}
+  - {fileID: 3116194917111439111, guid: fa3d5433dbf064744af38cb7e2f109d7, type: 3}
+  - {fileID: 1619367660649466029, guid: a24b9dc1e4cd8e542a7080741ed37178, type: 3}
+  - {fileID: 5465533463531320735, guid: 58dab7546631b13498af60fea7748ff6, type: 3}
+  - {fileID: 7944571085389008844, guid: 035420b3b06fee345b4f93f452991380, type: 3}
+  - {fileID: 6332312865877571963, guid: e72e7ed1fa31ac34fa7501c479ccf710, type: 3}
 --- !u!1 &1693566618
 GameObject:
   m_ObjectHideFlags: 0
@@ -16002,7 +16004,7 @@ PrefabInstance:
     - target: {fileID: 503420983271405818, guid: e83b43468b6e82847a0f65d3d302a123,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 503420983271405818, guid: e83b43468b6e82847a0f65d3d302a123,
         type: 3}

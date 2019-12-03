@@ -102,13 +102,13 @@ public class TerrainBehaviour : MonoBehaviour
         // spawn new terrain
         var pos = transform;
         GameObject spawnedTerrain = Instantiate(selectedTerrain, pos.position, pos.rotation, planet);
-        spawnedTerrain.GetComponent<TerrainBehaviour>().SetTerrainValues(hitMaster.collider.tag, hitMask.collider.tag, uvPos);
+        spawnedTerrain.GetComponentInChildren<TerrainBehaviour>().SetTerrainValues(hitMaster.collider.tag, hitMask.collider.tag, uvPos);
         
         //print("<b>GameObject: </b>" + gameObject.name + " <b>Parent: </b>" + spawnedTerrain.transform.parent.name);
         //Debug.Log("<b>Old Master:</b> " + masterDecalTag + "<b> New Master:</b> " + hitMaster.collider.tag + " <b>Old Mask:</b> " + maskDecalTag + " <b>New Mask:</b> " + hitMask.collider.tag + " <b>Old Terrain:</b> " + gameObject.name + " <b>New Terrain:</b> " + selectedTerrain.name);
 
-        // destroy old
-        Destroy(gameObject);
+        // destroy old (parent)
+        Destroy(gameObject.transform.parent.gameObject);
     }
 
     /// <summary>
@@ -116,9 +116,10 @@ public class TerrainBehaviour : MonoBehaviour
     /// </summary>
     private void FixErrors()
     {
-        if(gameObject.transform.parent == null)
+        // is parent's parent planet
+        if (gameObject.transform.parent.parent == null)
         {
-            Destroy(gameObject);
+            Destroy(gameObject.transform.parent.gameObject);
         }
     }
 }

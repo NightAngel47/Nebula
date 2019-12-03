@@ -78,7 +78,7 @@ public class PlacementAudio : MonoBehaviour
     /// Chooses what terrain audio clip to play
     /// </summary>
     /// <param name="selectedTerrain">Selected terrain</param>
-    public void ChooseTerrainAudio(GameObject selectedTerrain)
+    /*public void ChooseTerrainAudio(GameObject selectedTerrain)
     {
         if (selectedTerrain == ts.terrainObjects[(int) TerrainSelect.TerrainNames.Pine] ||
             selectedTerrain == ts.terrainObjects[(int) TerrainSelect.TerrainNames.PineSnowy])
@@ -101,5 +101,5 @@ public class PlacementAudio : MonoBehaviour
             audioSource.clip = placeAudioClips[6];
         else
             audioSource.clip = placeAudioClips[9];
-    }
+    }*/
 }

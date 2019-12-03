@@ -312,7 +312,7 @@ public class AnalyticsEvents : MonoBehaviour
             {
                 foreach (var terrain in terrainFeatures)
                 {
-                    if (terrain.name == feature.name + "(Clone)")
+                    if (terrain.transform.parent.name == feature.name + "(Clone)")
                     {
                         ++featureCount;
                     }

@@ -11,25 +11,9 @@ public class TerrainSelect : MonoBehaviour
 
     /// <summary>
     /// The names of the terrainObjects in order.
-    /// WILL NEED TO CHANGE WITH FINAL ART!
     /// </summary>
     public enum TerrainNames
     {
-        Pine,
-        PineSnowy,
-        Palm,
-        Cacti,
-        Stump,
-        Rock,
-        Hill,
-        HillSnowy,
-        Mountain,
-        IceChunk,
-        Bush,
-        Plateau,
-        RockDesert,
-        Volcano,
-        Island,
         IceSheet,
         Iceberg,
         TundraIsland,
@@ -39,10 +23,22 @@ public class TerrainSelect : MonoBehaviour
         BirchTree,
         DeciduousRock,
         OakTree,
+        Cactus,
+        JoshuaTree,
+        TemperateShrub,
         Flower1,
         Flower2,
         Flower3,
-        Grass
+        Grass,
+        AbalShrub,
+        AcaciaTree,
+        ElephantGrass,
+        Palm,
+        TopicalRock,
+        TropicalShrub,
+        Algae,
+        Island,
+        Volcano
     };
 
     /// <summary>
@@ -86,20 +82,44 @@ public class TerrainSelect : MonoBehaviour
             }
             else if (maskDecalTag == MaskNames.Green.ToString()) // savanna
             {
-                return isUp ? terrainObjects[(int) TerrainNames.RockDesert] : terrainObjects[(int) TerrainNames.Cacti];
+                if (isUp)
+                {
+                    return terrainObjects[(int) TerrainNames.AcaciaTree];
+                }
+                else
+                {
+                    float randNum = Random.value;
+                    return randNum >= 0.5f ? terrainObjects[(int) TerrainNames.AbalShrub] : terrainObjects[(int) TerrainNames.ElephantGrass];
+                }
             }
-            else // tropical
+            else // tropical desert
             {
-                return isUp ? terrainObjects[(int) TerrainNames.Plateau] : terrainObjects[(int) TerrainNames.Cacti];
+                if (isUp)
+                {
+                    return terrainObjects[(int) TerrainNames.TopicalRock];
+                }
+                else
+                {
+                    float randNum = Random.value;
+                    return randNum >= 0.5f ? terrainObjects[(int) TerrainNames.Palm] : terrainObjects[(int) TerrainNames.TropicalShrub];
+                }
             }
         }
         else if (masterDecalTag == MaskNames.Green.ToString())
         {
-            if (maskDecalTag == MaskNames.Red.ToString()) // temperate
+            if (maskDecalTag == MaskNames.Red.ToString()) // temperate desert
             {
-                return isUp ? terrainObjects[(int) TerrainNames.Mountain] : terrainObjects[(int) TerrainNames.PineSnowy];
+                if (isUp)
+                {
+                    return terrainObjects[(int) TerrainNames.JoshuaTree];
+                }
+                else
+                {
+                    float randNum = Random.value;
+                    return randNum >= 0.5f ? terrainObjects[(int) TerrainNames.Cactus] : terrainObjects[(int) TerrainNames.TemperateShrub];
+                }
             }
-            else if (maskDecalTag == MaskNames.Green.ToString()) // coniferous
+            else if (maskDecalTag == MaskNames.Green.ToString()) // coniferous forest
             {
                 if (isUp)
                 {
@@ -128,7 +148,15 @@ public class TerrainSelect : MonoBehaviour
         {
             if (maskDecalTag == MaskNames.Red.ToString()) // ocean
             {
-                return isUp ? terrainObjects[(int) TerrainNames.Volcano] : terrainObjects[(int) TerrainNames.Island];
+                if (isUp)
+                {
+                    return terrainObjects[(int) TerrainNames.Volcano];
+                }
+                else
+                {
+                    float randNum = Random.value;
+                    return randNum >= 0.5f ? terrainObjects[(int) TerrainNames.Algae] : terrainObjects[(int) TerrainNames.Island];
+                }
             }
             else // ice
             {

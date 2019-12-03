@@ -99,11 +99,11 @@ public class TerrainPainter : MonoBehaviour
             Vector3 cursorPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.0f);
             Ray cursorRay = mainCam.ScreenPointToRay(cursorPos);
             SpawnTerrain(cursorRay);
-            placementAudio.PlayPlacementAudio();
+            //placementAudio.PlayPlacementAudio();
         }
         else
         {
-            placementAudio.StopPlacementAudio();
+            //placementAudio.StopPlacementAudio();
         }
         
         #region debug painting controls
@@ -113,11 +113,11 @@ public class TerrainPainter : MonoBehaviour
             Vector3 cursorPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.0f);
             Ray cursorRay = mainCam.ScreenPointToRay(cursorPos);
             SpawnTerrain(cursorRay);
-            placementAudio.PlayPlacementAudio();
+            //placementAudio.PlayPlacementAudio();
         }
         else
         {
-            placementAudio.StopPlacementAudio();
+            //placementAudio.StopPlacementAudio();
         }
 #endif
         #endregion
@@ -184,7 +184,7 @@ public class TerrainPainter : MonoBehaviour
         }
         
         // choose terrain audio
-        placementAudio.ChooseTerrainAudio(selectedTerrain);
+        //placementAudio.ChooseTerrainAudio(selectedTerrain);
         
         SpawnTerrainEraser(cursorRay);
     }
@@ -208,7 +208,7 @@ public class TerrainPainter : MonoBehaviour
         // spawn terrain
         GameObject terrain = Instantiate(selectedTerrain, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal), planet);
         transform.Rotate(Vector3.up, Random.Range(0, 45));
-        terrain.GetComponent<TerrainBehaviour>().SetTerrainValues(masterDecalTag, maskDecalTag, uvPos);
+        terrain.GetComponentInChildren<TerrainBehaviour>().SetTerrainValues(masterDecalTag, maskDecalTag, uvPos);
     }
 
     /// <summary>
