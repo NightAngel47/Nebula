@@ -89,14 +89,23 @@ public class ScienceScreenBehavior : MonoBehaviour
 
     private void OnValidate()
     {
-        terrestrialFactsCSV = (TextAsset) Resources.Load("CSVs/TerrestrialFactsFile");
-        gasGiantFactsCSV = (TextAsset) Resources.Load("CSVs/GasGiantFactsFile");
+        terrestrialFactsCSV = Resources.Load<TextAsset>("CSVs/TerrestrialFactsFile");
+        gasGiantFactsCSV = Resources.Load<TextAsset>("CSVs/GasGiantFactsFile");
 
         terrestrialFactRows = terrestrialFactsCSV.text.Split("\n"[0]); // Splits the CSV into an array of strings based on rows.
         gasGiantFactRows = gasGiantFactsCSV.text.Split("\n"[0]); // Splits the CSV into an array of strings based on rows.
     }
 
-    private void Awake()
+    /*private void Awake()
+    {
+        terrestrialFactsCSV = Resources.Load<TextAsset>("Assets/UI Refactoring/Resources/CSVs/TerrestrialFactsFile");
+        gasGiantFactsCSV = Resources.Load<TextAsset>("Assets/UI Refactoring/Resources/CSVs/GasGiantFactsFile");
+
+        terrestrialFactRows = terrestrialFactsCSV.text.Split("\n"[0]); // Splits the CSV into an array of strings based on rows.
+        gasGiantFactRows = gasGiantFactsCSV.text.Split("\n"[0]); // Splits the CSV into an array of strings based on rows.
+    }*/
+
+    private void Start()
     {
         planet = GameObject.FindGameObjectWithTag("Planet");
         
@@ -111,10 +120,7 @@ public class ScienceScreenBehavior : MonoBehaviour
             isGasGiant = false;
             factRows = terrestrialFactRows;
         }
-    }
-
-    private void Start()
-    {
+        
         DetermineFacts();
         InitalizeScienceScreen(PlanetNameGen(), fact1, fact2, fact3);
     }
@@ -238,11 +244,11 @@ public class ScienceScreenBehavior : MonoBehaviour
             }
             else if (bp.defaultPlanetBiome == BiomePainter.BiomeNames.Coniferous.ToString())
             {
-                fact1 = FactTypes.TemperateForest;
-            }
-            else if (bp.defaultPlanetBiome == BiomePainter.BiomeNames.Taiga.ToString())
-            {
                 fact1 = FactTypes.TaigaForest;
+            }
+            else if (bp.defaultPlanetBiome == BiomePainter.BiomeNames.Taiga.ToString()) // taiga is mislabeled, represents deciduous
+            {
+                fact1 = FactTypes.TemperateForest;
             }
 
             #endregion

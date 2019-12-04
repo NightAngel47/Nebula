@@ -131,7 +131,7 @@ public class TerrainSelect : MonoBehaviour
                     return terrainObjects[(int) TerrainNames.ConiferousTree];
                 }
             }
-            else // taiga
+            else // taiga (taiga is mislabeled, represents deciduous)
             {
                 if (isUp)
                 {

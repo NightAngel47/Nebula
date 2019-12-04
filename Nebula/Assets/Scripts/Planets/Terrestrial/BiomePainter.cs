@@ -76,7 +76,7 @@ public class BiomePainter : MonoBehaviour
         Savana,
         Tropical,
         Coniferous,
-        Taiga,
+        Taiga, // taiga is mislabeled, represents deciduous
         Temperate,
         Ice,
         Ocean
