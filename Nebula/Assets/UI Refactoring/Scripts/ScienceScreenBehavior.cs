@@ -96,14 +96,14 @@ public class ScienceScreenBehavior : MonoBehaviour
         gasGiantFactRows = gasGiantFactsCSV.text.Split("\n"[0]); // Splits the CSV into an array of strings based on rows.
     }
 
-    /*private void Awake()
+    private void Awake()
     {
-        terrestrialFactsCSV = Resources.Load<TextAsset>("Assets/UI Refactoring/Resources/CSVs/TerrestrialFactsFile");
-        gasGiantFactsCSV = Resources.Load<TextAsset>("Assets/UI Refactoring/Resources/CSVs/GasGiantFactsFile");
+        terrestrialFactsCSV = Resources.Load<TextAsset>("CSVs/TerrestrialFactsFile");
+        gasGiantFactsCSV = Resources.Load<TextAsset>("CSVs/GasGiantFactsFile");
 
         terrestrialFactRows = terrestrialFactsCSV.text.Split("\n"[0]); // Splits the CSV into an array of strings based on rows.
         gasGiantFactRows = gasGiantFactsCSV.text.Split("\n"[0]); // Splits the CSV into an array of strings based on rows.
-    }*/
+    }
 
     private void Start()
     {
