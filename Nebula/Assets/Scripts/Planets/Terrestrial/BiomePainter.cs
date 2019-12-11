@@ -322,16 +322,13 @@ public class BiomePainter : MonoBehaviour
         
         // check for terrain in sphere radius of hit
 
-        int debugCount = 0;
         foreach (var hit in Physics.SphereCastAll(cursorRay, terrainCheckRadius, 50f, terrainCheckLayers, QueryTriggerInteraction.Collide))
         {
-            ++debugCount;
             if (hit.point.z <= 0)
             {
                 hit.collider.GetComponent<TerrainBehaviour>().CheckBiome();
             }
         }
-        print(debugCount);
     }
     
     /// <summary>

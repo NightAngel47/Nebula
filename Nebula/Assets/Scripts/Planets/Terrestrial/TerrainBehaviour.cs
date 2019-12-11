@@ -93,17 +93,18 @@ public class TerrainBehaviour : MonoBehaviour
         // check mask cam for mask cam decal tag and send to terrain select
         if (!Physics.Raycast(checkMaskCamPos + uvPos, Vector3.forward, out var hitMask)) return;
         
-        // spawns new terrain
+        // selects new terrain and adds terrain behaviour data
         GameObject selectedTerrain = ts.SelectedTerrain(hitMaster.collider.tag, hitMask.collider.tag, isUp);
 
         // check if same terrain
-        if (gameObject.name.Contains(selectedTerrain.name)) return;
-        
+        if (hitMaster.collider.CompareTag(masterDecalTag) && hitMask.collider.CompareTag(maskDecalTag)) return;
+        //Debug.Log("<b>Old Master:</b> " + masterDecalTag + "<b> New Master:</b> " + hitMaster.collider.tag + " <b>Old Mask:</b> " + maskDecalTag + " <b>New Mask:</b> " + hitMask.collider.tag + " <b>Old Terrain:</b> " + transform.parent.name + " <b>New Terrain:</b> " + selectedTerrain.name);
+
         // spawn new terrain
         var pos = transform;
         GameObject spawnedTerrain = Instantiate(selectedTerrain, pos.position, pos.rotation, planet);
         spawnedTerrain.GetComponentInChildren<TerrainBehaviour>().SetTerrainValues(hitMaster.collider.tag, hitMask.collider.tag, uvPos);
-        
+
         //print("<b>GameObject: </b>" + gameObject.name + " <b>Parent: </b>" + spawnedTerrain.transform.parent.name);
         //Debug.Log("<b>Old Master:</b> " + masterDecalTag + "<b> New Master:</b> " + hitMaster.collider.tag + " <b>Old Mask:</b> " + maskDecalTag + " <b>New Mask:</b> " + hitMask.collider.tag + " <b>Old Terrain:</b> " + gameObject.name + " <b>New Terrain:</b> " + selectedTerrain.name);
 
