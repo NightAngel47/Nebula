@@ -97,7 +97,13 @@ public class TerrainPainter : MonoBehaviour
         toolSelect = FindObjectOfType<ToolSelect>();
         placementAudio = FindObjectOfType<PlacementAudio>();
     }
-    
+
+    private void Start()
+    {
+        // sets starting tool to plants
+        TerrainOption("Plants");
+    }
+
     void Update()
     {
         if (Input.touchCount == 1 && Input.touchCount != 2 && Input.GetTouch(0).phase == TouchPhase.Moved && toolSelect.toolSelected == ToolSelect.Tools.Terrain)
