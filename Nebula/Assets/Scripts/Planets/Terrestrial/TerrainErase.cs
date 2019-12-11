@@ -6,17 +6,14 @@ public class TerrainErase : MonoBehaviour
 {
     void Start()
     {
-        Invoke("DestroyThis", 0.5f);
+        Invoke(nameof(DestroyThis), 0.5f);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Terrain"))
         {
-            if (other.tag != "Planet")
-            {
-                Destroy(other.gameObject);
-            }
+            Destroy(other.transform.parent.gameObject);
         }
     }
 
