@@ -218,7 +218,7 @@ public class TerrainPainter : MonoBehaviour
         
         // spawn terrain
         GameObject terrain = Instantiate(selectedTerrain, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal), planet);
-        transform.Rotate(Vector3.up, Random.Range(0, 45));
+        terrain.transform.Rotate(Vector3.up, Random.Range(0, 90));
         terrain.GetComponentInChildren<TerrainBehaviour>().SetTerrainValues(masterDecalTag, maskDecalTag, uvPos);
     }
 
