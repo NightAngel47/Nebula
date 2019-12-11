@@ -44,7 +44,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 1
+  m_GIWorkflowMode: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -1244,6 +1244,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2285982471395764274, guid: 0f02ead77755ed847918b2b1cbeb32ad,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.00737
+      objectReference: {fileID: 0}
+    - target: {fileID: 8635563485437246218, guid: 0f02ead77755ed847918b2b1cbeb32ad,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.00684
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f02ead77755ed847918b2b1cbeb32ad, type: 3}
 --- !u!1001 &1454103078
@@ -1311,6 +1321,11 @@ PrefabInstance:
     - target: {fileID: 752126020184390516, guid: 13a591b8cd28ea541b7c821223fb59b0,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1260070206696378479, guid: 13a591b8cd28ea541b7c821223fb59b0,
+        type: 3}
+      propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
