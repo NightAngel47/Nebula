@@ -28,7 +28,14 @@ public class FactElementBehavior : MonoBehaviour
 
         for (int i = 1; i < text.Length; ++i)
         {
+            // add text
             finalText += text[i];
+            
+            // add comma unless last sub-string
+            if (i != text.Length - 1)
+            {
+                finalText += ",";
+            }
         }
         
         

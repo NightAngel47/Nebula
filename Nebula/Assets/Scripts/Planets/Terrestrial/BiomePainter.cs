@@ -90,8 +90,8 @@ public class BiomePainter : MonoBehaviour
     /// </summary>
     [SerializeField, Tooltip("The starting selected biome")] 
     private string startBiome;
-    [SerializeField, Tooltip("The amount of terrain objects to check per biome placement")]
-    private int terrainCheckSize = 10;
+    [SerializeField, Range(0, 0.2f), Tooltip("The radius that terrain will be checked in when painting")]
+    private float terrainCheckRadius = 0.05f;
     
     /// <summary>
     /// The name of the planet's starting biome
@@ -321,14 +321,15 @@ public class BiomePainter : MonoBehaviour
         analytics.IncreaseBiomeCount(selectedBiome.ToString());
         
         // check for terrain in sphere radius of hit
-        RaycastHit[] hits = new RaycastHit[terrainCheckSize];
+
         int debugCount = 0;
-        for(int i = 0; i < Physics.SphereCastNonAlloc(cursorRay, 0.5f, hits, 50f, terrainCheckLayers, QueryTriggerInteraction.Collide); ++i)
+        foreach (var hit in Physics.SphereCastAll(cursorRay, terrainCheckRadius, 50f, terrainCheckLayers, QueryTriggerInteraction.Collide))
         {
-            debugCount++;
-            if (!(hits[i].point.z <= 0)) continue;
-            
-            hits[i].collider.GetComponent<TerrainBehaviour>().CheckBiome();
+            ++debugCount;
+            if (hit.point.z <= 0)
+            {
+                hit.collider.GetComponent<TerrainBehaviour>().CheckBiome();
+            }
         }
         print(debugCount);
     }
@@ -376,7 +377,7 @@ public class BiomePainter : MonoBehaviour
         Vector3 cursorPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.0f);
         Ray cursorRay = mainCam.ScreenPointToRay(cursorPos);
         Physics.Raycast(cursorRay, out var hit, 50, biomeCheckLayers);
-        Gizmos.DrawWireSphere(hit.point, 0.055f);
+        Gizmos.DrawWireSphere(hit.point, terrainCheckRadius);
         */
     }
 }

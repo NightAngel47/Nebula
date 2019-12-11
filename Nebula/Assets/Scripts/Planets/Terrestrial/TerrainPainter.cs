@@ -50,9 +50,6 @@ public class TerrainPainter : MonoBehaviour
     private LayerMask biomeCheckLayers;
     [SerializeField, Tooltip("Terrain layers to check")] 
     private LayerMask terrainCheckLayers;
-    
-    [SerializeField, Tooltip("The amount of terrain objects to check per biome placement")]
-    private int terrainCheckSize = 100;
 
     #endregion
 
@@ -80,7 +77,16 @@ public class TerrainPainter : MonoBehaviour
     /// </summary>
     [SerializeField, Tooltip("Terrain erase object")]
     private GameObject terrainEraser;
-
+    
+    [SerializeField, Range(0, 0.2f), Tooltip("The spacing for placing the up terrain")]
+    private float terrainUpSpacing = 0.05f;
+    [SerializeField, Range(0, 0.2f), Tooltip("The spacing for placing the plants terrain")]
+    private float terrainPlantsSpacing = 0.05f;
+    /// <summary>
+    /// The spacing used when placing terrain. This is set to either terrainUpSpacing or terrainPlantsSpacing.
+    /// </summary>
+    private float terrainSpawnSpacing = 0.05f;
+    
     #endregion
 
     private void Awake()
@@ -202,8 +208,7 @@ public class TerrainPainter : MonoBehaviour
         if (!Physics.Raycast(cursorRay, out var hit, 50, biomeCheckLayers)) return;
         
         // check for terrain collision
-        RaycastHit[] hits = new RaycastHit[terrainCheckSize];
-        if (Physics.SphereCastNonAlloc(cursorRay, 0.055f, hits, 50, terrainCheckLayers) >= 1) return;
+        if (Physics.SphereCastAll(cursorRay, terrainSpawnSpacing, 50, terrainCheckLayers).Length >= 1) return;
         
         // spawn terrain
         GameObject terrain = Instantiate(selectedTerrain, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal), planet);
@@ -249,6 +254,15 @@ public class TerrainPainter : MonoBehaviour
     public void TerrainOption(string tool)
     {
         terrainToolSelected = (TerrainTools)Enum.Parse(typeof(TerrainTools), tool);
+        switch (terrainToolSelected)
+        {
+            case TerrainTools.Up:
+                terrainSpawnSpacing = terrainUpSpacing;
+                break;
+            case TerrainTools.Plants:
+                terrainSpawnSpacing = terrainPlantsSpacing;
+                break;
+        }
     }
 
     private void OnDrawGizmos()
@@ -257,7 +271,7 @@ public class TerrainPainter : MonoBehaviour
         Vector3 cursorPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.0f);
         Ray cursorRay = mainCam.ScreenPointToRay(cursorPos);
         Physics.Raycast(cursorRay, out var hit, 50, biomeCheckLayers);
-        Gizmos.DrawWireSphere(hit.point, 0.05f);
+        Gizmos.DrawWireSphere(hit.point, terrainSpawnSpacing);
         */
     }
 }
