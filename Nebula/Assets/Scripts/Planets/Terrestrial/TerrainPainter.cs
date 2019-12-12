@@ -153,6 +153,7 @@ public class TerrainPainter : MonoBehaviour
         if (terrainToolSelected == TerrainTools.Erase)
         {
             selectedTerrain = terrainEraser;
+            SpawnTerrainEraser(cursorRay);
         }
         else
         {
@@ -197,8 +198,6 @@ public class TerrainPainter : MonoBehaviour
         
         // choose terrain audio
         //placementAudio.ChooseTerrainAudio(selectedTerrain);
-        
-        SpawnTerrainEraser(cursorRay);
     }
 
     /// <summary>

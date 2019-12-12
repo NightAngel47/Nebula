@@ -51,8 +51,6 @@ public class TerrainBehaviour : MonoBehaviour
         ts = FindObjectOfType<TerrainSelect>();
         tp = FindObjectOfType<TerrainPainter>();
         planet = FindObjectOfType<TerrestrialRotation>().transform;
-
-        FixErrors();
     }
 
     /// <summary>
@@ -110,17 +108,5 @@ public class TerrainBehaviour : MonoBehaviour
 
         // destroy old (parent)
         Destroy(gameObject.transform.parent.gameObject);
-    }
-
-    /// <summary>
-    /// Destroys terrain errors where they don't get parented to the planet
-    /// </summary>
-    private void FixErrors()
-    {
-        // is parent's parent planet
-        if (gameObject.transform.parent.parent == null)
-        {
-            Destroy(gameObject.transform.parent.gameObject);
-        }
     }
 }
