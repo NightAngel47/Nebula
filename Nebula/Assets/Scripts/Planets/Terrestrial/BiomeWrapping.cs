@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class BiomeWrapping : MonoBehaviour
 {
-    public Transform otherEdge;
+    [SerializeField, Tooltip("The other edge of the seam")]
+    private Transform otherEdge;
     
     private void OnTriggerEnter(Collider other)
     {
@@ -13,8 +14,16 @@ public class BiomeWrapping : MonoBehaviour
         if (originalBiome == null || originalBiome.hasCopy) return;
         
         // spawn copy
-        GameObject copy = Instantiate(other.gameObject, otherEdge.position, Quaternion.identity, other.transform.parent);
-        copy.transform.position += other.transform.position - transform.position;
+        GameObject copy = Instantiate(other.gameObject, otherEdge.position, Quaternion.identity);
+        
+        // move position
+        var thisTransform = transform;
+        Vector3 direction = other.transform.position - thisTransform.position;
+        direction = Quaternion.Euler(otherEdge.eulerAngles - thisTransform.eulerAngles) * -direction;
+        copy.transform.position -= direction;
+        
+        // change parent
+        copy.transform.parent = other.transform.parent;
 
         // clean up
         Destroy(originalBiome);
