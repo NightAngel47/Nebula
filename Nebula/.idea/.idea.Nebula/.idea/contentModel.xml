@@ -39,7 +39,9 @@
             <e p="SavePlanet.cs" t="Include" />
             <e p="Terrestrial" t="Include">
               <e p="AtmosphereController.cs" t="Include" />
+              <e p="BiomeBehaviour.cs" t="Include" />
               <e p="BiomePainter.cs" t="Include" />
+              <e p="BiomeWrapping.cs" t="Include" />
               <e p="OLD" t="Include">
                 <e p="DefaultBiome.cs" t="Include" />
                 <e p="LoadTerrestrialTexture.cs" t="Include" />
