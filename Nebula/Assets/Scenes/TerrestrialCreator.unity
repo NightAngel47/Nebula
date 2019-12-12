@@ -866,7 +866,7 @@ MeshCollider:
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
-  m_Mesh: {fileID: -2432090755550338912, guid: b731ae7894b60774c9cec31e48d1d293, type: 3}
+  m_Mesh: {fileID: -2432090755550338912, guid: fa72d7eae6b8d4f4d818efdf25aaca8a, type: 3}
 --- !u!23 &110666246
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -912,7 +912,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 110666244}
-  m_Mesh: {fileID: -2432090755550338912, guid: b731ae7894b60774c9cec31e48d1d293, type: 3}
+  m_Mesh: {fileID: -2432090755550338912, guid: fa72d7eae6b8d4f4d818efdf25aaca8a, type: 3}
 --- !u!4 &110666248
 Transform:
   m_ObjectHideFlags: 0
@@ -5866,12 +5866,12 @@ PrefabInstance:
     - target: {fileID: 4253837741119388713, guid: c8d1e33a804f6f34b966ecbf23d50695,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.172
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4253837741119388713, guid: c8d1e33a804f6f34b966ecbf23d50695,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.339
+      value: -0.19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8d1e33a804f6f34b966ecbf23d50695, type: 3}
@@ -5982,12 +5982,12 @@ PrefabInstance:
     - target: {fileID: 4253837741119388713, guid: c8d1e33a804f6f34b966ecbf23d50695,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.172
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4253837741119388713, guid: c8d1e33a804f6f34b966ecbf23d50695,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.339
+      value: -0.19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8d1e33a804f6f34b966ecbf23d50695, type: 3}
@@ -15287,16 +15287,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4253837741119388713, guid: c8d1e33a804f6f34b966ecbf23d50695,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.172
-      objectReference: {fileID: 0}
-    - target: {fileID: 4253837741119388713, guid: c8d1e33a804f6f34b966ecbf23d50695,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.339
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8d1e33a804f6f34b966ecbf23d50695, type: 3}

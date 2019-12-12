@@ -13,10 +13,9 @@ public class BiomeWrapping : MonoBehaviour
         if (originalBiome == null || originalBiome.hasCopy) return;
         
         // spawn copy
-        var otherEdgePosition = otherEdge.position;
-        Vector3 newPos = otherEdgePosition + new Vector3(0, otherEdgePosition.y - other.transform.position.y, 0);
-        GameObject copy = Instantiate(other.gameObject, newPos, Quaternion.identity, other.transform.parent);
-            
+        GameObject copy = Instantiate(other.gameObject, otherEdge.position, Quaternion.identity, other.transform.parent);
+        copy.transform.position += other.transform.position - transform.position;
+
         // clean up
         Destroy(originalBiome);
         BiomeBehaviour copyData = copy.GetComponent<BiomeBehaviour>();
