@@ -35,7 +35,7 @@ public class TerrestrialRotation : MonoBehaviour
 
     void Rotation()
     {
-        //var xRot = Camera.main.transform.rotation.x;
+        var xRot = Camera.main.transform.rotation.x;
         var yRot = Camera.main.transform.rotation.y;
 
         if ((Input.touchCount == 2))
@@ -44,15 +44,15 @@ public class TerrestrialRotation : MonoBehaviour
             {
                 Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
 
-                //xRot += (touchDeltaPosition.y);
+                xRot += (touchDeltaPosition.y);
                 yRot += (-touchDeltaPosition.x);
 
                 if (!source.isPlaying)
                 {
                     source.Play();
                 }
-                //transform.Rotate(xRot, yRot, 0, Space.World);
-                transform.Rotate(0, yRot, 0, Space.World);
+                transform.Rotate(xRot, yRot, 0, Space.World);
+                //transform.Rotate(0, yRot, 0, Space.World);
             }
         }
         else
