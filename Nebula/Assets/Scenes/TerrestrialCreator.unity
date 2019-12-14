@@ -820,11 +820,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a8cad979cdb66149822798920497aeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
   placeAudioClips:
   - {fileID: 8300000, guid: 83b577d84f6f2a5489cb4e21d50cecb3, type: 3}
   - {fileID: 8300000, guid: 1c82e3f5b1f0a094da69b430bec5b29b, type: 3}
   - {fileID: 8300000, guid: 80435cce0ff618c42a6f8e7f1ecefe5f, type: 3}
-  - {fileID: 8300000, guid: 37ebca14b78bc7d4c8df43e3314c80d5, type: 3}
   - {fileID: 8300000, guid: e6fedaffd12274f4790a611fc6df6833, type: 3}
   - {fileID: 8300000, guid: 68d94b27f835e76478feb68eaf050a33, type: 3}
   - {fileID: 8300000, guid: 0bb46ded0f2f2d84c871626c77e1388c, type: 3}
@@ -4135,6 +4135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58cb62e75f11c794eb11ea19386d4416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  placementAudio: {fileID: 100787420}
   maskUVPoses:
   - {fileID: 1253287591}
   - {fileID: 783114392}
@@ -11956,6 +11957,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1839bcafac146014391f4d8fce3c6689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  placementAudio: {fileID: 100787420}
   maskPainterCams:
   - {fileID: 380538114}
   - {fileID: 1712847817}

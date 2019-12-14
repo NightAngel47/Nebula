@@ -28,6 +28,7 @@ public class TerrainPainter : MonoBehaviour
     /// <summary>
     /// Placement audio
     /// </summary>
+    [SerializeField]
     private PlacementAudio placementAudio;
     
     #endregion
@@ -106,30 +107,29 @@ public class TerrainPainter : MonoBehaviour
 
     void Update()
     {
+        Vector3 cursorPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.0f);
+        Ray cursorRay = mainCam.ScreenPointToRay(cursorPos);
+        
         if (Input.touchCount == 1 && Input.touchCount != 2 && Input.GetTouch(0).phase == TouchPhase.Moved && toolSelect.toolSelected == ToolSelect.Tools.Terrain)
         {
-            Vector3 cursorPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.0f);
-            Ray cursorRay = mainCam.ScreenPointToRay(cursorPos);
             SpawnTerrain(cursorRay);
-            //placementAudio.PlayPlacementAudio();
+            placementAudio.PlayPlacementAudio();
         }
-        else
+        else if (Input.touchCount == 1 && Input.touchCount != 2 && Input.GetTouch(0).phase == TouchPhase.Ended && toolSelect.toolSelected == ToolSelect.Tools.Terrain)
         {
-            //placementAudio.StopPlacementAudio();
+            placementAudio.StopPlacementAudio();
         }
         
         #region debug painting controls
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
         if (Input.GetMouseButton(0) && toolSelect.toolSelected == ToolSelect.Tools.Terrain && DebugController.DebugEnabled)
         {
-            Vector3 cursorPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.0f);
-            Ray cursorRay = mainCam.ScreenPointToRay(cursorPos);
             SpawnTerrain(cursorRay);
-            //placementAudio.PlayPlacementAudio();
+            placementAudio.PlayPlacementAudio();
         }
-        else
+        else if (Input.GetMouseButtonUp(0) && toolSelect.toolSelected == ToolSelect.Tools.Terrain && DebugController.DebugEnabled)
         {
-            //placementAudio.StopPlacementAudio();
+            placementAudio.StopPlacementAudio();
         }
 #endif
         #endregion
@@ -197,7 +197,7 @@ public class TerrainPainter : MonoBehaviour
         }
         
         // choose terrain audio
-        //placementAudio.ChooseTerrainAudio(selectedTerrain);
+        placementAudio.ChooseTerrainAudio(selectedTerrain);
     }
 
     /// <summary>
@@ -249,7 +249,6 @@ public class TerrainPainter : MonoBehaviour
         uvWorldPosition.y = pixelUV.y - orthographicSize;//To center the UV on Y
         uvWorldPosition.z = 0.0f;
         return true;
-
     }
     
     /// <summary>

@@ -19,6 +19,7 @@ public class BiomePainter : MonoBehaviour
     /// <summary>
     /// Placement audio
     /// </summary>
+    [SerializeField]
     private PlacementAudio placementAudio;
     /// <summary>
     /// Reference to analytics for tracking
@@ -133,13 +134,14 @@ public class BiomePainter : MonoBehaviour
 
     private void Update()
     {
+        Vector3 cursorPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.0f);
+        
         if (Input.touchCount == 1 && Input.touchCount != 2 && Input.GetTouch(0).phase == TouchPhase.Moved && toolSelect.toolSelected == ToolSelect.Tools.Biome)
         {
-            Vector3 cursorPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.0f);
             SpawnBiome(cursorPos);
             placementAudio.PlayPlacementAudio();
         }
-        else
+        else if(Input.touchCount == 1 && Input.touchCount != 2 && Input.GetTouch(0).phase == TouchPhase.Ended && toolSelect.toolSelected == ToolSelect.Tools.Biome)
         {
             placementAudio.StopPlacementAudio();
         }
@@ -148,11 +150,10 @@ public class BiomePainter : MonoBehaviour
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
         if (Input.GetMouseButton(0) && toolSelect.toolSelected == ToolSelect.Tools.Biome && DebugController.DebugEnabled)
         {
-            Vector3 cursorPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.0f);
             SpawnBiome(cursorPos);
             placementAudio.PlayPlacementAudio();
         }
-        else
+        else if (Input.GetMouseButtonUp(0) && toolSelect.toolSelected == ToolSelect.Tools.Biome && DebugController.DebugEnabled)
         {
             placementAudio.StopPlacementAudio();
         }

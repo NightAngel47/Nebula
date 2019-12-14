@@ -10,51 +10,46 @@ public class GasRotation : MonoBehaviour
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
     [SerializeField] private float gasRotationSpeedDebug;
     [SerializeField] private float gasRotationFastSpeedDebug;
-
-    Vector3 mPrevPos = Vector3.zero;
-    Vector3 mPosDelta = Vector3.zero;
 #endif
     #endregion
 
     // Update is called once per frame
     void Update()
     {
-        #region debug gas rotation
-#if UNITY_EDITOR || DEVELOPMENT_BUILD
-        if (DebugController.DebugEnabled)
-        {
-            if ((Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetMouseButton(0)) && !GasGiantController.gasDebugRotationLock)
-            {
-                DebugGasRotator();
-            }
-        }
-#endif
-        #endregion
 
-        if ((Input.touchCount == 2))
+        if (Input.touchCount == 2)
         {
             GasRotator();
         }
+        
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+        if (Input.touchCount == 0 && !DebugController.DebugEnabled) return; 
+        
+        DebugGasRotator();
+#endif
     }
 
     void GasRotator()
     {
-        var xRot = Camera.main.transform.rotation.x;
-        var yRot = Camera.main.transform.rotation.y;
+        var rotation = Camera.main.transform.rotation;
+        var xRot = rotation.x;
+        var yRot = rotation.y;
 
         if (Input.GetTouch(0).phase == TouchPhase.Moved)
+        {
+            Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
+
+            xRot += touchDeltaPosition.y;
+            yRot += -touchDeltaPosition.x;
+
+            if (!source.isPlaying)
             {
-                Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
-
-                xRot += (touchDeltaPosition.y);
-                yRot += (-touchDeltaPosition.x);
-
-                if (!source.isPlaying)
-                    source.Play();
-
-                transform.Rotate(xRot, yRot, 0, Space.World);
+                source.Play();
             }
-        else
+
+            transform.Rotate(xRot, yRot, 0, Space.World);
+        }
+        else if(Input.GetTouch(0).phase == TouchPhase.Ended)
         {
             source.Stop();
         }
@@ -64,127 +59,24 @@ public class GasRotation : MonoBehaviour
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
     void DebugGasRotator()
     {
-        float rotationSpeed = gasRotationSpeedDebug;
+        float rotationSpeed = Input.GetKey(KeyCode.LeftShift) ? gasRotationFastSpeedDebug : gasRotationSpeedDebug;
 
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            rotationSpeed = gasRotationFastSpeedDebug;
-        }
-        else
-        {
-            rotationSpeed = gasRotationSpeedDebug;
-        }
+        var rotation = Camera.main.transform.rotation;
+        var xRot = rotation.x;
+        var yRot = rotation.y;
 
-        var xRot = Camera.main.transform.rotation.x;
-        var yRot = Camera.main.transform.rotation.y;
-        //var zRot = Camera.main.transform.rotation.z;
+        Vector3 direction = new Vector3(xRot + Input.GetAxis("Vertical"), yRot - Input.GetAxis("Horizontal"), 0);
 
-        /*
-            //Following mouse rotation code from https://www.youtube.com/watch?v=kplusZYqBok
-        if (Input.GetMouseButton(0))
+        if (Mathf.Abs(Input.GetAxis("Vertical")) > 0 || Mathf.Abs(Input.GetAxis("Horizontal")) > 0 )
         {
-            mPosDelta = Input.mousePosition - mPrevPos;
-            if (Vector3.Dot(transform.up, Vector3.up) >= 0)
-            {
-                transform.Rotate(transform.up, -Vector3.Dot(mPosDelta, Camera.main.transform.right), Space.World);
-            }
-            else
-            {
-                transform.Rotate(transform.up, Vector3.Dot(mPosDelta, Camera.main.transform.right), Space.World);
-            }
+            transform.Rotate(direction * rotationSpeed, Space.World);
             
-            transform.Rotate(Camera.main.transform.right, Vector3.Dot(mPosDelta, Camera.main.transform.up), Space.World);
-        }
-        */
-
-        mPrevPos = Input.mousePosition;
-
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            yRot -= rotationSpeed;
-
             if (!source.isPlaying)
             {
                 source.Play();
             }
-
-            if (Input.GetKey(KeyCode.UpArrow))
-            {
-                xRot += rotationSpeed;
-            }
-            else if (Input.GetKey(KeyCode.DownArrow))
-            {
-                xRot -= rotationSpeed;
-            }
-
-            transform.Rotate(xRot, yRot, 0, Space.World);
         }
-        else if (Input.GetKey(KeyCode.LeftArrow))
-        {
-
-            yRot += rotationSpeed;
-
-            if (Input.GetKey(KeyCode.UpArrow))
-            {
-                xRot += rotationSpeed;
-            }
-            else if (Input.GetKey(KeyCode.DownArrow))
-            {
-                xRot -= rotationSpeed;
-            }
-
-            if (!source.isPlaying)
-            {
-                source.Play();
-            }
-
-            transform.Rotate(xRot, yRot, 0, Space.World);
-        }
-        else if (Input.GetKey(KeyCode.UpArrow))
-        {
-
-            if (Input.GetKey(KeyCode.LeftArrow))
-            {
-                yRot += rotationSpeed;
-            }
-            else if (Input.GetKey(KeyCode.RightArrow))
-            {
-                yRot -= rotationSpeed;
-            }
-
-
-            if (!source.isPlaying)
-            {
-                source.Play();
-            }
-
-            xRot += rotationSpeed;
-
-            transform.Rotate(xRot, yRot, 0, Space.World);
-        }
-        else if (Input.GetKey(KeyCode.DownArrow))
-        {
-
-            if (Input.GetKey(KeyCode.LeftArrow))
-            {
-                yRot += rotationSpeed;
-            }
-            else if (Input.GetKey(KeyCode.RightArrow))
-            {
-                yRot -= rotationSpeed;
-            }
-
-
-            if (!source.isPlaying)
-            {
-                source.Play();
-            }
-
-            xRot -= rotationSpeed;
-
-            transform.Rotate(xRot, yRot, 0, Space.World);
-        }
-        else
+        else if(Mathf.Abs(Mathf.Abs(Input.GetAxis("Vertical"))) < 0.01f || Mathf.Abs(Mathf.Abs(Input.GetAxis("Horizontal"))) < 0.01f )
         {
             source.Stop();
         }

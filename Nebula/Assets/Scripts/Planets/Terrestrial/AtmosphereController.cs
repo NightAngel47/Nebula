@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,6 +27,8 @@ public class AtmosphereController : MonoBehaviour
     public Color[] atmosphereColors;
 
     public AudioSource source;
+    private static readonly int Color = Shader.PropertyToID("_color");
+    private static readonly int Strength = Shader.PropertyToID("_strength");
 
     // Start is called before the first frame update
     void Start()
@@ -38,33 +41,28 @@ public class AtmosphereController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        #region debug atmosphere density
-#if UNITY_EDITOR || DEVELOPMENT_BUILD
-        if (DebugController.DebugEnabled && toolSelect.toolSelected == ToolSelect.Tools.Atmosphere)
-        {
-            if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))
-            {
-                PlayAudio();
-                DebugControlDensity();
-            }
-            else
-            {
-                debugRotationLock = false;
-                source.Stop();
-            }
-        }
-#endif
-        #endregion
-
         if (Input.touchCount == 1 && toolSelect.toolSelected == ToolSelect.Tools.Atmosphere)
         {
             PlayAudio();
             ControlDensity();
         }
-        else
+        
+        #region debug atmosphere density
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+        if (!DebugController.DebugEnabled || toolSelect.toolSelected != ToolSelect.Tools.Atmosphere) return;
+        
+        if (Math.Abs(Input.GetAxis("Horizontal")) > 0.01f)
         {
+            PlayAudio();
+            DebugControlDensity();
+        }
+        else if(Math.Abs(Input.GetAxis("Horizontal")) < 0.01f)
+        {
+            debugRotationLock = false;
             source.Stop();
         }
+#endif
+        #endregion
     }
 
     void ControlDensity()
@@ -72,7 +70,7 @@ public class AtmosphereController : MonoBehaviour
         Touch firstTouch = Input.GetTouch(0);
         Vector2 magFirstTouchPrevPos = (firstTouch.deltaPosition + firstTouch.position);
 
-        float newAlpha = rend.material.GetFloat("_strength");
+        float newAlpha = rend.material.GetFloat(Strength);
 
         if (magFirstTouchPrevPos.x > firstTouch.position.x)
         {
@@ -83,11 +81,11 @@ public class AtmosphereController : MonoBehaviour
             {
                 newAlpha = atmosphereMax;
             }
-            rend.material.SetFloat("_strength", newAlpha);
+            rend.material.SetFloat(Strength, newAlpha);
 
             source.pitch += atmosphereIncrementValue;
 
-            Debug.Log("Alpha Change" + newAlpha);
+            //Debug.Log("Alpha Change" + newAlpha);
         }
         else if (magFirstTouchPrevPos.x < firstTouch.position.x)
         {
@@ -98,11 +96,16 @@ public class AtmosphereController : MonoBehaviour
             {
                 newAlpha = atmosphereMin;
             }
-            rend.material.SetFloat("_strength", newAlpha);
+            rend.material.SetFloat(Strength, newAlpha);
 
             source.pitch -= atmosphereIncrementValue;
 
-            Debug.Log("Alpha Change" + newAlpha);
+            //Debug.Log("Alpha Change" + newAlpha);
+        }
+        
+        if(Input.GetTouch(0).phase == TouchPhase.Ended)
+        {
+            source.Stop();
         }
     }
 
@@ -110,9 +113,9 @@ public class AtmosphereController : MonoBehaviour
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
     void DebugControlDensity()
     {
-        float newAlpha = rend.material.GetFloat("_strength");
+        float newAlpha = rend.material.GetFloat(Strength);
 
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetAxis("Horizontal") > 0)
         {
             debugRotationLock = true;
 
@@ -121,13 +124,13 @@ public class AtmosphereController : MonoBehaviour
             {
                 newAlpha = atmosphereMax;
             }
-            rend.material.SetFloat("_strength", newAlpha);
+            rend.material.SetFloat(Strength, newAlpha);
 
             source.pitch += atmosphereIncrementValue;
 
-            Debug.Log("Alpha Change" + newAlpha);
+            //Debug.Log("Alpha Change" + newAlpha);
         }
-        else if (Input.GetKey(KeyCode.LeftArrow))
+        else if (Input.GetAxis("Horizontal") < 0)
         {
             debugRotationLock = true;
 
@@ -136,11 +139,11 @@ public class AtmosphereController : MonoBehaviour
             {
                 newAlpha = atmosphereMin;
             }
-            rend.material.SetFloat("_strength", newAlpha);
+            rend.material.SetFloat(Strength, newAlpha);
 
             source.pitch -= atmosphereIncrementValue;
 
-            Debug.Log("Alpha Change" + newAlpha);
+            //Debug.Log("Alpha Change" + newAlpha);
         }
         else
         {
@@ -153,22 +156,13 @@ public class AtmosphereController : MonoBehaviour
     void PlayAudio()
     {
         if (!source.isPlaying)
+        {
             source.Play();
+        }
     }
 
     public void ChangeColor(int colorSelected)
     {
-        rend.material.SetColor("_color", new Color(atmosphereColors[colorSelected].r, atmosphereColors[colorSelected].g, atmosphereColors[colorSelected].b, rend.material.GetFloat("_strength")));
-    }
-
-    public void ResetRotation()
-    {
-        //Resets position to default
-        Vector3 defaultPosition = new Vector3(0, 0, 0);
-        gameObject.transform.position = defaultPosition;
-
-        //Resets rotation to default
-        Quaternion defaultRotation = Quaternion.Euler(0, 0, 0);
-        gameObject.transform.rotation = defaultRotation;
+        rend.material.SetColor(Color, new Color(atmosphereColors[colorSelected].r, atmosphereColors[colorSelected].g, atmosphereColors[colorSelected].b, rend.material.GetFloat(Strength)));
     }
 }

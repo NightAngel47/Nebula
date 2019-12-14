@@ -8,11 +8,21 @@ public class PlacementAudio : MonoBehaviour
     /// <summary>
     /// Audio source for placement sounds
     /// </summary>
+    [SerializeField]
     private AudioSource audioSource;
-    public AudioClip[] placeAudioClips = new AudioClip[10];  
-    // 0 drop-tree, 1 cactus-plant, 2 island-place, 3 snow-good,
-    // 4 grass-good, 5 rocks-falling, 6 basic-thud, 7 sand-disperse
-    // 8 digital-water, 9 pouring-sand
+    public AudioClip[] placeAudioClips = new AudioClip[10];
+    private enum PlacementSounds
+    {
+        DropTree,
+        CactusPlant,
+        IslandPlace,
+        GrassGood,
+        RocksFalling,
+        BasicThud,
+        SandDisperse,
+        DigitalWater,
+        PouringSand
+    }
 
     private TerrainSelect ts;
     
@@ -38,7 +48,10 @@ public class PlacementAudio : MonoBehaviour
     /// </summary>
     public void StopPlacementAudio()
     {
-        audioSource.Stop();
+        if (audioSource.isPlaying)
+        {
+            audioSource.Stop();
+        }
     }
     
     /// <summary>
@@ -51,25 +64,21 @@ public class PlacementAudio : MonoBehaviour
         switch (selectedBiome)
         {
             case BiomePainter.BiomeNames.Plains:
-            case BiomePainter.BiomeNames.Coniferous:
-                audioSource.clip = placeAudioClips[4];
-                break;
             case BiomePainter.BiomeNames.Savana:
-            case BiomePainter.BiomeNames.Tropical:
-                audioSource.clip = placeAudioClips[7];
-                break;
+            case BiomePainter.BiomeNames.Coniferous:
             case BiomePainter.BiomeNames.Taiga:
-            case BiomePainter.BiomeNames.Ice:
-                audioSource.clip = placeAudioClips[3];
+                audioSource.clip = placeAudioClips[(int) PlacementSounds.GrassGood];
+                break;
+            case BiomePainter.BiomeNames.Tropical:
+            case BiomePainter.BiomeNames.Temperate:
+                audioSource.clip = placeAudioClips[(int) PlacementSounds.SandDisperse];
                 break;
             case BiomePainter.BiomeNames.Ocean:
-                audioSource.clip = placeAudioClips[8];
-                break;
-            case BiomePainter.BiomeNames.Temperate:
-                audioSource.clip = placeAudioClips[5];
+            case BiomePainter.BiomeNames.Ice:
+                audioSource.clip = placeAudioClips[(int) PlacementSounds.DigitalWater];
                 break;
             default:
-                audioSource.clip = placeAudioClips[6]; // default                
+                audioSource.clip = placeAudioClips[(int) PlacementSounds.BasicThud]; // default                
                 break;
         }
     }
@@ -78,28 +87,57 @@ public class PlacementAudio : MonoBehaviour
     /// Chooses what terrain audio clip to play
     /// </summary>
     /// <param name="selectedTerrain">Selected terrain</param>
-    /*public void ChooseTerrainAudio(GameObject selectedTerrain)
+    public void ChooseTerrainAudio(GameObject selectedTerrain)
     {
-        if (selectedTerrain == ts.terrainObjects[(int) TerrainSelect.TerrainNames.Pine] ||
-            selectedTerrain == ts.terrainObjects[(int) TerrainSelect.TerrainNames.PineSnowy])
-            audioSource.clip = placeAudioClips[0];
-        else if (selectedTerrain == ts.terrainObjects[(int) TerrainSelect.TerrainNames.Cacti])
-            audioSource.clip = placeAudioClips[1];
+        if (selectedTerrain == ts.terrainObjects[(int) TerrainSelect.TerrainNames.ConiferousTree] ||
+            selectedTerrain == ts.terrainObjects[(int) TerrainSelect.TerrainNames.BirchTree] ||
+            selectedTerrain == ts.terrainObjects[(int) TerrainSelect.TerrainNames.JoshuaTree] ||
+            selectedTerrain == ts.terrainObjects[(int) TerrainSelect.TerrainNames.AcaciaTree] ||
+            selectedTerrain == ts.terrainObjects[(int) TerrainSelect.TerrainNames.Palm] ||
+            selectedTerrain == ts.terrainObjects[(int) TerrainSelect.TerrainNames.OakTree])
+        {
+            audioSource.clip = placeAudioClips[(int) PlacementSounds.DropTree];
+        }
+        else if (selectedTerrain == ts.terrainObjects[(int) TerrainSelect.TerrainNames.Cactus] || 
+                 selectedTerrain == ts.terrainObjects[(int) TerrainSelect.TerrainNames.TemperateShrub] ||
+                 selectedTerrain == ts.terrainObjects[(int) TerrainSelect.TerrainNames.ElephantGrass] ||
+                 selectedTerrain == ts.terrainObjects[(int) TerrainSelect.TerrainNames.TropicalShrub] ||
+                 selectedTerrain == ts.terrainObjects[(int) TerrainSelect.TerrainNames.AbalShrub])
+        {
+            audioSource.clip = placeAudioClips[(int) PlacementSounds.CactusPlant];
+        }
         else if (selectedTerrain == ts.terrainObjects[(int) TerrainSelect.TerrainNames.Island])
-            audioSource.clip = placeAudioClips[2];
-        else if (selectedTerrain == ts.terrainObjects[(int) TerrainSelect.TerrainNames.Rock] ||
-                 selectedTerrain == ts.terrainObjects[(int) TerrainSelect.TerrainNames.RockDesert])
-            audioSource.clip = placeAudioClips[5];
-        else if (selectedTerrain == ts.terrainObjects[(int) TerrainSelect.TerrainNames.HillSnowy])
-            audioSource.clip = placeAudioClips[3];
-        else if (selectedTerrain == ts.terrainObjects[(int) TerrainSelect.TerrainNames.Bush])
-            audioSource.clip = placeAudioClips[4];
-        else if (selectedTerrain == ts.terrainObjects[(int) TerrainSelect.TerrainNames.Mountain] ||
-                 selectedTerrain == ts.terrainObjects[(int) TerrainSelect.TerrainNames.Plateau] ||
+        {
+            audioSource.clip = placeAudioClips[(int) PlacementSounds.IslandPlace];
+        }
+        else if (selectedTerrain == ts.terrainObjects[(int) TerrainSelect.TerrainNames.Algae])
+        {
+            audioSource.clip = placeAudioClips[(int) PlacementSounds.DigitalWater];
+        }
+        else if (selectedTerrain == ts.terrainObjects[(int) TerrainSelect.TerrainNames.ConiferousBoulder] ||
+                 selectedTerrain == ts.terrainObjects[(int) TerrainSelect.TerrainNames.TopicalRock] ||
+                 selectedTerrain == ts.terrainObjects[(int) TerrainSelect.TerrainNames.DeciduousRock])
+        {
+            audioSource.clip = placeAudioClips[(int) PlacementSounds.RocksFalling];
+        }
+        else if (selectedTerrain == ts.terrainObjects[(int) TerrainSelect.TerrainNames.Flower1] || 
+                 selectedTerrain == ts.terrainObjects[(int) TerrainSelect.TerrainNames.Flower2] ||
+                 selectedTerrain == ts.terrainObjects[(int) TerrainSelect.TerrainNames.Grass] ||
+                 selectedTerrain == ts.terrainObjects[(int) TerrainSelect.TerrainNames.Flower3])
+        {
+            audioSource.clip = placeAudioClips[(int) PlacementSounds.GrassGood];
+        }
+        else if (selectedTerrain == ts.terrainObjects[(int) TerrainSelect.TerrainNames.ConiferousMountain] ||
+                 selectedTerrain == ts.terrainObjects[(int) TerrainSelect.TerrainNames.IceSheet] ||
                  selectedTerrain == ts.terrainObjects[(int) TerrainSelect.TerrainNames.Volcano] ||
-                 selectedTerrain == ts.terrainObjects[(int) TerrainSelect.TerrainNames.IceChunk])
-            audioSource.clip = placeAudioClips[6];
+                 selectedTerrain == ts.terrainObjects[(int) TerrainSelect.TerrainNames.TundraIsland] ||
+                 selectedTerrain == ts.terrainObjects[(int) TerrainSelect.TerrainNames.Iceberg])
+        {
+            audioSource.clip = placeAudioClips[(int) PlacementSounds.BasicThud];
+        }
         else
-            audioSource.clip = placeAudioClips[9];
-    }*/
+        {
+            audioSource.clip = placeAudioClips[(int) PlacementSounds.PouringSand];
+        }
+    }
 }
