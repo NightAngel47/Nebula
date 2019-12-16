@@ -223,7 +223,7 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color_Bands: {r: 0.8901961, g: 0.2901961, b: 0.44313726, a: 1}
+    - _Color_Bands: {r: 0.59607846, g: 0.78431374, b: 0.20392157, a: 1}
     - _Color_Base: {r: 1, g: 0.47058824, b: 1, a: 1}
     - _Color_Storms: {r: 1, g: 1, b: 1, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
@@ -231,7 +231,7 @@ Material:
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}
     - _InvPrimScale: {r: 1, g: 1, b: 0, a: 0}
     - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
-    - _Planet_Color: {r: 0.8980392, g: 0.36862746, b: 0.7137255, a: 1}
+    - _Planet_Color: {r: 0.8, g: 0.85882354, b: 0.40392157, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _Storms_Offset: {r: 0, g: 0, b: 0, a: 0}
     - _ThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
