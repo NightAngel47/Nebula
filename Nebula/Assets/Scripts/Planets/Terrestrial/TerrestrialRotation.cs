@@ -35,7 +35,7 @@ public class TerrestrialRotation : MonoBehaviour
         var xRot = rotation.x;
         var yRot = rotation.y;
         
-        if (Input.GetTouch(0).phase != TouchPhase.Moved)
+        if (Input.GetTouch(0).phase == TouchPhase.Moved)
         {
             Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
 
