@@ -19,6 +19,7 @@
             <e p="GameManager.cs" t="Include" />
             <e p="GasMenUIChanger.cs" t="Include" />
             <e p="Idle.cs" t="Include" />
+            <e p="IdleTimer.cs" t="Include" />
             <e p="LoadingScene.cs" t="Include" />
             <e p="planetSpin.cs" t="Include" />
             <e p="RestartButtonScript.cs" t="Include" />
