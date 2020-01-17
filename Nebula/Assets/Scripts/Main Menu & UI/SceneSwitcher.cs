@@ -8,6 +8,7 @@ public class SceneSwitcher : MonoBehaviour
 {
     public Button SwitchTerrestrial;
     public Button SwitchGas;
+    public Button SwitchCredits;
     public GameObject LoadingFrame;
     public GameObject OtherUI1;
     public GameObject OtherUI2;
@@ -15,6 +16,7 @@ public class SceneSwitcher : MonoBehaviour
     {
         SwitchTerrestrial.onClick.AddListener(TaskOnClickTerrestrial);
         SwitchGas.onClick.AddListener(TaskOnClickGas);
+        SwitchCredits.onClick.AddListener(TaskOnClickCredits);
         OtherUI1.SetActive(true);
         OtherUI2.SetActive(true);
     }
@@ -29,6 +31,11 @@ public class SceneSwitcher : MonoBehaviour
     {
         StartLoadingScreen();
         GameManager.SceneToLoad = "GasCreator";
+    }
+    
+    void TaskOnClickCredits()
+    {
+        SceneManager.LoadScene("Credits Screen");
     }
 
     void StartLoadingScreen()

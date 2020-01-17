@@ -16,6 +16,7 @@
             <e p="DebugController.cs" t="Include" />
           </e>
           <e p="Main Menu &amp; UI" t="Include">
+            <e p="CreditsBehaviour.cs" t="Include" />
             <e p="GameManager.cs" t="Include" />
             <e p="GasMenUIChanger.cs" t="Include" />
             <e p="Idle.cs" t="Include" />

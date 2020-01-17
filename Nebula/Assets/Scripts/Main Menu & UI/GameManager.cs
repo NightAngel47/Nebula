@@ -10,6 +10,5 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         SceneToLoad = null;
-        //System.GC.Collect();
     }
 }
