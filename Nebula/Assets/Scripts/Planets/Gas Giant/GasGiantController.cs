@@ -13,10 +13,6 @@ public class GasGiantController : MonoBehaviour
 #endif
     #endregion
 
-    //Color Variables
-    Color planetColor;
-    Color bandColor;
-
     bool bandButton = false;
 
     public Color[] baseColors;
@@ -29,6 +25,10 @@ public class GasGiantController : MonoBehaviour
     private AudioSource bandSource;
     public AudioMixer mainMixer;
     public float bandEffectAmount = 500f;
+    
+    private static readonly int PlanetColor = Shader.PropertyToID("_Planet_Color");
+    private static readonly int ColorBands = Shader.PropertyToID("_Color_Bands");
+    private static readonly int Bands = Shader.PropertyToID("_Bands");
 
     // Start is called before the first frame update
     void Start()
@@ -70,13 +70,13 @@ public class GasGiantController : MonoBehaviour
     //Change the base color of planet
     public void ChangeColor(int colorSelected)
     {
-        rend.material.SetColor("_Planet_Color", baseColors[colorSelected]);
+        rend.material.SetColor(PlanetColor, baseColors[colorSelected]);
     }
 
     //Change the color of bands
     public void ChangeBandColor(int colorSelected)
     {
-        rend.material.SetColor("_Color_Bands", bandColors[colorSelected]);
+        rend.material.SetColor(ColorBands, bandColors[colorSelected]);
     }
 
     //Edits band number with touch
@@ -85,10 +85,9 @@ public class GasGiantController : MonoBehaviour
         Touch firstTouch = Input.GetTouch(0);
         Vector2 magFirstTouchPrevPos = (firstTouch.deltaPosition + firstTouch.position);
 
-        float newBandNumber = rend.material.GetFloat("_Bands");
+        float newBandNumber = rend.material.GetFloat(Bands);
 
-        float bandsEffect;
-        mainMixer.GetFloat("BandsEffect", out bandsEffect);
+        mainMixer.GetFloat("BandsEffect", out var bandsEffect);
 
         if (magFirstTouchPrevPos.y < firstTouch.position.y)
         {
@@ -102,10 +101,10 @@ public class GasGiantController : MonoBehaviour
             else
                 mainMixer.SetFloat("BandsEffect", bandsEffect -= bandIncrementValue * bandEffectAmount);
 
-            rend.material.SetFloat("_Bands", newBandNumber);
+            rend.material.SetFloat(Bands, newBandNumber);
 
 
-            Debug.Log("Band Change" + newBandNumber);
+            //Debug.Log("Band Change" + newBandNumber);
         }
         else if (magFirstTouchPrevPos.y > firstTouch.position.y)
         {
@@ -120,10 +119,10 @@ public class GasGiantController : MonoBehaviour
                 mainMixer.SetFloat("BandsEffect", bandsEffect += bandIncrementValue * bandEffectAmount);
 
 
-            rend.material.SetFloat("_Bands", newBandNumber);
+            rend.material.SetFloat(Bands, newBandNumber);
 
 
-            Debug.Log("Band Change" + newBandNumber);
+            //Debug.Log("Band Change" + newBandNumber);
         }
     }
 
@@ -131,10 +130,9 @@ public class GasGiantController : MonoBehaviour
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
     void DebugBandEditor()
     {
-        float newBandNumber = rend.material.GetFloat("_Bands");
+        float newBandNumber = rend.material.GetFloat(Bands);
 
-        float bandsEffect;
-        mainMixer.GetFloat("BandsEffect", out bandsEffect);
+        mainMixer.GetFloat("BandsEffect", out var bandsEffect);
 
         if (Input.GetKey(KeyCode.RightArrow))
         {
@@ -149,10 +147,10 @@ public class GasGiantController : MonoBehaviour
             {
                 mainMixer.SetFloat("BandsEffect", bandsEffect -= bandIncrementValue * bandEffectAmount);
             }
-            rend.material.SetFloat("_Bands", newBandNumber);
+            rend.material.SetFloat(Bands, newBandNumber);
 
 
-            Debug.Log("Band Change" + newBandNumber);
+            //Debug.Log("Band Change" + newBandNumber);
         }
         else if (Input.GetKey(KeyCode.LeftArrow))
         {
@@ -168,9 +166,9 @@ public class GasGiantController : MonoBehaviour
                 mainMixer.SetFloat("BandsEffect", bandsEffect += bandIncrementValue * bandEffectAmount);
             }
 
-            rend.material.SetFloat("_Bands", newBandNumber);
+            rend.material.SetFloat(Bands, newBandNumber);
 
-            Debug.Log("Band Change" + newBandNumber);
+            //Debug.Log("Band Change" + newBandNumber);
         }
 
     }
