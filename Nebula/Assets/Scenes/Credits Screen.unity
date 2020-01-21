@@ -403,8 +403,8 @@ MonoBehaviour:
     Gerard\r\nKyle Peterson\r\n\n<b>Sound Design</b>\nSam Concklin\r\n\n<b>Special
     Thanks\r</b>\nAnna Shackley\r\nJason Lovette\r\nFisher Heins\r\nAlex Cowell \r\n\n<b>Bradley
     University Interactive Media Department</b> \nDavid Abzug\n\n<b>Bradley University
-    Education Department</b> \nQuentin Wherfel \r\n\n<b>Peoria Riverfront Museum</b>\nNick
-    Rae"
+    Education Department</b> \nQuentin Wherfel \r\n\n<b>Peoria Riverfront Museum</b>\nRenae
+    Kerrigan\nNick Rae"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -432,8 +432,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 19.5
+  m_fontSizeBase: 19.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -473,12 +473,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 84931703}
-    characterCount: 598
+    characterCount: 613
     spriteCount: 0
-    spaceCount: 101
-    wordCount: 83
+    spaceCount: 103
+    wordCount: 85
     linkCount: 0
-    lineCount: 43
+    lineCount: 44
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
