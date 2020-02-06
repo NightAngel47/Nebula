@@ -26,9 +26,10 @@ namespace FluidDynamics
         private Vector3 direction;
         private Vector3 m_mousePos;
         #endregion
+        
         private void Start()
         {
-            m_tempCol = m_fluid.GetComponent<Collider>();
+            //m_tempCol = m_fluid.GetComponent<Collider>();
             m_tempRend = m_fluid.GetComponent<Renderer>();
         }
         private void DrawGizmo()
@@ -68,12 +69,22 @@ namespace FluidDynamics
             {
                 m_mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f);
                 ray = Camera.main.ScreenPointToRay(m_mousePos);
+                
+                Vector2 uvPos = Vector2.zero;
+                if (!HitTestUVPosition(ray, ref uvPos)) return;
+                
+                fWidth = m_tempRend.bounds.extents.x * 2f;
+                fRadius = (m_particlesRadius * m_fluid.GetParticlesWidth()) / fWidth;
+                m_fluid.AddParticles(uvPos, fRadius, m_particlesStrength * Time.deltaTime);
+                
+                /* Asset's original implementation
                 if (m_tempCol.Raycast(ray, out hitInfo, 100))
                 {
                     fWidth = m_tempRend.bounds.extents.x * 2f;
                     fRadius = (m_particlesRadius * m_fluid.GetParticlesWidth()) / fWidth;
                     m_fluid.AddParticles(hitInfo.textureCoord, fRadius, m_particlesStrength * Time.deltaTime);
                 }
+                */
             }
             if (Input.GetMouseButtonDown(1))
             {
@@ -83,6 +94,26 @@ namespace FluidDynamics
             {
                 m_mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f);
                 ray = Camera.main.ScreenPointToRay(m_mousePos);
+                
+                Vector2 uvPos = Vector2.zero;
+                if (!HitTestUVPosition(ray, ref uvPos)) return;
+                
+                direction = (Input.mousePosition - m_previousMousePosition) * (m_velocityStrength * Time.deltaTime);
+                fWidth = m_tempRend.bounds.extents.x * 2f;
+                fRadius = (m_velocityRadius * m_fluid.GetWidth()) / fWidth;
+
+                if (Input.GetMouseButton(0))
+                {
+                    m_fluid.AddVelocity(uvPos, -direction, fRadius);
+                }
+                else
+                {
+                    m_fluid.AddVelocity(uvPos, direction, fRadius);
+
+                }
+                
+                
+                /* Asset's original implementation
                 if (m_tempCol.Raycast(ray, out hitInfo, 100))
                 {
                     direction = (Input.mousePosition - m_previousMousePosition) * m_velocityStrength * Time.deltaTime;
@@ -99,7 +130,22 @@ namespace FluidDynamics
 
                     }
                 }
+                */
+                
                 m_previousMousePosition = Input.mousePosition;
+            }
+        }
+        
+        private bool HitTestUVPosition(Ray cursorRay, ref Vector2 uvPos)
+        {
+            if (Physics.Raycast(cursorRay, out var hit, 1000, LayerMask.GetMask("Default")))
+            {
+                uvPos = new Vector2(hit.textureCoord.x, hit.textureCoord.y);
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }

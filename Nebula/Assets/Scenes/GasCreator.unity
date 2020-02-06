@@ -8732,7 +8732,7 @@ GameObject:
   - component: {fileID: 1059803780}
   - component: {fileID: 1059803778}
   m_Layer: 0
-  m_Name: Camera
+  m_Name: Fluid Dynamics RT Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8745,13 +8745,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1059803776}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 391025565}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!114 &1059803778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9565,7 +9565,6 @@ GameObject:
   - component: {fileID: 1164169891}
   - component: {fileID: 1164169890}
   - component: {fileID: 1164169889}
-  - component: {fileID: 1164169888}
   m_Layer: 9
   m_Name: Fluid Plane
   m_TagString: Untagged
@@ -9590,9 +9589,9 @@ MonoBehaviour:
     type: 3}
   m_simulate: 1
   m_speed: 600
-  m_iterations: 75
+  m_iterations: 100
   m_velocityDissipation: 1
-  m_vorticityScale: 50
+  m_vorticityScale: 25
   m_viscosity: 0
   m_nResolution: 512
   m_cacheVelocity: 0
@@ -9629,23 +9628,6 @@ MonoBehaviour:
   m_updateGradient: 1
   m_densityDissipation: 0.995
   m_nParticlesResolution: 4096
---- !u!114 &1164169888
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1164169886}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e1c629ebced14540a4173cb487ae517, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_velocityStrength: 10
-  m_velocityRadius: 5
-  m_particlesStrength: 1
-  m_particlesRadius: 5
-  m_fluid: {fileID: 1164169887}
 --- !u!114 &1164169889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9663,7 +9645,7 @@ MonoBehaviour:
   m_alwaysOn: 1
   m_velocityStrength: 5
   m_velocityRadius: 2.5
-  m_particlesStrength: 5000
+  m_particlesStrength: 2000
   m_particlesRadius: 2.5
 --- !u!64 &1164169890
 MeshCollider:
@@ -9732,13 +9714,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1164169886}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0.7071068, w: 0}
+  m_LocalRotation: {x: -0.5, y: 0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: -0.695, y: 0.942, z: 0.1}
   m_LocalScale: {x: 10, y: 1, z: 10}
   m_Children: []
   m_Father: {fileID: 391025565}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: -180}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: -90}
 --- !u!1 &1191381062
 GameObject:
   m_ObjectHideFlags: 0
@@ -19911,7 +19893,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: -2432090755550338912, guid: a1de53a8746e4de488c6ec2ca641b79c, type: 3}
 --- !u!23 &1981306970
@@ -19983,7 +19965,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1981306966}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 649c6a71374ef07439cd9578627ef761, type: 3}
   m_Name: 
