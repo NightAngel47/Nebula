@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 94ddfb6394a67cb42b3fd01722f368f4
+guid: 2f33e7ce06533a34997a52ac43075e27
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -16,8 +16,10 @@ ScriptedImporter:
     generateAllOutputs: 1
     generateMipMaps: 1
     preset: " <sbspreset pkgurl=\"pkg://Plains\" label=\"\" >\n  <presetinput identifier=\"$outputsize\"
-      uid=\"563615537\" type=\"8\" value=\"10,10\" />\n  <presetinput identifier=\"Leaves_Color\"
-      uid=\"1250483491\" type=\"3\" value=\"0.924528,0.66723,0.728046,1\" />\n </sbspreset>\n"
+      uid=\"563615537\" type=\"8\" value=\"10,10\" />\n  <presetinput identifier=\"Grass_Color\"
+      uid=\"1250488813\" type=\"3\" value=\"0.662745,0.843137,0.360784,1\" />\n  <presetinput
+      identifier=\"Leaves_Color\" uid=\"1250483491\" type=\"3\" value=\"0.92549,0.666667,0.729412,1\"
+      />\n </sbspreset>\n"
     shaderName: HDRP/LitTessellation
     materialProperties:
       shader: {fileID: 4800000, guid: 756bac9090102564582875f4c7e30202, type: 3}
@@ -31,7 +33,7 @@ ScriptedImporter:
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
       - name: _BaseColorMap
-        texture: {fileID: -6514116678888517097, guid: 94ddfb6394a67cb42b3fd01722f368f4,
+        texture: {fileID: -6514116678888517097, guid: 2f33e7ce06533a34997a52ac43075e27,
           type: 3}
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
@@ -72,17 +74,17 @@ ScriptedImporter:
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
       - name: _MainTex
-        texture: {fileID: -6514116678888517097, guid: 94ddfb6394a67cb42b3fd01722f368f4,
+        texture: {fileID: -6514116678888517097, guid: 2f33e7ce06533a34997a52ac43075e27,
           type: 3}
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
       - name: _MaskMap
-        texture: {fileID: -7343288481769832201, guid: 94ddfb6394a67cb42b3fd01722f368f4,
+        texture: {fileID: -7343288481769832201, guid: 2f33e7ce06533a34997a52ac43075e27,
           type: 3}
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
       - name: _NormalMap
-        texture: {fileID: -3325283107060341544, guid: 94ddfb6394a67cb42b3fd01722f368f4,
+        texture: {fileID: -3325283107060341544, guid: 2f33e7ce06533a34997a52ac43075e27,
           type: 3}
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
@@ -256,7 +258,7 @@ ScriptedImporter:
       - name: _NormalMapSpace
         float: 0
       - name: _NormalScale
-        float: 1.35
+        float: 1
       - name: _PPDLodThreshold
         float: 5
       - name: _PPDMaxSamples
@@ -527,11 +529,11 @@ ScriptedImporter:
       textureFormatMode: 0
       normalCompressed: 0
       bGenerateOnLoad: 1
-    material: {fileID: -2420603538260235118, guid: 94ddfb6394a67cb42b3fd01722f368f4,
+    material: {fileID: -2420603538260235118, guid: 2f33e7ce06533a34997a52ac43075e27,
       type: 3}
     generatedTextures:
-    - {fileID: -6514116678888517097, guid: 94ddfb6394a67cb42b3fd01722f368f4, type: 3}
-    - {fileID: -3325283107060341544, guid: 94ddfb6394a67cb42b3fd01722f368f4, type: 3}
-    - {fileID: -1406172425441976949, guid: 94ddfb6394a67cb42b3fd01722f368f4, type: 3}
-    - {fileID: -7343288481769832201, guid: 94ddfb6394a67cb42b3fd01722f368f4, type: 3}
-    - {fileID: -4490786052973103218, guid: 94ddfb6394a67cb42b3fd01722f368f4, type: 3}
+    - {fileID: -6514116678888517097, guid: 2f33e7ce06533a34997a52ac43075e27, type: 3}
+    - {fileID: -3325283107060341544, guid: 2f33e7ce06533a34997a52ac43075e27, type: 3}
+    - {fileID: -1406172425441976949, guid: 2f33e7ce06533a34997a52ac43075e27, type: 3}
+    - {fileID: -7343288481769832201, guid: 2f33e7ce06533a34997a52ac43075e27, type: 3}
+    - {fileID: -4490786052973103218, guid: 2f33e7ce06533a34997a52ac43075e27, type: 3}
