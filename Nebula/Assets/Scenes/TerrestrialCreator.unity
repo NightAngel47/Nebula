@@ -13315,11 +13315,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 281fe8dc6e0dacb4a97347684229c8bf, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 281fe8dc6e0dacb4a97347684229c8bf, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 281fe8dc6e0dacb4a97347684229c8bf, type: 3}
       propertyPath: m_Materials.Array.data[0]
