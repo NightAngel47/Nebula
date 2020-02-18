@@ -1,0 +1,41 @@
+Tropical Ocean
+Island .00125
+Volcano .001
+Algae .003
+
+Tropical Desert
+Tropical Shrub .0075
+Tropical Rock .005
+Tropical Palm .0055
+
+Savanna
+abal shrub .0125
+elephant grass .0075
+acacia tree .005
+
+Prairie
+grass .0125
+flowers 1 .0125
+flowers 2 .0125
+flowers 3 .0125
+
+Temperate Desert
+cactus .0075
+joshua tree .0035
+temperate bush .0125
+
+Deciduous
+deciduous rocks .0035
+deciduous leaves .0025
+birch .002
+
+Coniferous
+mountains .00125
+coniferous rocks .005
+conifer pines .005
+
+
+Artic
+iceberg .0015
+tundra island .001
+ice sheet .002
