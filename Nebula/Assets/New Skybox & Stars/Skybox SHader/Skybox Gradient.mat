@@ -11,7 +11,7 @@ Material:
   m_Shader: {fileID: -6465566751694194690, guid: 031bcc2fe07246c4985cf48a2150ed07,
     type: 3}
   m_ShaderKeywords: 
-  m_LightmapFlags: 2
+  m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2000
@@ -112,7 +112,7 @@ Material:
     - Vector1_4304EB37: 0
     - Vector1_9726BE08: 3.08
     - Vector1_9FD6FE6C: 3.04
-    - Vector1_C0B5EFF3: 0.809
+    - Vector1_C0B5EFF3: 0.752
     - _AORemapMax: 1
     - _AORemapMin: 0
     - _ATDistance: 1
