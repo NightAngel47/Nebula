@@ -143,7 +143,7 @@ public class ScienceScreenBehavior : MonoBehaviour
             }
             else if (baseColor == gasGiantController.baseColors[1])
             {
-                fact1 = FactTypes.Ozone;
+                fact1 = FactTypes.Oxygen;
             }
             else if (baseColor == gasGiantController.baseColors[2])
             {
@@ -180,7 +180,7 @@ public class ScienceScreenBehavior : MonoBehaviour
             }
             else if (bandsColor == gasGiantController.bandColors[1])
             {
-                fact2 = FactTypes.Ozone;
+                fact2 = FactTypes.Oxygen;
             }
             else if (bandsColor == gasGiantController.bandColors[2])
             {
@@ -204,7 +204,7 @@ public class ScienceScreenBehavior : MonoBehaviour
             }
             else if (bandsColor == gasGiantController.bandColors[7])
             {
-                fact2 = FactTypes.NitrogenDioxide;
+                fact2 = FactTypes.Nitrogen;
             }
 
             #endregion
@@ -418,12 +418,12 @@ public class ScienceScreenBehavior : MonoBehaviour
         Iodine,
         Lithium,
         Magnesium,
-        NitrogenDioxide,
+        Nitrogen,
         Potassium,
         Rubidium,
         Sodium,
         Strontium,
-        Ozone,
+        Oxygen,
         Rings
     }
 }

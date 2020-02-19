@@ -3392,11 +3392,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Science Screen Prefab
       objectReference: {fileID: 0}
-    - target: {fileID: 8584377923312010038, guid: 9f5e21a3635127b4c818f106776eea75,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 530403304}
     - target: {fileID: 8584377923802222569, guid: 9f5e21a3635127b4c818f106776eea75,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3452,11 +3447,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8584377923060765224, guid: 9f5e21a3635127b4c818f106776eea75,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 550
+      objectReference: {fileID: 0}
     - target: {fileID: 8584377923790357799, guid: 9f5e21a3635127b4c818f106776eea75,
         type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1483800932}
+    - target: {fileID: 3207333385480223027, guid: 9f5e21a3635127b4c818f106776eea75,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 550
+      objectReference: {fileID: 0}
+    - target: {fileID: 3207333386444070657, guid: 9f5e21a3635127b4c818f106776eea75,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 550
+      objectReference: {fileID: 0}
+    - target: {fileID: 8584377922489364018, guid: 9f5e21a3635127b4c818f106776eea75,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 550
+      objectReference: {fileID: 0}
+    - target: {fileID: 8584377923312010038, guid: 9f5e21a3635127b4c818f106776eea75,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 530403304}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f5e21a3635127b4c818f106776eea75, type: 3}
 --- !u!1 &1949666576
