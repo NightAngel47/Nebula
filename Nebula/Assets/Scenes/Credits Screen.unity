@@ -755,6 +755,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2648154794830764428, guid: 7a42603d5e9cc8444ba71c6b0599cd85,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2648154794830764465, guid: 7a42603d5e9cc8444ba71c6b0599cd85,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -954,7 +959,7 @@ GameObject:
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!81 &1516437916
 AudioListener:
@@ -1035,7 +1040,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23c1ce4fb46143f46bc5cb5224c934f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clearColorMode: 0
+  clearColorMode: 2
   backgroundColorHDR: {r: 0, g: 0, b: 0, a: 0}
   clearDepth: 1
   volumeLayerMask:
@@ -1057,14 +1062,14 @@ MonoBehaviour:
   flipYMode: 0
   fullscreenPassthrough: 0
   allowDynamicResolution: 0
-  customRenderingSettings: 0
+  customRenderingSettings: 1
   invertFaceCulling: 0
   probeLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPathCustomFrameSettings:
     bitDatas:
-      data1: 69284256546589
+      data1: 69284205943581
       data2: 4539628424389459968
     lodBias: 1
     lodBiasMode: 0
@@ -1072,7 +1077,7 @@ MonoBehaviour:
     maximumLODLevelMode: 0
   renderingPathCustomFrameSettingsOverrideMask:
     mask:
-      data1: 0
+      data1: 58991616
       data2: 0
   defaultFrameSettings: 0
   m_Version: 5
@@ -1133,6 +1138,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: skybox
+      objectReference: {fileID: 0}
+    - target: {fileID: 1372276835130777215, guid: a115e1b7500c7504ab8d21052fcde758,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2688674653473434732, guid: a115e1b7500c7504ab8d21052fcde758,
         type: 3}
@@ -1198,6 +1208,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 14.749998
+      objectReference: {fileID: 0}
+    - target: {fileID: 4829833718632774626, guid: a115e1b7500c7504ab8d21052fcde758,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967294
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a115e1b7500c7504ab8d21052fcde758, type: 3}
