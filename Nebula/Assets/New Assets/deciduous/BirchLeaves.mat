@@ -28,7 +28,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_70620D46:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 38616ee22c0fd4d07a66d79e8f5ade0f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AnisotropyMap:
@@ -132,7 +132,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_C67189D9: 0.002
+    - Vector1_C67189D9: 0.11
     - Vector1_D60E3670: 25
     - _AORemapMax: 1
     - _AORemapMin: 0
@@ -213,7 +213,7 @@ Material:
     - _ReceivesSSR: 1
     - _RefractionModel: 0
     - _RenderQueueType: 1
-    - _RequireSplitLighting: 1
+    - _RequireSplitLighting: 0
     - _SSRefractionProjectionModel: 0
     - _Smoothness: 0.5
     - _SmoothnessRemapMax: 1
@@ -221,10 +221,10 @@ Material:
     - _SpecularAAScreenSpaceVariance: 0.1
     - _SpecularAAThreshold: 0.2
     - _SrcBlend: 1
-    - _StencilRef: 1
+    - _StencilRef: 2
     - _StencilRefDepth: 0
     - _StencilRefDistortionVec: 64
-    - _StencilRefGBuffer: 1
+    - _StencilRefGBuffer: 2
     - _StencilRefMV: 128
     - _StencilWriteMask: 3
     - _StencilWriteMaskDepth: 48
@@ -256,6 +256,7 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
+    - Color_B3C561CC: {r: 0.8301887, g: 0.48765194, b: 0.21537916, a: 0}
     - Vector2_3D39915F: {r: 0.1, g: 0, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 0.5513559, b: 0, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}

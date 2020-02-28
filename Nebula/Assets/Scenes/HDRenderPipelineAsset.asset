@@ -53,7 +53,7 @@ MonoBehaviour:
     supportTransparentDepthPrepass: 1
     supportTransparentDepthPostpass: 1
     colorBufferFormat: 74
-    supportedLitShaderMode: 1
+    supportedLitShaderMode: 3
     supportDecals: 0
     msaaSampleCount: 1
     supportMotionVectors: 1
@@ -105,7 +105,7 @@ MonoBehaviour:
       m_LutSize: 32
       lutFormat: 48
     dynamicResolutionSettings:
-      enabled: 0
+      enabled: 1
       maxPercentage: 100
       minPercentage: 100
       dynResType: 1
