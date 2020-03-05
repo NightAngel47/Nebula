@@ -7,23 +7,49 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Oak
-  m_Shader: {fileID: 4800000, guid: 6e4ae4064600d784cac1e41a9e6f2e59, type: 3}
-  m_ShaderKeywords: _NORMALMAP_TANGENT_SPACE
+  m_Name: Test Terrain
+  m_Shader: {fileID: -6465566751694194690, guid: 76f702a5e1bb2494b9178743853a9d73,
+    type: 3}
+  m_ShaderKeywords: 
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 1
+  m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap: {}
+  stringTagMap:
+    MotionVector: User
   disabledShaderPasses:
-  - DistortionVectors
   - MOTIONVECTORS
-  - TransparentDepthPrepass
-  - TransparentDepthPostpass
-  - TransparentBackface
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2DArray_D50AE514:
+        m_Texture: {fileID: 18700000, guid: 5f9e2ec1c93e1cc48bd801412c10a404, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_120635D2:
+        m_Texture: {fileID: 2800000, guid: 95e4237cb9cd48c459cba89da4bd7754, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_48D026E0:
+        m_Texture: {fileID: 8400000, guid: cadd0f7e65845da45a6c3a9be0e03b72, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_76618031:
+        m_Texture: {fileID: 8400000, guid: dc8b2dcdd896c2340aeae3f6e8eab648, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_89056406:
+        m_Texture: {fileID: 8400000, guid: 6ebb7ec600cc7ba4ea4458a628dc8d67, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_C172A89:
+        m_Texture: {fileID: 2800000, guid: 14670bd588e702741a7b68b59d1dc76b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_DEBA3679:
+        m_Texture: {fileID: 8400000, guid: 12ebd9bbea6b07742b1ffb45af7d13c3, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _AnisotropyMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -109,6 +135,20 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_36E5184A: 0.5
+    - Vector1_446BB7A6: 3
+    - Vector1_503562F7: 0.629
+    - Vector1_57F3EAD2: 0
+    - Vector1_8D347BC2: 3
+    - Vector1_90390AB9: 0.03
+    - Vector1_9BA55B3A: 3
+    - Vector1_A08FAF55: 3
+    - Vector1_B5B7120B: 0.066
+    - Vector1_BCCD76D4: 3.14
+    - Vector1_BF9B552D: 3
+    - Vector1_CCC999BD: 3
+    - Vector1_D0D6D657: 3
+    - Vector1_F571B4E5: 0.482
     - _AORemapMax: 1
     - _AORemapMin: 0
     - _ATDistance: 1
@@ -137,16 +177,16 @@ Material:
     - _DisplacementMode: 0
     - _DistortionBlendMode: 0
     - _DistortionBlurBlendMode: 0
-    - _DistortionBlurDstBlend: 1
+    - _DistortionBlurDstBlend: 0
     - _DistortionBlurRemapMax: 1
     - _DistortionBlurRemapMin: 0
     - _DistortionBlurScale: 1
-    - _DistortionBlurSrcBlend: 1
+    - _DistortionBlurSrcBlend: 0
     - _DistortionDepthTest: 1
-    - _DistortionDstBlend: 1
+    - _DistortionDstBlend: 0
     - _DistortionEnable: 0
     - _DistortionScale: 1
-    - _DistortionSrcBlend: 1
+    - _DistortionSrcBlend: 0
     - _DistortionVectorBias: -1
     - _DistortionVectorScale: 2
     - _DoubleSidedEnable: 0
@@ -188,7 +228,7 @@ Material:
     - _ReceivesSSR: 1
     - _RefractionModel: 0
     - _SSRefractionProjectionModel: 0
-    - _Smoothness: 0
+    - _Smoothness: 0.5
     - _SmoothnessRemapMax: 1
     - _SmoothnessRemapMin: 0
     - _SpecularAAScreenSpaceVariance: 0.1
@@ -200,10 +240,10 @@ Material:
     - _StencilRefGBuffer: 2
     - _StencilRefMV: 128
     - _StencilWriteMask: 3
-    - _StencilWriteMaskDepth: 48
+    - _StencilWriteMaskDepth: 32
     - _StencilWriteMaskDistortionVec: 64
-    - _StencilWriteMaskGBuffer: 51
-    - _StencilWriteMaskMV: 176
+    - _StencilWriteMaskGBuffer: 3
+    - _StencilWriteMaskMV: 128
     - _SubsurfaceMask: 1
     - _SupportDecals: 1
     - _SurfaceType: 0
@@ -223,15 +263,18 @@ Material:
     - _UVEmissive: 0
     - _UseEmissiveIntensity: 0
     - _UseShadowThreshold: 0
-    - _ZTestDepthEqualForOpaque: 3
+    - _ZTestDepthEqualForOpaque: 4
     - _ZTestGBuffer: 4
-    - _ZTestModeDistortion: 4
+    - _ZTestModeDistortion: 8
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.65882355, g: 0.25882354, b: 0.39375472, a: 1}
+    - Color_193B39C2: {r: 0.41176468, g: 0.6745098, b: 0.8000001, a: 1}
+    - Color_20AD44BD: {r: 0.23137257, g: 0.43529418, b: 0.7725491, a: 1}
+    - Color_A38A2277: {r: 0.23137257, g: 0.84705883, b: 0.8588236, a: 1}
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
-    - _Color: {r: 0.65882355, g: 0.2588235, b: 0.3937547, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DiffusionProfileAsset: {r: 0, g: 0, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}

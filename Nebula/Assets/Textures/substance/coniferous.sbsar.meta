@@ -18,9 +18,9 @@ ScriptedImporter:
     preset: " <sbspreset pkgurl=\"pkg://Forest\" label=\"\" >\n  <presetinput identifier=\"$outputsize\"
       uid=\"2567533773\" type=\"8\" value=\"10,10\" />\n  <presetinput identifier=\"leaf_color\"
       uid=\"4060321914\" type=\"3\" value=\"0.768628,0.592157,0.482353,1\" />\n  <presetinput
-      identifier=\"dirt_color\" uid=\"4060322640\" type=\"3\" value=\"0.72549,0.709804,0.341176,1\"
+      identifier=\"dirt_color\" uid=\"4060322640\" type=\"3\" value=\"0.754495,0.792453,0.549484,1\"
       />\n  <presetinput identifier=\"grass_color\" uid=\"4060322781\" type=\"3\"
-      value=\"0.541176,0.705882,0.309804,1\" />\n </sbspreset>\n"
+      value=\"0.163982,0.632075,0.528523,1\" />\n </sbspreset>\n"
     shaderName: HDRP/LitTessellation
     materialProperties:
       shader: {fileID: 4800000, guid: 756bac9090102564582875f4c7e30202, type: 3}

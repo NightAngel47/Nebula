@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d1b2f96bc53bc2f4b8912bca94e70072
+guid: 5b658de76d586374f810378335b131f6
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -10,22 +10,19 @@ ScriptedImporter:
   script: {fileID: 232528478, guid: 43a8bbf65be290d44ba52b94476242b9, type: 3}
   version: 24
   mGraphInstanceData:
-  - graphLabel: Plains
-    prototypeName: Plains
+  - graphLabel: desert
+    prototypeName: desert
     graphDescIndex: 0
     generateAllOutputs: 1
     generateMipMaps: 1
-    preset: " <sbspreset pkgurl=\"pkg://Plains\" label=\"\" >\n  <presetinput identifier=\"$outputsize\"
-      uid=\"563615537\" type=\"8\" value=\"10,10\" />\n  <presetinput identifier=\"Grass_Color\"
-      uid=\"1250488813\" type=\"3\" value=\"0.662745,0.843137,0.360784,1\" />\n  <presetinput
-      identifier=\"Leaves_Color\" uid=\"1250483491\" type=\"3\" value=\"0.92549,0.666667,0.729412,1\"
-      />\n </sbspreset>\n"
+    preset: " <sbspreset pkgurl=\"pkg://desert\" label=\"\" >\n  <presetinput identifier=\"$outputsize\"
+      uid=\"947560053\" type=\"8\" value=\"10,10\" />\n </sbspreset>\n"
     shaderName: HDRP/LitTessellation
     materialProperties:
       shader: {fileID: 4800000, guid: 756bac9090102564582875f4c7e30202, type: 3}
-      shaderKeywords: _BASECOLORMAP _DISPLACEMENT_LOCK_TILING_SCALE _MASKMAP _METALLICGLOSSMAP
-        _NORMALMAP _NORMALMAP_TANGENT_SPACE _OCCLUSIONMAP _ROUGHNESSMAP _TESSELLATION_DISPLACEMENT
-        _VERTEX_DISPLACEMENT_LOCK_OBJECT_SCALE
+      shaderKeywords: _BASECOLORMAP _DISPLACEMENT_LOCK_TILING_SCALE _HEIGHTMAP _MASKMAP
+        _METALLICGLOSSMAP _NORMALMAP _NORMALMAP_TANGENT_SPACE _OCCLUSIONMAP _ROUGHNESSMAP
+        _TESSELLATION_DISPLACEMENT _VERTEX_DISPLACEMENT_LOCK_OBJECT_SCALE
       lightmapFlags: 4
       texEnvs:
       - name: _AnisotropyMap
@@ -33,7 +30,7 @@ ScriptedImporter:
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
       - name: _BaseColorMap
-        texture: {fileID: -6514116678888517097, guid: d1b2f96bc53bc2f4b8912bca94e70072,
+        texture: {fileID: -6601689147619990931, guid: 5b658de76d586374f810378335b131f6,
           type: 3}
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
@@ -62,7 +59,8 @@ ScriptedImporter:
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
       - name: _HeightMap
-        texture: {instanceID: 0}
+        texture: {fileID: 482361464302343777, guid: 5b658de76d586374f810378335b131f6,
+          type: 3}
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
       - name: _IridescenceMaskMap
@@ -74,17 +72,17 @@ ScriptedImporter:
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
       - name: _MainTex
-        texture: {fileID: -6514116678888517097, guid: d1b2f96bc53bc2f4b8912bca94e70072,
+        texture: {fileID: -6601689147619990931, guid: 5b658de76d586374f810378335b131f6,
           type: 3}
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
       - name: _MaskMap
-        texture: {fileID: -7343288481769832201, guid: d1b2f96bc53bc2f4b8912bca94e70072,
+        texture: {fileID: -4415413388008839488, guid: 5b658de76d586374f810378335b131f6,
           type: 3}
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
       - name: _NormalMap
-        texture: {fileID: -3325283107060341544, guid: d1b2f96bc53bc2f4b8912bca94e70072,
+        texture: {fileID: 5205276936605693115, guid: 5b658de76d586374f810378335b131f6,
           type: 3}
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
@@ -258,7 +256,7 @@ ScriptedImporter:
       - name: _NormalMapSpace
         float: 0
       - name: _NormalScale
-        float: 1
+        float: 1.97
       - name: _PPDLodThreshold
         float: 5
       - name: _PPDMaxSamples
@@ -439,6 +437,15 @@ ScriptedImporter:
       bImage: 1
       bNumerical: 0
       bLinear: 1
+    - outputName: height
+      identifier: height
+      usageName: height
+      channelStr: height
+      label: Height
+      usage: 9
+      bImage: 1
+      bNumerical: 0
+      bLinear: 1
     - outputName: ambientOcclusion
       identifier: ambientocclusion
       usageName: ambientOcclusion
@@ -460,7 +467,7 @@ ScriptedImporter:
     texturePackingList:
     - targetName: baseColor
       components:
-      - sourceName: smoothness
+      - sourceName: baseColor
         from: 0
         to: 3
     - targetName: normal
@@ -476,6 +483,11 @@ ScriptedImporter:
     - targetName: metallic
       components:
       - sourceName: smoothness
+        from: 0
+        to: 3
+    - targetName: height
+      components:
+      - sourceName: height
         from: 0
         to: 3
     - targetName: ambientOcclusion
@@ -498,23 +510,27 @@ ScriptedImporter:
         from: 0
         to: 3
     textureParameters:
-    - textureName: Plains - baseColor
+    - textureName: desert - baseColor
       wrapMode: 0
       filterMode: 1
       aniso: 1
-    - textureName: Plains - normal
+    - textureName: desert - normal
       wrapMode: 0
       filterMode: 1
       aniso: 1
-    - textureName: Plains - roughness
+    - textureName: desert - roughness
       wrapMode: 0
       filterMode: 1
       aniso: 1
-    - textureName: Plains - metallic
+    - textureName: desert - metallic
       wrapMode: 0
       filterMode: 1
       aniso: 1
-    - textureName: Plains - ambientOcclusion
+    - textureName: desert - height
+      wrapMode: 0
+      filterMode: 1
+      aniso: 1
+    - textureName: desert - ambientOcclusion
       wrapMode: 0
       filterMode: 1
       aniso: 1
@@ -529,11 +545,12 @@ ScriptedImporter:
       textureFormatMode: 0
       normalCompressed: 0
       bGenerateOnLoad: 1
-    material: {fileID: -2420603538260235118, guid: d1b2f96bc53bc2f4b8912bca94e70072,
+    material: {fileID: 4638835325086828509, guid: 5b658de76d586374f810378335b131f6,
       type: 3}
     generatedTextures:
-    - {fileID: -4490786052973103218, guid: d1b2f96bc53bc2f4b8912bca94e70072, type: 3}
-    - {fileID: -6514116678888517097, guid: d1b2f96bc53bc2f4b8912bca94e70072, type: 3}
-    - {fileID: -7343288481769832201, guid: d1b2f96bc53bc2f4b8912bca94e70072, type: 3}
-    - {fileID: -3325283107060341544, guid: d1b2f96bc53bc2f4b8912bca94e70072, type: 3}
-    - {fileID: -1406172425441976949, guid: d1b2f96bc53bc2f4b8912bca94e70072, type: 3}
+    - {fileID: 8042871364006955966, guid: 5b658de76d586374f810378335b131f6, type: 3}
+    - {fileID: -6601689147619990931, guid: 5b658de76d586374f810378335b131f6, type: 3}
+    - {fileID: 482361464302343777, guid: 5b658de76d586374f810378335b131f6, type: 3}
+    - {fileID: -4415413388008839488, guid: 5b658de76d586374f810378335b131f6, type: 3}
+    - {fileID: 5205276936605693115, guid: 5b658de76d586374f810378335b131f6, type: 3}
+    - {fileID: 2463360657360236189, guid: 5b658de76d586374f810378335b131f6, type: 3}
