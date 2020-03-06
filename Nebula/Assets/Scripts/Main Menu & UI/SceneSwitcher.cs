@@ -30,7 +30,7 @@ public class SceneSwitcher : MonoBehaviour
     void TaskOnClickGas()
     {
         StartLoadingScreen();
-        GameManager.SceneToLoad = "GasCreator";
+        GameManager.SceneToLoad = "GasCreatorFluids";
     }
     
     void TaskOnClickCredits()

@@ -7,7 +7,60 @@
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="Allegorithmic" t="Include">
+          <e p="Plugins" t="Include">
+            <e p="engine_build_info.txt" t="Include" />
+            <e p="EULA.txt" t="Include" />
+            <e p="Substance.Platform" t="Include">
+              <e p="NativeFunctions.cs" t="Include" />
+            </e>
+          </e>
+        </e>
         <e p="BlurDisable.cs" t="Include" />
+        <e p="FluidDynamics" t="Include">
+          <e p="ExampleScenes" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="CameraMovement.cs" t="Include" />
+              <e p="dissappear.cs" t="Include" />
+              <e p="fluidUI.cs" t="Include" />
+              <e p="ShipPlayerController.cs" t="Include" />
+              <e p="ShipPlayerController1.cs" t="Include" />
+            </e>
+          </e>
+          <e p="ReadMe.txt" t="Include" />
+          <e p="Resources" t="Include">
+            <e p="FLUID_DYNAMICS_MAIN.compute" t="Include" />
+            <e p="FLUID_DYNAMICS_PARTICLES.compute" t="Include" />
+            <e p="FLUID_DYNAMICS_SIMULATION.compute" t="Include" />
+            <e p="Materials" t="Include">
+              <e p="MaterialRenderer.shader" t="Include" />
+            </e>
+          </e>
+          <e p="Scripts" t="Include">
+            <e p="Editor" t="Include">
+              <e p="Fluid_Dynamics_Block_Editor.cs" t="Include" />
+              <e p="Fluid_Dynamics_Mouse_Manipulator_Editor.cs" t="Include" />
+              <e p="Fluid_Dynamics_Particles_Area_Manipulator_Editor.cs" t="Include" />
+              <e p="Fluid_Dynamics_Velocity_Manipulator_Editor.cs" t="Include" />
+              <e p="Main_Fluid_Simulation_Editor.cs" t="Include" />
+            </e>
+            <e p="Emitters" t="Include">
+              <e p="Fluid_Dynamics_Mouse_Emitter.cs" t="Include" />
+              <e p="Fluid_Dynamics_Particles_Emitter.cs" t="Include" />
+              <e p="Fluid_Dynamics_Touch_Emitter.cs" t="Include" />
+              <e p="Fluid_Dynamics_Velocity_Emitter.cs" t="Include" />
+            </e>
+            <e p="FlowFollow" t="Include">
+              <e p="Fluid_Dynamics_Flow_Follow.cs" t="Include" />
+            </e>
+            <e p="Main_Fluid_Simulation.cs" t="Include" />
+            <e p="Obstacles" t="Include">
+              <e p="Fluid_Dynamics_Circle_Obstacle.cs" t="Include" />
+              <e p="Fluid_Dynamics_Edge_Obstacle.cs" t="Include" />
+              <e p="Fluid_Dynamics_Polygon_Obstacle.cs" t="Include" />
+            </e>
+          </e>
+        </e>
         <e p="New Assets" t="Include">
           <e p="0Scale Sizes.txt" t="Include" />
         </e>
@@ -17,6 +70,9 @@
           </e>
           <e p="Debugging" t="Include">
             <e p="DebugController.cs" t="Include" />
+          </e>
+          <e p="Editor" t="Include">
+            <e p="TextureArrayWizard.cs" t="Include" />
           </e>
           <e p="Main Menu &amp; UI" t="Include">
             <e p="CreditsBehaviour.cs" t="Include" />
@@ -172,6 +228,7 @@
       <e p="Nebula.sln" t="IncludeFlat" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />
+      <e p="Substance.Platform.csproj" t="IncludeRecursive" />
       <e p="Temp\bin" t="ExcludeRecursive" />
     </e>
   </component>

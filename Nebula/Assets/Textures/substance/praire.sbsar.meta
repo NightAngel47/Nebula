@@ -79,8 +79,7 @@ ScriptedImporter:
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
       - name: _MaskMap
-        texture: {fileID: -7343288481769832201, guid: d1b2f96bc53bc2f4b8912bca94e70072,
-          type: 3}
+        texture: {instanceID: 0}
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
       - name: _NormalMap
@@ -532,8 +531,8 @@ ScriptedImporter:
     material: {fileID: -2420603538260235118, guid: d1b2f96bc53bc2f4b8912bca94e70072,
       type: 3}
     generatedTextures:
-    - {fileID: -4490786052973103218, guid: d1b2f96bc53bc2f4b8912bca94e70072, type: 3}
     - {fileID: -6514116678888517097, guid: d1b2f96bc53bc2f4b8912bca94e70072, type: 3}
-    - {fileID: -7343288481769832201, guid: d1b2f96bc53bc2f4b8912bca94e70072, type: 3}
     - {fileID: -3325283107060341544, guid: d1b2f96bc53bc2f4b8912bca94e70072, type: 3}
     - {fileID: -1406172425441976949, guid: d1b2f96bc53bc2f4b8912bca94e70072, type: 3}
+    - {fileID: -7343288481769832201, guid: d1b2f96bc53bc2f4b8912bca94e70072, type: 3}
+    - {fileID: -4490786052973103218, guid: d1b2f96bc53bc2f4b8912bca94e70072, type: 3}
