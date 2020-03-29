@@ -3659,7 +3659,7 @@ PrefabInstance:
     - target: {fileID: 8750766019070319163, guid: 8791c821dda748d4994cadcce855177f,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8791c821dda748d4994cadcce855177f, type: 3}
@@ -12149,7 +12149,7 @@ GameObject:
   - component: {fileID: 1667172235}
   - component: {fileID: 1667172236}
   - component: {fileID: 1667172237}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Terrain Painter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12195,6 +12195,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   terrainEraser: {fileID: 7891452434980419166, guid: c67c69a896290c046b5aaacd333723d8,
+    type: 3}
+  terrainEraserUp: {fileID: 2800539766400918848, guid: af616d8fb51c41d439244940ac6bdb47,
     type: 3}
   terrainUpSpacing: 0.05
   terrainPlantsSpacing: 0.025
@@ -13321,6 +13323,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 281fe8dc6e0dacb4a97347684229c8bf, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4ee5fd7325fcf264291eb898bcb06cf3, type: 2}
+    - target: {fileID: 2300000, guid: 281fe8dc6e0dacb4a97347684229c8bf, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 281fe8dc6e0dacb4a97347684229c8bf, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -13390,14 +13400,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -2432090755550338912, guid: b731ae7894b60774c9cec31e48d1d293,
         type: 3}
-    - target: {fileID: 2300000, guid: 281fe8dc6e0dacb4a97347684229c8bf, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 4ee5fd7325fcf264291eb898bcb06cf3, type: 2}
-    - target: {fileID: 2300000, guid: 281fe8dc6e0dacb4a97347684229c8bf, type: 3}
-      propertyPath: m_CastShadows
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 281fe8dc6e0dacb4a97347684229c8bf, type: 3}
 --- !u!4 &1812487154 stripped
