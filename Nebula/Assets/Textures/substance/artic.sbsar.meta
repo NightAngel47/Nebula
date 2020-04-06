@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9fea0050eeb320e4998562ae86a0020c
+guid: ab403ce93deee124494a27c69c79c307
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -10,22 +10,18 @@ ScriptedImporter:
   script: {fileID: 232528478, guid: 43a8bbf65be290d44ba52b94476242b9, type: 3}
   version: 24
   mGraphInstanceData:
-  - graphLabel: Forest
-    prototypeName: Forest
+  - graphLabel: artic
+    prototypeName: artic
     graphDescIndex: 0
     generateAllOutputs: 1
     generateMipMaps: 1
-    preset: " <sbspreset pkgurl=\"pkg://Forest\" label=\"\" >\n  <presetinput identifier=\"$outputsize\"
-      uid=\"2567533773\" type=\"8\" value=\"10,10\" />\n  <presetinput identifier=\"leaf_color\"
-      uid=\"4060321914\" type=\"3\" value=\"0.768628,0.592157,0.482353,1\" />\n  <presetinput
-      identifier=\"dirt_color\" uid=\"4060322640\" type=\"3\" value=\"0.754495,0.792453,0.549484,1\"
-      />\n  <presetinput identifier=\"grass_color\" uid=\"4060322781\" type=\"3\"
-      value=\"0.163982,0.632075,0.528523,1\" />\n </sbspreset>\n"
+    preset: " <sbspreset pkgurl=\"pkg://artic\" label=\"\" >\n  <presetinput identifier=\"$outputsize\"
+      uid=\"862842493\" type=\"8\" value=\"10,10\" />\n </sbspreset>\n"
     shaderName: HDRP/LitTessellation
     materialProperties:
       shader: {fileID: 4800000, guid: 756bac9090102564582875f4c7e30202, type: 3}
-      shaderKeywords: _BASECOLORMAP _HEIGHTMAP _MASKMAP _METALLICGLOSSMAP _NORMALMAP
-        _NORMALMAP_TANGENT_SPACE _OCCLUSIONMAP _ROUGHNESSMAP
+      shaderKeywords: _BASECOLORMAP _HEIGHTMAP _METALLICGLOSSMAP _NORMALMAP _NORMALMAP_TANGENT_SPACE
+        _OCCLUSIONMAP _ROUGHNESSMAP
       lightmapFlags: 4
       texEnvs:
       - name: _AnisotropyMap
@@ -33,8 +29,7 @@ ScriptedImporter:
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
       - name: _BaseColorMap
-        texture: {fileID: -7839235500564588202, guid: 9fea0050eeb320e4998562ae86a0020c,
-          type: 3}
+        texture: {instanceID: 0}
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
       - name: _BentNormalMap
@@ -62,8 +57,7 @@ ScriptedImporter:
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
       - name: _HeightMap
-        texture: {fileID: 1804569171768565877, guid: 9fea0050eeb320e4998562ae86a0020c,
-          type: 3}
+        texture: {instanceID: 0}
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
       - name: _IridescenceMaskMap
@@ -75,18 +69,15 @@ ScriptedImporter:
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
       - name: _MainTex
-        texture: {fileID: -7839235500564588202, guid: 9fea0050eeb320e4998562ae86a0020c,
-          type: 3}
+        texture: {instanceID: 0}
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
       - name: _MaskMap
-        texture: {fileID: 1031406759155346963, guid: 9fea0050eeb320e4998562ae86a0020c,
-          type: 3}
+        texture: {instanceID: 0}
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
       - name: _NormalMap
-        texture: {fileID: 571657460989545338, guid: 9fea0050eeb320e4998562ae86a0020c,
-          type: 3}
+        texture: {instanceID: 0}
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
       - name: _NormalMapOS
@@ -470,7 +461,7 @@ ScriptedImporter:
     texturePackingList:
     - targetName: baseColor
       components:
-      - sourceName: smoothness
+      - sourceName: baseColor
         from: 0
         to: 3
     - targetName: normal
@@ -513,31 +504,27 @@ ScriptedImporter:
         from: 0
         to: 3
     textureParameters:
-    - textureName: Forest - baseColor
+    - textureName: artic - baseColor
       wrapMode: 0
       filterMode: 1
       aniso: 1
-    - textureName: Forest - normal
+    - textureName: artic - normal
       wrapMode: 0
       filterMode: 1
       aniso: 1
-    - textureName: Forest - roughness
+    - textureName: artic - roughness
       wrapMode: 0
       filterMode: 1
       aniso: 1
-    - textureName: Forest - metallic
+    - textureName: artic - metallic
       wrapMode: 0
       filterMode: 1
       aniso: 1
-    - textureName: Forest - height
+    - textureName: artic - height
       wrapMode: 0
       filterMode: 1
       aniso: 1
-    - textureName: Forest - ambientOcclusion
-      wrapMode: 0
-      filterMode: 1
-      aniso: 1
-    - textureName: Forest - mask
+    - textureName: artic - ambientOcclusion
       wrapMode: 0
       filterMode: 1
       aniso: 1
@@ -552,13 +539,11 @@ ScriptedImporter:
       textureFormatMode: 0
       normalCompressed: 0
       bGenerateOnLoad: 1
-    material: {fileID: -8133609221129987476, guid: 9fea0050eeb320e4998562ae86a0020c,
-      type: 3}
+    material: {instanceID: 0}
     generatedTextures:
-    - {fileID: -7839235500564588202, guid: 9fea0050eeb320e4998562ae86a0020c, type: 3}
-    - {fileID: 571657460989545338, guid: 9fea0050eeb320e4998562ae86a0020c, type: 3}
-    - {fileID: 2030340388985881418, guid: 9fea0050eeb320e4998562ae86a0020c, type: 3}
-    - {fileID: 7574841714505847946, guid: 9fea0050eeb320e4998562ae86a0020c, type: 3}
-    - {fileID: 1804569171768565877, guid: 9fea0050eeb320e4998562ae86a0020c, type: 3}
-    - {fileID: 1448904875018977693, guid: 9fea0050eeb320e4998562ae86a0020c, type: 3}
-    - {fileID: 1031406759155346963, guid: 9fea0050eeb320e4998562ae86a0020c, type: 3}
+    - {instanceID: 0}
+    - {instanceID: 0}
+    - {instanceID: 0}
+    - {instanceID: 0}
+    - {instanceID: 0}
+    - {instanceID: 0}

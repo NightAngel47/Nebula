@@ -16,10 +16,7 @@ ScriptedImporter:
     generateAllOutputs: 1
     generateMipMaps: 1
     preset: " <sbspreset pkgurl=\"pkg://Plains\" label=\"\" >\n  <presetinput identifier=\"$outputsize\"
-      uid=\"563615537\" type=\"8\" value=\"10,10\" />\n  <presetinput identifier=\"Grass_Color\"
-      uid=\"1250488813\" type=\"3\" value=\"0.662745,0.843137,0.360784,1\" />\n  <presetinput
-      identifier=\"Leaves_Color\" uid=\"1250483491\" type=\"3\" value=\"0.92549,0.666667,0.729412,1\"
-      />\n </sbspreset>\n"
+      uid=\"563615537\" type=\"8\" value=\"10,10\" />\n </sbspreset>\n"
     shaderName: HDRP/LitTessellation
     materialProperties:
       shader: {fileID: 4800000, guid: 756bac9090102564582875f4c7e30202, type: 3}
@@ -79,7 +76,8 @@ ScriptedImporter:
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
       - name: _MaskMap
-        texture: {instanceID: 0}
+        texture: {fileID: -7343288481769832201, guid: d1b2f96bc53bc2f4b8912bca94e70072,
+          type: 3}
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
       - name: _NormalMap
@@ -459,7 +457,7 @@ ScriptedImporter:
     texturePackingList:
     - targetName: baseColor
       components:
-      - sourceName: smoothness
+      - sourceName: baseColor
         from: 0
         to: 3
     - targetName: normal
@@ -531,8 +529,8 @@ ScriptedImporter:
     material: {fileID: -2420603538260235118, guid: d1b2f96bc53bc2f4b8912bca94e70072,
       type: 3}
     generatedTextures:
+    - {fileID: -4490786052973103218, guid: d1b2f96bc53bc2f4b8912bca94e70072, type: 3}
     - {fileID: -6514116678888517097, guid: d1b2f96bc53bc2f4b8912bca94e70072, type: 3}
+    - {fileID: -7343288481769832201, guid: d1b2f96bc53bc2f4b8912bca94e70072, type: 3}
     - {fileID: -3325283107060341544, guid: d1b2f96bc53bc2f4b8912bca94e70072, type: 3}
     - {fileID: -1406172425441976949, guid: d1b2f96bc53bc2f4b8912bca94e70072, type: 3}
-    - {fileID: -7343288481769832201, guid: d1b2f96bc53bc2f4b8912bca94e70072, type: 3}
-    - {fileID: -4490786052973103218, guid: d1b2f96bc53bc2f4b8912bca94e70072, type: 3}

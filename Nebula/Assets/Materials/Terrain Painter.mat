@@ -77,7 +77,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_CE7A380C:
-        m_Texture: {fileID: 2800000, guid: abbd4f72e53b7437baee7003a3c3529f, type: 3}
+        m_Texture: {fileID: -874541690230799353, guid: ab403ce93deee124494a27c69c79c307,
+          type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_D715FBD4:
@@ -91,6 +92,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     - Texture2D_F60F8D33:
         m_Texture: {fileID: 8400000, guid: dc8b2dcdd896c2340aeae3f6e8eab648, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_F6505627:
+        m_Texture: {fileID: -3325283107060341544, guid: d1b2f96bc53bc2f4b8912bca94e70072,
+          type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_F6D853BE:
@@ -289,15 +295,15 @@ Material:
     m_Floats:
     - Vector1_36E5184A: 0.416
     - Vector1_40B45C5A: 1
-    - Vector1_446BB7A6: 3
+    - Vector1_446BB7A6: 5.97
     - Vector1_503562F7: 0.682
     - Vector1_57F3EAD2: 4.25
     - Vector1_8D347BC2: 3
-    - Vector1_90390AB9: 0.339
+    - Vector1_90390AB9: 0.344
     - Vector1_90A1D364: 0
     - Vector1_9BA55B3A: 3
     - Vector1_A08FAF55: 3
-    - Vector1_B5B7120B: 0.13
+    - Vector1_B5B7120B: 0.53
     - Vector1_BCCD76D4: 3.14
     - Vector1_BF9B552D: 3.8
     - Vector1_CCC999BD: 4.22
