@@ -15,7 +15,7 @@ public class SavePlanet : MonoBehaviour
     public void UpdatePlanets()
     {
         if ((SceneManager.GetActiveScene().name == "TerrestrialCreator" || 
-            SceneManager.GetActiveScene().name == "GasCreator") &&
+            SceneManager.GetActiveScene().name == "GasCreatorFluids") &&
             SceneManager.GetActiveScene().name != "Complete Screen")
         {
             DontDestroyOnLoad(gameObject);

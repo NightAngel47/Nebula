@@ -2861,7 +2861,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   m_RenderingPathCustomFrameSettings:
     bitDatas:
-      data1: 69284205943581
+      data1: 69284205943615
       data2: 4539628424389459968
     lodBias: 1
     lodBiasMode: 0
@@ -2869,7 +2869,7 @@ MonoBehaviour:
     maximumLODLevelMode: 0
   renderingPathCustomFrameSettingsOverrideMask:
     mask:
-      data1: 58991616
+      data1: 58991619
       data2: 0
   defaultFrameSettings: 0
   m_Version: 5
@@ -2950,7 +2950,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 1
   far clip plane: 1000
   field of view: 60
   orthographic: 0
@@ -10387,6 +10387,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: skybox
+      objectReference: {fileID: 0}
+    - target: {fileID: 1372276835130777215, guid: a115e1b7500c7504ab8d21052fcde758,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2688674653473434732, guid: a115e1b7500c7504ab8d21052fcde758,
         type: 3}
