@@ -29,7 +29,8 @@ ScriptedImporter:
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
       - name: _BaseColorMap
-        texture: {instanceID: 0}
+        texture: {fileID: -874541690230799353, guid: ab403ce93deee124494a27c69c79c307,
+          type: 3}
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
       - name: _BentNormalMap
@@ -57,7 +58,8 @@ ScriptedImporter:
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
       - name: _HeightMap
-        texture: {instanceID: 0}
+        texture: {fileID: -6780693995698343839, guid: ab403ce93deee124494a27c69c79c307,
+          type: 3}
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
       - name: _IridescenceMaskMap
@@ -69,7 +71,8 @@ ScriptedImporter:
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
       - name: _MainTex
-        texture: {instanceID: 0}
+        texture: {fileID: -874541690230799353, guid: ab403ce93deee124494a27c69c79c307,
+          type: 3}
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
       - name: _MaskMap
@@ -77,7 +80,8 @@ ScriptedImporter:
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
       - name: _NormalMap
-        texture: {instanceID: 0}
+        texture: {fileID: -4373818284674974521, guid: ab403ce93deee124494a27c69c79c307,
+          type: 3}
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
       - name: _NormalMapOS
@@ -539,11 +543,12 @@ ScriptedImporter:
       textureFormatMode: 0
       normalCompressed: 0
       bGenerateOnLoad: 1
-    material: {instanceID: 0}
+    material: {fileID: 1811910926139725358, guid: ab403ce93deee124494a27c69c79c307,
+      type: 3}
     generatedTextures:
-    - {instanceID: 0}
-    - {instanceID: 0}
-    - {instanceID: 0}
-    - {instanceID: 0}
-    - {instanceID: 0}
-    - {instanceID: 0}
+    - {fileID: -874541690230799353, guid: ab403ce93deee124494a27c69c79c307, type: 3}
+    - {fileID: -4373818284674974521, guid: ab403ce93deee124494a27c69c79c307, type: 3}
+    - {fileID: -1949673381801141540, guid: ab403ce93deee124494a27c69c79c307, type: 3}
+    - {fileID: 6882405735725753192, guid: ab403ce93deee124494a27c69c79c307, type: 3}
+    - {fileID: -6780693995698343839, guid: ab403ce93deee124494a27c69c79c307, type: 3}
+    - {fileID: -1191223543789887974, guid: ab403ce93deee124494a27c69c79c307, type: 3}
