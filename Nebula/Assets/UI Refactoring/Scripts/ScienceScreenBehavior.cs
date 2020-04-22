@@ -19,7 +19,7 @@ public class ScienceScreenBehavior : MonoBehaviour
     private bool isGasGiant;
 
     private GameObject planet;
-    private GasGiantController gasGiantController;
+    private GasGiantFluidController gasGiantFluidController;
     /// <summary>
     /// Gas Giant base planet color shader property
     /// </summary>
@@ -111,7 +111,7 @@ public class ScienceScreenBehavior : MonoBehaviour
         planet = GameObject.FindGameObjectWithTag("Planet");
         
         // selects which list of facts to use based on planet type
-        if (planet.TryGetComponent<GasGiantController>(out gasGiantController))
+        if (planet.TryGetComponent<GasGiantFluidController>(out gasGiantFluidController))
         {
             isGasGiant = true;
             factRows = gasGiantFactRows;
@@ -130,6 +130,46 @@ public class ScienceScreenBehavior : MonoBehaviour
     {
         if (isGasGiant)
         {
+            //facts for fluids
+
+            var currentGas = gasGiantFluidController.GetCurrentGas();
+            if (currentGas.Equals(gasGiantFluidController.gasGradients[0]))
+            {
+                fact1 = FactTypes.Chlorine;
+            }
+            else if (currentGas.Equals(gasGiantFluidController.gasGradients[1]))
+            {
+                fact1 = FactTypes.Oxygen;
+            }
+            else if (currentGas.Equals(gasGiantFluidController.gasGradients[2]))
+            {
+                fact1 = FactTypes.Fluorine;
+            }
+            else if (currentGas.Equals(gasGiantFluidController.gasGradients[3]))
+            {
+                fact1 = FactTypes.Potassium;
+            }
+            else if (currentGas.Equals(gasGiantFluidController.gasGradients[4]))
+            {
+                fact1 = FactTypes.Strontium;
+            }
+            else if (currentGas.Equals(gasGiantFluidController.gasGradients[5]))
+            {
+                fact1 = FactTypes.Rubidium;
+            }
+            else if (currentGas.Equals(gasGiantFluidController.gasGradients[6]))
+            {
+                fact1 = FactTypes.Hydrogen;
+            }
+            else if (currentGas.Equals(gasGiantFluidController.gasGradients[7]))
+            {
+                fact1 = FactTypes.Bromine;
+            }
+            
+            //TODO change fact 2 to be about storms
+            fact2 = fact1; //TEMP
+
+            /* TODO Changes science facts to work with fluids
             // ref to Gas Giant shader
             Material planetMat = planet.GetComponent<MeshRenderer>().material;
             var baseColor = planetMat.GetColor(PlanetColor);
@@ -208,6 +248,7 @@ public class ScienceScreenBehavior : MonoBehaviour
             }
 
             #endregion
+            */
             
             fact3 = FactTypes.Rings;
         }

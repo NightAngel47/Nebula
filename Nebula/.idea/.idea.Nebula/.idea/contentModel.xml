@@ -89,6 +89,7 @@
             <e p="DeletePlanet.cs" t="Include" />
             <e p="Gas Giant" t="Include">
               <e p="GasGiantController.cs" t="Include" />
+              <e p="GasGiantFluidController.cs" t="Include" />
               <e p="GasRotation.cs" t="Include" />
               <e p="HideRings.cs" t="Include" />
               <e p="RingColor.cs" t="Include" />
