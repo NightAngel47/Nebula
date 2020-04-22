@@ -2412,7 +2412,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 110666251}
-        m_MethodName: AttachBiomePainter
+        m_MethodName: AttachRenderTexture
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
