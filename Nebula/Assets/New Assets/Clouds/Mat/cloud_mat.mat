@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Smoke unlit
-  m_Shader: {fileID: -6465566751694194690, guid: 70348d52738b6504eab1f66b30a6e272,
+  m_Name: cloud_mat
+  m_Shader: {fileID: -6465566751694194690, guid: 2aa81239cd0b8534eb6e7dcb58e3e853,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -107,9 +107,14 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_53CC442D: 0.1
-    - Vector1_B4006C11: 0.5
-    - Vector1_DDEB4DA3: 30
+    - Vector1_18FEC12B: 0
+    - Vector1_3B900429: 0.41
+    - Vector1_4C24752C: 2.66
+    - Vector1_A568E4AE: 60
+    - Vector1_C4B39724: 3.62
+    - Vector1_CFE2EE62: 30
+    - Vector1_E65135D: 0.02
+    - Vector1_F65B8C6A: 1.05
     - _AORemapMax: 1
     - _AORemapMin: 0
     - _ATDistance: 1
@@ -121,6 +126,7 @@ Material:
     - _AlphaCutoffShadow: 0.5
     - _AlphaDstBlend: 0
     - _AlphaSrcBlend: 1
+    - _Amount: 0.1
     - _Anisotropy: 0
     - _BlendMode: 0
     - _CoatMask: 0
@@ -230,6 +236,9 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
+    - Color_C0671485: {r: 0.7490196, g: 0.7490196, b: 0.7490196, a: 0}
+    - Vector2_933847AB: {r: 20, g: 100, b: 100, a: 100}
+    - Vector3_66E0A9FA: {r: 1, g: 1, b: 1, a: 6.45}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
