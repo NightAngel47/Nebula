@@ -24,8 +24,9 @@ ScriptedImporter:
     shaderName: HDRP/LitTessellation
     materialProperties:
       shader: {fileID: 4800000, guid: 756bac9090102564582875f4c7e30202, type: 3}
-      shaderKeywords: _BASECOLORMAP _HEIGHTMAP _MASKMAP _METALLICGLOSSMAP _NORMALMAP
-        _NORMALMAP_TANGENT_SPACE _OCCLUSIONMAP _ROUGHNESSMAP
+      shaderKeywords: _BASECOLORMAP _DISPLACEMENT_LOCK_TILING_SCALE _HEIGHTMAP _MASKMAP
+        _METALLICGLOSSMAP _NORMALMAP _NORMALMAP_TANGENT_SPACE _OCCLUSIONMAP _ROUGHNESSMAP
+        _TESSELLATION_DISPLACEMENT _VERTEX_DISPLACEMENT_LOCK_OBJECT_SCALE
       lightmapFlags: 4
       texEnvs:
       - name: _AnisotropyMap
@@ -175,7 +176,7 @@ ScriptedImporter:
       - name: _DistortionBlurBlendMode
         float: 0
       - name: _DistortionBlurDstBlend
-        float: 0
+        float: 1
       - name: _DistortionBlurRemapMax
         float: 1
       - name: _DistortionBlurRemapMin
@@ -183,17 +184,17 @@ ScriptedImporter:
       - name: _DistortionBlurScale
         float: 1
       - name: _DistortionBlurSrcBlend
-        float: 0
+        float: 1
       - name: _DistortionDepthTest
         float: 1
       - name: _DistortionDstBlend
-        float: 0
+        float: 1
       - name: _DistortionEnable
         float: 0
       - name: _DistortionScale
         float: 1
       - name: _DistortionSrcBlend
-        float: 0
+        float: 1
       - name: _DistortionVectorBias
         float: -1
       - name: _DistortionVectorScale
@@ -301,13 +302,13 @@ ScriptedImporter:
       - name: _StencilWriteMask
         float: 3
       - name: _StencilWriteMaskDepth
-        float: 32
+        float: 48
       - name: _StencilWriteMaskDistortionVec
         float: 64
       - name: _StencilWriteMaskGBuffer
-        float: 3
+        float: 51
       - name: _StencilWriteMaskMV
-        float: 128
+        float: 176
       - name: _SubsurfaceMask
         float: 1
       - name: _SupportDecals
@@ -361,11 +362,11 @@ ScriptedImporter:
       - name: _UseShadowThreshold
         float: 0
       - name: _ZTestDepthEqualForOpaque
-        float: 4
+        float: 3
       - name: _ZTestGBuffer
         float: 4
       - name: _ZTestModeDistortion
-        float: 8
+        float: 4
       - name: _ZTestTransparent
         float: 4
       - name: _ZWrite
@@ -555,10 +556,10 @@ ScriptedImporter:
     material: {fileID: -8133609221129987476, guid: 9fea0050eeb320e4998562ae86a0020c,
       type: 3}
     generatedTextures:
+    - {fileID: 1448904875018977693, guid: 9fea0050eeb320e4998562ae86a0020c, type: 3}
     - {fileID: -7839235500564588202, guid: 9fea0050eeb320e4998562ae86a0020c, type: 3}
+    - {fileID: 1804569171768565877, guid: 9fea0050eeb320e4998562ae86a0020c, type: 3}
+    - {fileID: 1031406759155346963, guid: 9fea0050eeb320e4998562ae86a0020c, type: 3}
+    - {fileID: 7574841714505847946, guid: 9fea0050eeb320e4998562ae86a0020c, type: 3}
     - {fileID: 571657460989545338, guid: 9fea0050eeb320e4998562ae86a0020c, type: 3}
     - {fileID: 2030340388985881418, guid: 9fea0050eeb320e4998562ae86a0020c, type: 3}
-    - {fileID: 7574841714505847946, guid: 9fea0050eeb320e4998562ae86a0020c, type: 3}
-    - {fileID: 1804569171768565877, guid: 9fea0050eeb320e4998562ae86a0020c, type: 3}
-    - {fileID: 1448904875018977693, guid: 9fea0050eeb320e4998562ae86a0020c, type: 3}
-    - {fileID: 1031406759155346963, guid: 9fea0050eeb320e4998562ae86a0020c, type: 3}

@@ -256,7 +256,7 @@ ScriptedImporter:
       - name: _NormalMapSpace
         float: 0
       - name: _NormalScale
-        float: 1
+        float: 1.97
       - name: _PPDLodThreshold
         float: 5
       - name: _PPDMaxSamples
@@ -548,9 +548,9 @@ ScriptedImporter:
     material: {fileID: 4638835325086828509, guid: 5b658de76d586374f810378335b131f6,
       type: 3}
     generatedTextures:
+    - {fileID: 8042871364006955966, guid: 5b658de76d586374f810378335b131f6, type: 3}
     - {fileID: -6601689147619990931, guid: 5b658de76d586374f810378335b131f6, type: 3}
+    - {fileID: 482361464302343777, guid: 5b658de76d586374f810378335b131f6, type: 3}
+    - {fileID: -4415413388008839488, guid: 5b658de76d586374f810378335b131f6, type: 3}
     - {fileID: 5205276936605693115, guid: 5b658de76d586374f810378335b131f6, type: 3}
     - {fileID: 2463360657360236189, guid: 5b658de76d586374f810378335b131f6, type: 3}
-    - {fileID: -4415413388008839488, guid: 5b658de76d586374f810378335b131f6, type: 3}
-    - {fileID: 482361464302343777, guid: 5b658de76d586374f810378335b131f6, type: 3}
-    - {fileID: 8042871364006955966, guid: 5b658de76d586374f810378335b131f6, type: 3}
