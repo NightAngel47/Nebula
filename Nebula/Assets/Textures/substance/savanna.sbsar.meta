@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9fea0050eeb320e4998562ae86a0020c
+guid: 6a5846025bca4a14fb83463b3f1b2deb
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -10,23 +10,20 @@ ScriptedImporter:
   script: {fileID: 232528478, guid: 43a8bbf65be290d44ba52b94476242b9, type: 3}
   version: 24
   mGraphInstanceData:
-  - graphLabel: Forest
-    prototypeName: Forest
+  - graphLabel: savanna
+    prototypeName: savanna
     graphDescIndex: 0
-    generateAllOutputs: 1
+    generateAllOutputs: 0
     generateMipMaps: 1
-    preset: " <sbspreset pkgurl=\"pkg://Forest\" label=\"\" >\n  <presetinput identifier=\"$outputsize\"
-      uid=\"2567533773\" type=\"8\" value=\"10,10\" />\n  <presetinput identifier=\"leaf_color\"
-      uid=\"4060321914\" type=\"3\" value=\"0.768628,0.592157,0.482353,1\" />\n  <presetinput
-      identifier=\"dirt_color\" uid=\"4060322640\" type=\"3\" value=\"0.787871,0.830189,0.567818,1\"
-      />\n  <presetinput identifier=\"grass_color\" uid=\"4060322781\" type=\"3\"
-      value=\"0.156862,0.707547,0.587229,1\" />\n </sbspreset>\n"
+    preset: " <sbspreset pkgurl=\"pkg://savanna\" label=\"\" >\n  <presetinput identifier=\"$outputsize\"
+      uid=\"3306521998\" type=\"8\" value=\"9,9\" />\n  <presetinput identifier=\"grass_color\"
+      uid=\"2911956365\" type=\"3\" value=\"0.898039,0.776471,0.466667,1\" />\n  <presetinput
+      identifier=\"grass_shadow\" uid=\"2911956579\" type=\"3\" value=\"0.72549,0.188235,0.360784,1\"
+      />\n </sbspreset>\n"
     shaderName: HDRP/LitTessellation
     materialProperties:
       shader: {fileID: 4800000, guid: 756bac9090102564582875f4c7e30202, type: 3}
-      shaderKeywords: _BASECOLORMAP _DISPLACEMENT_LOCK_TILING_SCALE _HEIGHTMAP _MASKMAP
-        _METALLICGLOSSMAP _NORMALMAP _NORMALMAP_TANGENT_SPACE _OCCLUSIONMAP _ROUGHNESSMAP
-        _TESSELLATION_DISPLACEMENT _VERTEX_DISPLACEMENT_LOCK_OBJECT_SCALE
+      shaderKeywords: _BASECOLORMAP _MASKMAP _NORMALMAP _NORMALMAP_TANGENT_SPACE
       lightmapFlags: 4
       texEnvs:
       - name: _AnisotropyMap
@@ -34,7 +31,7 @@ ScriptedImporter:
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
       - name: _BaseColorMap
-        texture: {fileID: -7839235500564588202, guid: 9fea0050eeb320e4998562ae86a0020c,
+        texture: {fileID: -5829772558047162593, guid: 6a5846025bca4a14fb83463b3f1b2deb,
           type: 3}
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
@@ -63,8 +60,7 @@ ScriptedImporter:
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
       - name: _HeightMap
-        texture: {fileID: 1804569171768565877, guid: 9fea0050eeb320e4998562ae86a0020c,
-          type: 3}
+        texture: {instanceID: 0}
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
       - name: _IridescenceMaskMap
@@ -76,17 +72,17 @@ ScriptedImporter:
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
       - name: _MainTex
-        texture: {fileID: -7839235500564588202, guid: 9fea0050eeb320e4998562ae86a0020c,
+        texture: {fileID: -5829772558047162593, guid: 6a5846025bca4a14fb83463b3f1b2deb,
           type: 3}
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
       - name: _MaskMap
-        texture: {fileID: 1031406759155346963, guid: 9fea0050eeb320e4998562ae86a0020c,
+        texture: {fileID: -2254563115172029650, guid: 6a5846025bca4a14fb83463b3f1b2deb,
           type: 3}
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
       - name: _NormalMap
-        texture: {fileID: 571657460989545338, guid: 9fea0050eeb320e4998562ae86a0020c,
+        texture: {fileID: 5581787527447403183, guid: 6a5846025bca4a14fb83463b3f1b2deb,
           type: 3}
         scale: {x: 1, y: 1}
         offset: {x: 0, y: 0}
@@ -176,7 +172,7 @@ ScriptedImporter:
       - name: _DistortionBlurBlendMode
         float: 0
       - name: _DistortionBlurDstBlend
-        float: 1
+        float: 0
       - name: _DistortionBlurRemapMax
         float: 1
       - name: _DistortionBlurRemapMin
@@ -184,17 +180,17 @@ ScriptedImporter:
       - name: _DistortionBlurScale
         float: 1
       - name: _DistortionBlurSrcBlend
-        float: 1
+        float: 0
       - name: _DistortionDepthTest
         float: 1
       - name: _DistortionDstBlend
-        float: 1
+        float: 0
       - name: _DistortionEnable
         float: 0
       - name: _DistortionScale
         float: 1
       - name: _DistortionSrcBlend
-        float: 1
+        float: 0
       - name: _DistortionVectorBias
         float: -1
       - name: _DistortionVectorScale
@@ -302,13 +298,13 @@ ScriptedImporter:
       - name: _StencilWriteMask
         float: 3
       - name: _StencilWriteMaskDepth
-        float: 48
+        float: 32
       - name: _StencilWriteMaskDistortionVec
         float: 64
       - name: _StencilWriteMaskGBuffer
-        float: 51
+        float: 3
       - name: _StencilWriteMaskMV
-        float: 176
+        float: 128
       - name: _SubsurfaceMask
         float: 1
       - name: _SupportDecals
@@ -362,11 +358,11 @@ ScriptedImporter:
       - name: _UseShadowThreshold
         float: 0
       - name: _ZTestDepthEqualForOpaque
-        float: 3
+        float: 4
       - name: _ZTestGBuffer
         float: 4
       - name: _ZTestModeDistortion
-        float: 4
+        float: 8
       - name: _ZTestTransparent
         float: 4
       - name: _ZWrite
@@ -441,15 +437,6 @@ ScriptedImporter:
       bImage: 1
       bNumerical: 0
       bLinear: 1
-    - outputName: height
-      identifier: height
-      usageName: height
-      channelStr: height
-      label: Height
-      usage: 9
-      bImage: 1
-      bNumerical: 0
-      bLinear: 1
     - outputName: ambientOcclusion
       identifier: ambientocclusion
       usageName: ambientOcclusion
@@ -471,7 +458,7 @@ ScriptedImporter:
     texturePackingList:
     - targetName: baseColor
       components:
-      - sourceName: smoothness
+      - sourceName: baseColor
         from: 0
         to: 3
     - targetName: normal
@@ -487,11 +474,6 @@ ScriptedImporter:
     - targetName: metallic
       components:
       - sourceName: smoothness
-        from: 0
-        to: 3
-    - targetName: height
-      components:
-      - sourceName: height
         from: 0
         to: 3
     - targetName: ambientOcclusion
@@ -514,31 +496,27 @@ ScriptedImporter:
         from: 0
         to: 3
     textureParameters:
-    - textureName: Forest - baseColor
+    - textureName: savanna - baseColor
       wrapMode: 0
       filterMode: 1
       aniso: 1
-    - textureName: Forest - normal
+    - textureName: savanna - normal
       wrapMode: 0
       filterMode: 1
       aniso: 1
-    - textureName: Forest - roughness
+    - textureName: savanna - roughness
       wrapMode: 0
       filterMode: 1
       aniso: 1
-    - textureName: Forest - metallic
+    - textureName: savanna - metallic
       wrapMode: 0
       filterMode: 1
       aniso: 1
-    - textureName: Forest - height
+    - textureName: savanna - ambientOcclusion
       wrapMode: 0
       filterMode: 1
       aniso: 1
-    - textureName: Forest - ambientOcclusion
-      wrapMode: 0
-      filterMode: 1
-      aniso: 1
-    - textureName: Forest - mask
+    - textureName: savanna - mask
       wrapMode: 0
       filterMode: 1
       aniso: 1
@@ -548,18 +526,14 @@ ScriptedImporter:
     - label: Default
       bOverride: 0
       bLockRatio: 1
-      textureWidth: 1024
-      textureHeight: 1024
+      textureWidth: 512
+      textureHeight: 512
       textureFormatMode: 0
       normalCompressed: 0
       bGenerateOnLoad: 1
-    material: {fileID: -8133609221129987476, guid: 9fea0050eeb320e4998562ae86a0020c,
+    material: {fileID: 2516316915193683456, guid: 6a5846025bca4a14fb83463b3f1b2deb,
       type: 3}
     generatedTextures:
-    - {fileID: -7839235500564588202, guid: 9fea0050eeb320e4998562ae86a0020c, type: 3}
-    - {fileID: 571657460989545338, guid: 9fea0050eeb320e4998562ae86a0020c, type: 3}
-    - {fileID: 2030340388985881418, guid: 9fea0050eeb320e4998562ae86a0020c, type: 3}
-    - {fileID: 7574841714505847946, guid: 9fea0050eeb320e4998562ae86a0020c, type: 3}
-    - {fileID: 1804569171768565877, guid: 9fea0050eeb320e4998562ae86a0020c, type: 3}
-    - {fileID: 1448904875018977693, guid: 9fea0050eeb320e4998562ae86a0020c, type: 3}
-    - {fileID: 1031406759155346963, guid: 9fea0050eeb320e4998562ae86a0020c, type: 3}
+    - {fileID: -5829772558047162593, guid: 6a5846025bca4a14fb83463b3f1b2deb, type: 3}
+    - {fileID: 5581787527447403183, guid: 6a5846025bca4a14fb83463b3f1b2deb, type: 3}
+    - {fileID: -2254563115172029650, guid: 6a5846025bca4a14fb83463b3f1b2deb, type: 3}

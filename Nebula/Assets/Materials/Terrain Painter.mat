@@ -35,6 +35,11 @@ Material:
         m_Texture: {fileID: 8400000, guid: cadd0f7e65845da45a6c3a9be0e03b72, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - Texture2D_6D166C38:
+        m_Texture: {fileID: -4292322492160167462, guid: f6e3c2c44366e704a85e07d06468c908,
+          type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - Texture2D_6E29B3C9:
         m_Texture: {fileID: 8400000, guid: cadd0f7e65845da45a6c3a9be0e03b72, type: 2}
         m_Scale: {x: 1, y: 1}
@@ -48,7 +53,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_8DCB07A:
-        m_Texture: {fileID: 2800000, guid: 53ae5d7fee7e04fadb9b262665aa0ecd, type: 3}
+        m_Texture: {fileID: -5829772558047162593, guid: 6a5846025bca4a14fb83463b3f1b2deb,
+          type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_9E86E658:
@@ -73,7 +79,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_C2A6DA27:
-        m_Texture: {fileID: 2800000, guid: 7e0812f3f09d24bd994aef6b641e6407, type: 3}
+        m_Texture: {fileID: -457346384484324160, guid: f6e3c2c44366e704a85e07d06468c908,
+          type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_CE7A380C:
@@ -301,12 +308,12 @@ Material:
     - Vector1_8D347BC2: 3
     - Vector1_90390AB9: 0.344
     - Vector1_90A1D364: 0
-    - Vector1_9BA55B3A: 3
-    - Vector1_A08FAF55: 3
+    - Vector1_9BA55B3A: 4.84
+    - Vector1_A08FAF55: 3.61
     - Vector1_B5B7120B: 0.53
     - Vector1_BCCD76D4: 3.14
-    - Vector1_BF9B552D: 3.8
-    - Vector1_CCC999BD: 4.22
+    - Vector1_BF9B552D: 5.43
+    - Vector1_CCC999BD: 6.93
     - Vector1_D0D6D657: 3.38
     - Vector1_F571B4E5: 0.486
     - Vector1_FAA335CB: 1
@@ -430,8 +437,8 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
-    - Color_193B39C2: {r: 0.3479886, g: 0.68887377, b: 0.8679245, a: 1}
-    - Color_20AD44BD: {r: 0.18627627, g: 0.28903136, b: 0.4339623, a: 1}
+    - Color_193B39C2: {r: 0.3496351, g: 0.7223242, b: 0.9150943, a: 1}
+    - Color_20AD44BD: {r: 0.18422927, g: 0.34180108, b: 0.5660378, a: 1}
     - Color_A38A2277: {r: 0.6556604, g: 0.9797902, b: 1, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}

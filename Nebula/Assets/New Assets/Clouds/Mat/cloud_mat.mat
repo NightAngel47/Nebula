@@ -112,14 +112,14 @@ Material:
     - Vector1_3B900429: 0.41
     - Vector1_4C24752C: 2.66
     - Vector1_A568E4AE: 60
-    - Vector1_B2C84362: 17
-    - Vector1_BA89DA7E: 0.274
-    - Vector1_C0ACEDB7: 1.095
+    - Vector1_B2C84362: 15.49
+    - Vector1_BA89DA7E: 0.192
+    - Vector1_C0ACEDB7: 1.742
     - Vector1_C4B39724: 3.62
     - Vector1_C63EF914: 0.041
     - Vector1_CFE2EE62: 30
     - Vector1_E65135D: 0.02
-    - Vector1_F65B8C6A: 1.03
+    - Vector1_F65B8C6A: 1.407
     - _AORemapMax: 1
     - _AORemapMin: 0
     - _ATDistance: 1
@@ -246,6 +246,7 @@ Material:
     - Color_C0671485: {r: 0.7490196, g: 0.7490196, b: 0.7490196, a: 0}
     - Vector2_933847AB: {r: 20, g: 100, b: 100, a: 100}
     - Vector3_66E0A9FA: {r: 1, g: 1, b: 1, a: 6.45}
+    - Vector3_D275F78C: {r: 2.56, g: 1, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}

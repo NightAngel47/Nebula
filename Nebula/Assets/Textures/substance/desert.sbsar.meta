@@ -16,7 +16,11 @@ ScriptedImporter:
     generateAllOutputs: 1
     generateMipMaps: 1
     preset: " <sbspreset pkgurl=\"pkg://desert\" label=\"\" >\n  <presetinput identifier=\"$outputsize\"
-      uid=\"947560053\" type=\"8\" value=\"10,10\" />\n </sbspreset>\n"
+      uid=\"947560053\" type=\"8\" value=\"10,10\" />\n  <presetinput identifier=\"Waves_Color\"
+      uid=\"1397839907\" type=\"3\" value=\"0.576471,0.101961,0.317647,1\" />\n  <presetinput
+      identifier=\"Base_Color\" uid=\"1397839883\" type=\"3\" value=\"0.952941,0.862745,0.690196,1\"
+      />\n  <presetinput identifier=\"Grunge_Color\" uid=\"1397839954\" type=\"3\"
+      value=\"0.839216,0.439216,0.472169,1\" />\n </sbspreset>\n"
     shaderName: HDRP/LitTessellation
     materialProperties:
       shader: {fileID: 4800000, guid: 756bac9090102564582875f4c7e30202, type: 3}
@@ -548,9 +552,9 @@ ScriptedImporter:
     material: {fileID: 4638835325086828509, guid: 5b658de76d586374f810378335b131f6,
       type: 3}
     generatedTextures:
-    - {fileID: 8042871364006955966, guid: 5b658de76d586374f810378335b131f6, type: 3}
     - {fileID: -6601689147619990931, guid: 5b658de76d586374f810378335b131f6, type: 3}
-    - {fileID: 482361464302343777, guid: 5b658de76d586374f810378335b131f6, type: 3}
-    - {fileID: -4415413388008839488, guid: 5b658de76d586374f810378335b131f6, type: 3}
     - {fileID: 5205276936605693115, guid: 5b658de76d586374f810378335b131f6, type: 3}
     - {fileID: 2463360657360236189, guid: 5b658de76d586374f810378335b131f6, type: 3}
+    - {fileID: -4415413388008839488, guid: 5b658de76d586374f810378335b131f6, type: 3}
+    - {fileID: 482361464302343777, guid: 5b658de76d586374f810378335b131f6, type: 3}
+    - {fileID: 8042871364006955966, guid: 5b658de76d586374f810378335b131f6, type: 3}

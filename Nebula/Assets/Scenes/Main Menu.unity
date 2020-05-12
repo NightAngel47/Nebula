@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.28187343, g: 0.24671002, b: 0.40389487, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -539,7 +539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Version: 1
-  shadowResolution: 2048
+  shadowResolution: 4096
   shadowDimmer: 1
   volumetricShadowDimmer: 1
   shadowFadeDistance: 10000
@@ -620,9 +620,9 @@ MonoBehaviour:
   lightlayersMask: 1
   linkShadowLayers: 1
   shadowNearPlane: 0.1
-  shadowSoftness: 0.5
+  shadowSoftness: 0.709
   blockerSampleCount: 24
-  filterSampleCount: 16
+  filterSampleCount: 21
   minFilterSize: 0.00001
   kernelSize: 5
   lightAngle: 1
@@ -2329,6 +2329,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: New Terrestrial Planet Showcase
       objectReference: {fileID: 0}
+    - target: {fileID: 939746850638531945, guid: 4bd09a7515920f44eb78af328c9912f8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4274477969638752122, guid: 4bd09a7515920f44eb78af328c9912f8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2347,22 +2352,22 @@ PrefabInstance:
     - target: {fileID: 4274477969638752122, guid: 4bd09a7515920f44eb78af328c9912f8,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4274477969638752122, guid: 4bd09a7515920f44eb78af328c9912f8,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.6289134
+      value: 0.9917815
       objectReference: {fileID: 0}
     - target: {fileID: 4274477969638752122, guid: 4bd09a7515920f44eb78af328c9912f8,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4274477969638752122, guid: 4bd09a7515920f44eb78af328c9912f8,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7774754
+      value: -0.12794352
       objectReference: {fileID: 0}
     - target: {fileID: 4274477969638752122, guid: 4bd09a7515920f44eb78af328c9912f8,
         type: 3}
@@ -2377,7 +2382,7 @@ PrefabInstance:
     - target: {fileID: 4274477969638752122, guid: 4bd09a7515920f44eb78af328c9912f8,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 77.94
+      value: 194.702
       objectReference: {fileID: 0}
     - target: {fileID: 4274477969638752122, guid: 4bd09a7515920f44eb78af328c9912f8,
         type: 3}
@@ -2409,6 +2414,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f35288e72d553984ea42cf874a429db6, type: 2}
+    - target: {fileID: 8679294531352348595, guid: 4bd09a7515920f44eb78af328c9912f8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2332093422865038909, guid: 4bd09a7515920f44eb78af328c9912f8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5398ea6fa9fd0824896b91093b831d25, type: 2}
+    - target: {fileID: 8679294531352348593, guid: 4bd09a7515920f44eb78af328c9912f8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bd09a7515920f44eb78af328c9912f8, type: 3}
 --- !u!1 &934854647
