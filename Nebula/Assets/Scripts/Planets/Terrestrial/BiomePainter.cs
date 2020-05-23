@@ -19,8 +19,8 @@ public class BiomePainter : MonoBehaviour
     /// <summary>
     /// Placement audio
     /// </summary>
-    [SerializeField]
-    private PlacementAudio placementAudio;
+    [SerializeField] private PlacementAudio placementAudio;
+    private TerrainPainter _terrainPainter;
     /// <summary>
     /// Reference to analytics for tracking
     /// </summary>
@@ -123,6 +123,7 @@ public class BiomePainter : MonoBehaviour
         mainCam = Camera.main;
         toolSelect = FindObjectOfType<ToolSelect>();
         placementAudio = FindObjectOfType<PlacementAudio>();
+        _terrainPainter = FindObjectOfType<TerrainPainter>();
         analytics = FindObjectOfType<AnalyticsEvents>();
     }
 
@@ -138,11 +139,13 @@ public class BiomePainter : MonoBehaviour
         
         if (Input.touchCount == 1 && Input.touchCount != 2 && Input.GetTouch(0).phase == TouchPhase.Moved && toolSelect.toolSelected == ToolSelect.Tools.Biome)
         {
+            ToggleMaskCameras(true);
             SpawnBiome(cursorPos);
             placementAudio.PlayPlacementAudio();
         }
         else if(Input.touchCount == 1 && Input.touchCount != 2 && Input.GetTouch(0).phase == TouchPhase.Ended && toolSelect.toolSelected == ToolSelect.Tools.Biome)
         {
+            ToggleMaskCameras(false);
             placementAudio.StopPlacementAudio();
         }
 
@@ -150,11 +153,13 @@ public class BiomePainter : MonoBehaviour
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
         if (Input.GetMouseButton(0) && toolSelect.toolSelected == ToolSelect.Tools.Biome && DebugController.DebugEnabled)
         {
+            ToggleMaskCameras(true);
             SpawnBiome(cursorPos);
             placementAudio.PlayPlacementAudio();
         }
         else if (Input.GetMouseButtonUp(0) && toolSelect.toolSelected == ToolSelect.Tools.Biome && DebugController.DebugEnabled)
         {
+            ToggleMaskCameras(false);
             placementAudio.StopPlacementAudio();
         }
         
@@ -366,6 +371,14 @@ public class BiomePainter : MonoBehaviour
         foreach (var uvPos in maskUVPoses)
         {
             uvPos.position -= displacementVec;
+        }
+    }
+
+    public void ToggleMaskCameras(bool state)
+    {
+        foreach (var cam in _terrainPainter.maskPainterCams)
+        {
+            cam.enabled = state;
         }
     }
     
