@@ -84,6 +84,7 @@
             <e p="planetSpin.cs" t="Include" />
             <e p="RestartButtonScript.cs" t="Include" />
             <e p="SceneSwitcher.cs" t="Include" />
+            <e p="TerrestrialDeactivateCameras.cs" t="Include" />
           </e>
           <e p="Planets" t="Include">
             <e p="DeletePlanet.cs" t="Include" />
