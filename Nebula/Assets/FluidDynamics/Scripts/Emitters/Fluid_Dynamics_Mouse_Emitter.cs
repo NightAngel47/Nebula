@@ -25,11 +25,15 @@ namespace FluidDynamics
         private float fRadius;
         private Vector3 direction;
         private Vector3 m_mousePos;
+        [SerializeField] private Camera fluidRTCam;
+        private Camera _mainCamera;
+
         #endregion
         
         private void Start()
         {
-            //m_tempCol = m_fluid.GetComponent<Collider>();
+            _mainCamera = Camera.main;
+            m_tempCol = m_fluid.GetComponent<Collider>();
             m_tempRend = m_fluid.GetComponent<Renderer>();
         }
         private void DrawGizmo()
@@ -68,55 +72,42 @@ namespace FluidDynamics
             if (Input.GetMouseButton(0) || m_alwaysOn)
             {
                 m_mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f);
-                ray = Camera.main.ScreenPointToRay(m_mousePos);
+                ray = _mainCamera.ScreenPointToRay(m_mousePos);
+                Debug.DrawRay(ray.origin, ray.direction, Color.magenta);
                 
-                Vector2 uvPos = Vector2.zero;
-                if (!HitTestUVPosition(ray, ref uvPos)) return;
+                Vector3 uvWorldPosition = Vector3.zero;
+                if (!HitTestUVPosition(ray, ref uvWorldPosition)) return;
                 
-                fWidth = m_tempRend.bounds.extents.x * 2f;
-                fRadius = (m_particlesRadius * m_fluid.GetParticlesWidth()) / fWidth;
-                m_fluid.AddParticles(uvPos, fRadius, m_particlesStrength * Time.deltaTime);
+                Ray fluidRay = new Ray(fluidRTCam.transform.position + uvWorldPosition, Vector3.forward);
+                Debug.DrawRay(fluidRay.origin, fluidRay.direction, Color.green, 1f);
                 
-                /* Asset's original implementation
-                if (m_tempCol.Raycast(ray, out hitInfo, 100))
+                // Asset's original implementation
+                if (m_tempCol.Raycast(fluidRay, out hitInfo, 100))
                 {
                     fWidth = m_tempRend.bounds.extents.x * 2f;
                     fRadius = (m_particlesRadius * m_fluid.GetParticlesWidth()) / fWidth;
                     m_fluid.AddParticles(hitInfo.textureCoord, fRadius, m_particlesStrength * Time.deltaTime);
                 }
-                */
+                
             }
             if (Input.GetMouseButtonDown(1))
             {
                 m_previousMousePosition = Input.mousePosition;
             }
-            if (Input.GetMouseButton(1) || m_alwaysOn)
+            if (Input.GetMouseButton(1))// || m_alwaysOn)
             {
                 m_mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f);
-                ray = Camera.main.ScreenPointToRay(m_mousePos);
+                ray = _mainCamera.ScreenPointToRay(m_mousePos);
                 
-                Vector2 uvPos = Vector2.zero;
+                Vector3 uvPos = Vector3.zero;
                 if (!HitTestUVPosition(ray, ref uvPos)) return;
-                
-                direction = (Input.mousePosition - m_previousMousePosition) * (m_velocityStrength * Time.deltaTime);
-                fWidth = m_tempRend.bounds.extents.x * 2f;
-                fRadius = (m_velocityRadius * m_fluid.GetWidth()) / fWidth;
 
-                if (Input.GetMouseButton(0))
-                {
-                    m_fluid.AddVelocity(uvPos, -direction, fRadius);
-                }
-                else
-                {
-                    m_fluid.AddVelocity(uvPos, direction, fRadius);
+                Ray fluidRay = new Ray(fluidRTCam.transform.position + uvPos, Vector3.forward);
 
-                }
-                
-                
-                /* Asset's original implementation
-                if (m_tempCol.Raycast(ray, out hitInfo, 100))
+                // Asset's original implementation
+                if (m_tempCol.Raycast(fluidRay, out hitInfo, 100))
                 {
-                    direction = (Input.mousePosition - m_previousMousePosition) * m_velocityStrength * Time.deltaTime;
+                    direction = (Input.mousePosition - m_previousMousePosition) * (m_velocityStrength * Time.deltaTime);
                     fWidth = m_tempRend.bounds.extents.x * 2f;
                     fRadius = (m_velocityRadius * m_fluid.GetWidth()) / fWidth;
 
@@ -130,17 +121,19 @@ namespace FluidDynamics
 
                     }
                 }
-                */
-                
+
                 m_previousMousePosition = Input.mousePosition;
             }
         }
         
-        private bool HitTestUVPosition(Ray cursorRay, ref Vector2 uvPos)
+        private bool HitTestUVPosition(Ray cursorRay, ref Vector3 uvWorldPosition)
         {
             if (Physics.Raycast(cursorRay, out var hit, 1000, LayerMask.GetMask("Default")))
             {
-                uvPos = new Vector2(hit.textureCoord.x, hit.textureCoord.y);
+                Vector2 pixelUV = new Vector2(hit.textureCoord.x, hit.textureCoord.y);
+                var orthographicSize = fluidRTCam.orthographicSize;
+                uvWorldPosition.x = -(pixelUV.y * (orthographicSize * 2) - orthographicSize); //To center the UV on X
+                uvWorldPosition.y = pixelUV.x * (orthographicSize * 2) - orthographicSize; //To center the UV on Y
                 return true;
             }
             else
