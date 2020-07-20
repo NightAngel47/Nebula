@@ -27,6 +27,7 @@ namespace FluidDynamics
         private Vector3 m_mousePos;
         [SerializeField] private Camera fluidRTCam;
         private Camera _mainCamera;
+        [SerializeField, Range(0, 1f)] private float wrapOffset = 0.4f;
 
         #endregion
         
@@ -87,6 +88,7 @@ namespace FluidDynamics
                     fWidth = m_tempRend.bounds.extents.x * 2f;
                     fRadius = (m_particlesRadius * m_fluid.GetParticlesWidth()) / fWidth;
                     m_fluid.AddParticles(hitInfo.textureCoord, fRadius, m_particlesStrength * Time.deltaTime);
+                    m_fluid.AddParticles(hitInfo.textureCoord - new Vector2(0, wrapOffset), fRadius, m_particlesStrength * Time.deltaTime);
                 }
                 
             }
@@ -114,10 +116,12 @@ namespace FluidDynamics
                     if (Input.GetMouseButton(0))
                     {
                         m_fluid.AddVelocity(hitInfo.textureCoord, -direction, fRadius);
+                        m_fluid.AddVelocity(hitInfo.textureCoord - new Vector2(0, wrapOffset), -direction, fRadius);
                     }
                     else
                     {
                         m_fluid.AddVelocity(hitInfo.textureCoord, direction, fRadius);
+                        m_fluid.AddVelocity(hitInfo.textureCoord - new Vector2(0, wrapOffset), direction, fRadius);
 
                     }
                 }

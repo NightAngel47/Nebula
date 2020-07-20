@@ -87,11 +87,11 @@ void InitBoundaries(uint3 id : SV_DispatchThreadID)
 	}
 	else if (id.y == 0)
 	{
-		_VelocityIn[pos] = float2(0.0, 0.0);
+		//_VelocityIn[pos] = float2(0.0, 0.0);
 	}
 	else if (id.y == _Size.y - 1)
 	{
-		_VelocityIn[pos] = float2(0.0, 0.0);
+		//_VelocityIn[pos] = float2(0.0, 0.0);
 	}
 }
 
