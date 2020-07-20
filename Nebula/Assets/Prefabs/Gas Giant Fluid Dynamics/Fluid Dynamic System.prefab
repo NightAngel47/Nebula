@@ -149,16 +149,16 @@ MonoBehaviour:
   m_CacheParticles: 0
   m_colourGradient:
     serializedVersion: 2
-    key0: {r: 0.9927113, g: 0.45768684, b: 0.044248614, a: 1}
-    key1: {r: 0, g: 0.9897847, b: 1, a: 1}
-    key2: {r: 0.835279, g: 0, b: 1, a: 0.78431374}
+    key0: {r: 1, g: 0.7470618, b: 0, a: 1}
+    key1: {r: 1, g: 0.15399846, b: 0, a: 1}
+    key2: {r: 0.047058824, g: 0.007843138, b: 0.078431375, a: 0.78431374}
     key3: {r: 0, g: 1, b: 0.9367821, a: 1}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
-    ctime1: 32768
+    ctime1: 65535
     ctime2: 65535
     ctime3: 65535
     ctime4: 0
@@ -174,9 +174,9 @@ MonoBehaviour:
     atime6: 0
     atime7: 0
     m_Mode: 0
-    m_NumColorKeys: 3
+    m_NumColorKeys: 2
     m_NumAlphaKeys: 2
-  m_updateGradient: 1
+  m_updateGradient: 0
   m_densityDissipation: 0.995
   m_nParticlesResolution: 4096
 --- !u!23 &3865786106987891659
@@ -893,11 +893,6 @@ PrefabInstance:
       propertyPath: m_fluid
       value: 
       objectReference: {fileID: 3865786106987891703}
-    - target: {fileID: 822752343033355782, guid: ca80dd0f16ac1a6438529d457a4bea24,
-        type: 3}
-      propertyPath: m_fluidVelocitySpeed
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca80dd0f16ac1a6438529d457a4bea24, type: 3}
 --- !u!4 &822752342830623498 stripped

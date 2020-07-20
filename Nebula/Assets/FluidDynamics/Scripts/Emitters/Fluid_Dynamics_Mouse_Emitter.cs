@@ -74,13 +74,13 @@ namespace FluidDynamics
             {
                 m_mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f);
                 ray = _mainCamera.ScreenPointToRay(m_mousePos);
-                Debug.DrawRay(ray.origin, ray.direction, Color.magenta);
+                //Debug.DrawRay(ray.origin, ray.direction, Color.magenta);
                 
                 Vector3 uvWorldPosition = Vector3.zero;
                 if (!HitTestUVPosition(ray, ref uvWorldPosition)) return;
                 
                 Ray fluidRay = new Ray(fluidRTCam.transform.position + uvWorldPosition, Vector3.forward);
-                Debug.DrawRay(fluidRay.origin, fluidRay.direction, Color.green, 1f);
+                //Debug.DrawRay(fluidRay.origin, fluidRay.direction, Color.green, 1f);
                 
                 // Asset's original implementation
                 if (m_tempCol.Raycast(fluidRay, out hitInfo, 100))
