@@ -7,7 +7,8 @@ public class RingSize : MonoBehaviour
 {
     public ParticleSystem theRings;
 
-    public bool ringButton;
+    private GasMode _gasMode;
+    //public bool ringButton;
 
     public float ringIncrement = 0f;
     public float ringSizeMax;
@@ -19,6 +20,7 @@ public class RingSize : MonoBehaviour
 
     void Start()
     {
+        _gasMode = FindObjectOfType<GasGiantFluidController>().gasMode;
         theRings = GetComponent<ParticleSystem>();
         ringSource = GetComponent<AudioSource>();
     }
@@ -30,7 +32,7 @@ public class RingSize : MonoBehaviour
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
         if (DebugController.DebugEnabled)
         {
-            if ((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow)) && ringButton)
+            if ((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow)) && _gasMode.CurrentInteractMode == GasMode.InteractMode.Rings)
             {
                 PlayRingsAudio();
                 ChangeRingRadiusDebug();
@@ -39,7 +41,7 @@ public class RingSize : MonoBehaviour
 #endif
         #endregion
 
-        if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Moved && ringButton)
+        if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Moved && _gasMode.CurrentInteractMode == GasMode.InteractMode.Rings)
         {
             PlayRingsAudio();
             ChangeRingRadius();
@@ -53,8 +55,7 @@ public class RingSize : MonoBehaviour
         Touch firstTouch = Input.GetTouch(0);
         Vector2 magFirstTouchPrevPos = (firstTouch.deltaPosition + firstTouch.position);
 
-        float audioEffect;
-        mainMixer.GetFloat("RingsEffect", out audioEffect);
+        mainMixer.GetFloat("RingsEffect", out var audioEffect);
 
         float ringSize = theRings.shape.scale.x;
 
@@ -79,16 +80,15 @@ public class RingSize : MonoBehaviour
                 mainMixer.SetFloat("RingsEffect", audioEffect -= ringIncrement * effectAmount);
         }
 
-        var main = theRings.shape;
-        main.scale = new Vector3(ringSize, theRings.shape.scale.y, theRings.shape.scale.z);
+        var shape = theRings.shape;
+        shape.scale = new Vector3(ringSize, shape.scale.y, shape.scale.z);
     }
 
     #region debug ring radius
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
     void ChangeRingRadiusDebug()
     {
-        float audioEffect;
-        mainMixer.GetFloat("RingsEffect", out audioEffect);
+        mainMixer.GetFloat("RingsEffect", out var audioEffect);
 
         float ringSize = theRings.shape.scale.x;
 
@@ -121,8 +121,8 @@ public class RingSize : MonoBehaviour
             }
         }
 
-        var main = theRings.shape;
-        main.scale = new Vector3(ringSize, theRings.shape.scale.y, theRings.shape.scale.z);
+        var shape = theRings.shape;
+        shape.scale = new Vector3(ringSize, shape.scale.y, shape.scale.z);
     }
 #endif
     #endregion
@@ -131,15 +131,5 @@ public class RingSize : MonoBehaviour
     {
         if (!ringSource.isPlaying)
             ringSource.Play();
-    }
-
-    public void SetRingButtonTrue()
-    {
-        ringButton = true;
-    }
-
-    public void SetRingButtonFalse()
-    {
-        ringButton = false;
     }
 }

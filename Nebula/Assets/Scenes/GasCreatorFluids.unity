@@ -3788,19 +3788,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1981306973}
-        m_MethodName: DeactivateBands
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1536191719}
-        m_MethodName: SetRingButtonTrue
+      - m_Target: {fileID: 1981306976}
+        m_MethodName: SwitchToRingsGasMode
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5089,19 +5078,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1981306973}
-        m_MethodName: DeactivateBands
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1536191719}
-        m_MethodName: SetRingButtonFalse
+      - m_Target: {fileID: 1981306976}
+        m_MethodName: SwitchToNoneGasMode
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6687,8 +6665,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1981306973}
-        m_MethodName: DeactivateBands
+      - m_Target: {fileID: 1981306976}
+        m_MethodName: SwitchToPaintingGasMode
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6696,17 +6674,6 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: terrain
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1536191719}
-        m_MethodName: SetRingButtonFalse
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1539815258}
@@ -11512,7 +11479,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theRings: {fileID: 1536191724}
-  ringButton: 0
   ringIncrement: 0.01
   ringSizeMax: 1.25
   ringSizeMin: 1
@@ -18192,7 +18158,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1981306973}
+      - m_Target: {fileID: 0}
         m_MethodName: ResetRotation
         m_Mode: 1
         m_Arguments:
@@ -18924,8 +18890,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1981306973}
-        m_MethodName: ActivateBands
+      - m_Target: {fileID: 1981306976}
+        m_MethodName: SwitchToStormsGasMode
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -18933,17 +18899,6 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: biomes
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1536191719}
-        m_MethodName: SetRingButtonFalse
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1539815258}
@@ -19415,7 +19370,6 @@ GameObject:
   - component: {fileID: 1981306971}
   - component: {fileID: 1981306970}
   - component: {fileID: 1981306969}
-  - component: {fileID: 1981306973}
   - component: {fileID: 1981306976}
   - component: {fileID: 1981306974}
   - component: {fileID: 1981306975}
@@ -19618,42 +19572,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1981306973
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1981306966}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 649c6a71374ef07439cd9578627ef761, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rend: {fileID: 1981306970}
-  baseColors:
-  - {r: 0.8, g: 0.85882354, b: 0.40392157, a: 0}
-  - {r: 0.7058824, g: 0.8509804, b: 0.9529412, a: 0}
-  - {r: 0.9411765, g: 0.94509804, b: 0.627451, a: 0}
-  - {r: 0.75686276, g: 0.62352943, b: 0.83137256, a: 0}
-  - {r: 0.85882354, g: 0.38431373, b: 0.42352942, a: 0}
-  - {r: 0.8980392, g: 0.36862746, b: 0.7137255, a: 0}
-  - {r: 0.9764706, g: 0.9882353, b: 0.99607843, a: 0}
-  - {r: 0.8, g: 0.38039216, b: 0.23137255, a: 0}
-  bandColors:
-  - {r: 0.59607846, g: 0.78431374, b: 0.20392157, a: 0}
-  - {r: 0.7058824, g: 0.8509804, b: 0.9529412, a: 0}
-  - {r: 0.9372549, g: 0.8901961, b: 0.12941177, a: 0}
-  - {r: 0.52156866, g: 0.12941177, b: 0.59607846, a: 0}
-  - {r: 0.8901961, g: 0.2901961, b: 0.44313726, a: 0}
-  - {r: 0.9137255, g: 0.39215687, b: 0.13333334, a: 0}
-  - {r: 0.9245283, g: 0.9027234, b: 0.9027234, a: 1}
-  - {r: 0.7647059, g: 0.5137255, b: 0.32156864, a: 0}
-  maxBands: 5
-  minBands: 0
-  bandIncrementValue: 0.075
-  mainMixer: {fileID: 24100000, guid: 4ce7ae22e2862254e889bdb1698301b9, type: 2}
-  bandEffectAmount: 750
 --- !u!114 &1981306974
 MonoBehaviour:
   m_ObjectHideFlags: 0

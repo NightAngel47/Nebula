@@ -7,6 +7,8 @@ using Random = UnityEngine.Random;
 
 public class GasGiantFluidController : MonoBehaviour
 {
+    public GasMode gasMode;
+
     private Main_Fluid_Simulation _fluidSimulation;
     
     public List<Color> gasBaseColors = new List<Color>(8);
@@ -15,10 +17,12 @@ public class GasGiantFluidController : MonoBehaviour
     private GradientColorKey[] _currentGasColorKeys;
     private GradientAlphaKey[] _currentGasAlphaKeys;
 
-    private bool _updating = false;
-    
+    private bool _updatingGradient = false;
+
     void Awake()
     {
+        gasMode = new GasMode();
+        gasMode.ChangeInteractMode(GasMode.InteractMode.Painting);
         _fluidSimulation = FindObjectOfType<Main_Fluid_Simulation>();
     }
 
@@ -66,22 +70,42 @@ public class GasGiantFluidController : MonoBehaviour
     /// </summary>
     private void ChangeGradient()
     {
-        _updating = true;
+        _updatingGradient = true;
         _currentGasGradient.SetKeys(_currentGasColorKeys, _currentGasAlphaKeys);
         _fluidSimulation.m_updateGradient = true;
         _fluidSimulation.m_colourGradient = _currentGasGradient;
-        _updating = false;
+        _updatingGradient = false;
         StartCoroutine(UpdateOff());
     }
     
     private IEnumerator UpdateOff()
     {
-        yield return new WaitWhile(() => _updating);
+        yield return new WaitWhile(() => _updatingGradient);
         _fluidSimulation.m_updateGradient = false;
     }
 
     public Gradient GetCurrentGasGradient()
     {
         return _currentGasGradient;
+    }
+
+    public void SwitchToPaintingGasMode()
+    {
+        gasMode.ChangeInteractMode(GasMode.InteractMode.Painting);
+    }
+    
+    public void SwitchToStormsGasMode()
+    {
+        gasMode.ChangeInteractMode(GasMode.InteractMode.Storms);
+    }
+    
+    public void SwitchToRingsGasMode()
+    {
+        gasMode.ChangeInteractMode(GasMode.InteractMode.Rings);
+    }
+    
+    public void SwitchToNoneGasMode()
+    {
+        gasMode.ChangeInteractMode(GasMode.InteractMode.None);
     }
 }

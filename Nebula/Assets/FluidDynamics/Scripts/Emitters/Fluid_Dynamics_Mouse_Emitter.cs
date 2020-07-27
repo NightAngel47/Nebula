@@ -28,6 +28,7 @@ namespace FluidDynamics
         [SerializeField] private Camera fluidRTCam;
         private Camera _mainCamera;
         [SerializeField, Range(0, 1f)] private float wrapOffset = 0.4f;
+        private GasMode _gasMode;
 
         #endregion
         
@@ -36,14 +37,16 @@ namespace FluidDynamics
             _mainCamera = Camera.main;
             m_tempCol = m_fluid.GetComponent<Collider>();
             m_tempRend = m_fluid.GetComponent<Renderer>();
+            _gasMode = FindObjectOfType<GasGiantFluidController>().gasMode;
         }
         private void DrawGizmo()
         {
             float col = m_particlesStrength / 10000.0f;
             Gizmos.color = Color.Lerp(Color.yellow, Color.red, col);
-            Gizmos.DrawWireSphere(transform.position, m_particlesRadius);
+            var position = transform.position;
+            Gizmos.DrawWireSphere(position, m_particlesRadius);
             Gizmos.color = Color.cyan;
-            Gizmos.DrawWireSphere(transform.position, m_velocityRadius);
+            Gizmos.DrawWireSphere(position, m_velocityRadius);
         }
         private void OnDrawGizmosSelected()
         {
@@ -70,7 +73,7 @@ namespace FluidDynamics
         }
         private void ManipulateParticles()
         {
-            if (Input.GetMouseButton(0) || m_alwaysOn)
+            if (Input.GetMouseButton(0) && _gasMode.CurrentInteractMode == GasMode.InteractMode.Painting || m_alwaysOn)
             {
                 m_mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f);
                 ray = _mainCamera.ScreenPointToRay(m_mousePos);
@@ -82,7 +85,6 @@ namespace FluidDynamics
                 Ray fluidRay = new Ray(fluidRTCam.transform.position + uvWorldPosition, Vector3.forward);
                 //Debug.DrawRay(fluidRay.origin, fluidRay.direction, Color.green, 1f);
                 
-                // Asset's original implementation
                 if (m_tempCol.Raycast(fluidRay, out hitInfo, 100))
                 {
                     fWidth = m_tempRend.bounds.extents.x * 2f;
@@ -92,6 +94,7 @@ namespace FluidDynamics
                 }
                 
             }
+            /* Default Fluid Dynamic Mouse Right Click Functionality
             if (Input.GetMouseButtonDown(1))
             {
                 m_previousMousePosition = Input.mousePosition;
@@ -125,9 +128,9 @@ namespace FluidDynamics
 
                     }
                 }
-
                 m_previousMousePosition = Input.mousePosition;
             }
+            */
         }
         
         private bool HitTestUVPosition(Ray cursorRay, ref Vector3 uvWorldPosition)
