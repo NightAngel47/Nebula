@@ -30,8 +30,10 @@ namespace FluidDynamics
 
         private void Start()
         {
+            // causes one time error upon instantiation that work themselves out
             m_tempCol = m_fluid.GetComponent<Collider>();
             m_tempRend = m_fluid.GetComponent<Renderer>();
+            
             m_prevPosition = transform.position;
             m_direction = GetDirection();
         }
@@ -76,6 +78,11 @@ namespace FluidDynamics
                 Vector3 currentPosition = transform.position;
                 if (m_speed != Vector3.zero)
                 {
+                    if (m_tempCol == null)
+                        m_tempCol = m_fluid.GetComponent<Collider>();
+                    if (m_tempRend == null)
+                        m_tempRend = m_fluid.GetComponent<Renderer>();
+                    
                     ray = new Ray(currentPosition, Vector3.forward);
                     if (m_tempCol.Raycast(ray, out hitInfo, 10))
                     {

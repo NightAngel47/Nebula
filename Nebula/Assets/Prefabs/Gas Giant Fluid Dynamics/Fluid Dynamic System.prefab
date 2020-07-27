@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 3865786106987891659}
   - component: {fileID: 3865786106987891658}
   - component: {fileID: 3865786106987891657}
+  - component: {fileID: 869529852657555514}
   m_Layer: 9
   m_Name: Fluid Plane
   m_TagString: Untagged
@@ -252,6 +253,23 @@ MonoBehaviour:
   m_particlesRadius: 3.5
   fluidRTCam: {fileID: 3865786109039463404}
   wrapOffset: 0.385
+--- !u!114 &869529852657555514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3865786106987891702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 091f8529843c6794a866912bb3299e75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stormEmitter: {fileID: 3952022677010067810, guid: 2d4241a3a50a8fa4da3119904fa57fa3,
+    type: 3}
+  m_fluid: {fileID: 3865786106987891703}
+  fluidRTCam: {fileID: 3865786109039463404}
+  wrapOffset: 0.4
 --- !u!1 &3865786108088268224
 GameObject:
   m_ObjectHideFlags: 0

@@ -84,7 +84,7 @@ namespace FluidDynamics
                 
                 Ray fluidRay = new Ray(fluidRTCam.transform.position + uvWorldPosition, Vector3.forward);
                 //Debug.DrawRay(fluidRay.origin, fluidRay.direction, Color.green, 1f);
-                
+
                 if (m_tempCol.Raycast(fluidRay, out hitInfo, 100))
                 {
                     fWidth = m_tempRend.bounds.extents.x * 2f;

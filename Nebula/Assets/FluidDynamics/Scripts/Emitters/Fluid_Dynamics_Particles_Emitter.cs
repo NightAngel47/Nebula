@@ -29,6 +29,7 @@ namespace FluidDynamics
 
         private void Start()
         {
+            // causes one time error upon instantiation that work themselves out
             m_tempCol = m_mainSimulation.GetComponent<Collider>();
             m_tempRend = m_mainSimulation.GetComponent<Renderer>();
         }
@@ -59,6 +60,11 @@ namespace FluidDynamics
         {
             if (m_mainSimulation && !bdone)
             {
+                if (m_tempCol == null)
+                    m_tempCol = m_mainSimulation.GetComponent<Collider>();
+                if (m_tempRend == null)
+                    m_tempRend = m_mainSimulation.GetComponent<Renderer>();
+                
                 ray = new Ray(transform.position, Vector3.forward);
                 if (m_tempCol.Raycast(ray, out hitInfo, 10))
                 {
