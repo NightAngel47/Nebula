@@ -77,5 +77,10 @@ PrefabInstance:
       propertyPath: m_fluidVelocitySpeed
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 822752343033355782, guid: ca80dd0f16ac1a6438529d457a4bea24,
+        type: 3}
+      propertyPath: m_radius
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca80dd0f16ac1a6438529d457a4bea24, type: 3}

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6627886690295776611}
   - component: {fileID: 2809557624185220675}
   m_Layer: 11
-  m_Name: Storm Emitter
+  m_Name: Large Storm Emitter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 5
+  m_Radius: 0.25
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &79807330381289587
 PrefabInstance:
@@ -142,6 +142,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1544709064567594665, guid: ac31a30f0c55877488b93dda7fdb2494,
+        type: 3}
+      propertyPath: m_radius
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac31a30f0c55877488b93dda7fdb2494, type: 3}
@@ -217,6 +222,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3481933735028772424, guid: 2394c07ea3b1e704a8bf3c161e52d0a1,
+        type: 3}
+      propertyPath: m_radius
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2394c07ea3b1e704a8bf3c161e52d0a1, type: 3}

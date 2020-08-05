@@ -265,11 +265,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 091f8529843c6794a866912bb3299e75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stormEmitter: {fileID: 3952022677010067810, guid: 2d4241a3a50a8fa4da3119904fa57fa3,
+  largeStormEmitter: {fileID: 3952022677010067810, guid: 2d4241a3a50a8fa4da3119904fa57fa3,
+    type: 3}
+  smallStormEmitter: {fileID: 2559463781680114306, guid: ce546142f3898d449ae37a60ab148f64,
     type: 3}
   m_fluid: {fileID: 3865786106987891703}
   fluidRTCam: {fileID: 3865786109039463404}
-  wrapOffset: 0.4
+  wrapOffset: 67
+  _placementSpacing: 1
 --- !u!1 &3865786108088268224
 GameObject:
   m_ObjectHideFlags: 0

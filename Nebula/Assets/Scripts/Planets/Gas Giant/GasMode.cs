@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class GasMode
+﻿public class GasMode
 {
     public enum InteractMode
     {
@@ -17,6 +13,6 @@ public class GasMode
     public void ChangeInteractMode(InteractMode mode)
     {
         CurrentInteractMode = mode;
-        //Debug.Log(mode);
+        //Debug.Log(mode); // add using UnityEngine if uncommented.
     }
 }
