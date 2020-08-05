@@ -48,5 +48,5 @@ MonoBehaviour:
   m_velocityFromMovement: 0
   m_fluidVelocitySpeed: 10
   m_scaleVelocity: 1
-  m_radius: 4
+  m_radius: 5
   m_showGizmo: 1
