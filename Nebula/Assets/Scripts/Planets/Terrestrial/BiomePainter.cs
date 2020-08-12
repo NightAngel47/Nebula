@@ -21,10 +21,6 @@ public class BiomePainter : MonoBehaviour
     /// </summary>
     [SerializeField] private PlacementAudio placementAudio;
     private TerrainPainter _terrainPainter;
-    /// <summary>
-    /// Reference to analytics for tracking
-    /// </summary>
-    private AnalyticsEvents analytics;
 
     #endregion
     
@@ -124,7 +120,6 @@ public class BiomePainter : MonoBehaviour
         toolSelect = FindObjectOfType<ToolSelect>();
         placementAudio = FindObjectOfType<PlacementAudio>();
         _terrainPainter = FindObjectOfType<TerrainPainter>();
-        analytics = FindObjectOfType<AnalyticsEvents>();
     }
 
     private void Start()
@@ -230,9 +225,6 @@ public class BiomePainter : MonoBehaviour
         defaultPlanetBiome = defualtBiome.ToString();
         mostUsedBiome= defualtBiome.ToString();
         
-        // send analytics
-        analytics.SetStartingBiome(selectedBiome.ToString());
-        
         switch (defualtBiome)
         {
             case BiomeNames.Plains:
@@ -322,10 +314,7 @@ public class BiomePainter : MonoBehaviour
         Instantiate(colorPrefabs[(int) masterColorName], maskUVPoses[(int) MaskNames.Master].position + uvWorldPosition, Quaternion.identity, maskQuads[(int) MaskNames.Master].transform);
 
         PosDisplacement();
-        
-        // send analytics
-        analytics.IncreaseBiomeCount(selectedBiome.ToString());
-        
+
         // check for terrain in sphere radius of hit
 
         foreach (var hit in Physics.SphereCastAll(cursorRay, terrainCheckRadius, 50f, terrainCheckLayers, QueryTriggerInteraction.Collide))
