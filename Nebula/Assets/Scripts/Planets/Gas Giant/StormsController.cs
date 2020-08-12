@@ -42,10 +42,18 @@ public class StormsController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButton(0) && _gasMode.CurrentInteractMode == GasMode.InteractMode.Storms && !_placingStorm)
+        if (Input.touchCount == 1 && Input.touchCount != 2 && Input.GetTouch(0).phase == TouchPhase.Moved && _gasMode.CurrentInteractMode == GasMode.InteractMode.Storms && !_placingStorm)
         {
             StartCoroutine(PerformStormAction());
         }
+
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+        
+        if (Input.GetMouseButton(0) && _gasMode.CurrentInteractMode == GasMode.InteractMode.Storms && !_placingStorm && DebugController.DebugEnabled)
+        {
+            StartCoroutine(PerformStormAction());
+        }
+#endif
     }
 
     /// <summary>

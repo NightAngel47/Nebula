@@ -73,27 +73,18 @@ namespace FluidDynamics
         }
         private void ManipulateParticles()
         {
-            if (Input.GetMouseButton(0) && _gasMode.CurrentInteractMode == GasMode.InteractMode.Painting || m_alwaysOn)
+            if (Input.touchCount == 1 && Input.touchCount != 2 && Input.GetTouch(0).phase == TouchPhase.Moved && _gasMode.CurrentInteractMode == GasMode.InteractMode.Painting || m_alwaysOn)
             {
-                m_mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f);
-                ray = _mainCamera.ScreenPointToRay(m_mousePos);
-                //Debug.DrawRay(ray.origin, ray.direction, Color.magenta);
-                
-                Vector3 uvWorldPosition = Vector3.zero;
-                if (!HitTestUVPosition(ray, ref uvWorldPosition)) return;
-                
-                Ray fluidRay = new Ray(fluidRTCam.transform.position + uvWorldPosition, Vector3.forward);
-                //Debug.DrawRay(fluidRay.origin, fluidRay.direction, Color.green, 1f);
-
-                if (m_tempCol.Raycast(fluidRay, out hitInfo, 100))
-                {
-                    fWidth = m_tempRend.bounds.extents.x * 2f;
-                    fRadius = (m_particlesRadius * m_fluid.GetParticlesWidth()) / fWidth;
-                    m_fluid.AddParticles(hitInfo.textureCoord, fRadius, m_particlesStrength * Time.deltaTime);
-                    m_fluid.AddParticles(hitInfo.textureCoord - new Vector2(0, wrapOffset), fRadius, m_particlesStrength * Time.deltaTime);
-                }
-                
+                AddParticles();
             }
+            
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+            if ((Input.GetMouseButton(0) && _gasMode.CurrentInteractMode == GasMode.InteractMode.Painting || m_alwaysOn) && DebugController.DebugEnabled)
+            {
+                AddParticles();
+            }
+ #endif
+            
             /* Default Fluid Dynamic Mouse Right Click Functionality
             if (Input.GetMouseButtonDown(1))
             {
@@ -131,6 +122,27 @@ namespace FluidDynamics
                 m_previousMousePosition = Input.mousePosition;
             }
             */
+        }
+
+        void AddParticles()
+        {
+            m_mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f);
+            ray = _mainCamera.ScreenPointToRay(m_mousePos);
+            //Debug.DrawRay(ray.origin, ray.direction, Color.magenta);
+                
+            Vector3 uvWorldPosition = Vector3.zero;
+            if (!HitTestUVPosition(ray, ref uvWorldPosition)) return;
+                
+            Ray fluidRay = new Ray(fluidRTCam.transform.position + uvWorldPosition, Vector3.forward);
+            //Debug.DrawRay(fluidRay.origin, fluidRay.direction, Color.green, 1f);
+
+            if (m_tempCol.Raycast(fluidRay, out hitInfo, 100))
+            {
+                fWidth = m_tempRend.bounds.extents.x * 2f;
+                fRadius = (m_particlesRadius * m_fluid.GetParticlesWidth()) / fWidth;
+                m_fluid.AddParticles(hitInfo.textureCoord, fRadius, m_particlesStrength * Time.deltaTime);
+                m_fluid.AddParticles(hitInfo.textureCoord - new Vector2(0, wrapOffset), fRadius, m_particlesStrength * Time.deltaTime);
+            }
         }
         
         private bool HitTestUVPosition(Ray cursorRay, ref Vector3 uvWorldPosition)
