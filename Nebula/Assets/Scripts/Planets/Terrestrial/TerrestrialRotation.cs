@@ -21,6 +21,11 @@ public class TerrestrialRotation : MonoBehaviour
         {
             Rotation();
         }
+
+        if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
+        {
+            source.Stop();
+        }
         
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
         if (Input.touchCount == 0 && !DebugController.DebugEnabled) return; 
@@ -48,10 +53,6 @@ public class TerrestrialRotation : MonoBehaviour
             }
 
             transform.Rotate(xRot, yRot, 0, Space.World);
-        }
-        else if (Input.GetTouch(0).phase == TouchPhase.Ended)
-        {
-            source.Stop();
         }
     }
 

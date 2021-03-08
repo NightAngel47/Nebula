@@ -19,12 +19,8 @@ public class BiomePainter : MonoBehaviour
     /// <summary>
     /// Placement audio
     /// </summary>
-    [SerializeField]
-    private PlacementAudio placementAudio;
-    /// <summary>
-    /// Reference to analytics for tracking
-    /// </summary>
-    private AnalyticsEvents analytics;
+    [SerializeField] private PlacementAudio placementAudio;
+    private TerrainPainter _terrainPainter;
 
     #endregion
     
@@ -123,7 +119,7 @@ public class BiomePainter : MonoBehaviour
         mainCam = Camera.main;
         toolSelect = FindObjectOfType<ToolSelect>();
         placementAudio = FindObjectOfType<PlacementAudio>();
-        analytics = FindObjectOfType<AnalyticsEvents>();
+        _terrainPainter = FindObjectOfType<TerrainPainter>();
     }
 
     private void Start()
@@ -138,11 +134,13 @@ public class BiomePainter : MonoBehaviour
         
         if (Input.touchCount == 1 && Input.touchCount != 2 && Input.GetTouch(0).phase == TouchPhase.Moved && toolSelect.toolSelected == ToolSelect.Tools.Biome)
         {
+            ToggleMaskCameras(true);
             SpawnBiome(cursorPos);
             placementAudio.PlayPlacementAudio();
         }
         else if(Input.touchCount == 1 && Input.touchCount != 2 && Input.GetTouch(0).phase == TouchPhase.Ended && toolSelect.toolSelected == ToolSelect.Tools.Biome)
         {
+            ToggleMaskCameras(false);
             placementAudio.StopPlacementAudio();
         }
 
@@ -150,11 +148,13 @@ public class BiomePainter : MonoBehaviour
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
         if (Input.GetMouseButton(0) && toolSelect.toolSelected == ToolSelect.Tools.Biome && DebugController.DebugEnabled)
         {
+            ToggleMaskCameras(true);
             SpawnBiome(cursorPos);
             placementAudio.PlayPlacementAudio();
         }
         else if (Input.GetMouseButtonUp(0) && toolSelect.toolSelected == ToolSelect.Tools.Biome && DebugController.DebugEnabled)
         {
+            ToggleMaskCameras(false);
             placementAudio.StopPlacementAudio();
         }
         
@@ -224,9 +224,6 @@ public class BiomePainter : MonoBehaviour
 
         defaultPlanetBiome = defualtBiome.ToString();
         mostUsedBiome= defualtBiome.ToString();
-        
-        // send analytics
-        analytics.SetStartingBiome(selectedBiome.ToString());
         
         switch (defualtBiome)
         {
@@ -317,10 +314,7 @@ public class BiomePainter : MonoBehaviour
         Instantiate(colorPrefabs[(int) masterColorName], maskUVPoses[(int) MaskNames.Master].position + uvWorldPosition, Quaternion.identity, maskQuads[(int) MaskNames.Master].transform);
 
         PosDisplacement();
-        
-        // send analytics
-        analytics.IncreaseBiomeCount(selectedBiome.ToString());
-        
+
         // check for terrain in sphere radius of hit
 
         foreach (var hit in Physics.SphereCastAll(cursorRay, terrainCheckRadius, 50f, terrainCheckLayers, QueryTriggerInteraction.Collide))
@@ -366,6 +360,14 @@ public class BiomePainter : MonoBehaviour
         foreach (var uvPos in maskUVPoses)
         {
             uvPos.position -= displacementVec;
+        }
+    }
+
+    public void ToggleMaskCameras(bool state)
+    {
+        foreach (var cam in _terrainPainter.maskPainterCams)
+        {
+            cam.enabled = state;
         }
     }
     

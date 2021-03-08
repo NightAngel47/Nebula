@@ -19,6 +19,7 @@ public class ScienceScreenBehavior : MonoBehaviour
     private bool isGasGiant;
 
     private GameObject planet;
+    private GasGiantFluidController gasGiantFluidController;
     /// <summary>
     /// Gas Giant base planet color shader property
     /// </summary>
@@ -110,7 +111,7 @@ public class ScienceScreenBehavior : MonoBehaviour
         planet = GameObject.FindGameObjectWithTag("Planet");
         
         // selects which list of facts to use based on planet type
-        if (planet.GetComponent<GasGiantController>())
+        if (planet.TryGetComponent<GasGiantFluidController>(out gasGiantFluidController))
         {
             isGasGiant = true;
             factRows = gasGiantFactRows;
@@ -129,44 +130,41 @@ public class ScienceScreenBehavior : MonoBehaviour
     {
         if (isGasGiant)
         {
-            // ref to Gas Giant shader
-            Material planetMat = planet.GetComponent<MeshRenderer>().material;
-            var baseColor = planetMat.GetColor(PlanetColor);
-            var bandsColor = planetMat.GetColor(ColorBands);
-
-            GasGiantController gasGiant = planet.GetComponent<GasGiantController>();
+            Gradient gasGradient = gasGiantFluidController.GetCurrentGasGradient();
+            var baseColor = gasGradient.colorKeys[0].color;
+            var bandsColor = gasGradient.colorKeys[1].color;
 
             #region determine base color fact
 
-            if (baseColor.Compare(gasGiant.baseColors[0]))
+            if (baseColor == gasGiantFluidController.gasBaseColors[0])
             {
                 fact1 = FactTypes.Chlorine;
             }
-            else if (baseColor.Compare(gasGiant.baseColors[1]))
+            else if (baseColor == gasGiantFluidController.gasBaseColors[1])
             {
-                fact1 = FactTypes.Ozone;
+                fact1 = FactTypes.Oxygen;
             }
-            else if (baseColor.Compare(gasGiant.baseColors[2]))
+            else if (baseColor == gasGiantFluidController.gasBaseColors[2])
             {
                 fact1 = FactTypes.Fluorine;
             }
-            else if (baseColor.Compare(gasGiant.baseColors[3]))
+            else if (baseColor == gasGiantFluidController.gasBaseColors[3])
             {
                 fact1 = FactTypes.Potassium;
             }
-            else if (baseColor.Compare(gasGiant.baseColors[4]))
+            else if (baseColor == gasGiantFluidController.gasBaseColors[4])
             {
                 fact1 = FactTypes.Strontium;
             }
-            else if (baseColor.Compare(gasGiant.baseColors[5]))
+            else if (baseColor == gasGiantFluidController.gasBaseColors[5])
             {
                 fact1 = FactTypes.Rubidium;
             }
-            else if (baseColor.Compare(gasGiant.baseColors[6]))
+            else if (baseColor == gasGiantFluidController.gasBaseColors[6])
             {
                 fact1 = FactTypes.Hydrogen;
             }
-            else if (baseColor.Compare(gasGiant.baseColors[7]))
+            else if (baseColor == gasGiantFluidController.gasBaseColors[7])
             {
                 fact1 = FactTypes.Bromine;
             }
@@ -175,40 +173,43 @@ public class ScienceScreenBehavior : MonoBehaviour
             
             #region determine bands color fact
 
-            if (bandsColor.Compare(gasGiant.bandColors[0]))
+            if (bandsColor == gasGiantFluidController.gasBandColors[0])
             {
                 fact2 = FactTypes.Barium;
             }
-            else if (bandsColor.Compare(gasGiant.bandColors[1]))
+            else if (bandsColor == gasGiantFluidController.gasBandColors[1])
             {
-                fact2 = FactTypes.Ozone;
+                fact2 = FactTypes.Oxygen;
             }
-            else if (bandsColor.Compare(gasGiant.bandColors[2]))
+            else if (bandsColor == gasGiantFluidController.gasBandColors[2])
             {
                 fact2 = FactTypes.Sodium;
             }
-            else if (bandsColor.Compare(gasGiant.bandColors[3]))
+            else if (bandsColor == gasGiantFluidController.gasBandColors[3])
             {
                 fact2 = FactTypes.Iodine;
             }
-            else if (bandsColor.Compare(gasGiant.bandColors[4]))
+            else if (bandsColor == gasGiantFluidController.gasBandColors[4])
             {
                 fact2 = FactTypes.Lithium;
             }
-            else if (bandsColor.Compare(gasGiant.bandColors[5]))
+            else if (bandsColor == gasGiantFluidController.gasBandColors[5])
             {
                 fact2 = FactTypes.Calcium;
             }
-            else if (bandsColor.Compare(gasGiant.bandColors[6]))
+            else if (bandsColor == gasGiantFluidController.gasBandColors[6])
             {
                 fact2 = FactTypes.Magnesium;
             }
-            else if (bandsColor.Compare(gasGiant.bandColors[7]))
+            else if (bandsColor == gasGiantFluidController.gasBandColors[7])
             {
-                fact2 = FactTypes.NitrogenDioxide;
+                fact2 = FactTypes.Nitrogen;
             }
 
             #endregion
+            
+            //TODO change fact 2 to be about storms
+            //fact2 = fact1; //TEMP
 
             fact3 = FactTypes.Rings;
         }
@@ -419,12 +420,12 @@ public class ScienceScreenBehavior : MonoBehaviour
         Iodine,
         Lithium,
         Magnesium,
-        NitrogenDioxide,
+        Nitrogen,
         Potassium,
         Rubidium,
         Sodium,
         Strontium,
-        Ozone,
+        Oxygen,
         Rings
     }
 }

@@ -19,6 +19,5 @@ public class DefaultBiome : MonoBehaviour
 
         mat.SetTexture("_texture", biomeTexs[randNum]);
         gameObject.tag = biomeTags[randNum];
-        FindObjectOfType<AnalyticsEvents>().SetStartingBiome(biomeTags[randNum]);
     }
 }

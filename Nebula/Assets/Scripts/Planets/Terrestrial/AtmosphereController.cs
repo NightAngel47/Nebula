@@ -46,6 +46,11 @@ public class AtmosphereController : MonoBehaviour
             PlayAudio();
             ControlDensity();
         }
+
+        if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
+        {
+            source.Stop();
+        }
         
         #region debug atmosphere density
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
@@ -101,11 +106,6 @@ public class AtmosphereController : MonoBehaviour
             source.pitch -= atmosphereIncrementValue;
 
             //Debug.Log("Alpha Change" + newAlpha);
-        }
-        
-        if(Input.GetTouch(0).phase == TouchPhase.Ended)
-        {
-            source.Stop();
         }
     }
 

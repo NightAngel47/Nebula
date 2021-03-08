@@ -1,12 +1,15 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TerrainErase : MonoBehaviour
 {
+    public bool doneErasing = true;
+    
     void Start()
     {
-        Invoke(nameof(DestroyThis), 0.5f);
+        StartCoroutine(DestroyEraser());
     }
 
     private void OnTriggerEnter(Collider other)
@@ -17,8 +20,10 @@ public class TerrainErase : MonoBehaviour
         }
     }
 
-    void DestroyThis()
+    private IEnumerator DestroyEraser()
     {
+        doneErasing = false;
+        yield return new WaitForSeconds(0.01f);
         Destroy(gameObject);
     }
 }

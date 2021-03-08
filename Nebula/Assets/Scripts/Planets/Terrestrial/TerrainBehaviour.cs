@@ -29,8 +29,8 @@ public class TerrainBehaviour : MonoBehaviour
 
     #region Terrain Variables
     
-    [SerializeField, Tooltip("Is terrain up or plant")]
-    private bool isUp;
+    [Tooltip("Is terrain up or plant")]
+    public bool isUp;
     /// <summary>
     /// The master decal tag for the terrain
     /// </summary>

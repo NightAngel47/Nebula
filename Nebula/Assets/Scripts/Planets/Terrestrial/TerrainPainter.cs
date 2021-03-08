@@ -76,7 +76,7 @@ public class TerrainPainter : MonoBehaviour
     /// <summary>
     /// Terrain erase object
     /// </summary>
-    [SerializeField, Tooltip("Terrain erase object")]
+    [SerializeField, Tooltip("Terrain erase for nonUp objects")]
     private GameObject terrainEraser;
     
     [SerializeField, Range(0, 0.2f), Tooltip("The spacing for placing the up terrain")]
@@ -212,13 +212,25 @@ public class TerrainPainter : MonoBehaviour
         // check planet hit
         if (!Physics.Raycast(cursorRay, out var hit, 50, biomeCheckLayers)) return;
         
-        // check for terrain collision
-        if (Physics.SphereCastAll(cursorRay, terrainSpawnSpacing, 50, terrainCheckLayers).Length >= 1) return;
-        
-        // spawn terrain
-        GameObject terrain = Instantiate(selectedTerrain, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal), planet);
-        terrain.transform.Rotate(Vector3.up, Random.Range(0, 90));
-        terrain.GetComponentInChildren<TerrainBehaviour>().SetTerrainValues(masterDecalTag, maskDecalTag, uvPos);
+        // check terrain collisions
+        var terrainHits = Physics.SphereCastAll(cursorRay, terrainSpawnSpacing, 50, terrainCheckLayers);
+        if (terrainHits.Length < 1)
+        {
+            // spawn terrain
+            GameObject terrain = Instantiate(selectedTerrain, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal), planet);
+            terrain.transform.Rotate(Vector3.up, Random.Range(0, 90));
+            terrain.GetComponentInChildren<TerrainBehaviour>().SetTerrainValues(masterDecalTag, maskDecalTag, uvPos);
+        }
+        else
+        {
+            foreach (var terrainHit in terrainHits)
+            {
+                if (terrainHit.collider.gameObject.GetComponent<TerrainBehaviour>().isUp != selectedTerrain.GetComponentInChildren<TerrainBehaviour>().isUp)
+                {
+                    Destroy(terrainHit.collider.transform.parent.gameObject);
+                }
+            }
+        }
     }
 
     /// <summary>
@@ -227,9 +239,10 @@ public class TerrainPainter : MonoBehaviour
     /// <param name="cursorRay">Input position</param>
     private void SpawnTerrainEraser(Ray cursorRay)
     {
-        if (!Physics.Raycast(cursorRay, out var hit, 50, biomeCheckLayers)) return;
-        
-        Instantiate(selectedTerrain, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
+        if (Physics.Raycast(cursorRay, out var hit, 50, biomeCheckLayers))
+        {
+            Instantiate(terrainEraser, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
+        }
     }
     
     /// <summary>

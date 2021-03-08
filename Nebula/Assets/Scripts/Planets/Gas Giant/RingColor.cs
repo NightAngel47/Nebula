@@ -17,12 +17,12 @@ public class RingColor : MonoBehaviour
     public void ChangeRingColor(int colorSelected)
     {
         var main = theRings.main;
-        main.startColor = new ParticleSystem.MinMaxGradient(primaryRingColors[colorSelected], theRings.main.startColor.colorMax);
+        main.startColor = new ParticleSystem.MinMaxGradient(primaryRingColors[colorSelected], main.startColor.colorMax);
     }
 
     public void ChangeSecondaryRingColor(int colorSelected)
     {
         var main = theRings.main;
-        main.startColor = new ParticleSystem.MinMaxGradient(theRings.main.startColor.colorMin, secondaryRingColors[colorSelected]);
+        main.startColor = new ParticleSystem.MinMaxGradient(main.startColor.colorMin, secondaryRingColors[colorSelected]);
     }
 }

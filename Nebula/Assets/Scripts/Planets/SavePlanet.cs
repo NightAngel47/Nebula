@@ -1,11 +1,11 @@
 ﻿using System.Collections;
+using FluidDynamics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SavePlanet : MonoBehaviour
 {
-    [SerializeField, Tooltip("Reference to biome painter for terrestrial texture")] 
-    private BiomePainter biomePainter;
+    private Transform planetRenderTexture;
     
     private void Start()
     {
@@ -15,49 +15,50 @@ public class SavePlanet : MonoBehaviour
     public void UpdatePlanets()
     {
         if ((SceneManager.GetActiveScene().name == "TerrestrialCreator" || 
-            SceneManager.GetActiveScene().name == "GasCreator") &&
+            SceneManager.GetActiveScene().name == "GasCreatorFluids") &&
             SceneManager.GetActiveScene().name != "Complete Screen")
         {
             DontDestroyOnLoad(gameObject);
         }
         else if(SceneManager.GetActiveScene().name == "Main Menu")
         {
-            DestroyBiomePainter();
+            DestroyRenderTexture();
             Destroy(gameObject);
         }
 
         if (SceneManager.GetActiveScene().name == "Complete Screen")
         {
-            DetachBiomePainter();
+            DetachRenderTexture();
             // make planet spin
             gameObject.AddComponent<planetSpin>();
         }
     }
 
     /// <summary>
-    /// Attaches biome painter to planet
+    /// Attaches render texture to planet
     /// </summary>
-    public void AttachBiomePainter()
+    public void AttachRenderTexture()
     {
-        if (biomePainter == null) return;
-        biomePainter.transform.SetParent(transform);
+        planetRenderTexture = SceneManager.GetActiveScene().name == "TerrestrialCreator" ? FindObjectOfType<BiomePainter>().transform : FindObjectOfType<Main_Fluid_Simulation>().transform.parent;
+
+        planetRenderTexture.SetParent(transform);
     }
 
     /// <summary>
-    /// Detaches biome painter from planet
+    /// Detaches render texture from planet
     /// </summary>
-    private void DetachBiomePainter()
+    private void DetachRenderTexture()
     {
-        if (biomePainter == null) return;
-        biomePainter.transform.SetParent(null);
+        if (planetRenderTexture == null) return;
+        planetRenderTexture.transform.SetParent(null);
     }
 
     /// <summary>
-    /// Destroys biome painter
+    /// Destroys render texture
     /// </summary>
-    private void DestroyBiomePainter()
+    private void DestroyRenderTexture()
     {
-        if (biomePainter == null) return;
-        Destroy(biomePainter.gameObject);
+        if (planetRenderTexture == null) return;
+        Destroy(planetRenderTexture.gameObject);
     }
 }
